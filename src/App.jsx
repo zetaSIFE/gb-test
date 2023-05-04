@@ -2,11 +2,11 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PolicyEvaluation from "pages/policyEvaluation/Main.jsx";
 import StatSupport from "pages/statSupport/Main.jsx";
-import Extinction from "pages/statViusual/Extinction.jsx";
-import GbStat from "pages/statViusual/GbStat.jsx";
-import IndustrialStat from "pages/statViusual/IndustrialStat.jsx";
-import PopulationStat from "pages/statViusual/PopulationStat.jsx";
-import Transfer from "pages/statViusual/Transfer.jsx";
+import Extinction from "pages/statViusual/extinction/Main.jsx";
+import GbStat from "pages/statViusual/gbStat/Main.jsx";
+import IndustrialStat from "pages/statViusual/industrialStat/Main.jsx";
+import PopulationStat from "pages/statViusual/populationStat/Main.jsx";
+import Transfer from "pages/statViusual/transfer/Main.jsx";
 import TrafficAnalysis from "pages/trafficAnalysis/Main.jsx";
 
 function App() {
