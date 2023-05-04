@@ -14,14 +14,14 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/policy-evaluation" element={<PolicyEvaluation />} />
-          <Route path="/stat-support" element={<StatSupport />} />
-          <Route path="/extinction" element={<Extinction />} />
-          <Route path="/gb-stat" element={<GbStat />} />
-          <Route path="/industrial-stat" element={<IndustrialStat />} />
-          <Route path="/population-stat" element={<PopulationStat />} />
-          <Route path="/transfer" element={<Transfer />} />
-          <Route path="/traffic-analysis" element={<TrafficAnalysis />} />
+          <Route path="/policyEvaluation.do" element={<PolicyEvaluation />} />
+          <Route path="/statSupport.do" element={<StatSupport />} />
+          <Route path="/extinction.do" element={<Extinction />} />
+          <Route path="/gbStat.do" element={<GbStat />} />
+          <Route path="/industrialStat.do" element={<IndustrialStat />} />
+          <Route path="/populationStat.do" element={<PopulationStat />} />
+          <Route path="/transfer.do" element={<Transfer />} />
+          <Route path="/trafficAnalysis.do" element={<TrafficAnalysis />} />
         </Routes>
       </BrowserRouter>
     </>
