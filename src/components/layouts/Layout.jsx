@@ -6,12 +6,12 @@ import { Aside, Header, Content } from ".";
  */
 
 const StyledLayoutDiv = styled.div`
-  width: 100vw;
-  height: 100vh;
+  // width:100vw;
+  height:100vh;
   grid-column-start: 2;
   display: grid;
-  grid-template-columns: 100px minmax(100px, 1fr);
-  grid-template-rows: 80px 1fr;
+  grid-template-columns: 80px minmax(100px, 1fr);
+  grid-template-rows: 50px 1fr;
 `;
 
 export const Layout = () => {

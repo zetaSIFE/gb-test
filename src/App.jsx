@@ -8,10 +8,11 @@ import IndustrialStat from "pages/statViusual/industrialStat/Main.jsx";
 import PopulationStat from "pages/statViusual/populationStat/Main.jsx";
 import Transfer from "pages/statViusual/transfer/Main.jsx";
 import TrafficAnalysis from "pages/trafficAnalysis/Main.jsx";
-
+import { GlobalStyle, GlobalFonts, GlobalOverrideStyle } from "./styles";
 function App() {
   return (
     <>
+      <GlobalStyle/>
       <BrowserRouter>
         <Routes>
           <Route path="/policyEvaluation.do" element={<PolicyEvaluation />} />
@@ -22,6 +23,7 @@ function App() {
           <Route path="/populationStat.do" element={<PopulationStat />} />
           <Route path="/transfer.do" element={<Transfer />} />
           <Route path="/trafficAnalysis.do" element={<TrafficAnalysis />} />
+          <Route path="/" element={<TrafficAnalysis />} />
         </Routes>
       </BrowserRouter>
     </>
