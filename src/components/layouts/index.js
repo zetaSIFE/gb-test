@@ -7,7 +7,7 @@
  * @history
  * - 2023-04024, 최초 작성
  */
-export * from "./Layout";
 export * from "./Aside";
 export * from "./Header";
 export * from "./Content";
+export * from "./StatVisualLayout";
