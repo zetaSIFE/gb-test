@@ -2,6 +2,8 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Aside, Header } from ".";
+import industInvest from "assets/images/industInvest.svg";
+
 /**
  * styled-components 및 styled interface 정의 영역
  */
