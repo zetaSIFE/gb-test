@@ -34,6 +34,8 @@ const MultiBar = () => {
   }
   return <ReactECharts
     option={option}
+    style={{ height: "100%" }}
+
   />;
 };
 

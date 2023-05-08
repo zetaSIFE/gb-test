@@ -64,7 +64,7 @@ const Stacked = () => {
 
   return <ReactECharts
     option={option}
-    style={{ height: 400, borderBottom: "3px solid #000" }}
+    style={{ height: "100%", borderBottom: "3px solid #000" }}
   />;
 };
 
