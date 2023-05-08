@@ -54,7 +54,7 @@ function App() {
           <Route path="/support" element={<SupportLayout />}>
             <Route path="/support/statSupport.do" element={<StatSupport />} />
             {/* 산업투자효과 분석서비스 */}
-            <Route path="/support/IndustInvest" element={<IndustInvest />} />
+            <Route path="/support/industInvest" element={<IndustInvest />} />
             {/* 유동인구 데이터 분석서비스 */}
             <Route
               path="/support/trafficAnalysis.do"

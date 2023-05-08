@@ -7,25 +7,35 @@ import styled from "styled-components";
  */
 
 const Container = styled.div`
-  min-width: 5.5rem;
-  width: 5.5rem;
-  padding: 8px;
+  /* min-width: 100px; */
+  width: 110px;
+  padding: 10px;
 `;
 
 const StyledAside = styled.div`
-  background-color: #e4dfff;
-  min-height: 100vh;
+  background-color: #e6f1ff;
+  opacity: 0.9;
+  min-height: 100%;
   grid-row: span 2;
-  border: 3px solid #aaa;
+  border: 1px solid #7eb3ff;
+  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
+  border-radius: 10px;
 `;
 
 const Menu = styled.ul`
   display: flex;
   flex-direction: column;
+  padding: 5px;
 
   .menuLi {
-    height: 70px;
-    border-bottom: 1px solid #999;
+    width: 78px;
+    height: 90px;
+    /* border: 1px solid #999; */
+    padding: 8px;
+    gap: 4px;
+    /* border: 1px solid #7eb3ff; */
+    /* box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25); */
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,9 +43,10 @@ const Menu = styled.ul`
   }
 
   .focused {
-    background-color: #3339c7;
+    background: linear-gradient(135deg, #5658df 0%, #2f6dd0 100%);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     color: #fff;
-    border-bottom: unset;
+    /* border-bottom: unset; */
   }
 `;
 
