@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 /**
@@ -36,24 +37,30 @@ const Menu = styled.ul`
   }
 `;
 
-export const Aside = ({ menuArr }) => {
+export const Aside = ({ menuData }) => {
   const [currentMenu, setCurrentMenu] = useState(0);
+  const navigate = useNavigate();
 
   const selectMenuHandler = (index) => {
     setCurrentMenu(index);
+    console.log(menuData[index].url);
+    // const url = menuData[index].url;
+    const selectedUrl = menuData[index].url;
+    navigate(selectedUrl);
   };
 
   return (
     <Container>
       <StyledAside className="aside">
         <Menu>
-          {menuArr.map((name, index) => (
+          {menuData.map((obj, index) => (
             <li
               key={index}
               className={index === currentMenu ? "menuLi focused" : "menuLi"}
               onClick={() => selectMenuHandler(index)}
+              // onClick={() => Navigate({obj.url})}
             >
-              {name}
+              {obj.name}
             </li>
           ))}
         </Menu>

@@ -67,6 +67,7 @@ const mapOption = {
       id: "population",
       type: "map",
       // roam: true,   ---> zooming or translating
+      // roam: true,
       // zoom: 2,
       map: "USA",
       animationDurationUpdate: 1000,
@@ -80,17 +81,33 @@ const mapOption = {
   ],
 };
 
-export default function GbMap() {
+// export default function GbMap() {
+//   return (
+//     <>
+//       <ReactEcharts
+//         option={mapOption}
+//         style={{
+//           // width: "80vw",
+//           height: "100%",
+//           // borderBottom: "3px solid #000",
+//         }}
+//       />
+//     </>
+//   );
+// }
+
+const GbMap = () => {
   return (
     <>
       <ReactEcharts
         option={mapOption}
         style={{
           // width: "80vw",
-          // height: "80vh",
-          borderBottom: "3px solid #000",
+          height: "100%",
+          // borderBottom: "3px solid #000",
         }}
       />
     </>
   );
-}
+};
+export { GbMap };

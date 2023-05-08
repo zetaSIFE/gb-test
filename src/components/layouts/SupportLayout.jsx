@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { Aside, Header } from ".";
+import { Aside } from ".";
 /**
  * styled-components 및 styled interface 정의 영역
  */
@@ -18,13 +18,15 @@ const Content = styled.div`
   height: 92vh;
 `;
 
-export default function StatVisualLayout() {
+export default function SupportLayout() {
   const menuData = [
-    { name: "인구지표", url: "/statVisual/populationStat.do" },
-    { name: "전입전출", url: "/statVisual/transfer.do" },
-    { name: "산업관련", url: "/statVisual/industrialStat.do" },
-    { name: "경북특화 통계19종", url: "/statVisual/gbStat.do" },
-    { name: "K-지방 소멸지수", url: "/statVisual/extinction.do" },
+    { name: "통계업무지원 특화서비스", url: "/support/statSupport.do" },
+    { name: "산업투자효과 분석서비스", url: "/support/IndustInvest" },
+    {
+      name: "유동인구 데이터 분석서비스",
+      url: "/support/trafficAnalysis.do",
+    },
+    { name: "정책평가 지원서비스", url: "/support/policyEvaluation.do" },
   ];
 
   return (
@@ -32,7 +34,6 @@ export default function StatVisualLayout() {
       <Container>
         <Aside menuData={menuData} />
         <SubContainer>
-          <Header />
           <Content>
             <Outlet />
           </Content>

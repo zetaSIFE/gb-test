@@ -11,3 +11,4 @@ export * from "./Aside";
 export * from "./Header";
 export * from "./Content";
 export * from "./StatVisualLayout";
+export * from "./StatVisualLayout";
