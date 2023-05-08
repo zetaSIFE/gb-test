@@ -9,12 +9,14 @@ import styled from "styled-components";
 const Container = styled.div`
   min-width: 5.5rem;
   width: 5.5rem;
+  padding: 8px;
 `;
 
 const StyledAside = styled.div`
   background-color: #e4dfff;
   min-height: 100vh;
   grid-row: span 2;
+  border: 3px solid #aaa;
 `;
 
 const Menu = styled.ul`

@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { GbMap, Pie, Bar } from "components/charts";
+import { GbMap, Pie, BarX } from "components/charts";
 
 const Container = styled.div`
   height: 100%;
   /* background-color: skyblue; */
   display: grid;
   grid-gap: 5px;
+  border-color: black;
+  border: 15px;
 
   grid-template-rows: 2fr 1.3fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -18,7 +20,7 @@ const Container = styled.div`
   .item {
     padding: 5px;
     background-color: bisque;
-    border: 1px;
+    border: 3px;
     border-color: black;
   }
 `;
@@ -45,7 +47,7 @@ export default function GbStat() {
         {/* <div className="item">1</div> */}
         <div className="item">
           <SecondContainer>
-            <Bar />
+            <BarX />
             <Pie />
             <div className="item2">3</div>
             <div className="item2">4</div>
