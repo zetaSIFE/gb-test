@@ -1,4 +1,4 @@
-import { GbMap, Bar, Stacked, MultiBar } from "components/charts";
+import { GbMap, BarX, Stacked, MultiBar } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
@@ -31,11 +31,11 @@ const SecondContainer = styled.div`
   padding: 5px;
   grid-gap: 10px;
 
-.item2 {
-  background-color : #a5a7f2
-  padding: 10px;
-  border:  solid 1px;
-}
+  .item2 {
+    background-color: #a5a7f2;
+    padding: 10px;
+    border: solid 1px;
+  }
 `;
 
 export default function Transfer() {
@@ -45,10 +45,9 @@ export default function Transfer() {
         <GbMap />
         <div className="item">
           <SecondContainer>
-          <Bar />
-          <MultiBar />
-          <Bar />
-          <Bar />
+            <MultiBar />
+            <BarX />
+            <BarX />
           </SecondContainer>
         </div>
         <Stacked />
