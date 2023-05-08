@@ -1,7 +1,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
 import * as echarts from "echarts";
-import gb from "data/gbmap_topo.json";
+import gb from "assets/maps/gbmap_topo.json";
 import { feature } from "topojson-client";
 
 const geoData = feature(gb, gb.objects.gbmap);
