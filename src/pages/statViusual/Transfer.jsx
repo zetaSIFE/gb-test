@@ -1,4 +1,4 @@
-import { GbMap, BarX, Stacked, MultiBar } from "components/charts";
+import { GbMap, BarX, Stacked, BarY } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
@@ -45,14 +45,15 @@ export default function Transfer() {
         <GbMap />
         <div className="item">
           <SecondContainer>
-            <MultiBar />
+            <BarX />
+            <BarY />
             <BarX />
             <BarX />
           </SecondContainer>
         </div>
         <Stacked />
-        <MultiBar />
-        <MultiBar />
+        <BarY />
+        <BarY />
       </Container>
     </>
   );
