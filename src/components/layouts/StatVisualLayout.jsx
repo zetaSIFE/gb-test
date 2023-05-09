@@ -9,12 +9,6 @@ import { ReactComponent as IndustStat } from "assets/images/aside/1-3industStat.
 import { ReactComponent as GbStat } from "assets/images/aside/1-4gbStat.svg";
 import { ReactComponent as Extinction } from "assets/images/aside/1-5extinction.svg";
 
-import { ReactComponent as IndustInvest } from "assets/images/aside/2-3industInvest.svg";
-
-/**
- * styled-components 및 styled interface 정의 영역
- */
-
 const Container = styled.div`
   display: flex;
 `;

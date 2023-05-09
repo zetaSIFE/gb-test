@@ -14,9 +14,9 @@ import Transfer from "pages/statViusual/Transfer.jsx";
 
 // 통계 업무 지원 특화 서비스
 import StatSupport from "pages/statSupport/StatSupport.jsx";
-import PolicyEvaluation from "pages/policyEvaluation/PolicyEvaluation.jsx";
-import TrafficAnalysis from "pages/trafficAnalysis/TrafficAnalysis.jsx";
 import IndustInvest from "pages/industInvest/IndustInvest";
+import PolicyEval from "pages/policyEval/PolicyEval.jsx";
+import TrafficAnaly from "pages/trafficAnaly/TrafficAnaly.jsx";
 
 // Layouts
 import StatVisualLayout from "components/layouts/StatVisualLayout.jsx";
@@ -56,15 +56,9 @@ function App() {
             {/* 산업투자효과 분석서비스 */}
             <Route path="/support/industInvest" element={<IndustInvest />} />
             {/* 유동인구 데이터 분석서비스 */}
-            <Route
-              path="/support/trafficAnalysis.do"
-              element={<TrafficAnalysis />}
-            />
+            <Route path="/support/trafficAnaly.do" element={<TrafficAnaly />} />
             {/* 정책평가 지원서비스 */}
-            <Route
-              path="/support/policyEvaluation.do"
-              element={<PolicyEvaluation />}
-            />
+            <Route path="/support/policyEval.do" element={<PolicyEval />} />
           </Route>
         </Routes>
       </BrowserRouter>

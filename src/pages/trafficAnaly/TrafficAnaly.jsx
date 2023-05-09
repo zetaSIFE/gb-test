@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function TrafficAnalysis() {
+export default function TrafficAnaly() {
   return <div>TrafficAnalysis</div>;
 }

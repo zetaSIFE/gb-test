@@ -1,10 +1,12 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { Outlet } from "react-router-dom";
 import { Aside } from ".";
-/**
- * styled-components 및 styled interface 정의 영역
- */
+// SVG
+import { ReactComponent as StatSupport } from "assets/images/aside/2-1statSupport.svg";
+import { ReactComponent as IndustInvest } from "assets/images/aside/2-2industInvest.svg";
+import { ReactComponent as TrafficAnaly } from "assets/images/aside/2-3trafficAnaly.svg";
+import { ReactComponent as PolicyEval } from "assets/images/aside/2-4policyEval.svg";
 
 const Container = styled.div`
   display: flex;
@@ -15,18 +17,31 @@ const SubContainer = styled.div`
 `;
 
 const Content = styled.div`
-  height: 92vh;
+  height: 94vh;
 `;
 
 export default function SupportLayout() {
   const menuData = [
-    { name: "통계업무지원 특화서비스", url: "/support/statSupport.do" },
-    { name: "산업투자효과 분석서비스", url: "/support/IndustInvest" },
+    {
+      name: "통계업무지원 특화서비스",
+      url: "/support/statSupport.do",
+      svg: <StatSupport className="svg" />,
+    },
+    {
+      name: "산업투자효과 분석서비스",
+      url: "/support/IndustInvest",
+      svg: <IndustInvest className="svg" />,
+    },
     {
       name: "유동인구 데이터 분석서비스",
-      url: "/support/trafficAnalysis.do",
+      url: "/support/trafficAnaly.do",
+      svg: <TrafficAnaly className="svg" />,
     },
-    { name: "정책평가 지원서비스", url: "/support/policyEvaluation.do" },
+    {
+      name: "정책평가 지원서비스",
+      url: "/support/policyEval.do",
+      svg: <PolicyEval className="svg" />,
+    },
   ];
 
   return (
