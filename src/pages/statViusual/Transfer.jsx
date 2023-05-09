@@ -7,28 +7,29 @@ const Container = styled.div`
   padding: 20px;
   /* background-color: skyblue; */
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 15px;
 
   grid-template-rows: 2fr 1.3fr;
   grid-template-columns: repeat(5, 1fr);
   .item1:nth-child(1) {
     grid-column: span 2;
   }
-  .item1:nth-child(2) {
+  .item1-1:nth-child(2) {
     grid-column: span 3;
   }
   .item1:nth-child(3) {
     grid-column: span 3;
   }
-  .item1:nth-child(4) {
+  .item1-1:nth-child(4) {
     grid-column: span 2;
   }
 
   .item1 {
     padding: 5px;
     /* background-color: bisque; */
-    border: 2px solid #aaa;
+    border: 1px solid #aaa;
     border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #aaa;
   }
 `;
 
@@ -50,9 +51,10 @@ const SecondContainer = styled.div`
     /* background-color: #a5a7f2; */
     padding: 10px;
     margin: 0%;
-    grid-gap: 10px;
-    border: solid 2px #aaa;
+    /* grid-gap: 10px; */
+    border: 1px solid #aaa;
     border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #aaa;
   }
 `;
 
@@ -62,15 +64,24 @@ const ThirdContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   padding: 5px;
   grid-gap: 10px;
+
+  .item3 {
+    /* background-color: #a5a7f2; */
+    padding: 10px;
+    /* grid-gap: 10px; */
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #aaa;
+  }
 `;
 
 export default function Transfer() {
   return (
     <Container className="container">
       <SmallContainer className="item1">
-        <GbMap className="item2" />
+        <GbMap />
       </SmallContainer>
-      <SecondContainer className="item1">
+      <SecondContainer className="item1-1">
         <SmallContainer className="item2">
           <BarX />
         </SmallContainer>
@@ -87,11 +98,11 @@ export default function Transfer() {
       <SmallContainer className="item1">
         <Stacked />
       </SmallContainer>
-      <ThirdContainer className="item1">
-        <SmallContainer className="item2">
+      <ThirdContainer className="item1-1">
+        <SmallContainer className="item3">
           <BarY />
         </SmallContainer>
-        <SmallContainer className="item2">
+        <SmallContainer className="item3">
           <BarY />
         </SmallContainer>
       </ThirdContainer>
