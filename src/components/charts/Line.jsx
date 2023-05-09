@@ -27,7 +27,7 @@ const Line = () => {
 
       <ECharts
         option={options}
-        opts={{ renderer: 'svg', width: 'auto', height: '400px' }}
+        // opts={{ renderer: 'svg', width: 'auto', height: '400px' }}
       />
     </>
   );

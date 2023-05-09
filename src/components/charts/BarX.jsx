@@ -50,7 +50,7 @@ const BarX = () => {
     <ReactECharts
       option={option}
       style={{ height: "100%" }}
-      opts={{ renderer: "svg" }}
+      // opts={{ renderer: "svg" }}
     />
   );
 };
