@@ -5,6 +5,12 @@ const MultiBar = () => {
   const option = {
     legend: {},
     tooltip: {},
+    toolbox: {
+      feature: {
+        dataView: { readOnly: false },
+        saveAsImage: {},
+      },
+    },
     dataset: {
       source: [
         ['product', '2012', '2013', '2014', '2015'],

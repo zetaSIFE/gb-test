@@ -7,6 +7,12 @@ const BarX = () => {
       text: "지역별 인구수",
     },
     tooltip: {},
+    toolbox: {
+      feature: {
+        dataView: { readOnly: false },
+        saveAsImage: {},
+      },
+    },
     grid: {
       left: "3%",
       right: "4%",

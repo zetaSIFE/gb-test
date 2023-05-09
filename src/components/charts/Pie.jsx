@@ -28,6 +28,12 @@ const Pie = () => {
           trigger: "item",
           formatter: "{a} <br/>{b} : {c} ({d}%)",
         },
+        // toolbox: {
+        //   feature: {
+        //     dataView: { readOnly: false },
+        //     saveAsImage: {},
+        //   },
+        // },
         legend: {
           orient: "vertical",
           left: "right",

@@ -7,6 +7,12 @@ const BarY = () => {
       text: "지역별 출생아수",
     },
     tooltip: {},
+    toolbox: {
+      feature: {
+        dataView: { readOnly: false },
+        saveAsImage: {},
+      },
+    },
     grid: {
       left: "3%",
       right: "4%",

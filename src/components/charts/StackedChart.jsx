@@ -14,6 +14,7 @@ const Stacked = () => {
     },
     toolbox: {
       feature: {
+        dataView: { readOnly: false },
         saveAsImage: {},
       },
     },
