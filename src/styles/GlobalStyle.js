@@ -18,14 +18,14 @@ export const GlobalStyle = createGlobalStyle`
     ${normalize};
     * {
         box-sizing: border-box;
-        /* font-family: "Noto Sans CJK KR"; */
-        /* font-weight: 400; */
+        font-family: "Noto Sans CJK KR";
+        font-weight: 400;
         letter-spacing: -0.5px;
     }
-    @font-face {
+    /* @font-face {
         font-family: 'NotoSansKRMedium';
         src: url(${NotoSansKRMedium});
-    }
+    } */
     body {
         padding:0;
         margin:0;

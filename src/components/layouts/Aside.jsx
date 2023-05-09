@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-// import { ReactComponent as IndustInvest } from "assets/images/industInvest.svg";
 
 /**
  * styled-components 및 styled interface 정의 영역
@@ -11,6 +10,7 @@ const Container = styled.div`
   /* min-width: 100px; */
   width: 110px;
   padding: 10px;
+  white-space: pre-wrap; // 메뉴 줄바꿈 개행문자 인식 기능
 `;
 
 const StyledAside = styled.div`
@@ -22,9 +22,6 @@ const StyledAside = styled.div`
   box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
   border-radius: 10px;
 `;
-
-const color1 = "#11233F";
-const color2 = "#0068B7";
 
 const Menu = styled.ul`
   display: flex;
@@ -44,6 +41,13 @@ const Menu = styled.ul`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    // font
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+
     cursor: pointer;
     .svg {
       .color1 {
@@ -96,7 +100,6 @@ export const Aside = ({ menuData }) => {
               className={index === currentMenu ? "menuLi focused" : "menuLi"}
               onClick={() => selectMenuHandler(index)}
             >
-              {/* <IndustInvest width="50" height="50" viewBox="0 0 30 30" /> */}
               {obj.svg}
               {obj.name}
             </li>

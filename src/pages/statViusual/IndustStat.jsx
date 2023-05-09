@@ -13,19 +13,18 @@ const Container = styled.div`
   .item1:nth-child(1) {
     grid-column: span 2;
   }
-  .item1-1:nth-child(2) {
+  .group1:nth-child(2) {
     grid-column: span 3;
   }
   .item1:nth-child(3) {
     grid-column: span 3;
   }
-  .item1-1:nth-child(4) {
+  .item1:nth-child(4) {
     grid-column: span 2;
   }
 
   .item1,
-  .item2,
-  .item3 {
+  .item2 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -33,23 +32,14 @@ const Container = styled.div`
   }
 `;
 
-const SmallContainer = styled.div`
+const ItemContainer = styled.div`
   /* height: 100%; */
 `;
 
-const SecondContainer = styled.div`
+const Group1 = styled.div`
   height: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  padding: 0px;
-  grid-gap: 20px;
-`;
-
-const ThirdContainer = styled.div`
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   padding: 0px;
   grid-gap: 20px;
 `;
@@ -57,34 +47,26 @@ const ThirdContainer = styled.div`
 export default function IndustStat() {
   return (
     <Container className="container">
-      <SmallContainer className="item1">
+      <ItemContainer className="item1">
         <GbMap />
-      </SmallContainer>
-      <SecondContainer className="item1-1">
-        <SmallContainer className="item2">
+      </ItemContainer>
+
+      <Group1 className="group1">
+        <ItemContainer className="item2">
           <BarX />
-        </SmallContainer>
-        <SmallContainer className="item2">
+        </ItemContainer>
+        <ItemContainer className="item2">
           <BarY />
-        </SmallContainer>
-        <SmallContainer className="item2">
-          <BarX />
-        </SmallContainer>
-        <SmallContainer className="item2">
-          <BarX />
-        </SmallContainer>
-      </SecondContainer>
-      <SmallContainer className="item1">
+        </ItemContainer>
+      </Group1>
+
+      <ItemContainer className="item1">
         <Stacked />
-      </SmallContainer>
-      <ThirdContainer className="item1-1">
-        <SmallContainer className="item3">
-          <BarY />
-        </SmallContainer>
-        <SmallContainer className="item3">
-          <BarY />
-        </SmallContainer>
-      </ThirdContainer>
+      </ItemContainer>
+
+      <ItemContainer className="item1">
+        <Stacked />
+      </ItemContainer>
     </Container>
   );
 }

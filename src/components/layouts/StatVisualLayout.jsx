@@ -24,7 +24,7 @@ const SubContainer = styled.div`
 `;
 
 const Content = styled.div`
-  height: 92vh;
+  height: 94vh;
 `;
 
 export default function StatVisualLayout() {
@@ -45,12 +45,12 @@ export default function StatVisualLayout() {
       svg: <IndustStat />,
     },
     {
-      name: "경북특화 통계19종",
+      name: "경북 특화\n통계",
       url: "/statVisual/gbStat.do",
       svg: <GbStat className="svg" />,
     },
     {
-      name: "K-지방 소멸지수",
+      name: "K-지방\n소멸지수",
       url: "/statVisual/extinction.do",
       svg: <Extinction className="svg" />,
     },

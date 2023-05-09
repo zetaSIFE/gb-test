@@ -6,21 +6,36 @@ import styled from "styled-components";
  */
 
 const Container = styled.div`
-  // position: relative;
-  // left: 5rem;
-  // position: sticky;
-  // top: 0;
+  /* background-color: skyblue; */
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
 `;
 
 const StyledHeader = styled.div`
-  background-color: ivory;
+  /* background-color: ivory;
   padding: 8px 16px 8px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   justify-content: space-between;
-  height: 8vh;
+  height: 8vh; */
   // width: 100vw;
+  // -----
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 20px;
+  gap: 12px;
+  input {
+    height: 40px;
+    width: 400px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background: #ffffff;
+  }
 `;
 
 export const Header = (props) => {
