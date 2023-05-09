@@ -2,7 +2,14 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Aside, Header } from ".";
-import industInvest from "assets/images/industInvest.svg";
+// SVG
+import { ReactComponent as PopularStat } from "assets/images/aside/1-1popularStat.svg";
+import { ReactComponent as Transfer } from "assets/images/aside/1-2transfer.svg";
+import { ReactComponent as IndustStat } from "assets/images/aside/1-3industStat.svg";
+import { ReactComponent as GbStat } from "assets/images/aside/1-4gbStat.svg";
+import { ReactComponent as Extinction } from "assets/images/aside/1-5extinction.svg";
+
+import { ReactComponent as IndustInvest } from "assets/images/aside/industInvest.svg";
 
 /**
  * styled-components 및 styled interface 정의 영역
@@ -22,11 +29,31 @@ const Content = styled.div`
 
 export default function StatVisualLayout() {
   const menuData = [
-    { name: "인구지표", url: "/statVisual/populationStat.do" },
-    { name: "전입전출", url: "/statVisual/transfer.do" },
-    { name: "산업관련", url: "/statVisual/industrialStat.do" },
-    { name: "경북특화 통계19종", url: "/statVisual/gbStat.do" },
-    { name: "K-지방 소멸지수", url: "/statVisual/extinction.do" },
+    {
+      name: "인구지표",
+      url: "/statVisual/populationStat.do",
+      svg: <PopularStat className="svg" />,
+    },
+    {
+      name: "전입전출",
+      url: "/statVisual/transfer.do",
+      svg: <Transfer className="svg" />,
+    },
+    {
+      name: "산업관련",
+      url: "/statVisual/industrialStat.do",
+      svg: <IndustStat />,
+    },
+    {
+      name: "경북특화 통계19종",
+      url: "/statVisual/gbStat.do",
+      svg: <GbStat className="svg" />,
+    },
+    {
+      name: "K-지방 소멸지수",
+      url: "/statVisual/extinction.do",
+      svg: <Extinction className="svg" />,
+    },
   ];
 
   return (
