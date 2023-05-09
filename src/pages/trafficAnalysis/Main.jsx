@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Aside, Header, Content } from "../../components/layouts";
+import { TabMenu } from "./component/TabMenu";
+import { TabCont } from "./component/TabCont";
 /**
  * styled-components 및 styled interface 정의 영역
  */
@@ -19,8 +21,12 @@ const Main = () => {
   return (
     <StyledLayoutDiv>
       <Aside></Aside>
-      <Header setClickTab={setClickTab} test="1"></Header>
-      <Content currentTab={currentTab}/>
+      <Header>
+        <TabMenu setClickTab={setClickTab} />
+      </Header>
+      <StyledLayoutDiv>
+        <TabCont currentTab={currentTab} />
+      </StyledLayoutDiv>
     </StyledLayoutDiv>
   );
 };

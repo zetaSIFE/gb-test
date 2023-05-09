@@ -1,7 +1,7 @@
 import React from "react";
 import ReactECharts from 'echarts-for-react';
 
-const Scatter = () => {
+const Scatter = (prop) => {
 
   const options = {
     xAxis: {},
@@ -42,9 +42,10 @@ const Scatter = () => {
     <>
       <ReactECharts
         option={options}
+        style={{ width: prop.width, height: prop.height}}
       />
     </>
   );
 };
 
-export default Scatter;
+export {Scatter};

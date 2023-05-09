@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
 
-const Bar = () => {
+export const Bar = (prop) => {
   const option = {
     title: {
       text: '제목'
@@ -23,9 +23,7 @@ const Bar = () => {
 
   return <ReactECharts
     option={option}
-    style={{ height: 400, borderBottom:"3px solid #000" }}
+    style={{ width: prop.width, height: prop.height}}
     opts={{ renderer: 'svg' }}
   />;
 };
-
-export default Bar;

@@ -103,4 +103,4 @@ const Tree = () => {
   );
 };
 
-export default Tree;
+export {Tree};

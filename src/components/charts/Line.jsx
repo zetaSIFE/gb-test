@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ECharts, { EChartsReactProps } from 'echarts-for-react';
 
-const Line = () => {
+export const Line = (prop) => {
 	fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       // .then(json => console.log(json))
@@ -27,9 +27,8 @@ const Line = () => {
 
       <ECharts
         option={options}
-        opts={{ renderer: 'svg', width: 'auto', height: '400px' }}
+        opts={{ renderer: 'svg', width: prop.width, height: prop.height }}
       />
     </>
   );
-}
-export default Line;
+};

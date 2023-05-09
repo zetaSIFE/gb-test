@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactECharts from 'echarts-for-react';
 
-const Pie = () => {
+const Pie = (prop) => {
   const option = {
     title : {
       text: '제목',
@@ -44,35 +44,32 @@ const Pie = () => {
   const [count, setCount] = useState(0);
 
   function onChartReady(echarts) {
-    console.log('echarts is ready', echarts);
+    // console.log('echarts is ready', echarts);
   }
 
   function onChartClick(param, echarts) {
-    console.log(param, echarts);
+    // console.log(param, echarts);
     setCount(count + 1);
   };
 
   function onChartLegendselectchanged(param, echarts) {
-    console.log(param, echarts);
+    // console.log(param, echarts);
   };
 
   return (
     <>
       <ReactECharts
         option={option}
-        style={{ height: 400}}
+        style={{ width: prop.width, height: prop.height }}
         onChartReady={onChartReady}
         onEvents={{
           'click': onChartClick,
           'legendselectchanged': onChartLegendselectchanged
          }}
-      />
-      <div>Click Count: {count}</div>
-      <div
-        style={{borderBottom:"3px solid #000" }}
-      >Open console, see the log detail.</div>
+         />
+         {/* <div>Click Count: {count}</div> */}
     </>
   );
 };
 
-export default Pie;
+export {Pie};

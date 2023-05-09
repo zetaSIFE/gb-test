@@ -73,4 +73,4 @@ const BarNegative = () => {
   />;
 };
 
-export default BarNegative;
+export {BarNegative};
