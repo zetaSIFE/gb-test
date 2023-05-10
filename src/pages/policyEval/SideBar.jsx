@@ -8,7 +8,6 @@ const Container = styled.div`
   width: 405px;
   height: 100% - 10px;
   margin: 10px 10px 10px -20px;
-  /* padding-left: 20px; */
   background: #ffffff;
   border: 1px solid #7eb3ff;
   box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
@@ -57,8 +56,13 @@ const ArrowContainer = styled.div`
 const SearchContainer = styled.div`
   height: 150px;
   width: 100%;
-  padding-left: 20px;
+  padding-left: 30px;
   background-color: skyblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
   .searchText {
     width: 100%;
     text-align: left;
@@ -72,30 +76,47 @@ const SearchBar = styled.input`
   /* background-color: purple; */
   width: 360px;
   height: 40px;
-  margin: 20px;
+  /* margin: 20px; */
+  margin: 15px 0 15px 0;
   margin-right: 35px;
-  padding: 0px 12px;
-  gap: 12px;
+  /* padding: 0px 12px; */
+  /* gap: 12px; */
   border: 1px solid #cccccc;
 `;
 const DataList = styled.div``;
 
+const Close = styled.div``;
+
 export default function SideBar() {
+  const [onOff, setOnOff] = useState(true);
+
+  const handleOnOff = () => {
+    setOnOff((onOff) => !onOff);
+  };
   return (
     <Container>
-      <Open className="flexCenter">
-        <Title>
-          <div>정책평가지원 서비스</div>
-          <ArrowContainer className="flexCenter">
-            <LeftArrow />
-          </ArrowContainer>
-        </Title>
-        <SearchContainer className=" flexCenter">
-          <div className="searchText">지표 데이터명 검색</div>
-          <SearchBar />
-        </SearchContainer>
-        <DataList></DataList>
-      </Open>
+      {onOff ? (
+        <Open className="flexCenter">
+          <Title>
+            <div>정책평가지원 서비스</div>
+            <ArrowContainer className="flexCenter">
+              <LeftArrow />
+            </ArrowContainer>
+          </Title>
+          <SearchContainer>
+            <div className="searchText">지표 데이터명 검색</div>
+            {/* <label for="dataSearch"></label> */}
+            <SearchBar
+              type="text"
+              placeholder="지표 데이터명 검색"
+              name="dataSearch"
+            />
+          </SearchContainer>
+          <DataList></DataList>
+        </Open>
+      ) : (
+        <Close></Close>
+      )}
     </Container>
   );
 }
