@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   /* min-width: 100px; */
+  height: 100vh;
   width: 110px;
   padding: 10px;
   white-space: pre-wrap; // 메뉴 줄바꿈 개행문자 인식 기능
@@ -30,10 +31,10 @@ const Menu = styled.ul`
 
   .menuLi {
     width: 78px;
-    height: 90px;
+    height: 100px;
     /* border: 1px solid #999; */
-    padding: 8px;
-    gap: 4px;
+    /* padding: 0px; */
+    /* gap: 3px; */
     /* border: 1px solid #7eb3ff; */
     /* box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25); */
     border-radius: 10px;
@@ -43,15 +44,15 @@ const Menu = styled.ul`
     justify-content: center;
 
     // font
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
     text-align: center;
 
     cursor: pointer;
     .svg {
       .color1 {
-        fill: #11233f;
+        /* fill: #11233f; */
       }
       /* .color2 {
         fill: #0068b7;
@@ -100,8 +101,8 @@ export const Aside = ({ menuData }) => {
               className={index === currentMenu ? "menuLi focused" : "menuLi"}
               onClick={() => selectMenuHandler(index)}
             >
-              {obj.svg}
-              {obj.name}
+              <div>{obj.svg}</div>
+              <div className="text">{obj.name}</div>
             </li>
           ))}
         </Menu>

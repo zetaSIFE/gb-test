@@ -1,6 +1,6 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { Outlet } from "react-router-dom";
 import { Aside, Header } from ".";
 // SVG
 import { ReactComponent as PopularStat } from "assets/images/aside/1-1popularStat.svg";
@@ -39,7 +39,7 @@ export default function StatVisualLayout() {
       svg: <IndustStat />,
     },
     {
-      name: "경북 특화\n통계",
+      name: "경북특화\n통계",
       url: "/statVisual/gbStat.do",
       svg: <GbStat className="svg" />,
     },

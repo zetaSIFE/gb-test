@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Aside } from ".";
+import { Aside, Header } from ".";
 // SVG
 import { ReactComponent as StatSupport } from "assets/images/aside/2-1statSupport.svg";
 import { ReactComponent as IndustInvest } from "assets/images/aside/2-2industInvest.svg";
@@ -23,22 +23,22 @@ const Content = styled.div`
 export default function SupportLayout() {
   const menuData = [
     {
-      name: "통계업무지원 특화서비스",
+      name: "통계업무지원\n특화서비스",
       url: "/support/statSupport.do",
       svg: <StatSupport className="svg" />,
     },
     {
-      name: "산업투자효과 분석서비스",
+      name: "산업투자효과\n분석서비스",
       url: "/support/IndustInvest",
       svg: <IndustInvest className="svg" />,
     },
     {
-      name: "유동인구 데이터 분석서비스",
+      name: "유동인구\n데이터\n분석서비스",
       url: "/support/trafficAnaly.do",
       svg: <TrafficAnaly className="svg" />,
     },
     {
-      name: "정책평가 지원서비스",
+      name: "정책평가\n지원서비스",
       url: "/support/policyEval.do",
       svg: <PolicyEval className="svg" />,
     },
@@ -49,6 +49,7 @@ export default function SupportLayout() {
       <Container>
         <Aside menuData={menuData} />
         <SubContainer>
+          {/* <Header /> */}
           <Content>
             <Outlet />
           </Content>
