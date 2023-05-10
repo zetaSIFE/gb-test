@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const StyledAside = styled.div`
   background-color: #e6f1ff;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   min-height: 100%;
   grid-row: span 2;
   border: 1px solid #7eb3ff;
