@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Aside } from ".";
+import { Aside, Theader } from ".";
 // SVG
 import { ReactComponent as StatSupport } from "assets/images/aside/2-1statSupport.svg";
 import { ReactComponent as IndustInvest } from "assets/images/aside/2-2industInvest.svg";
@@ -17,6 +17,7 @@ const Content = styled.div`
 `;
 
 export default function SupportLayout() {
+  const [currentTab, setClickTab] = useState(0);
   const menuData = [
     {
       name: "통계업무지원\n특화서비스",
@@ -45,7 +46,8 @@ export default function SupportLayout() {
       <Container>
         <Aside menuData={menuData} />
         <Content>
-          <Outlet />
+          <Theader setClickTab={setClickTab}/>
+          <Outlet context={{currentTab}} />
         </Content>
       </Container>
     </>
