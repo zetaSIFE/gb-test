@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Aside, Header } from ".";
+import { Aside } from ".";
 // SVG
 import { ReactComponent as StatSupport } from "assets/images/aside/2-1statSupport.svg";
 import { ReactComponent as IndustInvest } from "assets/images/aside/2-2industInvest.svg";
@@ -12,12 +12,8 @@ const Container = styled.div`
   display: flex;
 `;
 
-const SubContainer = styled.div`
-  width: 100%;
-`;
-
 const Content = styled.div`
-  height: 94vh;
+  width: 100%;
 `;
 
 export default function SupportLayout() {
@@ -48,12 +44,9 @@ export default function SupportLayout() {
     <>
       <Container>
         <Aside menuData={menuData} />
-        <SubContainer>
-          {/* <Header /> */}
-          <Content>
-            <Outlet />
-          </Content>
-        </SubContainer>
+        <Content>
+          <Outlet />
+        </Content>
       </Container>
     </>
   );
