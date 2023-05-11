@@ -6,3 +6,6 @@ export * from "./Line";
 export * from "./StackedChart";
 export * from "./MultiBar";
 export * from "./Ol_Echart_flow";
+export * from "./Doughnut";
+export * from "./BarNegative";
+export * from "./HalfPie";
