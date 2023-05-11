@@ -5,8 +5,11 @@ import { Card } from "./component/Card.jsx";
 import { Pattern } from "./component/Pattern.jsx";
 import { Theader } from "./Theader.jsx";
 
-const Container = styled.div`
+const Wrap = styled.div`
   height: 100%;
+`;
+const Container = styled.div`
+  height:calc(100vh - 80px);
   padding: 20px;
   display: grid;
   grid-gap: 20px;
@@ -54,11 +57,11 @@ export default function TrafficAnaly() {
   }, [currentTab])
 
   return (
-    <>
-    <Theader setClickTab={setClickTab} />
-    <Container className="container">
-      {tabCont}      
-    </Container>
-    </>
+    <Wrap>
+      <Theader setClickTab={setClickTab} />
+      <Container className="container">
+        {tabCont}      
+      </Container>
+    </Wrap>
   );
 };
