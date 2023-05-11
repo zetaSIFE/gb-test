@@ -8,37 +8,31 @@ import { SearchAreaInput } from "components/input/SearchAreaInput";
  */
 
 const Container = styled.div`
-  /* background-color: skyblue; */
   height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* align-items: center; */
 `;
 
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 20px;
+  padding: 0px 10px;
   gap: 12px;
-  justify-content: space-between; //yh
+  justify-content: space-between;
 
-  input {
-    /* width: 400px; */
-    height: 40px;
-    border-radius: 2px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
-    margin-right: 10px;
-  }
-  select {
-    width: 200px;
-    height: 40px;
-    border-radius: 2px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
-  }
 `;
+
+const HeaderBox = styled.div`
+  display: flex;
+`;
+
+const HeaderBtn = styled.div`
+  display: flex;
+`;
+
 const TabMenu = styled.ul`
   color: #777;
   font-weight: bold;
@@ -51,8 +45,8 @@ const TabMenu = styled.ul`
   .submenu {
     cursor: pointer;
     display: flex;
-    width: 170px;
-    height: 60px;
+    width: 150px;
+    height: 50px;
     padding: 10px;
     font-size: 15px;
     font-weight: 400;
@@ -90,19 +84,23 @@ export const Theader = (props) => {
   return (
     <Container>
       <StyledHeader>
-        <SearchAreaInput />
-        <button
-          style={{
-            width: "118px",
-            height: "40px",
-            background: "#E5E5E5",
-            border: "none",
-            borderRadius: "24px",
-          }}
-        >
-          분할지도 보기
-        </button>
-        <BtnReport />
+        <HeaderBox>
+          <SearchAreaInput />
+          <HeaderBtn>
+            <button
+              style={{
+                width: "118px",
+                height: "40px",
+                background: "#E5E5E5",
+                border: "none",
+                borderRadius: "24px",
+              }}
+            >
+              분할지도 보기
+            </button>
+            <BtnReport />
+          </HeaderBtn>
+        </HeaderBox>
         <TabMenu>
           {menuArr.map((el, index) => (
             <li

@@ -1,6 +1,26 @@
 import data1 from "assets/maps/경북 시군구.json";
 import data2 from "assets/maps/경북 읍면동.json";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const HeaderBox = styled.div`
+  * {
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+  input {
+    padding:0 5px;
+    width:30%;
+    min-width: 300px;
+    margin-right: 15px;
+  }
+  select{
+    min-width:200px;
+    margin-right: 10px;
+  }
+`;
 
 export const SearchAreaInput = () => {
   const [city, setCity] = useState("");
@@ -22,7 +42,7 @@ export const SearchAreaInput = () => {
   }, [city]);
 
   return (
-    <div>
+    <HeaderBox>
       <input type="search" placeholder="대상지 검색" />
       <select onChange={handleSelect}>
         {data1.features.map((el, index) => (
@@ -38,6 +58,6 @@ export const SearchAreaInput = () => {
           </option>
         ))}
       </select>
-    </div>
+    </HeaderBox>
   );
 };
