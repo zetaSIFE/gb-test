@@ -46,7 +46,7 @@ export default function SupportLayout() {
       <Container>
         <Aside menuData={menuData} />
         <Content>
-          <Theader setClickTab={setClickTab}/>
+          {/* <Theader setClickTab={setClickTab}/> */}
           <Outlet context={{currentTab}} />
         </Content>
       </Container>

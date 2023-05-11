@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as LeftArrow } from "assets/images/buttons/leftArrow.svg";
 import { ReactComponent as RightArrow } from "assets/images/buttons/rightArrow.svg";
@@ -62,7 +62,7 @@ const SearchContainer = styled.div`
   padding-left: 20px;
   background-color: #f5f5f5;
   margin: 10px;
-  
+
   /* .searchText {
     width: 100%;
     text-align: left;
@@ -86,17 +86,41 @@ const SearchBar = styled.input`
 const DataList = styled.div``;
 
 export default function SideBar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const sideRef = useRef(null);
+
+  function foldSide() {
+    if(sideRef || !sideRef.current) {
+
+      return ;
+    }
+
+    const style = sideRef.current.style;
+
+    if(isOpen) {
+      style.maxwidth = '0';
+    } else if(!isOpen) {
+      style.maxwidth = `${sideRef.current.scrollWidth}px`;
+    }
+    setIsOpen(!isOpen);
+  }
+
+  // const toggleMenu = () => {
+  //   setIsOpen( isOpen => !isOpen);
+  // }
   return (
     <Container>
       <Open className="flexCenter">
         <Title>
           <div>산업투자효과 분석 서비스</div>
-          <ArrowContainer className="flexCenter">
-            <LeftArrow />
+          <ArrowContainer
+            className={`${isOpen ? "close" : "open"}`}
+            onClick={foldSide()}
+          >
+            <RightArrow />
           </ArrowContainer>
         </Title>
         <SearchContainer className=" flexCenter">
-          
           <SearchBar />
         </SearchContainer>
         <DataList></DataList>
