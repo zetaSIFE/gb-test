@@ -64,7 +64,7 @@ const Pie = (prop) => {
     <>
       <ReactECharts
         option={option}
-        // style={{ width: prop.width, height: prop.height }}
+        style={{ height: "100%"}}
         onChartReady={onChartReady}
         onEvents={{
           'click': onChartClick,

@@ -68,7 +68,7 @@ const BarNegative = () => {
 
   return <ReactECharts
     option={option}
-    // style={{ height: 400}}
+   style={{ height: "100%"}}
     opts={{ renderer: 'svg' }}
   />;
 };
