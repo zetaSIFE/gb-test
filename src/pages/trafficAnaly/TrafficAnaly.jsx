@@ -1,12 +1,15 @@
 import React, { useEffect, useState} from "react";
-import { useOutletContext } from 'react-router-dom';
 import styled from "styled-components";
 import { InOutFlow } from "./component/InOutFlow.jsx";
 import { Card } from "./component/Card.jsx";
 import { Pattern } from "./component/Pattern.jsx";
+import { Theader } from "./Theader.jsx";
 
-const Container = styled.div`
+const Wrap = styled.div`
   height: 100%;
+`;
+const Container = styled.div`
+  height:calc(100vh - 80px);
   padding: 20px;
   display: grid;
   grid-gap: 20px;
@@ -37,10 +40,10 @@ const Container = styled.div`
 
 
 export default function TrafficAnaly() {
-  const currentTab = useOutletContext();
-  const [tabCont, SetTabCont] = useState();
+  const [currentTab, setClickTab] = useState(0);
+  const [tabCont, SetTabCont] = useState(<InOutFlow/>);
   useEffect(() =>{
-    switch(currentTab.currentTab){
+    switch(currentTab){
       case 0 : 
         SetTabCont(<InOutFlow/>)
         break;
@@ -54,8 +57,11 @@ export default function TrafficAnaly() {
   }, [currentTab])
 
   return (
-    <Container className="container" >
-      {tabCont}      
-    </Container>
+    <Wrap>
+      <Theader setClickTab={setClickTab} />
+      <Container className="container">
+        {tabCont}      
+      </Container>
+    </Wrap>
   );
 };

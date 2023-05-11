@@ -1,5 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+import { graphic } from 'echarts'
 
 const BarX = () => {
   const option = {
@@ -37,11 +38,19 @@ const BarX = () => {
       ],
     },
     yAxis: {},
+
     series: [
       {
         name: "지역별인구수",
         type: "bar",
         data: [5, 20, 36, 10, 10, 20, 15, 8, 30],
+        itemStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#83bff6' },
+            { offset: 0.5, color: '#188df0' },
+            { offset: 1, color: '#188df0' }
+          ])
+        },
       },
     ],
   };
