@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Container = styled.div`
   height: 100%;
   padding: 10px;
+  padding-top: 0;
   display: grid;
   grid-gap: 10px;
 
