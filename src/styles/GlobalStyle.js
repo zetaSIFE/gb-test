@@ -21,6 +21,8 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Noto Sans CJK KR";
         font-weight: 400;
         letter-spacing: -0.5px;
+        font-size: 12px;
+
     }
     /* @font-face {
         font-family: 'NotoSansKRMedium';
@@ -39,4 +41,5 @@ export const GlobalStyle = createGlobalStyle`
     a {
         text-decoration: none;
     }
+
 `;

@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import React, { useEffect, useState} from "react";
 import styled from "styled-components";
 import { InOutFlow } from "./component/InOutFlow.jsx";
 import { Card } from "./component/Card.jsx";
 import { Pattern } from "./component/Pattern.jsx";
+import { Theader } from "./Theader.jsx";
 
-const Container = styled.div`
+const Wrap = styled.div`
   height: 100%;
+`;
+const Container = styled.div`
+  height:calc(100vh - 80px);
   padding: 20px;
   display: grid;
   grid-gap: 10px;
@@ -55,13 +58,28 @@ const ItemContainer = styled.div`
 `
 
 export default function TrafficAnaly() {
+  const [currentTab, setClickTab] = useState(0);
+  const [tabCont, SetTabCont] = useState(<InOutFlow/>);
+  useEffect(() =>{
+    switch(currentTab){
+      case 0 : 
+        SetTabCont(<InOutFlow/>)
+        break;
+      case 1 : 
+        SetTabCont(<Pattern/>);
+        break;
+      case 2 : 
+        SetTabCont(<Card/>);
+        break;
+    }
+  }, [currentTab])
+
   return (
-    <Container className="container">
-      <ItemContainer className="item1">item1</ItemContainer>
-      <ItemContainer className="item1">item1</ItemContainer>
-      <ItemContainer className="item2">item2</ItemContainer>
-      <ItemContainer className="item2">item2</ItemContainer>
-      <ItemContainer className="item3">item3</ItemContainer>
-    </Container>
+    <Wrap>
+      <Theader setClickTab={setClickTab} />
+      <Container className="container">
+        {tabCont}      
+      </Container>
+    </Wrap>
   );
 }
