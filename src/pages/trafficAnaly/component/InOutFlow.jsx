@@ -1,7 +1,6 @@
 import React from "react";
-import { GbMap, BarX, Stacked, BarY } from "components/charts";
+import { Ol_Echart_flow2, BarX, Stacked, BarY } from "components/charts";
 import styled from "styled-components";
-
 
 const ItemContainer = styled.div`
   /* height: 100%; */
@@ -27,7 +26,7 @@ export const InOutFlow = () => {
   return (
     <>
       <ItemContainer className="item1">
-        <GbMap />
+        <Ol_Echart_flow2 width="100%" height="100%" />
       </ItemContainer>
 
       <Group1 className="group1">
@@ -56,7 +55,7 @@ export const InOutFlow = () => {
         <ItemContainer className="item2">
           <BarY />
         </ItemContainer>
-      </Group2> 
+      </Group2>
     </>
   );
 };
