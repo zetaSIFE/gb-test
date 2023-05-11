@@ -7,20 +7,27 @@ import styled from "styled-components";
  */
 
 const Container = styled.div`
-  /* min-width: 100px; */
   height: 100vh;
-  width: 110px;
-  padding: 10px;
+  width: 90px;
+  margin: 0px 0px 0px 10px;
+  padding: 10px 0 10px 0;
   white-space: pre-wrap; // 메뉴 줄바꿈 개행문자 인식 기능
+
+  z-index: 1;
 `;
 
 const StyledAside = styled.div`
-  background-color: #e6f1ff;
-  /* opacity: 0.9; */
+  background: #e6f1ff;
   min-height: 100%;
   grid-row: span 2;
-  border: 1px solid #7eb3ff;
-  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
+  /* border: 1px solid #c4ddff; */
+  border-top: 1px solid #c4ddff;
+  border-left: 1px solid #c4ddff;
+
+  /* border-width: 1px 0px 0px 1px solid #c4ddff; */
+
+  box-shadow: -4px -4px 14px #ffffff,
+    inset 0px 4px 4px rgba(255, 255, 255, 0.25);
   border-radius: 10px;
 `;
 
@@ -31,20 +38,16 @@ const Menu = styled.ul`
 
   .menuLi {
     width: 78px;
-    height: 100px;
-    /* border: 1px solid #999; */
-    /* padding: 0px; */
-    /* gap: 3px; */
-    /* border: 1px solid #7eb3ff; */
-    /* box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25); */
+    height: 90px;
     border-radius: 10px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     // font
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.4;
     text-align: center;
@@ -62,8 +65,22 @@ const Menu = styled.ul`
 
   .focused {
     background: linear-gradient(135deg, #5658df 0%, #2f6dd0 100%);
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    /* background: rgb(96, 9, 240); */
+    /* background: linear-gradient(
+      0deg,
+      rgba(96, 9, 240, 1) 0%,
+      rgba(129, 5, 240, 1) 100%
+    ); */
+    border: none;
+    /* border-top: 2px solid #6e70f7;
+    border-left: 2px solid #6e70f7;
+
+    background: linear-gradient(135deg, #5658df 0%, #2f6dd0 100%);
+    border-color: #6e70f7;
+    box-shadow: 3px 3px 10px #ffffff, inset 0px 4px 4px rgba(55, 55, 55, 0.25);*/
     color: #fff;
+    box-shadow: 3px 3px 10px rgba(8, 20, 255, 0.2);
+
     .svg {
       /* fill: white; */
       /* stroke: white; */
@@ -76,6 +93,17 @@ const Menu = styled.ul`
       }
     }
     /* border-bottom: unset; */
+  }
+
+  .focused:before {
+    height: 0%;
+    width: 2px;
+  }
+  .focused:hover {
+    box-shadow: 1px 1px 2px 0 rgba(255, 255, 255, 0.5),
+      -1px -1px 3px 0 rgba(116, 125, 136, 0.5),
+      inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
+      inset 2px 2px 4px 0 rgba(0, 0, 0, 0.4);
   }
 `;
 

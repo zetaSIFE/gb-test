@@ -17,7 +17,6 @@ const Content = styled.div`
 `;
 
 export default function SupportLayout() {
-  
   const menuData = [
     {
       name: "통계업무지원\n특화서비스",

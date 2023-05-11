@@ -1,14 +1,14 @@
-import { GbMap, BarX, Stacked, BarY } from "components/charts";
+import { GbMap, BarX, Stacked, BarY, Doughnut, BarNegative, HalfPie } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
   height: 100%;
-  padding: 20px;
+  padding: 10px;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
 
-  grid-template-rows: 2fr 1.3fr;
+  grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
   .item1:nth-child(1) {
     grid-column: span 2;
@@ -42,7 +42,7 @@ const Group1 = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
 
 const Group2 = styled.div`
@@ -50,7 +50,7 @@ const Group2 = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
 
 export default function PopulationStat() {
@@ -68,7 +68,7 @@ export default function PopulationStat() {
           <BarY />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarX />
+          <Doughnut />
         </ItemContainer>
         <ItemContainer className="item2">
           <BarX />
@@ -81,10 +81,10 @@ export default function PopulationStat() {
 
       <Group2 className="group2">
         <ItemContainer className="item2">
-          <BarY />
+          <BarNegative />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarY />
+          <HalfPie />
         </ItemContainer>
       </Group2>
     </Container>

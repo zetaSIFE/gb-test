@@ -5,4 +5,3 @@ export * from "./Pie";
 export * from "./Line";
 export * from "./StackedChart";
 export * from "./MultiBar";
-export * from "./Ol_Echart_flow";

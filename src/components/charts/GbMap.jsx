@@ -31,9 +31,9 @@ echarts.registerMap("USA", geoData, {
 
 const mapOption = {
   title: {
-    text: "Echart로 경북지도 만들어봤다.",
-    subtext: "여기 링크 설정도 가능",
-    sublink: "https://gb.go.kr/Main/open_contents/section/data/index.html",
+    text: "경상북도 안동시 행정구역도 (행정동)",
+    // subtext: "여기 링크 설정도 가능",
+    // sublink: "https://gb.go.kr/Main/open_contents/section/data/index.html",
   },
   tooltip: {
     trigger: "item",
@@ -81,30 +81,13 @@ const mapOption = {
   ],
 };
 
-// export default function GbMap() {
-//   return (
-//     <>
-//       <ReactEcharts
-//         option={mapOption}
-//         style={{
-//           // width: "80vw",
-//           height: "100%",
-//           // borderBottom: "3px solid #000",
-//         }}
-//       />
-//     </>
-//   );
-// }
-
 const GbMap = () => {
   return (
     <>
       <ReactEcharts
         option={mapOption}
         style={{
-          // width: "80vw",
           height: "100%",
-          // borderBottom: "3px solid #000",
         }}
       />
     </>
