@@ -13,11 +13,11 @@ const HeaderBox = styled.div`
   input {
     padding:0 5px;
     width:30%;
-    min-width: 300px;
+    /* min-width: 300px; */
     margin-right: 15px;
   }
   select{
-    min-width:200px;
+    /* min-width:200px; */
     margin-right: 10px;
   }
 `;
