@@ -19,11 +19,13 @@ const Container = styled.div`
     grid-column: span 8;
   }
   .item2:nth-child(1) {
-    padding: 0px;
+    grid-column: span 4;
   }
-  .item2:nth-child(5) {
-    grid-column: auto;
-    padding-right: 1px;
+  .item2:nth-child(2) {
+    grid-column: span 2;
+  }
+  .item2:nth-child(3) {
+    grid-column: span 2;
   }
 
   .item1,
@@ -39,7 +41,8 @@ const Container = styled.div`
 const Group1 = styled.div`
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   padding: 0px;
   grid-gap: 10px;
 `;
@@ -51,7 +54,7 @@ export const Pattern = () => {
     <Container className="container">
       <ItemContainer className="item1">chart1</ItemContainer>
       <Group1 className="group1">
-        <ItemContainer className="item1">chart2</ItemContainer>
+        <ItemContainer className="item2">chart2</ItemContainer>
         <ItemContainer className="item2">chart3</ItemContainer>
         <ItemContainer className="item2">chart4</ItemContainer>
       </Group1>
