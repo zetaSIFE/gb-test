@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BtnReport } from "components/buttons";
 import { SearchAreaInput } from "components/input/SearchAreaInput";
@@ -31,6 +31,14 @@ const HeaderBox = styled.div`
 
 const HeaderBtn = styled.div`
   display: flex;
+`;
+
+const DiviBtn = styled.button`
+  width: "118px";
+  height: "40px";
+  background: "#E5E5E5";
+  border: "none";
+  border-radius: "24px";
 `;
 
 const TabMenu = styled.ul`
@@ -71,6 +79,9 @@ const TabMenu = styled.ul`
 `;
 export const Theader = (props) => {
   const [currentTab, clickTab] = useState(0);
+  const [division, setDivision] = useState(true);
+  const [diviBtn, setDiviBtn] = useState('분할지도 보기');
+
   const menuArr = [
     { name: "유입유출 인구분석", val: "Tab menu ONE" },
     { name: "인구이동 패턴", val: "Tab menu TWO" },
@@ -81,23 +92,24 @@ export const Theader = (props) => {
     props.setClickTab(index);
     clickTab(index);
   };
+  
+  const toggleDivision = () => {
+    props.setDivision(division => !division)
+    setDivision(division => !division)
+    division ? setDiviBtn('단일지도 보기') :setDiviBtn('분할지도 보기');
+  }
+
   return (
     <Container>
       <StyledHeader>
         <HeaderBox>
           <SearchAreaInput />
           <HeaderBtn>
-            <button
-              style={{
-                width: "118px",
-                height: "40px",
-                background: "#E5E5E5",
-                border: "none",
-                borderRadius: "24px",
-              }}
-            >
-              분할지도 보기
-            </button>
+            {currentTab === 0 ?
+              <DiviBtn onClick={toggleDivision}>
+                {diviBtn}
+              </DiviBtn>
+            : null }
             <BtnReport />
           </HeaderBtn>
         </HeaderBox>

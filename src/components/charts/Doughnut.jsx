@@ -35,11 +35,15 @@ const Doughnut = () => {
           { value: 1048, name: '포항시',
             itemStyle: {
               // color: "rgba(63, 119, 15, 1)"
-              color: new graphic.LinearGradient(0, 0, 0, 1, [
-                { offset: 0, color: '#83bff6' },
-                { offset: 0.5, color: '#188df0' },
-                { offset: 1, color: '#188df0' }
+              color: new graphic.RadialGradient(0.4, 0.3, 1, [
+                { offset: 0, color: 'rgb(129, 227, 238)' },
+                { offset: 1, color: 'rgb(25, 183, 207)' }
               ])
+              // color: new graphic.LinearGradient(0, 0, 0, 1, [
+              //   { offset: 0, color: '#83bff6' },
+              //   { offset: 0.5, color: '#188df0' },
+              //   { offset: 1, color: '#188df0' }
+              // ])
             }
           },
           { value: 735, name: '경주시' },
