@@ -13,8 +13,8 @@ const sampleDatas = [
   "데이터1",
   "데이터1",
   "데이터1",
-  // "데이터1",
-  // "데이터1",
+  "데이터1",
+  "데이터1",
   // "데이터1",
   // "데이터1",
   // "데이터1",
@@ -108,7 +108,8 @@ const SubTitle2 = styled.div`
 `;
 
 const Result = styled.div`
-  height: 500px;
+  /* height: 500px; */
+  max-height: calc(100vh - 300px);
   overflow-y: auto;
   /* overflow-x: hidden; */
   /* overflow-wrap: break-word; */
