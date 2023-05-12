@@ -1,5 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+import { graphic } from "echarts";
 
 const Stacked = () => {
   const option = {
@@ -41,6 +42,9 @@ const Stacked = () => {
         name: "data1",
         type: "line",
         stack: "Total",
+        itemStyle: {
+          color: '#FF39A7' ,
+        },
         // areaStyle: {normal: {}},
         data: [120, 132, 101, 134, 90, 230, 210],
       },
@@ -48,6 +52,9 @@ const Stacked = () => {
         name: "data2",
         type: "line",
         stack: "Total",
+        itemStyle: {
+          color: '#656CE1',
+        },
         // areaStyle: {normal: {}},
         data: [220, 182, 191, 234, 290, 330, 310],
       },

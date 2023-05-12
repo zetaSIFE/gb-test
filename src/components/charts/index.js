@@ -9,6 +9,6 @@ export * from "./Ol_Echart_flow";
 export * from "./Doughnut";
 export * from "./BarNegative";
 export * from "./HalfPie";
-export * from "./Table";
+// export * from "./Table";
 
 //https://echarts.apache.org/en/option.html#title
