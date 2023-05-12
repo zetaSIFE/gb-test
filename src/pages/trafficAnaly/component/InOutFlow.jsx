@@ -1,5 +1,5 @@
 import React from "react";
-import { Ol_Echart_flow2, BarX, Stacked, BarY } from "components/charts";
+import { Ol_Echart_flow2, BarX, Stacked, BarY, Table } from "components/charts";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -42,7 +42,7 @@ const Group1 = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
 
 const Group2 = styled.div`
