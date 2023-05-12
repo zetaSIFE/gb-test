@@ -1,10 +1,11 @@
-import React from "react";
-import { Ol_Echart_flow2, BarX, Stacked, BarY, Table } from "components/charts";
+import React, {useEffect} from "react";
+import { FlowChart, BarX, Stacked, BarY, Table } from "components/charts";
 import styled from "styled-components";
+import { Select } from "./Select";
+import { DivisonMap } from "./DivisionMap";
 
 const Container = styled.div`
   height:100%;
-  padding: 10px;
   display: grid;
   grid-gap: 10px;
 
@@ -36,6 +37,11 @@ const ItemContainer = styled.div`
   /* height: 100%; */
 `;
 
+const SelecBox = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const Group1 = styled.div`
   height: 100%;
   display: grid;
@@ -50,42 +56,57 @@ const Group2 = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
-export const InOutFlow = () => {
+export const InOutFlow = (prop) => {
   return (
-    <Container className="container">
-      <ItemContainer className="item1">
-        <Ol_Echart_flow2 width="100%" height="100%" />
-      </ItemContainer>
+    <>
+      {prop.division ?
+        <DivisonMap/>
+        :
+        <Container className="container">
+          <ItemContainer className="item1 flex-column">
+            <SelecBox>
+              <Select/>
+              <Select/>
+              <Select/>
+              <Select/>
+              <Select/>
+              <button>조회</button>
+            </SelecBox>
+            <FlowChart width="100%" height="100%" />
+          </ItemContainer>
 
-      <Group1 className="group1">
-        <ItemContainer className="item2">
-          <BarX />
-        </ItemContainer>
-        <ItemContainer className="item2">
-          <BarY />
-        </ItemContainer>
-        <ItemContainer className="item2">
-          <BarX />
-        </ItemContainer>
-        <ItemContainer className="item2">
-          <BarX />
-        </ItemContainer>
-      </Group1>
+          <Group1 className="group1">
+            <ItemContainer className="item2">
+              <BarX />
+            </ItemContainer>
+            <ItemContainer className="item2">
+              <BarY />
+            </ItemContainer>
+            <ItemContainer className="item2">
+              <p className="chartTit">최다 유입지 순위</p>
+              <Table />
+            </ItemContainer>
+            <ItemContainer className="item2">
+              <BarX />
+            </ItemContainer>
+          </Group1>
 
-      <ItemContainer className="item1">
-        <Stacked />
-      </ItemContainer>
+          <ItemContainer className="item1">
+            <Stacked />
+          </ItemContainer>
 
-      <Group2 className="group2">
-        <ItemContainer className="item2">
-          <BarY />
-        </ItemContainer>
-        <ItemContainer className="item2">
-          <BarY />
-        </ItemContainer>
-      </Group2>
-    </Container>
+          <Group2 className="group2">
+            <ItemContainer className="item2">
+              <BarY />
+            </ItemContainer>
+            <ItemContainer className="item2">
+              <BarY />
+            </ItemContainer>
+          </Group2>
+        </Container>
+      }
+    </>
   );
 };
