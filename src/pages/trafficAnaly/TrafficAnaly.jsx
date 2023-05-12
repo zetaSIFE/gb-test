@@ -19,11 +19,18 @@ const Container = styled.div`
 
 export default function TrafficAnaly() {
   const [currentTab, setClickTab] = useState(0);
-  const [tabCont, SetTabCont] = useState(<InOutFlow/>);
+  const [division, setDivision] = useState();
+  const [tabCont, SetTabCont] = useState(<InOutFlow division={division}/>);
+    
+  useEffect(() =>{
+    setDivision(division);
+    SetTabCont(<InOutFlow division={division}/>)
+  },[division])
+
   useEffect(() =>{
     switch(currentTab){
       case 0 : 
-        SetTabCont(<InOutFlow/>)
+        SetTabCont(<InOutFlow division={division}/>)
         break;
       case 1 : 
         SetTabCont(<Pattern/>);
@@ -36,7 +43,7 @@ export default function TrafficAnaly() {
 
   return (
     <Wrap>
-      <Theader setClickTab={setClickTab} />
+      <Theader setClickTab={setClickTab} setDivision={setDivision} />
       <Container className="container">
         {tabCont}      
       </Container>

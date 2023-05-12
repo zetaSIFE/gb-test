@@ -26,7 +26,7 @@ import { feature } from "topojson-client";
 // const korgeoData = feature(kor, kor.objects.korea_WSG84);
 const geoData = feature(gb, gb.objects.gbmap);
 
-export const Ol_Echart_flow2 = (prop) => {
+export const FlowChart = (prop) => {
   const [clickCity, setClickCity] = useState("포항시 남구");
   const [moveData, setMoveData] = useState([]);
 

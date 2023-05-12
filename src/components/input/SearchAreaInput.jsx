@@ -13,11 +13,11 @@ const HeaderBox = styled.div`
   input {
     padding:0 5px;
     width:30%;
-    min-width: 300px;
+    /* min-width: 300px; */
     margin-right: 15px;
   }
   select{
-    min-width:200px;
+    /* min-width:200px; */
     margin-right: 10px;
   }
 `;
@@ -46,14 +46,14 @@ export const SearchAreaInput = () => {
       <input type="search" placeholder="대상지 검색" />
       <select onChange={handleSelect}>
         {data1.features.map((el, index) => (
-          <option value={el.properties.SIG_CD}>
+          <option key={index} value={el.properties.SIG_CD}>
             {el.properties.SIG_KOR_NM}
           </option>
         ))}
       </select>
       <select>
         {state.map((el, index) => (
-          <option value={el.properties.EMD_CD}>
+          <option key={index} value={el.properties.EMD_CD}>
             {el.properties.EMD_KOR_NM}
           </option>
         ))}

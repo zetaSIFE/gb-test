@@ -11,6 +11,7 @@ import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 import { reset } from "styled-reset";
 
+
 import NotoSansKRMedium from "assets/fonts/NotoSansKR-Medium.otf";
 
 export const GlobalStyle = createGlobalStyle`

@@ -1,122 +1,101 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as LeftArrow } from "assets/images/buttons/leftArrow.svg";
-import { ReactComponent as RightArrow } from "assets/images/buttons/rightArrow.svg";
 
 // direction(4) : ↑ → ↓ ←
 const Container = styled.div`
-  width: 405px;
-  height: 100% - 10px;
-  margin: 10px 10px 10px -20px;
-  background: #ffffff;
-  border: 1px solid #7eb3ff;
-  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
+  display: flex;
+  margin: 10px 0px 10px -10px;
+  /* border: 1px solid black; */
+  border: 1px solid #c4ddff;
   border-radius: 0px 10px 10px 0px;
-  z-index: -1;
-  .flexCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.15);
+  padding-left: 10px;
 `;
 
-const Open = styled.div`
-  /* display: flex;
+const Content = styled.div`
+  width: 400px;
+  /* background: yellow; */
+  transition: width 0.2s ease-out; // 애니메이션 속성 설정해주기
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; */
+  padding-left: 20px;
 `;
 
 const Title = styled.div`
   height: 70px;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 104, 183, 0.5);
-  /* padding: 10px; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-weight: 700;
+  border-bottom: 1px solid #c4ddff;
+  /* padding-left: 20px; */
   font-size: 20px;
-  line-height: 29px;
+  font-weight: 700;
   color: #0068b7;
-  padding-left: 20px;
 `;
 
-// 클릭시 Open & close 영역
-const ArrowContainer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  width: 50px;
-  height: 70px;
-`;
-
-const SearchContainer = styled.div`
-  height: 150px;
-  width: 100%;
-  padding-left: 30px;
+const SearchArea = styled.div`
   background-color: skyblue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
+  height: 200px;
+`;
 
-  .searchText {
-    width: 100%;
-    text-align: left;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
-    display: flex;
+// ------------------------------
+const ArrowContainer = styled.div`
+  width: 30px;
+  height: 70px;
+  display: flex;
+  border-bottom: 1px solid #c4ddff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Toggle = styled.div`
+  display: flex;
+  background-color: yellowgreen;
+
+  .close {
+    transform: rotate(180deg);
   }
 `;
-const SearchBar = styled.input`
-  /* background-color: purple; */
-  width: 360px;
-  height: 40px;
-  /* margin: 20px; */
-  margin: 15px 0 15px 0;
-  margin-right: 35px;
-  /* padding: 0px 12px; */
-  /* gap: 12px; */
-  border: 1px solid #cccccc;
-`;
-const DataList = styled.div``;
-
-const Close = styled.div``;
 
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
 
+  const contentRef = useRef(null);
+  const arrowContainerRef = useRef(null);
+
   const handleOnOff = () => {
+    if (!contentRef || !contentRef.current) {
+      // useRef 변수가 비었을 때 그냥 리턴하도록 예외처리
+      return;
+    }
+    const contentStyle = contentRef.current.style;
+    const arrowContainerStyle = arrowContainerRef.current.style;
+
+    if (!onOff) {
+      contentStyle.width = "400px";
+      arrowContainerStyle.border = "";
+      setTimeout(() => (contentStyle.visibility = ""), 100);
+    } else if (onOff) {
+      contentStyle.width = "0px";
+      contentStyle.visibility = "hidden";
+      arrowContainerStyle.border = "none";
+    }
     setOnOff((onOff) => !onOff);
   };
+
   return (
     <Container>
-      {onOff ? (
-        <Open className="flexCenter">
-          <Title>
-            <div>정책평가지원 서비스</div>
-            <ArrowContainer className="flexCenter">
-              <LeftArrow />
-            </ArrowContainer>
-          </Title>
-          <SearchContainer>
-            <div className="searchText">지표 데이터명 검색</div>
-            {/* <label for="dataSearch"></label> */}
-            <SearchBar
-              type="text"
-              placeholder="지표 데이터명 검색"
-              name="dataSearch"
-            />
-          </SearchContainer>
-          <DataList></DataList>
-        </Open>
-      ) : (
-        <Close></Close>
-      )}
+      <Content ref={contentRef}>
+        <Title>정책평가지원 서비스</Title>
+        <SearchArea></SearchArea>
+      </Content>
+      <Toggle className={`${onOff ? "open" : "close"}`}>
+        <ArrowContainer onClick={() => handleOnOff()} ref={arrowContainerRef}>
+          <LeftArrow className={`${onOff ? "open" : "close"}`} />
+        </ArrowContainer>
+      </Toggle>
     </Container>
   );
 }
+// style={{ marginTop: "10px" }}

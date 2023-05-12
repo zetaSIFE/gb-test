@@ -45,6 +45,11 @@ const Doughnut = () => {
                 { offset: 0, color: '#4791DE' },
                 { offset: 1, color: '#2B7ACF' }
               ])
+              // color: new graphic.LinearGradient(0, 0, 0, 1, [
+              //   { offset: 0, color: '#83bff6' },
+              //   { offset: 0.5, color: '#188df0' },
+              //   { offset: 1, color: '#188df0' }
+              // ])
             }
           },
           { value: 580, name: '4인가구',
