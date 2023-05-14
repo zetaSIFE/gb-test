@@ -10,7 +10,7 @@ const Wrap = styled.div`
 `;
 const Container = styled.div`
   height:calc(100vh - 80px);
-  padding: 10px;
+  padding: 0px 10px 10px;
   display: grid;
   grid-gap: 10px;
 
