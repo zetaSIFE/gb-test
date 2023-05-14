@@ -5,37 +5,19 @@ const MultiBar = () => {
   const option = {
     legend: {},
     tooltip: {},
-    toolbox: {
-      feature: {
-        dataView: { readOnly: false },
-        saveAsImage: {},
-      },
-    },
     dataset: {
       source: [
-        ['product', '2012', '2013', '2014', '2015'],
-        ['Matcha Latte', 41.1, 30.4, 65.1, 53.3],
-        ['Milk Tea', 86.5, 92.1, 85.7, 83.1],
-        ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4]
+        ['Matcha Latte', 43.3, 85.8, 93.7],
+        ['Milk Tea', 83.1, 73.4, 55.1],
+        ['Cheese Cocoa', 86.4, 65.2, 82.5],
+        ['Walnut Brownie', 72.4, 53.9, 39.1]
       ]
     },
-    xAxis: [
-      { type: 'category', gridIndex: 0 },
-      { type: 'category', gridIndex: 1 }
-    ],
-    yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }],
-    grid: [{ bottom: '55%' }, { top: '55%' }],
-    series: [
-      // These series are in the first grid.
-      { type: 'bar', seriesLayoutBy: 'row' },
-      { type: 'bar', seriesLayoutBy: 'row' },
-      { type: 'bar', seriesLayoutBy: 'row' },
-      // These series are in the second grid.
-      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },
-      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },
-      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 },
-      { type: 'bar', xAxisIndex: 1, yAxisIndex: 1 }
-    ]
+    xAxis: { type: 'category' },
+    yAxis: {},
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }]
     
   }
   return <ReactECharts
