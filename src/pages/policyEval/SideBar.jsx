@@ -35,6 +35,8 @@ const Container = styled.div`
   border: 1px solid #c4ddff;
   border-radius: 0px 10px 10px 0px;
   box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.15);
+
+  box-sizing: border-box;
 `;
 
 const BtnArrow = styled.div`
@@ -136,7 +138,6 @@ export default function SideBar() {
 
     if (!onOff) {
       contentStyle.width = "410px";
-      contentStyle.visibility = "";
       setTimeout(() => (contentStyle.visibility = ""), 100);
     } else if (onOff) {
       contentStyle.width = "0px";

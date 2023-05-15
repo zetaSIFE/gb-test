@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 import { Header } from "components/layouts/Header";
 import { GbMap, BarX } from "components/charts";
 // https://www.npmjs.com/package/react-resize-detector
-import { useResizeDetector } from "react-resize-detector";
+// import { useResizeDetector } from "react-resize-detector";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const Main = styled.div`
   flex-direction: column;
   background-color: skyblue;
   width: 100%;
-  /* height: calc(100vh - 150px); */
+  /* width: calc(100vw - 150px); */
 `;
 
 const Group = styled.div`
@@ -44,16 +44,16 @@ const ItemContainer = styled.div`
 `;
 
 export default function PolicyEval() {
-  const { width, height, ref } = useResizeDetector();
+  // const { width, height, ref } = useResizeDetector();
 
-  useEffect(() => {
-    console.log(`${width}`);
-  }, [width]);
+  // useEffect(() => {
+  //   console.log(`${width}`);
+  // }, [width]);
 
   return (
     <Container>
       <SideBar />
-      <Main ref={ref}>
+      <Main>
         <Header />
         <Group>
           <ItemContainer>
