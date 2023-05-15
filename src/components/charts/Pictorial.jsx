@@ -19,6 +19,7 @@ const Pictorial = (prop) => {
   const bodyMax =100;
   const symbolSize = [80, 170];
   const labelSetting = {
+
     show: true,
     position: 'top',
     formatter: function (param) {
@@ -27,28 +28,8 @@ const Pictorial = (prop) => {
     fontSize: 20,
     fontFamily: 'Arial',
     lineHeight: 25,
+    fontWeight: "bolder"
   };
-
-  // const markLineSetting = {
-  //   symbol: 'none',
-  //   lineStyle: {
-  //     opacity: 0.6
-  //   },
-  //   data: [
-  //     {
-  //       type: 'max',
-  //       label: {
-  //         formatter: 'max: {c}'
-  //       }
-  //     },
-  //     {
-  //       type: 'min',
-  //       label: {
-  //         formatter: 'min: {c}'
-  //       }
-  //     }
-  //   ]
-  // };
 
   const options = {
     title: {
@@ -73,10 +54,10 @@ const Pictorial = (prop) => {
       splitLine: { show: false }
     },
     grid: {
-      left: "12%",
+      left: "25%",
       top: "25%",
       botton:"10%",
-      width: "80%",
+      width: "55%",
       height: "70%"
     },
     markLine: {
@@ -114,7 +95,7 @@ const Pictorial = (prop) => {
             }
           },
           // {
-          //   value: 101,
+          //   value: 101,`
           //   symbol: symbols[2]
           // },
           // {
@@ -131,7 +112,7 @@ const Pictorial = (prop) => {
         z: 10
       },
       // {
-      //   name: 'typeB',
+      //   name: 'typeB',`
       //   type: 'pictorialBar',
       //   symbolClip: true,
       //   symbolBoundingData: bodyMax,
@@ -200,7 +181,7 @@ const Pictorial = (prop) => {
 
       <ECharts
         option={options}
-        style={{height:"100%"}}
+        style={{height:"100%", width:"78%"}}
       />
     </>
   );

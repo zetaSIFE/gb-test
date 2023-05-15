@@ -185,4 +185,4 @@ const Dynamic = () => {
   return <ReactECharts option={option} style={{ height: "90%" }} />;
 };
 
-export default Dynamic;
+export {Dynamic};
