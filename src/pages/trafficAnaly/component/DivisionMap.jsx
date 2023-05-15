@@ -1,4 +1,4 @@
-import { BarX, GbMap, Line, Pie } from "components/charts";
+import { BarX, GbMap, Table, Pie } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
@@ -38,6 +38,11 @@ const Container = styled.div`
 
 const ItemContainer = styled.div``;
 
+const TableWrap = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export const DivisonMap = () => {
   return (
     <Container className="container">
@@ -48,7 +53,11 @@ export const DivisonMap = () => {
         <GbMap />
       </ItemContainer>
       <ItemContainer className="item2">
-        <Line />
+        <p className="chartTit">연도별 유입지 순위</p>
+        <TableWrap>
+          <Table />
+          <Table />
+        </TableWrap>
       </ItemContainer>
       <ItemContainer className="item2">
         <BarX />

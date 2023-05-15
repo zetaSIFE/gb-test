@@ -9,9 +9,28 @@ button {
 .inlineBlock {
   display: inline-block;
 }
+.right {
+  float: right;
+}
 .chartTit {
   font-size: 18px;
   color: rgb(61, 60, 60);
   font-weight: bold;
   padding: 10px 8px;
+}
+
+input[type="checkbox"] {
+  z-index: 9;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid #999;
+  appearance: none;
+  cursor: pointer;
+  /* transition: background 0.2s; */
+}
+
+input[type="checkbox"]:checked {
+  background: #252525;
+  border: none;
 }

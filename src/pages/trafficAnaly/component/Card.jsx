@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { BarX, Table, Pie } from "components/charts";
 
 const Container = styled.div`
-  /* height: 100%;
-  padding: 10px; */
   display: grid;
   grid-gap: 10px;
   height:calc(100vh - 80px);
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(8, 1fr);
+  
   .item1:nth-child(1) {
     grid-column: span 3;
   }
