@@ -11,6 +11,7 @@ const Container = styled.div`
 
   grid-template-rows: 2fr 1.3fr;
   grid-template-columns: repeat(5, 1fr);
+  overflow-x: auto;
   .item1:nth-child(1) {
     grid-column: span 2;
   }
