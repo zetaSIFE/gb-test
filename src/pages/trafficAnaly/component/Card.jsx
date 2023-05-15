@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { BarX, Table, Pie } from "components/charts";
 
 const Container = styled.div`
-  height: 100%;
-  padding: 10px;
+  /* height: 100%;
+  padding: 10px; */
   display: grid;
   grid-gap: 10px;
-
+  height:calc(100vh - 80px);
+  padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(8, 1fr);
   .item1:nth-child(1) {
@@ -57,12 +59,34 @@ export const Card = () => {
     <Container className="container">
       <ItemContainer className="item1">chart1</ItemContainer>
       <Group1 className="group1">
-        <ItemContainer className="item2">chart2</ItemContainer>
-        <ItemContainer className="item2">chart3</ItemContainer>
-        <ItemContainer className="item2">chart4</ItemContainer>
+        <ItemContainer className="item2">
+          <p className="chartTit">최대 소비 업종 순위</p>
+          <Table/>
+        </ItemContainer>
+        <ItemContainer className="item2">
+          {/* <p className="chartTit">업종별 결제금액</p> */}
+          <BarX />
+        </ItemContainer>
+        <ItemContainer className="item2">
+          {/* <p className="chartTit">행정구역별 카드사용량</p> */}
+          <BarX />
+        </ItemContainer>
       </Group1>
       <ItemContainer className="item1">chart5</ItemContainer>
-      <ItemContainer className="item1">chart6</ItemContainer>
+      <ItemContainer className="item1">
+        <div>
+          <p className="chartTit inlineBlock">업종별 연령별 소비비율</p>
+          <div className="inlineBlock">
+        </div>
+          <select>
+            <option>업종선택</option>
+            <option>업종선택</option>
+            <option>업종선택</option>
+            <option>업종선택</option>
+          </select>
+        </div>
+        <Pie />
+      </ItemContainer>
     </Container>
   );
 };

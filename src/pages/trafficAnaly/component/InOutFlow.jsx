@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { FlowChart, BarX, Stacked, BarY, Table, MultiBar } from "components/charts";
+import { FlowChart, BarX, Stacked, BarY, Table, MultiBar, Pictorial } from "components/charts";
 import styled from "styled-components";
 import { Select } from "./Select";
 import { DivisonMap } from "./DivisionMap";
@@ -12,7 +12,6 @@ const Container = styled.div`
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
-  overflow-x: auto;
   .item1:nth-child(1) {
     grid-column: span 2;
   }
@@ -81,7 +80,7 @@ export const InOutFlow = (prop) => {
 
           <Group1 className="group1">
             <ItemContainer className="item2">
-            <p className="chartTit">시간대별 유입량</p>
+            {/* <p className="chartTit">시간대별 유입량</p> */}
               <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2">
@@ -104,8 +103,12 @@ export const InOutFlow = (prop) => {
             <ItemContainer className="item2">
               <BarY />
             </ItemContainer>
-            <ItemContainer className="item2">
-              <BarY />
+            <ItemContainer className="item2"
+              style={{
+                // width:"500px"
+              }}
+            >
+              <Pictorial />
             </ItemContainer>
           </Group2>
         </Container>
