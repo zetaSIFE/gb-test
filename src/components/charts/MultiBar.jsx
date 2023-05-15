@@ -19,7 +19,7 @@ const MultiBar = () => {
     // to a column of dataset.source by default.
     series: [{ type: "bar" }, { type: "bar" }, { type: "bar" }],
   };
-  return <ReactECharts option={option} style={{ height: "100%" }} />;
+  return <ReactECharts option={option} style={{ height: "90%" }} />;
 };
 
 export { MultiBar };
