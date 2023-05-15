@@ -1,4 +1,5 @@
 import "./App.css";
+import 'styles/common.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle, GlobalFonts, GlobalOverrideStyle } from "./styles";
 

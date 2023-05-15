@@ -22,6 +22,7 @@
     "queue": "^6.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-resize-detector": "^9.1.0",
     "react-router-dom": "^6.11.0",
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.10",

@@ -1,3 +1,4 @@
+import { BtnReport } from "components/buttons";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -6,35 +7,37 @@ import styled from "styled-components";
  */
 
 const Container = styled.div`
-  /* background-color: skyblue; */
-  height: 6vh;
+  height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
 `;
 
 const StyledHeader = styled.div`
-  /* background-color: ivory;
-  padding: 8px 16px 8px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: space-between;
-  height: 8vh; */
-  // width: 100vw;
-  // -----
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 20px;
+  padding: 0px 10px;
   gap: 12px;
-  input {
+  justify-content: space-between;
+
+`;
+const HeaderBox = styled.div`
+  width:50%;
+  * {
     height: 40px;
-    width: 400px;
     border: 1px solid #cccccc;
     border-radius: 10px;
     background: #ffffff;
+  }
+  input {
+    padding:0 5px;
+    width:30%;
+    /* min-width: 300px; */
+    margin-right: 15px;
+  }
+  select{
+    /* min-width:200px; */
   }
 `;
 
@@ -42,15 +45,17 @@ export const Header = (props) => {
   return (
     <Container>
       <StyledHeader>
-        <div>
-          <input type="search"></input>
+        <HeaderBox>
+          <input type="text" placeholder="검색 대상"></input>
           <select>
             <option>선택하세요</option>
             <option>선택하세요</option>
             <option>선택하세요</option>
             <option>선택하세요</option>
           </select>
-        </div>
+        </HeaderBox>
+        <BtnReport/>
+        {/* <button>버튼</button> */}
       </StyledHeader>
     </Container>
   );

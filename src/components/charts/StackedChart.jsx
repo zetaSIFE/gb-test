@@ -1,5 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+import { graphic } from "echarts";
 
 const Stacked = () => {
   const option = {
@@ -28,7 +29,18 @@ const Stacked = () => {
       {
         type: "category",
         boundaryGap: false,
-        data: ["2013년", "2014년", "2015년", "2016년", "2017년", "2018년", "2019년", "2020년", "2021년", "2022년"],
+        data: [
+          "2013년",
+          "2014년",
+          "2015년",
+          "2016년",
+          "2017년",
+          "2018년",
+          "2019년",
+          "2020년",
+          "2021년",
+          "2022년",
+        ],
       },
     ],
     yAxis: [
@@ -41,6 +53,9 @@ const Stacked = () => {
         name: "data1",
         type: "line",
         stack: "Total",
+        itemStyle: {
+          color: "#FF39A7",
+        },
         // areaStyle: {normal: {}},
         data: [120, 132, 101, 134, 90, 230, 210],
       },
@@ -48,6 +63,9 @@ const Stacked = () => {
         name: "data2",
         type: "line",
         stack: "Total",
+        itemStyle: {
+          color: "#656CE1",
+        },
         // areaStyle: {normal: {}},
         data: [220, 182, 191, 234, 290, 330, 310],
       },
@@ -56,7 +74,7 @@ const Stacked = () => {
 
   //TODO: 는 아니고 areaStyle: {normal: {}}로 라인 내부 색상 가능
 
-  return <ReactECharts option={option} style={{ height: "100%" }} />;
+  return <ReactECharts option={option} style={{ height: "90%" }} />;
 };
 
 export { Stacked };

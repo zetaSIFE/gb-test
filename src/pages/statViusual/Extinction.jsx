@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 100%;
-  padding: 20px;
+  padding: 10px;
+  padding-top: 0;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(5, 1fr);
   .group1:nth-child(1) {
@@ -38,7 +39,7 @@ const Group1 = styled.div`
   height: 100%;
   display: grid;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
 
 const Group2 = styled.div`
@@ -46,7 +47,7 @@ const Group2 = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
   padding: 0px;
-  grid-gap: 20px;
+  grid-gap: 10px;
 `;
 
 export default function Extinction() {

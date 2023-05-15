@@ -14,11 +14,13 @@ const Container = styled.div`
 `;
 
 const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
 const Content = styled.div`
-  height: 94vh;
+  height: calc(100vh - 80px);
 `;
 
 export default function StatVisualLayout() {

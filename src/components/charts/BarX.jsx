@@ -1,5 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+import { graphic } from "echarts";
 
 const BarX = () => {
   const option = {
@@ -14,9 +15,10 @@ const BarX = () => {
       },
     },
     grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
+      // top: "18%",
+      left: "0%",
+      right: "0%",
+      bottom: "0%",
       containLabel: true,
     },
     // 범례
@@ -36,12 +38,31 @@ const BarX = () => {
         "울진",
       ],
     },
-    yAxis: {},
+    yAxis: {
+      
+    },
+
     series: [
       {
         name: "지역별인구수",
         type: "bar",
-        data: [5, 20, 36, 10, 10, 20, 15, 8, 30],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        itemStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#8C93FF" },
+            { offset: 0.5, color: "#656CE1" },
+            { offset: 1, color: "#656CE1" },
+          ]),
+        },
+        showBackground: true,
+        backgroundStyle: {
+          color: '#ECEEF5',
+          shadowColor: '#ECEEF5',
+          // shadowBlur: '1'
+          shadowOffsetY: '-20'
+
+        },
+        barWidth: 30
       },
     ],
   };
@@ -49,7 +70,7 @@ const BarX = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "100%" }}
+      style={{ height: "90%" }}
       // opts={{ renderer: "svg" }}
     />
   );

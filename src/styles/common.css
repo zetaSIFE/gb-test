@@ -1,0 +1,17 @@
+button {
+  cursor: pointer;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+.chartTit {
+  font-size: 18px;
+  color: rgb(61, 60, 60);
+  font-weight: bold;
+  padding: 10px 8px;
+}
