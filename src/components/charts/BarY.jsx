@@ -7,11 +7,7 @@ const BarY = () => {
     title: {
       text: "지역별 출생아수",
     },
-    tooltip: {
-      textStyle: {
-        fontSize: '5px'
-      }
-    },
+    tooltip: {},
     toolbox: {
       feature: {
         dataView: { readOnly: false },
@@ -44,19 +40,19 @@ const BarY = () => {
       ],
     },
     visualMap: {
-      orient: 'horizontal',
-      top: '10%',
-      left: 'right',
+      orient: "horizontal",
+      top: "10%",
+      left: "right",
       min: 10,
       max: 100,
-      text: ['출산율 높음', '출산율 낮음'],
+      text: ["출산율 높음", "출산율 낮음"],
 
       dimension: 0,
       inRange: {
-        color: ['#B372D3', '#8777FB', '#FC6AA2', '#FCA76A']
-      }
+        color: ["#B372D3", "#8777FB", "#FC6AA2", "#FCA76A"],
+      },
     },
-    
+
     series: [
       {
         name: "출생데이터",

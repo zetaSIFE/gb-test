@@ -1,4 +1,4 @@
-import { GbMap, BarX, Stacked, BarY } from "components/charts";
+import { GbMap, BarX, Stacked, BarY, HalfPie, Pictorial } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
@@ -57,7 +57,7 @@ export default function IndustStat() {
           <BarX />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarY />
+          <HalfPie />
         </ItemContainer>
       </Group1>
 
@@ -66,7 +66,7 @@ export default function IndustStat() {
       </ItemContainer>
 
       <ItemContainer className="item1">
-        <Stacked />
+        <Pictorial />
       </ItemContainer>
     </Container>
   );
