@@ -52,6 +52,12 @@ const ItemContainer = styled.div``;
 
 export const Pattern = () => {
   const [checkValue, setCheckValue] = useState('유입');
+  const [pictoData, setPictoData ] = useState({
+    title: '성별 유입 인구 비중',
+    men:'52',
+    women:'93'
+  });
+  
 
   const checkOnlyOne = (e) => {
     let checkItem = document.getElementsByName("flow");
@@ -59,7 +65,18 @@ export const Pattern = () => {
       el.checked = false;
     });
     e.target.checked = true;
-    setCheckValue(e.target.defaultValue);
+    const getflowVal = e.target.defaultValue;
+    setCheckValue(getflowVal);
+
+    if(getflowVal === '유입'){
+      setPictoData((prevState) => {
+        return { ...prevState, title: '성별 유입 인구 비중', men: 52, women: 93 };
+      })
+    } else {
+      setPictoData((prevState) => {
+        return { ...prevState, title: '성별 유출 인구 비중', men: 72, women: 43 };
+      })
+    }
   };
   return (
     <Container className="container">
@@ -94,7 +111,8 @@ export const Pattern = () => {
             />
             <label htmlFor="outflow">유출</label>
           </div>
-          <Pictorial />
+          {/* <Pictorial /> */}
+          <Pictorial pictoData={pictoData} />
         </ItemContainer>
       </Group1>
       <ItemContainer className="item1">chart5</ItemContainer>

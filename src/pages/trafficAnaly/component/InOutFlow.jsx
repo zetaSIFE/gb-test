@@ -60,6 +60,11 @@ const Group2 = styled.div`
   grid-gap: 10px;
 `;
 export const InOutFlow = (prop) => {
+  const pictoData = {
+    title: '성별 유입율',
+    men:'40',
+    women:'50'
+  }
   return (
     <>
       {prop.division ?
@@ -108,7 +113,7 @@ export const InOutFlow = (prop) => {
                 // width:"500px"
               }}
             >
-              <Pictorial />
+              <Pictorial pictoData={pictoData}/>
             </ItemContainer>
           </Group2>
         </Container>
