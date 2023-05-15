@@ -13,11 +13,11 @@ const Pie = (prop) => {
       trigger: "item",
       formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
-    // legend: {
-    //   orient: 'vertical',
-    //   left: 'left',
-    //   data: ['data1','data2','data3','data4','data5']
-    // },
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      data: ['data1','data2','data3','data4','data5']
+    },
     grid: {
       width: "14%",
     },
@@ -36,11 +36,6 @@ const Pie = (prop) => {
           { value: 1548, name: "data5" },
         ],
         itemStyle: {
-          color: new graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "#5998FF" },
-            { offset: 0.5, color: "#69a2e0" },
-            { offset: 1, color: "#69a2e0" },
-          ]),
           emphasis: {
             shadowBlur: 10,
             shadowOffsetX: 0,
