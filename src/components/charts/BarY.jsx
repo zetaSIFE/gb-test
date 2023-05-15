@@ -7,7 +7,11 @@ const BarY = () => {
     title: {
       text: "지역별 출생아수",
     },
-    tooltip: {},
+    tooltip: {
+      textStyle: {
+        fontSize: '5px'
+      }
+    },
     toolbox: {
       feature: {
         dataView: { readOnly: false },
@@ -15,9 +19,10 @@ const BarY = () => {
       },
     },
     grid: {
-      left: "3%",
-      right: "4%",
-      bottom: "3%",
+      // top: "20%",
+      left: "0%",
+      right: "0%",
+      bottom: "0%",
       containLabel: true,
     },
     // 범례
@@ -38,18 +43,25 @@ const BarY = () => {
         "안동",
       ],
     },
+    visualMap: {
+      orient: 'horizontal',
+      top: '10%',
+      left: 'right',
+      min: 10,
+      max: 100,
+      text: ['출산율 높음', '출산율 낮음'],
+
+      dimension: 0,
+      inRange: {
+        color: ['#B372D3', '#8777FB', '#FC6AA2', '#FCA76A']
+      }
+    },
+    
     series: [
       {
         name: "출생데이터",
         type: "bar",
-        data: [5, 20, 36, 10, 10, 20, 8, 15],
-        itemStyle: {
-          color: new graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: "#83bff6" },
-            { offset: 0.5, color: "#188df0" },
-            { offset: 1, color: "#188df0" },
-          ]),
-        },
+        data: [5, 20, 36, 13, 27, 60, 50, 90],
       },
     ],
   };
