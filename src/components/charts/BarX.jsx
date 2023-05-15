@@ -38,13 +38,15 @@ const BarX = () => {
         "울진",
       ],
     },
-    yAxis: {},
+    yAxis: {
+      
+    },
 
     series: [
       {
         name: "지역별인구수",
         type: "bar",
-        data: [0, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
             { offset: 0, color: "#8C93FF" },
@@ -52,6 +54,15 @@ const BarX = () => {
             { offset: 1, color: "#656CE1" },
           ]),
         },
+        showBackground: true,
+        backgroundStyle: {
+          color: '#ECEEF5',
+          shadowColor: '#ECEEF5',
+          // shadowBlur: '1'
+          shadowOffsetY: '-20'
+
+        },
+        barWidth: 30
       },
     ],
   };

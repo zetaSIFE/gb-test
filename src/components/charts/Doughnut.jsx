@@ -6,32 +6,36 @@ const Doughnut = () => {
   const option = {
     title: {
       text: "세대원 별 세대수",
+      left: "left",
     },
     tooltip: {
       trigger: "item",
+      // formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
     legend: {
       orient: "vertical",
       icon: "circle",
-      bottom: "5%",
-      right: "right",
+      bottom: "1%",
+      right: "-1%",
     },
     series: [
       {
-        name: "Access From",
+        name: "data",
         type: "pie",
-        radius: ["25%", "70%"],
-        avoidLabelOverlap: false,
+        radius: ["25%", "60%"],
+        center: ["45%", "55%"],
+        // avoidLabelOverlap: false,
         label: {
           show: true,
-          position: "left",
+          position: "outside",
         },
+
         emphasis: {
-          // label: {
-          //   show: false,
-          //   fontSize: 5,
-          //   fontWeight: 'bold'
-          // }
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: "rgba(0, 0, 0, 0.5)",
+          },
         },
         labelLine: {
           show: true,
@@ -41,16 +45,10 @@ const Doughnut = () => {
             value: 1048,
             name: "5인가구",
             itemStyle: {
-              // color: "rgba(63, 119, 15, 1)"
               color: new graphic.RadialGradient(0.4, 0.3, 1, [
                 { offset: 0, color: "#4791DE" },
                 { offset: 1, color: "#2B7ACF" },
               ]),
-              // color: new graphic.LinearGradient(0, 0, 0, 1, [
-              //   { offset: 0, color: '#83bff6' },
-              //   { offset: 0.5, color: '#188df0' },
-              //   { offset: 1, color: '#188df0' }
-              // ])
             },
           },
           {

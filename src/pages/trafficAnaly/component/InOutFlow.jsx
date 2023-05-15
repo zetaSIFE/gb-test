@@ -12,6 +12,7 @@ const Container = styled.div`
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
+  overflow-x: auto;
   .item1:nth-child(1) {
     grid-column: span 2;
   }

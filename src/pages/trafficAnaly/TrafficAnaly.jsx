@@ -13,6 +13,7 @@ const Container = styled.div`
   padding: 0px 10px 10px;
   display: grid;
   grid-gap: 10px;
+  
 
 `;
 

@@ -16,6 +16,7 @@ const HalfPie = () => {
       left: "center",
       // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
+      itemWidth: 10
     },
 
     series: [
@@ -23,7 +24,7 @@ const HalfPie = () => {
         name: "Access From",
         type: "pie",
         radius: ["40%", "70%"],
-        center: ["50%", "70%"],
+        center: ["50%", "65%"],
         // adjust the start angle
         startAngle: 180,
         label: {

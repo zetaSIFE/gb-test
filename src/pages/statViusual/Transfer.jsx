@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100%;
+  height:calc(100vh - 80px);
+  min-height: 100%;
   padding: 10px;
   padding-top: 0;
   display: grid;
@@ -44,6 +45,7 @@ const Group1 = styled.div`
   grid-template-columns: 1fr 1fr;
   padding: 0px;
   grid-gap: 10px;
+  /* object-fit: fill; */
 `;
 
 const Group2 = styled.div`
@@ -52,6 +54,7 @@ const Group2 = styled.div`
   grid-template-columns: 1fr 1fr;
   padding: 0px;
   grid-gap: 10px;
+
 `;
 
 export default function Transfer() {

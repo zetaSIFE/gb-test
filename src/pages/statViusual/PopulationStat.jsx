@@ -11,7 +11,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100%;
+  height: calc(100vh - 80px);
+  width: 100%;
   padding: 10px;
   padding-top: 0;
   display: grid;
