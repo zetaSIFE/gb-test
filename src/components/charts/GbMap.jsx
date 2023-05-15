@@ -87,7 +87,7 @@ const GbMap = () => {
       <ReactEcharts
         option={mapOption}
         style={{
-          height: "100%",
+          height: "90%",
         }}
       />
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
-import { graphic } from 'echarts';
+import { graphic } from "echarts";
 
 const BarY = () => {
   const option = {
@@ -45,10 +45,10 @@ const BarY = () => {
         data: [5, 20, 36, 10, 10, 20, 8, 15],
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: '#83bff6' },
-            { offset: 0.5, color: '#188df0' },
-            { offset: 1, color: '#188df0' }
-          ])
+            { offset: 0, color: "#83bff6" },
+            { offset: 0.5, color: "#188df0" },
+            { offset: 1, color: "#188df0" },
+          ]),
         },
       },
     ],
@@ -57,7 +57,7 @@ const BarY = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "100%" }}
+      style={{ height: "90%" }}
       // opts={{ renderer: "svg" }}
     />
   );

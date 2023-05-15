@@ -113,7 +113,7 @@ const MapPie = () => {
     echartslayer.appendTo(map);
   }, []);
 
-  return <div id="pieMap" style={{ height: "100%" }}></div>;
+  return <div id="pieMap" style={{ height: "90%" }}></div>;
 };
 
 export { MapPie };
