@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 100%;
-  padding: 10px;
   display: grid;
   grid-gap: 10px;
 
@@ -35,14 +34,7 @@ const Container = styled.div`
     padding: 10px;
   }
 `;
-
-// const Group1 = styled.div`
-//   height: 100%;
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   padding: 0px;
-//   grid-gap: 10px;
-// `;
+;
 
 const ItemContainer = styled.div``;
 

@@ -10,11 +10,11 @@ import { ReactComponent as PolicyEval } from "assets/images/aside/2-4policyEval.
 
 const Container = styled.div`
   display: flex;
-  overflow-y: hidden;
 `;
 
 const Content = styled.div`
   width: 100%;
+  height:calc(100vh - 80px);
 `;
 
 export default function SupportLayout() {

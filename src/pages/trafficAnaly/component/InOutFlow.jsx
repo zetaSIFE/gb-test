@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { FlowChart, BarX, Stacked, BarY, Table } from "components/charts";
+import {
+  FlowChart,
+  BarX,
+  Stacked,
+  BarY,
+  Table,
+  MultiBar,
+} from "components/charts";
 import styled from "styled-components";
 import { Select } from "./Select";
 import { DivisonMap } from "./DivisionMap";
@@ -9,7 +16,7 @@ const Container = styled.div`
   display: grid;
   grid-gap: 10px;
 
-  grid-template-rows: 2fr 1.3fr;
+  grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
   .item1:nth-child(1) {
     grid-column: span 2;
@@ -79,7 +86,8 @@ export const InOutFlow = (prop) => {
 
           <Group1 className="group1">
             <ItemContainer className="item2">
-              <BarX />
+              <p className="chartTit">시간대별 유입량</p>
+              <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2">
               <BarY />

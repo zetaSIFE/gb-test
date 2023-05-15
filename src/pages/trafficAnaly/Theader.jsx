@@ -37,8 +37,8 @@ const DiviBtn = styled.button`
   width: "118px";
   height: "40px";
   background: "#E5E5E5";
-  border: "none";
   border-radius: "24px";
+  border: "none";
 `;
 
 const TabMenu = styled.ul`
