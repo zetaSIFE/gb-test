@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactECharts from 'echarts-for-react';
+import React from "react";
+import ReactECharts from "echarts-for-react";
 
 const Tree = () => {
   const option = {
     series: [
       {
-        type: 'treemap',
+        type: "treemap",
         data: [
           {
-            name: '제조업',
+            name: "제조업",
             value: 40,
             // children: [
             //   {
@@ -23,60 +23,59 @@ const Tree = () => {
           },
           {
             // children 안에 children
-            name: 'nodeB',
+            name: "nodeB",
             value: 7,
             children: [
               {
-                name: 'nodeBa',
+                name: "nodeBa",
                 value: 5,
                 children: [
                   {
-                    name: 'nodeBa1',
-                    value: 15
-                  }
-                ]
+                    name: "nodeBa1",
+                    value: 15,
+                  },
+                ],
               },
-              
-            ]
+            ],
           },
           {
-            name: '보건및서비스',
+            name: "보건및서비스",
             value: 13,
             children: [
               {
-                name: '보건업',
+                name: "보건업",
                 value: 5,
               },
               {
-                name: '사회복지 서비스업',
+                name: "사회복지 서비스업",
                 value: 8,
-              }
-            ]
+              },
+            ],
           },
           {
-            name: 'nodeD',
+            name: "nodeD",
             value: 20,
             children: [
               {
-                name: 'nodeDa',
+                name: "nodeDa",
                 value: 5,
               },
               {
-                name: 'nodeDa1',
-                value: 15
+                name: "nodeDa1",
+                value: 15,
               },
               {
-                name: 'nodeDa2',
-                value: 15
+                name: "nodeDa2",
+                value: 15,
               },
               {
-                name: 'nodeDa3',
-                value: 15
-              }
-            ]
-          }
-        ]
-      }
+                name: "nodeDa3",
+                value: 15,
+              },
+            ],
+          },
+        ],
+      },
     ],
     tooltip: {
       formatter: function (info) {
@@ -88,19 +87,22 @@ const Tree = () => {
         }
         return [
           '<div class="tooltip-title">' +
-          treePath + '</div>'+ ' val : '+ value 
-        ].join('');
-      }
+            treePath +
+            "</div>" +
+            " val : " +
+            value,
+        ].join("");
+      },
     },
-  }
+  };
   return (
     <>
       <ReactECharts
         option={option}
-        style={{borderBottom:"3px solid #000" }}
+        style={{ borderBottom: "3px solid #000" }}
       ></ReactECharts>
     </>
   );
 };
 
-export {Tree};
+export { Tree };

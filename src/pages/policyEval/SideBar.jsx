@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
 
 const sampleDatas = [
-  "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요? 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
+  "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
   "데이터1",
   "데이터1",
   "데이터1",
@@ -15,15 +15,15 @@ const sampleDatas = [
   "데이터1",
   "데이터1",
   "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
-  // "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
 ];
 
 // direction(4) : ↑ → ↓ ←
@@ -32,7 +32,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin: 10px 0px 10px -10px;
+  margin: 10px 0px 10px -20px;
   border: 1px solid #c4ddff;
   border-radius: 0px 10px 10px 0px;
   box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.15);
@@ -56,7 +56,7 @@ const Content = styled.div`
   transition: width 0.2s ease-out; // 애니메이션 속성 설정해주기
   display: flex;
   flex-direction: column;
-  padding: 0px 20px 0px 30px;
+  padding: 0px 20px 0px 40px;
   color: #333333;
   font-size: 14px;
 
@@ -108,24 +108,19 @@ const SubTitle2 = styled.div`
 `;
 
 const Result = styled.div`
-  /* height: 500px; */
   max-height: calc(100vh - 300px);
   overflow-y: auto;
-  /* overflow-x: hidden; */
-  /* overflow-wrap: break-word; */
-  background-color: skyblue;
-  /* ul:after {
-    display: block;
-    content: "";
-    clear: both;
-  } */
+  /* background-color: skyblue; */
 `;
 
 const Item = styled.li`
   width: 99;
   height: 45px;
-  background-color: grey;
+  /* background-color: grey; */
   border-bottom: 1px solid #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default function SideBar() {
@@ -163,7 +158,7 @@ export default function SideBar() {
         <SearchArea>
           <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
           <SearchBar type="text" placeholder="지표 데이터명 검색" />
-          <SubTitle2>데이터명 (데이터 트리 레벨1)</SubTitle2>
+          <SubTitle2>데이터명 (여기에 뭐 적는겁니까?)</SubTitle2>
         </SearchArea>
         <Result className="result">
           <ul>

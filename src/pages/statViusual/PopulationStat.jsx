@@ -1,4 +1,12 @@
-import { GbMap, BarX, Stacked, BarY, Doughnut, BarNegative, HalfPie } from "components/charts";
+import {
+  GbMap,
+  BarX,
+  Stacked,
+  BarY,
+  Doughnut,
+  BarNegative,
+  HalfPie,
+} from "components/charts";
 import React from "react";
 import styled from "styled-components";
 

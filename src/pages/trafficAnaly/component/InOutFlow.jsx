@@ -1,11 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { FlowChart, BarX, Stacked, BarY, Table } from "components/charts";
 import styled from "styled-components";
 import { Select } from "./Select";
 import { DivisonMap } from "./DivisionMap";
 
 const Container = styled.div`
-  height:100%;
+  height: 100%;
   display: grid;
   grid-gap: 10px;
 
@@ -61,17 +61,17 @@ const Group2 = styled.div`
 export const InOutFlow = (prop) => {
   return (
     <>
-      {prop.division ?
-        <DivisonMap/>
-        :
+      {prop.division ? (
+        <DivisonMap />
+      ) : (
         <Container className="container">
           <ItemContainer className="item1 flex-column">
             <SelecBox>
-              <Select/>
-              <Select/>
-              <Select/>
-              <Select/>
-              <Select/>
+              <Select />
+              <Select />
+              <Select />
+              <Select />
+              <Select />
               <button>조회</button>
             </SelecBox>
             <FlowChart width="100%" height="100%" />
@@ -106,7 +106,7 @@ export const InOutFlow = (prop) => {
             </ItemContainer>
           </Group2>
         </Container>
-      }
+      )}
     </>
   );
 };

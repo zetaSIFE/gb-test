@@ -105,7 +105,7 @@ const HalfPie = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "100%" }}
+      style={{ height: "90%" }}
       // opts={{ renderer: "svg" }}
     />
   );
