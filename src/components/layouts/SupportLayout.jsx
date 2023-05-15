@@ -10,11 +10,11 @@ import { ReactComponent as PolicyEval } from "assets/images/aside/2-4policyEval.
 
 const Container = styled.div`
   display: flex;
-  height: 100vh; // 차트 녹아내리는 현상 방지 test
 `;
 
 const Content = styled.div`
   width: 100%;
+  height:calc(100vh - 80px);
 `;
 
 export default function SupportLayout() {
