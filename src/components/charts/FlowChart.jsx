@@ -20,7 +20,6 @@ import centerData from "assets/maps/시군별 중심좌표.json";
 import gbCenterData from "assets/maps/경북 시군구 중심좌표.json";
 import Select from "ol/interaction/Select";
 import { pointerMove, click } from "ol/events/condition";
-
 import { feature } from "topojson-client";
 
 // const korgeoData = feature(kor, kor.objects.korea_WSG84);
@@ -228,6 +227,9 @@ export const FlowChart = (prop) => {
       layers: [baseLayer, vectorLayer],
       loadTilesWhileAnimating: true,
       target: "OdMap",
+      attribution: false,
+      // controls: control.defaults({ attribution: false }),
+
       view: new View({
         // projection: 'EPSG:4326',
         // center: [128.505599, 36.576032],

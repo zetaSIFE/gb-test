@@ -31,7 +31,6 @@ const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-
   margin: 10px 0px 10px -20px;
   border: 1px solid #c4ddff;
   border-radius: 0px 10px 10px 0px;
@@ -137,6 +136,7 @@ export default function SideBar() {
 
     if (!onOff) {
       contentStyle.width = "410px";
+      contentStyle.visibility = "";
       setTimeout(() => (contentStyle.visibility = ""), 100);
     } else if (onOff) {
       contentStyle.width = "0px";

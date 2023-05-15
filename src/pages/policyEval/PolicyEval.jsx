@@ -1,31 +1,32 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import SideBar from "./SideBar";
 import { Header } from "components/layouts/Header";
 import { GbMap, BarX } from "components/charts";
+// https://www.npmjs.com/package/react-resize-detector
+import { useResizeDetector } from "react-resize-detector";
 
 const Container = styled.div`
   display: flex;
   height: 100%;
-
-  /* height: calc(100vh - 150px); */
+  width: 100%;
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: skyblue;
   width: 100%;
-  /* background-color: skyblue; */
   /* height: calc(100vh - 150px); */
 `;
 
 const Group = styled.div`
+  /* height: calc(width - 500px); */
+  /* width: calc(100% - width); */
+
   height: 100%;
-  /* width: 100%; */
   display: grid;
   grid-template-rows: 2fr 1fr;
-  /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
-
   grid-template-columns: 1fr 1fr;
   padding: 10px;
   padding-top: 0;
@@ -43,10 +44,16 @@ const ItemContainer = styled.div`
 `;
 
 export default function PolicyEval() {
+  const { width, height, ref } = useResizeDetector();
+
+  useEffect(() => {
+    console.log(`${width}`);
+  }, [width]);
+
   return (
     <Container>
       <SideBar />
-      <Main>
+      <Main ref={ref}>
         <Header />
         <Group>
           <ItemContainer>
