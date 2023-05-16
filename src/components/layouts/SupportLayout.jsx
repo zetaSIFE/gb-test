@@ -20,22 +20,22 @@ export default function SupportLayout() {
   const menuData = [
     {
       name: "통계업무지원\n특화서비스",
-      url: "/support/statSupport.do",
+      url: "/stat/support/statSupport.do",
       svg: <StatSupport className="svg" />,
     },
     {
       name: "산업투자효과\n분석서비스",
-      url: "/support/IndustInvest",
+      url: "/stat/support/IndustInvest",
       svg: <IndustInvest className="svg" />,
     },
     {
       name: "유동인구\n데이터\n분석서비스",
-      url: "/support/trafficAnaly.do",
+      url: "/stat/support/trafficAnaly.do",
       svg: <TrafficAnaly className="svg" />,
     },
     {
       name: "정책평가\n지원서비스",
-      url: "/support/policyEval.do",
+      url: "/stat/support/policyEval.do",
       svg: <PolicyEval className="svg" />,
     },
   ];

@@ -29,37 +29,37 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/stat" element={<Main />} />
           {/* --------------- 통계 시각화 서비스 --------------- */}
-          <Route path="/statVisual" element={<StatVisualLayout />}>
+          <Route path="/stat/statVisual" element={<StatVisualLayout />}>
             {/* 인구통계 */}
             <Route
-              path="/statVisual/populationStat.do"
+              path="/stat/statVisual/populationStat.do"
               element={<PopulationStat />}
             />
             {/* 전입전출 */}
-            <Route path="/statVisual/transfer.do" element={<Transfer />} />
+            <Route path="/stat/statVisual/transfer.do" element={<Transfer />} />
             {/* 산업관련 */}
             <Route
-              path="/statVisual/industrialStat.do"
+              path="/stat/statVisual/industrialStat.do"
               element={<IndustStat />}
             />
             {/* 경북특화 통계 19종 */}
-            <Route path="/statVisual/gbStat.do" element={<GbStat />} />
+            <Route path="/stat/statVisual/gbStat.do" element={<GbStat />} />
             {/* K-지방 소멸지수 */}
-            <Route path="/statVisual/extinction.do" element={<Extinction />} />
+            <Route path="/stat/statVisual/extinction.do" element={<Extinction />} />
           </Route>
 
           {/* --------------- 통계업무지원 특화서비스 --------------- */}
           {/* 통계업무지원 특화서비스 */}
-          <Route path="/support" element={<SupportLayout />}>
-            <Route path="/support/statSupport.do" element={<StatSupport />} />
+          <Route path="/stat/support" element={<SupportLayout />}>
+            <Route path="/stat/support/statSupport.do" element={<StatSupport />} />
             {/* 산업투자효과 분석서비스 */}
-            <Route path="/support/industInvest" element={<IndustInvest />} />
+            <Route path="/stat/support/industInvest" element={<IndustInvest />} />
             {/* 유동인구 데이터 분석서비스 */}
-            <Route path="/support/trafficAnaly.do" element={<TrafficAnaly />} />
+            <Route path="/stat/support/trafficAnaly.do" element={<TrafficAnaly />} />
             {/* 정책평가 지원서비스 */}
-            <Route path="/support/policyEval.do" element={<PolicyEval />} />
+            <Route path="/stat/support/policyEval.do" element={<PolicyEval />} />
           </Route>
         </Routes>
       </BrowserRouter>

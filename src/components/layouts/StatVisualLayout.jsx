@@ -27,27 +27,27 @@ export default function StatVisualLayout() {
   const menuData = [
     {
       name: "인구지표",
-      url: "/statVisual/populationStat.do",
+      url: "/stat/statVisual/populationStat.do",
       svg: <PopularStat className="svg" />,
     },
     {
       name: "전입전출",
-      url: "/statVisual/transfer.do",
+      url: "/stat/statVisual/transfer.do",
       svg: <Transfer className="svg" />,
     },
     {
       name: "산업관련",
-      url: "/statVisual/industrialStat.do",
+      url: "/stat/statVisual/industrialStat.do",
       svg: <IndustStat />,
     },
     {
       name: "경북특화\n통계",
-      url: "/statVisual/gbStat.do",
+      url: "/stat/statVisual/gbStat.do",
       svg: <GbStat className="svg" />,
     },
     {
       name: "K-지방\n소멸지수",
-      url: "/statVisual/extinction.do",
+      url: "/stat/statVisual/extinction.do",
       svg: <Extinction className="svg" />,
     },
   ];

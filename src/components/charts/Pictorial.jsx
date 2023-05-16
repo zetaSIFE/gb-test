@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ECharts, { EChartsReactProps } from 'echarts-for-react';
 
 const Pictorial = (prop) => {
+  console.log(prop);
   const menColor = '#4283d8';
   const womenColor = '#ff7c9e';
 
@@ -15,7 +16,6 @@ const Pictorial = (prop) => {
     // 'path://M79.3601 113.33C79.3401 113.27 79.3301 113.2 79.3301 113.14L79.2201 97.79C79.2201 96.7 80.7701 96.49 81.0601 97.54L93.3001 148.94L93.3401 149.14C93.5101 150.21 95.1901 159.32 102.49 159.32C107.26 159.32 113.89 155.74 111.88 141.88C110.24 130.6 97.9401 89.55 93.4201 74.66C92.2101 70.68 89.5701 67.31 86.0201 65.15C76.1601 59.15 52.6301 50.11 27.3001 64.67C23.1601 67.05 20.1301 70.99 18.8901 75.6L0.990124 142.11C0.990124 142.11 -3.47988 157.99 6.58012 159.1C16.6401 160.21 18.8801 154.63 20.8901 145.46C22.4301 138.46 26.2701 110.37 29.8601 97.48C30.1501 96.43 31.6901 96.65 31.7001 97.73C31.7001 97.73 31.7601 113.15 31.7401 113.22L30.9101 258.8C30.9101 259.42 31.4101 259.93 32.0301 259.92L48.7901 259.82C49.4101 259.82 49.9001 259.31 49.9001 258.7L49.3601 156.42C49.3601 155.48 50.1101 154.72 51.0501 154.72L58.8401 154.67C59.7701 154.67 60.5401 155.42 60.5501 156.35L61.4201 258.82C61.4201 259.43 61.9301 259.93 62.5401 259.93L79.4301 259.83C80.0501 259.83 80.5401 259.32 80.5401 258.71L79.3701 113.34L79.3601 113.33Z'
     'path://M79.3601 113.33C79.3401 113.27 79.3301 113.2 79.3301 113.14L79.2201 97.79C79.2201 96.7 80.7701 96.49 81.0601 97.54L93.3001 148.94L93.3401 149.14C93.5101 150.21 95.1901 159.32 102.49 159.32C107.26 159.32 113.89 155.74 111.88 141.88C110.24 130.6 97.9401 89.55 93.4201 74.66C92.2101 70.68 89.5701 67.31 86.0201 65.15C76.1601 59.15 52.6301 50.11 27.3001 64.67C23.1601 67.05 20.1301 70.99 18.8901 75.6L0.990124 142.11C0.990124 142.11 -3.47988 157.99 6.58012 159.1C16.6401 160.21 18.8801 154.63 20.8901 145.46C22.4301 138.46 26.2701 110.37 29.8601 97.48C30.1501 96.43 31.6901 96.65 31.7001 97.73C31.7001 97.73 31.7601 113.15 31.7401 113.22L30.9101 258.8C30.9101 259.42 31.4101 259.93 32.0301 259.92L48.7901 259.82C49.4101 259.82 49.9001 259.31 49.9001 258.7L49.3601 156.42C49.3601 155.48 50.1101 154.72 51.0501 154.72L58.8401 154.67C59.7701 154.67 60.5401 155.42 60.5501 156.35L61.4201 258.82C61.4201 259.43 61.9301 259.93 62.5401 259.93L79.4301 259.83C80.0501 259.83 80.5401 259.32 80.5401 258.71L79.3701 113.34L79.3601 113.33Z M55.87 47.7C69.042 47.7 79.72 37.022 79.72 23.85C79.72 10.678 69.042 0 55.87 0C42.698 0 32.02 10.678 32.02 23.85C32.02 37.022 42.698 47.7 55.87 47.7Z'
   ];
-  //https://echarts.apache.org/en/option.html#series-pictorialBar.symbol 
   const bodyMax =100;
   const symbolSize = [80, 170];
   const labelSetting = {
@@ -27,32 +27,12 @@ const Pictorial = (prop) => {
     fontSize: 20,
     fontFamily: 'Arial',
     lineHeight: 25,
+    fontWeight: "bolder"
   };
-
-  // const markLineSetting = {
-  //   symbol: 'none',
-  //   lineStyle: {
-  //     opacity: 0.6
-  //   },
-  //   data: [
-  //     {
-  //       type: 'max',
-  //       label: {
-  //         formatter: 'max: {c}'
-  //       }
-  //     },
-  //     {
-  //       type: 'min',
-  //       label: {
-  //         formatter: 'min: {c}'
-  //       }
-  //     }
-  //   ]
-  // };
 
   const options = {
     title: {
-      text: "성별 유입율",
+      text: prop.pictoData.title,
     },
     tooltip: {},
     legend: {
@@ -62,21 +42,19 @@ const Pictorial = (prop) => {
     colorBy: 'data',
     xAxis: {
       data: ['남', '여'],
-      // data: ['a', 'b' , 'c', 'd', 'e'],
       axisTick: { show: false },
       axisLine: { show: false },
       axisLabel: { show: false }
     },
     yAxis: {
-      // max: bodyMax,
       show: false,
       splitLine: { show: false }
     },
     grid: {
-      left: "12%",
+      left: "25%",
       top: "25%",
       botton:"10%",
-      width: "80%",
+      width: "75%",
       height: "70%"
     },
     markLine: {
@@ -92,7 +70,7 @@ const Pictorial = (prop) => {
         label: labelSetting,
         data: [
           {
-            value: 55,
+            value: prop.pictoData.men,
             symbol: symbolsMen[0],
             label: {
               show: true,
@@ -103,7 +81,7 @@ const Pictorial = (prop) => {
             }
           },
           {
-            value: 90,
+            value: prop.pictoData.women,
             symbol: symbolsWemen[0],
             label: {
               show: true,
@@ -113,54 +91,9 @@ const Pictorial = (prop) => {
               color:womenColor
             }
           },
-          // {
-          //   value: 101,
-          //   symbol: symbols[2]
-          // },
-          // {
-          //   value: 89,
-          //   symbol: symbols[3]
-          // },
-          // {
-          //   value: 72,
-          //   symbol: symbols[4]
-          // }
         ],
-        // markLine: markLineSetting,
-        // markLine: symbols, 이게뭐지
         z: 10
       },
-      // {
-      //   name: 'typeB',
-      //   type: 'pictorialBar',
-      //   symbolClip: true,
-      //   symbolBoundingData: bodyMax,
-      //   label: labelSetting,
-      //   data: [
-      //     {
-      //       value: 12,
-      //       symbol: symbolsMen[0]
-      //     },
-      //     {
-      //       value: 44,
-      //       symbol: symbolsWemen[0]
-      //     },
-      //     // {
-      //     //   value: 131,
-      //     //   symbol: symbols[2]
-      //     // },
-      //     // {
-      //     //   value: 33,
-      //     //   symbol: symbols[3]
-      //     // },
-      //     // {
-      //     //   value: 142,
-      //     //   symbol: symbols[4]
-      //     // }
-      //   ],
-      //   markLine: markLineSetting,
-      //   z: 10
-      // },
       {
         name: 'full',
         type: 'pictorialBar',
@@ -179,28 +112,15 @@ const Pictorial = (prop) => {
             value: bodyMax,
             symbol: symbolsWemen[0]
           },
-          // {
-          //   value: 1,
-          //   symbol: symbols[2]
-          // },
-          // {
-          //   value: 1,
-          //   symbol: symbols[3]
-          // },
-          // {
-          //   value: 1,
-          //   symbol: symbols[4]
-          // }
         ]
       }
     ]
   }
 	return (
     <>
-
       <ECharts
         option={options}
-        style={{height:"100%"}}
+        style={{height:"100%", width:"78%"}}
       />
     </>
   );

@@ -88,6 +88,7 @@ const GbMap = () => {
         option={mapOption}
         style={{
           height: "90%",
+          maxWidht:"600px"
         }}
       />
     </>
