@@ -59,7 +59,7 @@ const TabMenu = styled.ul`
     font-size: 15px;
     font-weight: 400;
     transition: 0.5s;
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 3px 3px 0 0;
     align-items: center;
     justify-content: center;
