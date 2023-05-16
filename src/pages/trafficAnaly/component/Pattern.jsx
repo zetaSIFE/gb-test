@@ -1,11 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Dynamic, GbMap, Pictorial, Pie } from "components/charts";
+import { Pointer } from './Pointer'
 
 const Container = styled.div`
   display: grid;
   grid-gap: 10px;
-  height:calc(100vh - 80px);
+  height:calc(100vh - 90px);
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(8, 1fr);
@@ -115,7 +116,11 @@ export const Pattern = () => {
           <Pictorial pictoData={pictoData} />
         </ItemContainer>
       </Group1>
-      <ItemContainer className="item1">chart5</ItemContainer>
+      <ItemContainer className="item1">
+        <p className="chartTit">시간대별 인구 밀집/이동 패턴</p>
+        <Pointer/>
+
+      </ItemContainer>
     </Container>
   );
 };

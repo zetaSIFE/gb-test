@@ -52,7 +52,7 @@ export const Table = () => {
             <th key={column}>{column}</th>
           ))}
         </tr>
-      </thead> */}
+      </thead> */} 
       <tbody>
         {data.map(({ name, tableVal }) => (
           <tr key={name + tableVal}>
