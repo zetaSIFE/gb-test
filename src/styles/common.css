@@ -5,6 +5,10 @@ button {
   display: flex;
   flex-direction: column;
 }
+.flexAlign {
+  display: flex;
+  align-items: center;
+}
 
 .inlineBlock {
   display: inline-block;
