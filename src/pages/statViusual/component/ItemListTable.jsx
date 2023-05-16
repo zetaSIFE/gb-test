@@ -22,7 +22,6 @@ export const ItemListTable = () => {
     { val: 3, name: '3인 가구'},
     { val: 4, name: '4인 이상 가구'}
   ];
-  console.log(dataList);
 
   return (
   <Container>

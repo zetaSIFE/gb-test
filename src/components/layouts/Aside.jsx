@@ -113,7 +113,7 @@ export const Aside = ({ menuData }) => {
 
   const selectMenuHandler = (index) => {
     setCurrentMenu(index);
-    console.log(menuData[index].url);
+    // console.log(menuData[index].url);
     // console.log(menuData[index].svg[0]);
     const selectedUrl = menuData[index].url;
     navigate(selectedUrl);
