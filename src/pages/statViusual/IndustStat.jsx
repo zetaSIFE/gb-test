@@ -45,6 +45,11 @@ const Group1 = styled.div`
   grid-gap: 10px;
 `;
 
+const pictoData = {
+  title: '종사자 수(성별)',
+  men:'55',
+  women:'45'
+}
 export default function IndustStat() {
   return (
     <Container className="container">
@@ -66,7 +71,7 @@ export default function IndustStat() {
       </ItemContainer>
 
       <ItemContainer className="item1">
-        <Pictorial />
+        <Pictorial pictoData={pictoData} />
       </ItemContainer>
     </Container>
   );

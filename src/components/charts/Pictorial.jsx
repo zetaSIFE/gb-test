@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import ECharts, { EChartsReactProps } from 'echarts-for-react';
 
+//************** */
+// pictoData = {
+//   title: '성별 유입 인구 비중',
+//   men:'52',
+//   women:'93'
+// }
+//************** */
+
 const Pictorial = (prop) => {
-  console.log(prop);
   const menColor = '#4283d8';
   const womenColor = '#ff7c9e';
 
