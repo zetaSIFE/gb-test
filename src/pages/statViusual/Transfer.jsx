@@ -58,6 +58,24 @@ const Group2 = styled.div`
 `;
 
 export default function Transfer() {
+  const barXData = {
+    title: '지역별 인구수',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
+  const barXData2 = {
+    title: '지역별 전입자수',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
+  const barXData3 = {
+    title: '지역별 전출자수',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">
@@ -66,16 +84,16 @@ export default function Transfer() {
 
       <Group1 className="group1">
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2">
           <BarY />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData2} />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData3} />
         </ItemContainer>
       </Group1>
 

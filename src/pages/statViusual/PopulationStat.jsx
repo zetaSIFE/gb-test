@@ -35,32 +35,10 @@ const Container = styled.div`
 
   .item1,
   .item2 {
-    // NOTE 화면설계서 Style
-    /* border: 1px solid #cccccc;
+    border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-    padding: 10px; */
-
-    // NOTE ZetaLux Style
-    // start
-    border: 1px solid #ffffff;
-    background: radial-gradient(
-        409.5% 116.82% at 51.71% 56.4%,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      radial-gradient(
-        344.95% 155.88% at 52.49% 53.79%,
-        #ffffff 0%,
-        rgba(255, 255, 255, 0) 100%
-      ),
-      #d8dee3;
-    border-width: 2px 0px 0px 2px;
-    box-shadow: 0px 4px 4px rgba(164, 174, 183, 0.25),
-      16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
-    border-radius: 10px;
     padding: 10px;
-    // end
   }
 `;
 
@@ -92,6 +70,12 @@ export default function PopulationStat() {
       value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
     }
   }
+  const barXData2 = {
+    title: '지역별 청년비율',
+    data: {
+      value: [120, 300, 270, 150, 200, 98, 180, 220, 170]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">
@@ -109,7 +93,7 @@ export default function PopulationStat() {
           <Doughnut />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarX barXData={barXData} />
+          <BarX barXData={barXData2} />
         </ItemContainer>
       </Group1>
 

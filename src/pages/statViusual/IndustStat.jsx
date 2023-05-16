@@ -50,6 +50,12 @@ const pictoData = {
   men:'55',
   women:'45'
 }
+const barXData = {
+  title: '지역별 사업체수',
+  data: {
+    value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+  }
+}
 export default function IndustStat() {
   return (
     <Container className="container">
@@ -59,7 +65,7 @@ export default function IndustStat() {
 
       <Group1 className="group1">
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2">
           <HalfPie />

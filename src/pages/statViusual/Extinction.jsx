@@ -50,6 +50,13 @@ const Group2 = styled.div`
   grid-gap: 10px;
 `;
 
+const barXData = {
+  title: '소멸지수별 지자체 수',
+  data: {
+    value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+  }
+}
+
 export default function Extinction() {
   return (
     <Container className="container">
@@ -61,7 +68,7 @@ export default function Extinction() {
 
       <Group2 className="group2">
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2">
           <BarY />
