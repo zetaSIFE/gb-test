@@ -7,16 +7,23 @@ import { Theader } from "./Theader.jsx";
 
 const Wrap = styled.div`
   height: 100%;
+  position: relative;
+`;
+const Line = styled.div`
+  width:100%;
+  height: 1px;
+  padding:0 10px;
+  background-color: #11233f;
+  background-clip: content-box;
+  position: absolute;
+  top: 74px;
 `;
 const Container = styled.div`
   height:calc(100vh - 80px);
-  padding: 0px 10px 10px;
+  padding: 10px;
   display: grid;
   grid-gap: 10px;
-  
-
 `;
-
 
 export default function TrafficAnaly() {
   const [currentTab, setClickTab] = useState(0);
@@ -45,6 +52,7 @@ export default function TrafficAnaly() {
   return (
     <Wrap>
       <Theader setClickTab={setClickTab} setDivision={setDivision} />
+      <Line/>
       <Container className="container">
         {tabCont}      
       </Container>
