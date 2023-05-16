@@ -15,7 +15,7 @@ const Container = styled.div`
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: skyblue;
+  /* background-color: skyblue; */
   width: 100%;
   /* width: calc(100vw - 150px); */
 `;

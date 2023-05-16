@@ -10,6 +10,8 @@ const Doughnut = () => {
     },
     tooltip: {
       trigger: "item",
+      left: true,
+
       // formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
     legend: {

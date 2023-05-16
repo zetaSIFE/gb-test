@@ -122659,9 +122659,9 @@
           ],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47111",
+            "value": "47111",
             "SIG_ENG_NM": "Nam-gu, Pohang-si",
-            "SIG_KOR_NM": "포항시 남구"
+            "name": "포항시 남구"
           }
         },
         {
@@ -122697,9 +122697,9 @@
           ],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47113",
+            "value": "47113",
             "SIG_ENG_NM": "Buk-gu, Pohang-si",
-            "SIG_KOR_NM": "포항시 북구"
+            "name": "포항시 북구"
           }
         },
         {
@@ -122729,9 +122729,9 @@
           ],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47130",
+            "value": "47130",
             "SIG_ENG_NM": "Gyeongju-si",
-            "SIG_KOR_NM": "경주시"
+            "name": "경주시"
           }
         },
         {
@@ -122784,9 +122784,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47150",
+            "value": "47150",
             "SIG_ENG_NM": "Gimcheon-si",
-            "SIG_KOR_NM": "김천시"
+            "name": "김천시"
           }
         },
         {
@@ -122841,9 +122841,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47170",
+            "value": "47170",
             "SIG_ENG_NM": "Andong-si",
-            "SIG_KOR_NM": "안동시"
+            "name": "안동시"
           }
         },
         {
@@ -122979,9 +122979,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47190",
+            "value": "47190",
             "SIG_ENG_NM": "Gumi-si",
-            "SIG_KOR_NM": "구미시"
+            "name": "구미시"
           }
         },
         {
@@ -123087,9 +123087,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47210",
+            "value": "47210",
             "SIG_ENG_NM": "Yeongju-si",
-            "SIG_KOR_NM": "영주시"
+            "name": "영주시"
           }
         },
         {
@@ -123151,9 +123151,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47230",
+            "value": "47230",
             "SIG_ENG_NM": "Yeongcheon-si",
-            "SIG_KOR_NM": "영천시"
+            "name": "영천시"
           }
         },
         {
@@ -123269,9 +123269,9 @@
           ],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47250",
+            "value": "47250",
             "SIG_ENG_NM": "Sangju-si",
-            "SIG_KOR_NM": "상주시"
+            "name": "상주시"
           }
         },
         {
@@ -123414,9 +123414,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47280",
+            "value": "47280",
             "SIG_ENG_NM": "Mungyeong-si",
-            "SIG_KOR_NM": "문경시"
+            "name": "문경시"
           }
         },
         {
@@ -123442,9 +123442,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47290",
+            "value": "47290",
             "SIG_ENG_NM": "Gyeongsan-si",
-            "SIG_KOR_NM": "경산시"
+            "name": "경산시"
           }
         },
         {
@@ -123557,9 +123557,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47720",
+            "value": "47720",
             "SIG_ENG_NM": "Gunwi-gun",
-            "SIG_KOR_NM": "군위군"
+            "name": "군위군"
           }
         },
         {
@@ -123645,9 +123645,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47730",
+            "value": "47730",
             "SIG_ENG_NM": "Uiseong-gun",
-            "SIG_KOR_NM": "의성군"
+            "name": "의성군"
           }
         },
         {
@@ -123674,18 +123674,18 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47750",
+            "value": "47750",
             "SIG_ENG_NM": "Cheongsong-gun",
-            "SIG_KOR_NM": "청송군"
+            "name": "청송군"
           }
         },
         {
           "arcs": [[7925]],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47760",
+            "value": "47760",
             "SIG_ENG_NM": "Yeongyang-gun",
-            "SIG_KOR_NM": "영양군"
+            "name": "영양군"
           }
         },
         {
@@ -123703,9 +123703,9 @@
           ],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47770",
+            "value": "47770",
             "SIG_ENG_NM": "Yeongdeok-gun",
-            "SIG_KOR_NM": "영덕군"
+            "name": "영덕군"
           }
         },
         {
@@ -123733,18 +123733,18 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47820",
+            "value": "47820",
             "SIG_ENG_NM": "Cheongdo-gun",
-            "SIG_KOR_NM": "청도군"
+            "name": "청도군"
           }
         },
         {
           "arcs": [[8079]],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47830",
+            "value": "47830",
             "SIG_ENG_NM": "Goryeong-gun",
-            "SIG_KOR_NM": "고령군"
+            "name": "고령군"
           }
         },
         {
@@ -123766,9 +123766,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47840",
+            "value": "47840",
             "SIG_ENG_NM": "Seongju-gun",
-            "SIG_KOR_NM": "성주군"
+            "name": "성주군"
           }
         },
         {
@@ -123843,9 +123843,9 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47850",
+            "value": "47850",
             "SIG_ENG_NM": "Chilgok-gun",
-            "SIG_KOR_NM": "칠곡군"
+            "name": "칠곡군"
           }
         },
         {
@@ -123977,135 +123977,41 @@
           ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47900",
+            "value": "47900",
             "SIG_ENG_NM": "Yecheon-gun",
-            "SIG_KOR_NM": "예천군"
+            "name": "예천군"
           }
         },
         {
           "arcs": [[9399]],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47920",
+            "value": "47920",
             "SIG_ENG_NM": "Bonghwa-gun",
-            "SIG_KOR_NM": "봉화군"
+            "name": "봉화군"
           }
         },
         {
           "arcs": [[[9400]], [[9401]], [[9402]], [[9403]]],
           "type": "MultiPolygon",
           "properties": {
-            "SIG_CD": "47930",
+            "value": "47930",
             "SIG_ENG_NM": "Uljin-gun",
-            "SIG_KOR_NM": "울진군"
+            "name": "울진군"
           }
         },
         {
-          "arcs": [[9404]],
+          "arcs": [
+            [
+              9404, 9405, 9406, 9407, 9408, 9409, 9410, 9411, 9412, 9413, 9414,
+              9415
+            ]
+          ],
           "type": "Polygon",
           "properties": {
-            "SIG_CD": "47940",
+            "value": "47940",
             "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9405]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9406]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9407]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9408]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9409]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9410]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9411]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9412]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9413]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9414]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
-          }
-        },
-        {
-          "arcs": [[9415]],
-          "type": "Polygon",
-          "properties": {
-            "SIG_CD": "47940",
-            "SIG_ENG_NM": "Ulleung-gun",
-            "SIG_KOR_NM": "울릉군"
+            "name": "울릉군"
           }
         }
       ]
