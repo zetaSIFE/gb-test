@@ -1,14 +1,25 @@
-import React, {useEffect} from "react";
-import { FlowChart, BarX, Stacked, BarY, Table, MultiBar, Pictorial } from "components/charts";
+import React, { forwardRef, useEffect, useState } from "react";
+import {
+  FlowChart,
+  BarX,
+  Stacked,
+  BarY,
+  Table,
+  MultiBar,
+  Pictorial,
+} from "components/charts";
 import styled from "styled-components";
 import { Select } from "./Select";
 import { DivisonMap } from "./DivisionMap";
+import { DatePicker } from "./DatePicker";
+import { TimePicker } from "./TimePicker";
+import { CustomPicker } from "./CustomPicker";
 
 const Container = styled.div`
   /* height:95vh; */
   display: grid;
   grid-gap: 10px;
-  height:calc(100vh - 90px);
+  height: calc(100vh - 90px);
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);
@@ -59,33 +70,60 @@ const Group2 = styled.div`
   padding: 0px;
   grid-gap: 10px;
 `;
+
 export const InOutFlow = (prop) => {
   const pictoData = {
-    title: '성별 유입율',
-    men:'40',
-    women:'50'
-  }
+    title: "성별 유입율",
+    men: "40",
+    women: "50",
+  };
+
+  const showDatePicker = (e) => {
+    setOpenDate(!openDate);
+  };
+
+  const showTimePicker = (e) => {
+    setOpenTime(!openTime);
+  };
+
+  const [openDate, setOpenDate] = useState(false);
+  const [openTime, setOpenTime] = useState(false);
+
   return (
     <>
-      {prop.division ?
-        <DivisonMap/>
-        :
+      {prop.division ? (
+        <DivisonMap />
+      ) : (
         <Container className="container">
           <ItemContainer className="item1 flex-column">
             <SelecBox>
-              <Select/>
-              <Select/>
-              <Select/>
-              <Select/>
-              <Select/>
-              <button>조회</button>
+              <CustomPicker
+                component={
+                  <Select title={"유입 유출"} values={["유입", "유출"]} />
+                }
+              />
+              <Select title={"유입 유출"} values={["유입", "유출"]} />
+              <Select
+                title={"기간 설정"}
+                values={[]}
+                onClick={() => showDatePicker()}
+              />
+              {openDate && <DatePicker />}
+              <Select
+                title={"시간 설정"}
+                values={[]}
+                onClick={() => showTimePicker()}
+              />
+              {openTime && <TimePicker />}
+              <Select title={"성별 설정"} values={["남자", "여자"]} />
+              <Select title={"연령 설정"} values={["유입", "유출"]} />
             </SelecBox>
             <FlowChart width="100%" height="100%" />
           </ItemContainer>
 
           <Group1 className="group1">
             <ItemContainer className="item2">
-            {/* <p className="chartTit">시간대별 유입량</p> */}
+              {/* <p className="chartTit">시간대별 유입량</p> */}
               <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2">
@@ -108,17 +146,19 @@ export const InOutFlow = (prop) => {
             <ItemContainer className="item2">
               <BarY />
             </ItemContainer>
-            <ItemContainer className="item2"
-              style={{
-                // width:"500px"
-              }}
+            <ItemContainer
+              className="item2"
+              style={
+                {
+                  // width:"500px"
+                }
+              }
             >
-              <Pictorial pictoData={pictoData}/>
+              <Pictorial pictoData={pictoData} />
             </ItemContainer>
           </Group2>
         </Container>
-      }
+      )}
     </>
   );
 };
-
