@@ -77,6 +77,25 @@ export const InOutFlow = (prop) => {
     men: "40",
     women: "50",
   };
+
+  const barXData = {
+    title: "산하 행정구역별 유입량(차트 수정예정)",
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+    },
+  };
+
+  const showDatePicker = (e) => {
+    setOpenDate(!openDate);
+  };
+
+  const showTimePicker = (e) => {
+    setOpenTime(!openTime);
+  };
+
+  const [openDate, setOpenDate] = useState(false);
+  const [openTime, setOpenTime] = useState(false);
+
   return (
     <>
       {prop.division ? (
