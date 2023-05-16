@@ -71,9 +71,15 @@ export default function Transfer() {
     }
   }
   const barXData3 = {
-    title: '지역별 전출자수',
+    title: '지역별 청년 전출자수',
     data: {
       value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
+  const barYData = {
+    title: '지역별 전출자수',
+    data: {
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
     }
   }
   return (
@@ -87,7 +93,7 @@ export default function Transfer() {
           <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarY />
+          <BarY barYData={barYData} />
         </ItemContainer>
         <ItemContainer className="item2">
           <BarX barXData={barXData2} />
@@ -103,10 +109,10 @@ export default function Transfer() {
 
       <Group2 className="group2">
         <ItemContainer className="item2">
-          <BarY />
+          <BarY barYData={barYData} />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarY />
+          <BarY barYData={barYData} />
         </ItemContainer>
       </Group2>
     </Container>

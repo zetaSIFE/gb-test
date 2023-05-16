@@ -84,6 +84,12 @@ export const InOutFlow = (prop) => {
       value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
     },
   };
+  const barYData = {
+    title: '지역별 전출자수',
+    data: {
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
+    }
+  }
 
   const showDatePicker = (e) => {
     setOpenDate(!openDate);
@@ -134,7 +140,7 @@ export const InOutFlow = (prop) => {
               <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2">
-              <BarY />
+              <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer className="item2">
               <p className="chartTit">최다 유입지 순위</p>
@@ -151,7 +157,7 @@ export const InOutFlow = (prop) => {
 
           <Group2 className="group2">
             <ItemContainer className="item2">
-              <BarY />
+              <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer
               className="item2"

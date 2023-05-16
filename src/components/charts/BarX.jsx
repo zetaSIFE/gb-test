@@ -11,12 +11,12 @@ import { graphic } from "echarts";
 // }
 //************** */
 
-const BarX = (prop) => {
+const BarX = (props) => {
   // console.log(prop.barXData.data)
-  const data = prop.barXData.data.value
+  const data = props.barXData.data.value
   const option = {
     title: {
-      text: prop.barXData.title,
+      text: props.barXData.title,
     },
     tooltip: {},
     toolbox: {

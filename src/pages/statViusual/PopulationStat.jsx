@@ -76,6 +76,12 @@ export default function PopulationStat() {
       value: [120, 300, 270, 150, 200, 98, 180, 220, 170]
     }
   }
+  const barYData = {
+    title: '지역별 출생아수',
+    data: {
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">
@@ -87,7 +93,7 @@ export default function PopulationStat() {
           <BarX barXData={barXData}/>
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarY />
+          <BarY barYData={barYData} />
         </ItemContainer>
         <ItemContainer className="item2">
           <Doughnut />

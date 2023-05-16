@@ -1,6 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
-import { color, graphic } from "echarts";
+import { graphic } from "echarts";
 
 const Doughnut = () => {
   const option = {
