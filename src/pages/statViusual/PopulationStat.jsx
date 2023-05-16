@@ -64,6 +64,12 @@ const Group2 = styled.div`
 `;
 
 export default function PopulationStat() {
+  const barXData = {
+    title: '지역별 인구수',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">
@@ -72,7 +78,7 @@ export default function PopulationStat() {
 
       <Group1 className="group1">
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData}/>
         </ItemContainer>
         <ItemContainer className="item2">
           <BarY />
@@ -81,7 +87,7 @@ export default function PopulationStat() {
           <Doughnut />
         </ItemContainer>
         <ItemContainer className="item2">
-          <BarX />
+          <BarX barXData={barXData} />
         </ItemContainer>
       </Group1>
 
