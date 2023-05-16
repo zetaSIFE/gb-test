@@ -2,10 +2,21 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
-const BarY = () => {
+//************** */
+// const barYData = {
+//   title: '지역별 출생아수',
+//   data: {
+//     value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
+//   }
+// }
+//************** */
+
+const BarY = (props) => {
+  const data = props.barYData.data.value
   const option = {
     title: {
-      text: "지역별 출생아수",
+      // text: "지역별 출생아수",
+      text: props.barYData.title,
     },
     tooltip: {},
     toolbox: {
@@ -43,7 +54,7 @@ const BarY = () => {
       orient: "horizontal",
       top: "10%",
       left: "right",
-      min: 10,
+      min: 0,
       max: 100,
       text: ["출산율 높음", "출산율 낮음"],
 
@@ -57,7 +68,8 @@ const BarY = () => {
       {
         name: "출생데이터",
         type: "bar",
-        data: [5, 20, 36, 13, 27, 60, 50, 90],
+        // data: [5, 20, 36, 13, 27, 60, 50, 90],
+        data: data,
       },
     ],
   };
