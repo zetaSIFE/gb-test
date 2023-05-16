@@ -5,11 +5,11 @@ import gb from "assets/maps/gbmap_topo.json";
 import { feature } from "topojson-client";
 
 const geoData = feature(gb, gb.objects.gbmap);
-
 const data = geoData.features.map(function (obj) {
   const rObj = obj.properties;
   return rObj;
 });
+console.log(data);
 
 echarts.registerMap("USA", geoData, {
   // Alaska: {

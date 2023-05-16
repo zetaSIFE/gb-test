@@ -57,12 +57,12 @@ export default function PolicyEval() {
         <Header />
         <Group>
           <ItemContainer>
-            {/* <div>HI!</div> */}
-            <GbMap />
+            <div>HI!</div>
+            {/* <GbMap /> */}
           </ItemContainer>
           <ItemContainer>
-            {/* <div>HI!</div> */}
-            <GbMap />
+            <div>HI!</div>
+            {/* <GbMap /> */}
           </ItemContainer>
           <ItemContainer>
             {/* <div>HI!</div> */}
