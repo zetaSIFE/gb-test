@@ -1,130 +1,192 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { ReactComponent as LeftArrow } from "assets/images/buttons/leftArrow.svg";
-import { ReactComponent as RightArrow } from "assets/images/buttons/rightArrow.svg";
+import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
+import { BtnReport } from "components/buttons";
+
+const sampleDatas = [
+  "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+  "데이터1",
+];
 
 // direction(4) : ↑ → ↓ ←
 const Container = styled.div`
-  width: 1100px;
-  height: 100% - 10px;
-  margin: 10px 10px 10px -20px;
-  /* padding-left: 20px; */
-  background: #ffffff;
-  border: 1px solid #7eb3ff;
-  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px 10px -20px;
+  border: 1px solid #c4ddff;
   border-radius: 0px 10px 10px 0px;
-  z-index: -1;
-  .flexCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.15);
+  box-sizing: border-box;
+`;
+
+// Arrow Button을 기준으로 작성되어 있음
+// Report Button은 Props로 크기 지정
+const BtnContainer = styled.div`
+  position: absolute;
+  right: 0px;
+  width: 30px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .close {
+    transform: rotate(180deg);
   }
 `;
 
-const Open = styled.div`
-  /* display: flex;
+const Content = styled.div`
+  width: 55vw;
+  transition: width 0.4s ease-out; // 애니메이션 속성 설정해주기
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; */
+  padding: 0px 20px 0px 40px;
+  color: #333333;
+  font-size: 14px;
+  .btnReport {
+    position: absolute;
+    right: 100px;
+  }
+  /* background-color: blue; */
+`;
+
+const AnalyContainer = styled.div`
+  width: 100%;
+  height: 80px;
+  background: grey;
 `;
 
 const Title = styled.div`
   height: 70px;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 104, 183, 0.5);
-  /* padding: 10px; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 29px;
-  color: #0068b7;
-  padding-left: 20px;
-`;
-
-// 클릭시 Open & close 영역
-const ArrowContainer = styled.button`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  width: 50px;
-  height: 70px;
-  background-color: white;
-  z-index: -2;
-`;
-
-const SearchContainer = styled.div`
-  height: 100px;
-  width: 100%;
-  padding-left: 20px;
-  background-color: #f5f5f5;
-  margin: 10px;
-
-  /* .searchText {
-    width: 100%;
-    text-align: left;
+  border-bottom: 1px solid #c4ddff;
+  margin: 0px -20px 0px -20px;
+  .title {
+    font-size: 20px;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 26px;
-    display: flex;
-    
-  } */
+    color: #0068b7;
+    padding-left: 20px;
+  }
 `;
-const SearchBar = styled.input`
-  /* background-color: purple; */
-  width: 360px;
-  height: 40px;
-  margin: 20px;
-  margin-right: 35px;
-  /* padding: 0px 12px; */
-  gap: 12px;
-  border: 1px solid #cccccc;
-`;
-const DataList = styled.div``;
+
+// const SearchArea = styled.div`
+//   height: 200px;
+// `;
+
+// const SubTitle1 = styled.div`
+//   margin-top: 50px;
+//   font-weight: 700;
+//   font-size: 18px;
+//   line-height: 26px;
+// `;
+
+// const SearchBar = styled.input`
+//   height: 40px;
+//   width: 100%;
+//   border: 1px solid #cccccc;
+//   margin-top: 15px;
+//   padding: 12px;
+// `;
+
+// const SubTitle2 = styled.div`
+//   height: 44px;
+//   width: 100%;
+//   margin-top: 20px;
+//   background: #f0f4fd;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-weight: 700;
+// `;
+
+// const Result = styled.div`
+//   max-height: calc(100vh - 300px);
+//   overflow-y: auto;
+//   /* background-color: skyblue; */
+// `;
+
+// const Item = styled.li`
+//   width: 99;
+//   height: 45px;
+//   /* background-color: grey; */
+//   border-bottom: 1px solid #cccccc;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 export default function SideBar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const sideRef = useRef(null);
+  const [onOff, setOnOff] = useState(true);
 
-  function foldSide() {
-    if(sideRef || !sideRef.current) {
+  const contentRef = useRef(null);
 
-      return ;
+  const handleOnOff = () => {
+    if (!contentRef || !contentRef.current) {
+      // useRef 변수가 비었을 때 그냥 리턴하도록 예외처리
+      return;
     }
+    const contentStyle = contentRef.current.style;
 
-    const style = sideRef.current.style;
-
-    if(isOpen) {
-      style.maxwidth = '0';
-    } else if(!isOpen) {
-      style.maxwidth = `${sideRef.current.scrollWidth}px`;
+    if (!onOff) {
+      contentStyle.width = "55vw";
+      setTimeout(() => (contentStyle.visibility = ""), 100);
+    } else if (onOff) {
+      contentStyle.width = "0px";
+      contentStyle.marginLeft = "-10px";
+      contentStyle.visibility = "hidden";
     }
-    setIsOpen(!isOpen);
-  }
+    setOnOff((onOff) => !onOff);
+  };
 
-  // const toggleMenu = () => {
-  //   setIsOpen( isOpen => !isOpen);
-  // }
   return (
     <Container>
-      <Open className="flexCenter">
+      <BtnContainer onClick={() => handleOnOff()}>
+        <ArrowSvg className={`${onOff ? "open" : "close"}`} />
+      </BtnContainer>
+
+      {/* Content 안에 포함된 요소들만 close시 hide가 적용된다. */}
+      <Content ref={contentRef}>
+        <BtnContainer style={{ width: "210px", marginRight: "30px" }}>
+          <BtnReport className="btnReport" />
+        </BtnContainer>
         <Title>
-          <div>산업투자효과 분석 서비스</div>
-          <ArrowContainer
-            className={`${isOpen ? "close" : "open"}`}
-            onClick={foldSide()}
-          >
-            <RightArrow />
-          </ArrowContainer>
+          <div className="title">산업투자효과 분석 서비스</div>
         </Title>
-        <SearchContainer className=" flexCenter">
-          <SearchBar />
-        </SearchContainer>
-        <DataList></DataList>
-      </Open>
+        <AnalyContainer></AnalyContainer>
+        {/* <SearchArea>
+          <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
+          <SearchBar type="text" placeholder="지표 데이터명 검색" />
+          <SubTitle2>데이터명 (여기에 뭐 적는겁니까?)</SubTitle2>
+        </SearchArea>
+        <Result className="result">
+          <ul>
+            {sampleDatas.map((data, index) => (
+              <Item key={index}>{data}</Item>
+            ))}
+          </ul>
+        </Result> */}
+      </Content>
     </Container>
   );
 }
+// style={{ marginTop: "10px" }}
