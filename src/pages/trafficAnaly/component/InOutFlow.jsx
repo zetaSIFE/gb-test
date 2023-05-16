@@ -65,6 +65,12 @@ export const InOutFlow = (prop) => {
     men:'40',
     women:'50'
   }
+  const barXData = {
+    title: '산하 행정구역별 유입량(차트 수정예정)',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
   return (
     <>
       {prop.division ?
@@ -96,7 +102,7 @@ export const InOutFlow = (prop) => {
               <Table />
             </ItemContainer>
             <ItemContainer className="item2">
-              <BarX />
+              <BarX barXData={barXData} />
             </ItemContainer>
           </Group1>
 
