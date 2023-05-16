@@ -74,7 +74,7 @@ const mapOption = {
       // ZOOM PART
       roam: true, // zooming or translating
       zoom: 1, // Initial Zoom Scale
-      scaleLimit: { min: 1, max: 3 },
+      scaleLimit: { min: 0.7, max: 3 },
 
       map: "GB",
       animationDurationUpdate: 1000,
