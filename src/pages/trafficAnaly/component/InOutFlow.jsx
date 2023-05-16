@@ -77,18 +77,6 @@ export const InOutFlow = (prop) => {
     men: "40",
     women: "50",
   };
-
-  const showDatePicker = (e) => {
-    setOpenDate(!openDate);
-  };
-
-  const showTimePicker = (e) => {
-    setOpenTime(!openTime);
-  };
-
-  const [openDate, setOpenDate] = useState(false);
-  const [openTime, setOpenTime] = useState(false);
-
   return (
     <>
       {prop.division ? (
@@ -134,7 +122,7 @@ export const InOutFlow = (prop) => {
               <Table />
             </ItemContainer>
             <ItemContainer className="item2">
-              <BarX />
+              <BarX barXData={barXData} />
             </ItemContainer>
           </Group1>
 

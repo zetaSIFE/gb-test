@@ -49,6 +49,12 @@ export default function PolicyEval() {
   // useEffect(() => {
   //   console.log(`${width}`);
   // }, [width]);
+  const barXData = {
+    title: '데이터차트(차트 수정예정)',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
 
   return (
     <Container>
@@ -66,7 +72,7 @@ export default function PolicyEval() {
           </ItemContainer>
           <ItemContainer>
             {/* <div>HI!</div> */}
-            <BarX />
+            <BarX barXData={barXData} />
           </ItemContainer>
         </Group>
       </Main>

@@ -54,6 +54,18 @@ const Group1 = styled.div`
 const ItemContainer = styled.div``;
 
 export const Card = () => {
+  const barXData = {
+    title: '업종별 결제금액',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
+  const barXData2 = {
+    title: '행정구역별 카드 사용량',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">chart1</ItemContainer>
@@ -64,11 +76,11 @@ export const Card = () => {
         </ItemContainer>
         <ItemContainer className="item2">
           {/* <p className="chartTit">업종별 결제금액</p> */}
-          <BarX />
+          <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2">
           {/* <p className="chartTit">행정구역별 카드사용량</p> */}
-          <BarX />
+          <BarX barXData ={barXData2} />
         </ItemContainer>
       </Group1>
       <ItemContainer className="item1">chart5</ItemContainer>

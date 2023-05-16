@@ -2,10 +2,21 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
-const BarX = () => {
+//************** */
+// const barXData = {
+//   title: '지역별 인구수',
+//   data: {
+//     value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+//   }
+// }
+//************** */
+
+const BarX = (prop) => {
+  // console.log(prop.barXData.data)
+  const data = prop.barXData.data.value
   const option = {
     title: {
-      text: "지역별 인구수",
+      text: prop.barXData.title,
     },
     tooltip: {},
     toolbox: {
@@ -46,7 +57,8 @@ const BarX = () => {
       {
         name: "지역별인구수",
         type: "bar",
-        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        // data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
             { offset: 0, color: "#8C93FF" },
