@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GbMap, Stacked } from "components/charts";
 import { DataDetail } from "./component/DataDetail";
@@ -30,6 +30,15 @@ const Container = styled.div`
 const ItemContainer = styled.div``;
 
 export default function GbStat() {
+  const [currentTab, setClickTab ] = useState(0);
+  const [tabCont, setTabCont] = useState();
+
+  // useEffect(() => {
+  //   switch(currentTab) {
+  //     case 0 :
+  //       setTabCont()
+  //   }
+  // })
   return (
     <>
       <Container className="container">
