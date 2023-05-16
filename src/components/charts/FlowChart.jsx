@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "ol/ol.css";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -20,6 +20,7 @@ import centerData from "assets/maps/시군별 중심좌표.json";
 import gbCenterData from "assets/maps/경북 시군구 중심좌표.json";
 import Select from "ol/interaction/Select";
 import { pointerMove, click } from "ol/events/condition";
+
 import { feature } from "topojson-client";
 
 // const korgeoData = feature(kor, kor.objects.korea_WSG84);
@@ -28,6 +29,9 @@ const geoData = feature(gb, gb.objects.gbmap);
 export const FlowChart = (prop) => {
   const [clickCity, setClickCity] = useState("포항시 남구");
   const [moveData, setMoveData] = useState([]);
+  const [series, setSeries] = useState([]);
+  const map = useRef();
+  const echartslayer = useRef();
 
   useEffect(() => {
     gbCenterData.features.map((el) =>
@@ -41,8 +45,6 @@ export const FlowChart = (prop) => {
       ])
     );
   }, []);
-
-  useEffect(() => {}, [clickCity]);
 
   var geoCoordMap = {};
   gbCenterData.features.map((el) => {
@@ -69,91 +71,96 @@ export const FlowChart = (prop) => {
     }
     return res;
   };
-  const series = [];
-  var testMoveData = [];
 
-  gbCenterData.features.map((el) =>
-    testMoveData.push([
-      { name: clickCity },
-      { name: el.properties.SIG_KOR_NM, value: 10 },
-    ])
-  );
+  useEffect(() => {
+    console.log("clickCity");
+    var testMoveData = [];
 
-  [["포항시 남구", testMoveData]].forEach(function (item, i) {
-    series.push(
-      {
-        name: item[0] + " Top10",
-        type: "lines",
-        zlevel: 1,
-        effect: {
-          show: true,
-          period: 6,
-          trailLength: 0.7,
-          color: "#fff",
-          symbolSize: 3,
-        },
-        lineStyle: {
-          normal: {
-            color: color[i],
-            width: 1,
-            curveness: 0.2,
-          },
-        },
-        data: convertData(item[1]),
-      },
-      {
-        name: item[0] + " Top10",
-        type: "lines",
-        zlevel: 2,
-        effect: {
-          show: true,
-          period: 6,
-          trailLength: 0,
-          symbol: planePath,
-          symbolSize: [30, 50],
-        },
-        lineStyle: {
-          normal: {
-            color: color[i],
-            width: 1,
-            opacity: 0.4,
-            curveness: 0.2,
-          },
-        },
-        data: convertData(item[1]),
-      },
-      {
-        name: item[0] + " Top10",
-        type: "effectScatter",
-        coordinateSystem: "geo",
-        zlevel: 2,
-        rippleEffect: {
-          brushType: "stroke",
-        },
-        label: {
-          normal: {
-            show: true,
-            position: "right",
-            formatter: "{b}",
-          },
-        },
-        symbolSize: function (val) {
-          return val[2] / 8;
-        },
-        itemStyle: {
-          normal: {
-            color: color[i],
-          },
-        },
-        data: item[1].map(function (dataItem) {
-          return {
-            name: dataItem[1].name,
-            value: geoCoordMap[dataItem[1].name],
-          };
-        }),
-      }
+    gbCenterData.features.map((el) =>
+      testMoveData.push([
+        { name: clickCity },
+        { name: el.properties.SIG_KOR_NM, value: 10 },
+      ])
     );
-  });
+
+    [[clickCity, testMoveData]].forEach(function (item, i) {
+      setSeries(() => [
+        {
+          name: item[0],
+          type: "lines",
+          zlevel: 1,
+          effect: {
+            show: true,
+            period: 6,
+            trailLength: 0.7,
+            color: "#fff",
+            symbolSize: 3,
+          },
+          lineStyle: {
+            normal: {
+              color: color[i],
+              width: 1,
+              curveness: 0.2,
+            },
+          },
+          data: convertData(item[1]),
+        },
+        {
+          name: item[0],
+          type: "lines",
+          zlevel: 2,
+          effect: {
+            show: true,
+            period: 6,
+            trailLength: 0,
+            symbol: planePath,
+            symbolSize: [30, 50],
+          },
+          lineStyle: {
+            normal: {
+              color: color[i],
+              width: 1,
+              opacity: 0.4,
+              curveness: 0.2,
+            },
+          },
+          data: convertData(item[1]),
+        },
+        {
+          name: item[0],
+          type: "effectScatter",
+          coordinateSystem: "geo",
+          zlevel: 2,
+          rippleEffect: {
+            brushType: "stroke",
+          },
+          label: {
+            normal: {
+              show: true,
+              position: "right",
+              formatter: "{b}",
+            },
+          },
+          symbolSize: function (val) {
+            return val[2] / 8;
+          },
+          itemStyle: {
+            normal: {
+              color: color[i],
+            },
+          },
+          data: item[1].map(function (dataItem) {
+            return {
+              name: dataItem[1].name,
+              value: geoCoordMap[dataItem[1].name],
+            };
+          }),
+        },
+      ]);
+    });
+    console.log(series);
+  }, [clickCity]);
+
   useEffect(() => {
     const geoCoordMap_test = data1.features.map(function (obj) {
       const rObj = obj.properties;
@@ -207,7 +214,7 @@ export const FlowChart = (prop) => {
 
     //클릭 이벤트
     test.getFeatures().on("add", function (e) {
-      setClickCity(e.element.values_.SIG_CD);
+      setClickCity(e.element.values_.SIG_KOR_NM);
     });
 
     const vectorLayer = new VectorLayer({
@@ -223,13 +230,10 @@ export const FlowChart = (prop) => {
         return style;
       },
     });
-    var map = new Map({
+    map.current = new Map({
       layers: [baseLayer, vectorLayer],
       loadTilesWhileAnimating: true,
       target: "OdMap",
-      attribution: false,
-      // controls: control.defaults({ attribution: false }),
-
       view: new View({
         // projection: 'EPSG:4326',
         // center: [128.505599, 36.576032],
@@ -242,15 +246,15 @@ export const FlowChart = (prop) => {
     });
 
     //클릭 이벤트
-    map.addInteraction(test);
+    map.current.addInteraction(test);
 
     let selected = null;
-    map.on("pointermove", function (e) {
+    map.current.on("pointermove", function (e) {
       if (selected !== null) {
         selected.setStyle(undefined);
         selected = null;
       }
-      map.forEachFeatureAtPixel(e.pixel, function (f) {
+      map.current.forEachFeatureAtPixel(e.pixel, function (f) {
         // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
         // selected = f;
         // selectStyle
@@ -260,14 +264,29 @@ export const FlowChart = (prop) => {
         return true;
       });
     });
-    var echartslayer = new EChartsLayer({
+
+    // echartslayer.current = new EChartsLayer({
+    //   tooltip: {
+    //     trigger: "item",
+    //   },
+    //   series: series,
+    // });
+    // echartslayer.current.appendTo(map.current);
+  }, []);
+
+  useEffect(() => {
+    if (echartslayer.current) {
+      echartslayer.current.remove();
+    }
+
+    echartslayer.current = new EChartsLayer({
       tooltip: {
         trigger: "item",
       },
       series: series,
     });
-    echartslayer.appendTo(map);
-  }, []);
+    echartslayer.current.appendTo(map.current);
+  }, [series]);
 
   return (
     <div id="OdMap" style={{ width: prop.width, height: prop.height }}></div>
