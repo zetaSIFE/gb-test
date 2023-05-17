@@ -9,6 +9,9 @@ const Container = styled.div`
 `;
 
 const MapContainer = styled.div`
+  margin-top: 10px;
+  padding: 10px;
+  height: 90%;
   width: 90%;
 `;
 
