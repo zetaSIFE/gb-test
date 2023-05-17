@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 import axios from 'axios';
+import { ReactComponent as Download} from '../../assets/images/buttons/download.svg';
 
 //************** */
 // const barXData = {
@@ -13,9 +14,9 @@ import axios from 'axios';
 //************** */
 
 const BarX = (props) => {
-  const downloadIcon = [
-    // "path://M1.75 14C1.26875 14 0.856626 13.8285 0.513626 13.4855C0.170626 13.1425 -0.000581848 12.7307 1.48557e-06 12.25V9.625H1.75V12.25H12.25V9.625H14V12.25C14 12.7312 13.8285 13.1434 13.4855 13.4864C13.1425 13.8294 12.7307 14.0006 12.25 14H1.75ZM7 10.5L2.625 6.125L3.85 4.85625L6.125 7.13125V0H7.875V7.13125L10.15 4.85625L11.375 6.125L7 10.5Z"
-  ];
+  // const downloadIcon = [
+  //   // "path://M1.75 14C1.26875 14 0.856626 13.8285 0.513626 13.4855C0.170626 13.1425 -0.000581848 12.7307 1.48557e-06 12.25V9.625H1.75V12.25H12.25V9.625H14V12.25C14 12.7312 13.8285 13.1434 13.4855 13.4864C13.1425 13.8294 12.7307 14.0006 12.25 14H1.75ZM7 10.5L2.625 6.125L3.85 4.85625L6.125 7.13125V0H7.875V7.13125L10.15 4.85625L11.375 6.125L7 10.5Z"
+  // ];
   // console.log(prop.barXData.data)
   const [testData, setTestData] = useState({
     title: '',
@@ -41,13 +42,16 @@ const BarX = (props) => {
     tooltip: {},
     toolbox: {
       feature: {
+     
         // dataView: { readOnly: false },
         saveAsImage: {
           title: "이미지 다운로드",
-          // icon: downloadIcon[0],
+          // assets\images\buttons\material-symbols_download.png
+          // icon: '../../assets/images/buttons/download.svg',
           // iconStyle: {
-          //   borderWidth: 1,
-          //   // color: "#E5E5E5",
+          //   width: 31,
+          //   height: 31,
+          //    color: "#a01a1a",
           // },
         },
       },
