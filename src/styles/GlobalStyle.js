@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         url(${NotoSansKRMedium}) format('woff2'),
     }
     body {
-        padding:1px;
+        padding:0;
         margin:0;
         font-family: 'Noto Sans CJK KR';
     }
