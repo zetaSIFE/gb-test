@@ -77,7 +77,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%" }}
+      style={{ height: "90%", zIndex: '-90' }}
       // opts={{ renderer: "svg" }}
     />
   );
