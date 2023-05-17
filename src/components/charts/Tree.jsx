@@ -3,6 +3,11 @@ import ReactECharts from "echarts-for-react";
 
 const Tree = () => {
   const option = {
+    title: {
+      text: "ECharts Options",
+      // subtext: "2016/04",
+      // left: "leafDepth",
+    },
     series: [
       {
         type: "treemap",
@@ -99,7 +104,8 @@ const Tree = () => {
     <>
       <ReactECharts
         option={option}
-        style={{ borderBottom: "3px solid #000" }}
+        // style={{ borderBottom: "3px solid #000" }}
+        style={{ width: "100%" }}
       ></ReactECharts>
     </>
   );

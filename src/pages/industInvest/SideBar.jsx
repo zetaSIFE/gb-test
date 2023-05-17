@@ -2,30 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
 import { BtnReport } from "components/buttons";
-
-const sampleDatas = [
-  "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-  "데이터1",
-];
+import { Tree } from "components/charts/Tree";
 
 // direction(4) : ↑ → ↓ ←
 const Container = styled.div`
@@ -39,8 +16,9 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
+// NOTE
 // Arrow Button을 기준으로 작성되어 있음
-// Report Button은 Props로 크기 지정
+// Report Button은 Props로 크기를 지정했음
 const BtnContainer = styled.div`
   position: absolute;
   right: 0px;
@@ -55,8 +33,8 @@ const BtnContainer = styled.div`
 `;
 
 const Content = styled.div`
-  width: 55vw;
-  transition: width 0.4s ease-out; // 애니메이션 속성 설정해주기
+  width: 60vw; // NOTE handleOnOff 함수의 contentStyle.width 속성값과 동일 해야한다.
+  transition: width 0.3s ease-out; // 애니메이션 속성 스피드 설정
   display: flex;
   flex-direction: column;
   padding: 0px 20px 0px 40px;
@@ -67,12 +45,6 @@ const Content = styled.div`
     right: 100px;
   }
   /* background-color: blue; */
-`;
-
-const AnalyContainer = styled.div`
-  width: 100%;
-  height: 80px;
-  background: grey;
 `;
 
 const Title = styled.div`
@@ -87,6 +59,33 @@ const Title = styled.div`
     color: #0068b7;
     padding-left: 20px;
   }
+`;
+
+const AnalyContainer = styled.div`
+  width: 100%;
+  height: 80px;
+  background: #f5f5f5;
+  margin: 20px 0px 20px 0px;
+`;
+
+const Result = styled.div`
+  /* display: flex;
+  gap: 10px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
+
+const ChartContainer = styled.div`
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  /* height: 315px; */
 `;
 
 // const SearchArea = styled.div`
@@ -148,7 +147,7 @@ export default function SideBar() {
     const contentStyle = contentRef.current.style;
 
     if (!onOff) {
-      contentStyle.width = "55vw";
+      contentStyle.width = "60vw";
       setTimeout(() => (contentStyle.visibility = ""), 100);
     } else if (onOff) {
       contentStyle.width = "0px";
@@ -166,27 +165,31 @@ export default function SideBar() {
 
       {/* Content 안에 포함된 요소들만 close시 hide가 적용된다. */}
       <Content ref={contentRef}>
-        <BtnContainer style={{ width: "210px", marginRight: "30px" }}>
+        <BtnContainer style={{ width: "210px", marginRight: "40px" }}>
           <BtnReport className="btnReport" />
         </BtnContainer>
         <Title>
           <div className="title">산업투자효과 분석 서비스</div>
         </Title>
         <AnalyContainer></AnalyContainer>
-        {/* <SearchArea>
-          <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
-          <SearchBar type="text" placeholder="지표 데이터명 검색" />
-          <SubTitle2>데이터명 (여기에 뭐 적는겁니까?)</SubTitle2>
-        </SearchArea>
-        <Result className="result">
-          <ul>
-            {sampleDatas.map((data, index) => (
-              <Item key={index}>{data}</Item>
-            ))}
-          </ul>
-        </Result> */}
+        <Result>
+          <ChartContainer>
+            <Tree className="chart1" />
+          </ChartContainer>
+          <ChartContainer>
+            <Tree className="chart2" />
+          </ChartContainer>
+          <ChartContainer>
+            <Tree className="chart3" />
+          </ChartContainer>
+          <ChartContainer>
+            <Tree className="chart4" />
+          </ChartContainer>
+          <ChartContainer>
+            <Tree className="chart5" />
+          </ChartContainer>
+        </Result>
       </Content>
     </Container>
   );
 }
-// style={{ marginTop: "10px" }}

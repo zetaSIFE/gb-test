@@ -159,7 +159,7 @@ export default function SideBar() {
         <SearchArea>
           <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
           <SearchBar type="text" placeholder="지표 데이터명 검색" />
-          <SubTitle2>데이터명 (여기에 뭐 적는겁니까?)</SubTitle2>
+          <SubTitle2>데이터명 (데이터 트리 레벨1)</SubTitle2>
         </SearchArea>
         <Result className="result">
           <ul>

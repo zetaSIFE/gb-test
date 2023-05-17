@@ -6,20 +6,18 @@ import { CountySelectTable } from './CountySelectTable'
 import { PeriodTable } from './PeriodTable'
 
 const Container = styled.div`
+  display : flex;
+  flex-direction : column;
   height: 100%;
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center; */
   position: relative;
 `;
+
 const TabMenu = styled.ul`
   color: #777;
   font-weight: bold;
   display: flex;
   flex-direction: row;
-  /* justify-content: flex-end; */
   align-items: flex-end;
-  margin-top: 20px;
 
   .submenu {
     cursor: pointer;
@@ -45,21 +43,26 @@ const TabMenu = styled.ul`
     border-bottom: none;
   }
 `;
-
+const Wrap = styled.div`
+  height: 100%;
+  background: #F9F9F9;
+`;
 const SearchBtn = styled.div`
-  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
   height: 40px;
-  position:absolute;
-  bottom:0;
   background: #11233f;
   color: #ffffff;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 22px;
-  font-size: 16px;
-  font-weight: 500;
 
+  font-weight: 500;
 `;
 
 export const DataDetail = (props) => {
@@ -90,7 +93,8 @@ export const DataDetail = (props) => {
   return (
     <Container>
       <p className="chartTit">데이터 상세 설정</p>
-      <div className="tab">
+      {/* <div className="tab"> */}
+      <Wrap>
         <TabMenu>
           {menuArr.map((el, index) => (
             <li
@@ -102,11 +106,9 @@ export const DataDetail = (props) => {
             </li>
           ))}
         </TabMenu>
-        <div>
-          {tabCont}
-        </div>
-      </div>
-      <SearchBtn>조회</SearchBtn>
+        {tabCont}
+        <SearchBtn>조회</SearchBtn>
+      </Wrap>
     </Container>
   );
 };

@@ -2,12 +2,35 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100%;
+  padding: 0 20px;
+  background-color: #F9F9F9;
+`;
+
+const StyledTop = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50px;
+`;
+const SelecBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 16px;
+  gap: 35px;
+`;
+const StyledSelc = styled.select`
+  width: 202px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
 `;
 const ItemUl = styled.ul`
-    border-top: 2px solid rgb(0, 0, 0);
-    overflow: auto;
-    height: 280px;
+  border-top: 1px solid #11233F;
+  overflow: auto;
+  max-height: 255px;
 `;
 
 const ItemLi = styled.li`
@@ -34,21 +57,28 @@ const selectSi = [
 export const PeriodTable = () => {
   return (
     <Container>
-        <div className="flexAlign"
-        style={{
-          height:"50px",
-        }}
-      >
-        <input type="date"/>
-        <input type="date"/>
-      </div>
-      <div className="flexAlign"
-        style={{
-          height:"50px",
-        }}
-      >
+      <SelecBox >
+        <StyledSelc>
+          {selectSi.map((el, idx) => (
+            <option
+              key={idx}
+              val={el.val}
+            >{el.name}</option>
+          ))}
+        </StyledSelc>
+        <span>~</span>
+        <StyledSelc>
+          {selectSi.map((el, idx) => (
+            <option
+              key={idx}
+              val={el.val}
+            >{el.name}</option>
+          ))}
+        </StyledSelc>
+      </SelecBox>
+      <StyledTop className="fontBold">
         <input type="checkbox"/>전체선택
-      </div>
+      </StyledTop>
       <ItemUl className="chk">
         {selectSi.map((el, idx) => (
           <ItemLi

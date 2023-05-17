@@ -1,6 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
+// ****************
+  // const pointerArr = [
+  //   {val: "1", name:'안동시 일직면'},
+  //   {val: "2", name:'안동시 북후면'},
+  //   {val: "3", name:'안동시 와룡면'},
+  //   {val: "4", name:'안동시 길안면'},
+  //   {val: "5", name:'안동시 임하면'},
+  //   {val: "6", name:'안동시 풍천면'},
+  // ];
+// ****************
+
 const Wrap = styled.div`
   display: flex;
   align-items: center;
@@ -75,16 +86,18 @@ const PointerDiv = styled.div`
     border-bottom: 40px solid transparent;
   }
 `;
-export const Pointer = () => {
+export const Pointer = (prop) => {
   
+  const pointerArr = prop.pointerData;
   return (
     <Wrap>
-      <PointerDiv>안동시 풍천면</PointerDiv>
-      <PointerDiv>안동시 풍천면</PointerDiv>
-      <PointerDiv>안동시 풍천면</PointerDiv>
-      <PointerDiv>안동시 풍천면</PointerDiv>
-      <PointerDiv>안동시 풍천면</PointerDiv>
-      <PointerDiv>안동시 풍천면</PointerDiv>
+      {pointerArr.map((el, index) => (
+        <PointerDiv
+          key={index}
+        >
+          {el.name}
+        </PointerDiv>
+      ))}
     </Wrap>
   );
 };
