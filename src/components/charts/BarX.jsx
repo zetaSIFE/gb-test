@@ -17,6 +17,7 @@ const BarX = (props) => {
   const [testData, setTestData] = useState({
     title: '',
     data: {
+      xAxis: [],
       value: []
     }
   });
@@ -31,6 +32,7 @@ const BarX = (props) => {
   }, [])
 
   const data = testData.data.value;
+  const xAxis = testData.data.xAxis;
   const option = {
     title: {
       text: testData.title,
@@ -54,17 +56,18 @@ const BarX = (props) => {
     //   data: ["지역별인구수"],
     // },
     xAxis: {
-      data: [
-        "안동",
-        "문경",
-        "예천",
-        "김천",
-        "성주",
-        "경주",
-        "영덕",
-        "포항",
-        "울진",
-      ],
+      // data: [
+      //   "안동",
+      //   "문경",
+      //   "예천",
+      //   "김천",
+      //   "성주",
+      //   "경주",
+      //   "영덕",
+      //   "포항",
+      //   "울진",
+      // ],
+      data: xAxis
     },
     yAxis: {
       
