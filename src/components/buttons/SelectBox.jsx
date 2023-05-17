@@ -49,7 +49,9 @@ export const SelectBox = (props) => {
       {props.props.length > 1 ? (
         <Container label="test">
           {props.props.map((name, index) => (
-            <option>{name}</option>
+            <option
+              key={index}
+            >{name}</option>
           ))}
         </Container>
       ) : (
