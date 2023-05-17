@@ -22,7 +22,6 @@ const korgeoData = feature(kor, kor.objects.korea_WSG84);
 const geoData = feature(gb, gb.objects.gbmap);
 
 const Flow = () => {
-  console.log('click')
 
   var geoCoordMap = {
     '上海': [121.4648, 31.2891],
