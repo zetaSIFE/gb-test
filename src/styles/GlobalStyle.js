@@ -19,19 +19,24 @@ export const GlobalStyle = createGlobalStyle`
     ${normalize};
     * {
         box-sizing: border-box;
-        font-family: "Noto Sans CJK KR";
+        /* font-family: "Noto Sans CJK KR"; */
         font-weight: 400;
         letter-spacing: -0.5px;
         font-size: 12px;
 
     }
-    /* @font-face {
-        font-family: 'NotoSansKRMedium';
-        src: url(${NotoSansKRMedium});
-    } */
+    @font-face {
+        font-family: 'Noto Sans CJK KR';
+        font-style: normal;
+        font-weight: 500;
+        src: url(${NotoSansKRMedium}) format('truetype')
+        url(${NotoSansKRMedium}) format('woff'),
+        url(${NotoSansKRMedium}) format('woff2'),
+    }
     body {
-        padding:0;
+        padding:1px;
         margin:0;
+        font-family: 'Noto Sans CJK KR';
     }
 
     h1 {

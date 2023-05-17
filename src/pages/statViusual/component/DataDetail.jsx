@@ -49,7 +49,7 @@ const Wrap = styled.div`
 `;
 const SearchBtn = styled.div`
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
