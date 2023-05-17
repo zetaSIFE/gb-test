@@ -78,6 +78,8 @@ const ResultConatiner = styled.div`
 `;
 
 const Result = styled.div`
+  /* width: 50vw; */
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
@@ -89,6 +91,7 @@ const Result = styled.div`
 `;
 
 const ChartContainer = styled.div`
+  width: 27.5vw;
   border: 1px solid #cccccc;
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -98,7 +101,7 @@ const ChartContainer = styled.div`
 
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
-
+  const [slideSize, setSlideSize] = useState(null);
   const contentRef = useRef(null);
   const resultRef = useRef(null);
 
@@ -114,7 +117,7 @@ export default function SideBar() {
 
     if (!onOff) {
       contentStyle.width = "60vw";
-
+      contentStyle.marginLeft = "";
       setTimeout(() => (contentStyle.visibility = ""), 100);
     } else if (onOff) {
       // console.log(contentRef.current.offsetWidth);
@@ -125,14 +128,19 @@ export default function SideBar() {
     setOnOff((onOff) => !onOff);
   };
 
+  const handleSlideSize = () => {
+    setSlideSize(contentRef.current.offsetWidth);
+  };
+
   useEffect(() => {
-    const slideSize = contentRef.current.offsetWidth;
-    const resultStyle = resultRef.current.style;
-    console.log(contentRef.current.offsetWidth);
-    resultStyle.width = slideSize;
-  }, []);
+    console.log(slideSize);
+    // const slideSize = contentRef.current.offsetWidth;
+    // const resultStyle = resultRef.current.style;
+    // console.log(contentRef.current.offsetWidth);
+    // resultStyle.width = slideSize;
+  }, [slideSize]);
   return (
-    <Container>
+    <Container onchange={() => handleSlideSize()}>
       <BtnContainer onClick={() => handleOnOff()}>
         <ArrowSvg className={`${onOff ? "open" : "close"}`} />
       </BtnContainer>
