@@ -9,6 +9,7 @@ import {
 } from "components/charts";
 import React from "react";
 import styled from "styled-components";
+import axios from 'axios';
 
 const Container = styled.div`
   height: calc(100vh - 80px);
@@ -64,12 +65,18 @@ const Group2 = styled.div`
 `;
 
 export default function PopulationStat() {
-  const barXData = {
-    title: '지역별 인구수',
-    data: {
-      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-    }
-  }
+  const barXData = null;
+  // const barXData = {
+  //   title: '지역별 인구수',
+  //   data: {
+  //     value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+  //   }
+  // }
+  axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
+    .then(res => {
+      barXData = res;
+    })
+    .catch(err => console.log(err))
   const barXData2 = {
     title: '지역별 청년비율',
     data: {
