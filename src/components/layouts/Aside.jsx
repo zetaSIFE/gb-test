@@ -47,8 +47,8 @@ const Menu = styled.ul`
     justify-content: center;
 
     // font
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    /* font-weight: 600; */
     line-height: 1.4;
     text-align: center;
 
