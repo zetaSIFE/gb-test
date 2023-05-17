@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
+import axios from 'axios';
 
 //************** */
 // const barXData = {
@@ -13,10 +14,26 @@ import { graphic } from "echarts";
 
 const BarX = (props) => {
   // console.log(prop.barXData.data)
-  const data = props.barXData.data.value
+  const [testData, setTestData] = useState({
+    title: '',
+    data: {
+      value: []
+    }
+  });
+
+  useEffect(() => {
+    axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
+      .then(res => {
+        setTestData(res.data);
+      })
+      .catch(err => console.log(err))
+
+  }, [])
+
+  const data = testData.data.value;
   const option = {
     title: {
-      text: props.barXData.title,
+      text: testData.title,
     },
     tooltip: {},
     toolbox: {
