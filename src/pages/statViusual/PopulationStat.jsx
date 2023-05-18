@@ -12,7 +12,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 const Container = styled.div`
-  height: calc(100vh - 80px);
+  height: 100%;
   width: 100%;
   padding: 10px;
   padding-top: 0;
@@ -65,7 +65,6 @@ const Group2 = styled.div`
 `;
 
 export default function PopulationStat() {
-
   // const barXData = null;
   const barXData = {
     title: "지역별 인구수",
