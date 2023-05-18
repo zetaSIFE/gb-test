@@ -19,7 +19,7 @@ const HalfPie = () => {
       // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
       itemWidth: 10,
-      // left: "0%",
+      left: "0%",
       top: "20%",
       width: "10%"
     },
