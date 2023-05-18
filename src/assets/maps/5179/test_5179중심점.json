@@ -1,0 +1,31 @@
+{
+"type": "FeatureCollection",
+"name": "test 5179 중심점",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::5179" } },
+"features": [
+{ "type": "Feature", "properties": { "SIG_CD": "47111", "SIG_ENG_NM": "Nam-gu, Pohang-si", "SIG_KOR_NM": "포항시 남구" }, "geometry": { "type": "Point", "coordinates": [ 1174734.895963433664292, 1775254.101678177714348 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47113", "SIG_ENG_NM": "Buk-gu, Pohang-si", "SIG_KOR_NM": "포항시 북구" }, "geometry": { "type": "Point", "coordinates": [ 1155967.061129725771025, 1797833.709712271811441 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47130", "SIG_ENG_NM": "Gyeongju-si", "SIG_KOR_NM": "경주시" }, "geometry": { "type": "Point", "coordinates": [ 1156804.52990517904982, 1760296.521260335110128 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47150", "SIG_ENG_NM": "Gimcheon-si", "SIG_KOR_NM": "김천시" }, "geometry": { "type": "Point", "coordinates": [ 1052027.932695443509147, 1784989.756974945310503 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47170", "SIG_ENG_NM": "Andong-si", "SIG_KOR_NM": "안동시" }, "geometry": { "type": "Point", "coordinates": [ 1114518.952132627833635, 1843256.330484077800065 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47190", "SIG_ENG_NM": "Gumi-si", "SIG_KOR_NM": "구미시" }, "geometry": { "type": "Point", "coordinates": [ 1076907.732580069685355, 1801466.7027084142901 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47210", "SIG_ENG_NM": "Yeongju-si", "SIG_KOR_NM": "영주시" }, "geometry": { "type": "Point", "coordinates": [ 1097834.588715382153168, 1875251.269516786327586 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47230", "SIG_ENG_NM": "Yeongcheon-si", "SIG_KOR_NM": "영천시" }, "geometry": { "type": "Point", "coordinates": [ 1129998.64340961468406, 1780845.94043766357936 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47250", "SIG_ENG_NM": "Sangju-si", "SIG_KOR_NM": "상주시" }, "geometry": { "type": "Point", "coordinates": [ 1050824.703144306084141, 1825922.575591819128022 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47280", "SIG_ENG_NM": "Mungyeong-si", "SIG_KOR_NM": "문경시" }, "geometry": { "type": "Point", "coordinates": [ 1057943.805589601863176, 1854952.709332119906321 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47290", "SIG_ENG_NM": "Gyeongsan-si", "SIG_KOR_NM": "경산시" }, "geometry": { "type": "Point", "coordinates": [ 1118231.965238187927753, 1760519.324127832660452 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47720", "SIG_ENG_NM": "Gunwi-gun", "SIG_KOR_NM": "군위군" }, "geometry": { "type": "Point", "coordinates": [ 1103266.160097809042782, 1797612.354873856995255 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47730", "SIG_ENG_NM": "Uiseong-gun", "SIG_KOR_NM": "의성군" }, "geometry": { "type": "Point", "coordinates": [ 1100038.89550736383535, 1818867.869587781140581 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47750", "SIG_ENG_NM": "Cheongsong-gun", "SIG_KOR_NM": "청송군" }, "geometry": { "type": "Point", "coordinates": [ 1139733.269009306328371, 1818854.48185629886575 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47760", "SIG_ENG_NM": "Yeongyang-gun", "SIG_KOR_NM": "영양군" }, "geometry": { "type": "Point", "coordinates": [ 1146954.061828456353396, 1856638.490096376277506 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47770", "SIG_ENG_NM": "Yeongdeok-gun", "SIG_KOR_NM": "영덕군" }, "geometry": { "type": "Point", "coordinates": [ 1162800.529827307909727, 1833174.902816499816254 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47820", "SIG_ENG_NM": "Cheongdo-gun", "SIG_KOR_NM": "청도군" }, "geometry": { "type": "Point", "coordinates": [ 1116431.605663533788174, 1742624.91672370582819 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47830", "SIG_ENG_NM": "Goryeong-gun", "SIG_KOR_NM": "고령군" }, "geometry": { "type": "Point", "coordinates": [ 1072924.722693915944546, 1749263.023471470689401 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47840", "SIG_ENG_NM": "Seongju-gun", "SIG_KOR_NM": "성주군" }, "geometry": { "type": "Point", "coordinates": [ 1066176.878202670020983, 1768091.635482290061191 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47850", "SIG_ENG_NM": "Chilgok-gun", "SIG_KOR_NM": "칠곡군" }, "geometry": { "type": "Point", "coordinates": [ 1086739.669658813625574, 1780282.324453362962231 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47900", "SIG_ENG_NM": "Yecheon-gun", "SIG_KOR_NM": "예천군" }, "geometry": { "type": "Point", "coordinates": [ 1082441.668321095174178, 1851054.576870413729921 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47920", "SIG_ENG_NM": "Bonghwa-gun", "SIG_KOR_NM": "봉화군" }, "geometry": { "type": "Point", "coordinates": [ 1125826.241186736850068, 1882683.697877361439168 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47930", "SIG_ENG_NM": "Uljin-gun", "SIG_KOR_NM": "울진군" }, "geometry": { "type": "Point", "coordinates": [ 1161466.025358145590872, 1879930.177466000430286 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47940", "SIG_ENG_NM": "Ulleung-gun", "SIG_KOR_NM": "울릉군" }, "geometry": { "type": "Point", "coordinates": [ 1297397.619943973841146, 1950063.672795608174056 ] } }
+]
+}

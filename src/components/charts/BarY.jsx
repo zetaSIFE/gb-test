@@ -26,15 +26,18 @@ const BarY = (props) => {
       },
     },
     grid: {
-      // top: "20%",
+      top: "18%",
       left: "0%",
       right: "0%",
       bottom: "0%",
+      width: "95%",
+      height: "70%",
       containLabel: true,
     },
     // 범례
     // legend: {
-    //   data: ["출생데이터"],
+    //   // data: ["출생데이터"],
+    //   bottom: 0,
     // },
     xAxis: {},
     yAxis: {
@@ -52,12 +55,14 @@ const BarY = (props) => {
     },
     visualMap: {
       orient: "horizontal",
-      top: "10%",
+      // top: "10%",
+      bottom: 0,
       left: "right",
       min: 0,
       max: 100,
       text: ["출산율 높음", "출산율 낮음"],
-
+      itemWidth: 8,
+      itemHeight: 80,
       dimension: 0,
       inRange: {
         color: ["#B372D3", "#8777FB", "#FC6AA2", "#FCA76A"],
@@ -77,7 +82,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", zIndex: '-90' }}
+      style={{ height: "95%", zIndex: '-90' }}
       // opts={{ renderer: "svg" }}
     />
   );
