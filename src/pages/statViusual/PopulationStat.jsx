@@ -66,18 +66,18 @@ const Group2 = styled.div`
 
 export default function PopulationStat() {
   // const barXData = null;
-  // const barXData = {
-  //   title: '지역별 인구수',
-  //   data: {
-  //     value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-  //   }
-  // }
+  const barXData = {
+    title: "지역별 인구수",
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+    },
+  };
   // axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
   //   .then(res => {
   //     barXData = res;
   //   })
   //   .catch(err => console.log(err))
-  const barXData = {
+  const barXData2 = {
     title: "지역별 청년비율",
     data: {
       value: [120, 300, 270, 150, 200, 98, 180, 220, 170],

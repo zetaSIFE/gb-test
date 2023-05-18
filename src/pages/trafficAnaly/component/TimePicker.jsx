@@ -16,7 +16,6 @@ export const TimePicker = () => {
       showTimeSelect
       showTimeSelectOnly
       inline
-      customInput="eee"
     />
   );
 };
