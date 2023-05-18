@@ -16,7 +16,7 @@ const Line = styled.div`
   background-color: #11233f;
   background-clip: content-box;
   position: absolute;
-  top: 74px;
+  top: 73px;
 `;
 const Container = styled.div`
   height:calc(100vh - 80px);

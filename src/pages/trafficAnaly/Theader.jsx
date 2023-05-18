@@ -42,7 +42,7 @@ const DiviBtn = styled.button`
   background: #E5E5E5;
   border-radius: 24px;
   border: 0;
-  margin-right:20px;
+  margin-right:0.6rem;
 `;
 
 const TabMenu = styled.ul`
@@ -108,7 +108,7 @@ export const Theader = (props) => {
       <StyledHeader>
         <HeaderBox>
          <SearchAreaInput />
-           <HeaderBtn className="chk">
+           <HeaderBtn>
             {currentTab === 0 ?
               <DiviBtn onClick={toggleDivision}>
                 {diviBtn}
