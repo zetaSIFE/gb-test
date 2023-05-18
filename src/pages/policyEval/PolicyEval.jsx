@@ -10,13 +10,13 @@ const Container = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
+  margin-right: 0px;
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  /* width: calc(100vw - 500px); */
-  margin-right: 0px;
+  /* margin-right: 0px; */
 `;
 
 const Group = styled.div`
@@ -54,7 +54,7 @@ export default function PolicyEval() {
         style={
           isOpen
             ? { width: `calc(100vw - 500px)` }
-            : { width: `calc(100vw - 150px)` }
+            : { width: `calc(100vw - 140px)` }
         }
       >
         <Header />

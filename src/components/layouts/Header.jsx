@@ -37,8 +37,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10px;
-  // 전체 Flex & center 설정
+  padding: 10px;
+  /* margin: 10px; */
+  /* margin-left: 10px;
+  margin-right: 10px; */ // 전체 Flex & center 설정
   .headerBox,
   .searchBox,
   .selectBox {
