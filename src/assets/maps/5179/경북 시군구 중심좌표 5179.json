@@ -1,0 +1,31 @@
+{
+"type": "FeatureCollection",
+"name": "경북 시군구 중심좌표 5179",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::5179" } },
+"features": [
+{ "type": "Feature", "properties": { "SIG_CD": "47111", "SIG_ENG_NM": "Nam-gu, Pohang-si", "SIG_KOR_NM": "포항시 남구" }, "geometry": { "type": "Point", "coordinates": [ 129.437614700000012, 35.9584079 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47113", "SIG_ENG_NM": "Buk-gu, Pohang-si", "SIG_KOR_NM": "포항시 북구" }, "geometry": { "type": "Point", "coordinates": [ 129.234023900000011, 36.1650693 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47130", "SIG_ENG_NM": "Gyeongju-si", "SIG_KOR_NM": "경주시" }, "geometry": { "type": "Point", "coordinates": [ 129.235873, 35.826691 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47150", "SIG_ENG_NM": "Gimcheon-si", "SIG_KOR_NM": "김천시" }, "geometry": { "type": "Point", "coordinates": [ 128.0778448, 36.0605157 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47170", "SIG_ENG_NM": "Andong-si", "SIG_KOR_NM": "안동시" }, "geometry": { "type": "Point", "coordinates": [ 128.7800407, 36.5803095 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47190", "SIG_ENG_NM": "Gumi-si", "SIG_KOR_NM": "구미시" }, "geometry": { "type": "Point", "coordinates": [ 128.355464399999988, 36.2073411 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47210", "SIG_ENG_NM": "Yeongju-si", "SIG_KOR_NM": "영주시" }, "geometry": { "type": "Point", "coordinates": [ 128.597653900000012, 36.870559 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47230", "SIG_ENG_NM": "Yeongcheon-si", "SIG_KOR_NM": "영천시" }, "geometry": { "type": "Point", "coordinates": [ 128.9426073, 36.0158162 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47250", "SIG_ENG_NM": "Sangju-si", "SIG_KOR_NM": "상주시" }, "geometry": { "type": "Point", "coordinates": [ 128.066990299999986, 36.4295502 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47280", "SIG_ENG_NM": "Mungyeong-si", "SIG_KOR_NM": "문경시" }, "geometry": { "type": "Point", "coordinates": [ 128.1486973, 36.6908099 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47290", "SIG_ENG_NM": "Gyeongsan-si", "SIG_KOR_NM": "경산시" }, "geometry": { "type": "Point", "coordinates": [ 128.809053, 35.8341031 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47720", "SIG_ENG_NM": "Gunwi-gun", "SIG_KOR_NM": "군위군" }, "geometry": { "type": "Point", "coordinates": [ 128.6481186, 36.1701173 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47730", "SIG_ENG_NM": "Uiseong-gun", "SIG_KOR_NM": "의성군" }, "geometry": { "type": "Point", "coordinates": [ 128.61490520000001, 36.3620109 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47750", "SIG_ENG_NM": "Cheongsong-gun", "SIG_KOR_NM": "청송군" }, "geometry": { "type": "Point", "coordinates": [ 129.0574327, 36.3570712 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47760", "SIG_ENG_NM": "Yeongyang-gun", "SIG_KOR_NM": "영양군" }, "geometry": { "type": "Point", "coordinates": [ 129.145057, 36.6964749 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47770", "SIG_ENG_NM": "Yeongdeok-gun", "SIG_KOR_NM": "영덕군" }, "geometry": { "type": "Point", "coordinates": [ 129.3173817, 36.4824978 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47820", "SIG_ENG_NM": "Cheongdo-gun", "SIG_KOR_NM": "청도군" }, "geometry": { "type": "Point", "coordinates": [ 128.7865755, 35.6729233 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47830", "SIG_ENG_NM": "Goryeong-gun", "SIG_KOR_NM": "고령군" }, "geometry": { "type": "Point", "coordinates": [ 128.3064719, 35.7370119 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47840", "SIG_ENG_NM": "Seongju-gun", "SIG_KOR_NM": "성주군" }, "geometry": { "type": "Point", "coordinates": [ 128.233394, 35.9072452 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47850", "SIG_ENG_NM": "Chilgok-gun", "SIG_KOR_NM": "칠곡군" }, "geometry": { "type": "Point", "coordinates": [ 128.4625866, 36.015511 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47900", "SIG_ENG_NM": "Yecheon-gun", "SIG_KOR_NM": "예천군" }, "geometry": { "type": "Point", "coordinates": [ 128.4224645, 36.6539104 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47920", "SIG_ENG_NM": "Bonghwa-gun", "SIG_KOR_NM": "봉화군" }, "geometry": { "type": "Point", "coordinates": [ 128.9129168, 36.9341572 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47930", "SIG_ENG_NM": "Uljin-gun", "SIG_KOR_NM": "울진군" }, "geometry": { "type": "Point", "coordinates": [ 129.3122358, 36.9040675 ] } },
+{ "type": "Feature", "properties": { "SIG_CD": "47940", "SIG_ENG_NM": "Ulleung-gun", "SIG_KOR_NM": "울릉군" }, "geometry": { "type": "Point", "coordinates": [ 130.8641677, 37.5019639 ] } }
+]
+}
