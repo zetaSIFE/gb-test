@@ -43,6 +43,10 @@ const Container = styled.div`
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
   }
+  .chartTit {
+    padding-top: 0%;
+    font-size: 18;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -85,11 +89,11 @@ export const InOutFlow = (prop) => {
     },
   };
   const barYData = {
-    title: '지역별 전출자수',
+    title: "지역별 전출자수",
     data: {
-      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
-    }
-  }
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+    },
+  };
 
   const showDatePicker = (e) => {
     setOpenDate(!openDate);
