@@ -1,6 +1,9 @@
 button {
   cursor: pointer;
 }
+.flex {
+  display: flex;
+}
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -9,7 +12,10 @@ button {
   display: flex;
   align-items: center;
 }
-
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
 .inlineBlock {
   display: inline-block;
 }
@@ -31,10 +37,26 @@ input[type="checkbox"] {
   border: 1px solid #999;
   appearance: none;
   cursor: pointer;
+  margin: 0 8px;
   /* transition: background 0.2s; */
 }
 
 input[type="checkbox"]:checked {
   background: #252525;
   border: none;
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+/* Scroll bar stylings */
+.scroll1::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll1::-webkit-scrollbar-track {
+  background: #ddd;
+}
+.scroll1::-webkit-scrollbar-thumb {
+  background: #666; 
 }

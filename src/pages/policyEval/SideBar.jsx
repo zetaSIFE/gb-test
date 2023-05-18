@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
+import { useRecoilState } from "recoil";
+import { slideIsOpen } from "states/PolicyEvalSlideBar";
 
 const sampleDatas = [
   "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
@@ -53,15 +55,13 @@ const BtnArrow = styled.div`
 `;
 
 const Content = styled.div`
-  width: 410px;
+  width: 410px; // handleOnOff 함수의 contentStyle.width와 동일해야 한다.
   transition: width 0.2s ease-out; // 애니메이션 속성 설정해주기
   display: flex;
   flex-direction: column;
   padding: 0px 20px 0px 40px;
   color: #333333;
   font-size: 14px;
-
-  /* background-color: blue; */
 `;
 
 const Title = styled.div`
@@ -111,13 +111,11 @@ const SubTitle2 = styled.div`
 const Result = styled.div`
   max-height: calc(100vh - 300px);
   overflow-y: auto;
-  /* background-color: skyblue; */
 `;
 
 const Item = styled.li`
   width: 99;
   height: 45px;
-  /* background-color: grey; */
   border-bottom: 1px solid #cccccc;
   display: flex;
   align-items: center;
@@ -126,8 +124,10 @@ const Item = styled.li`
 
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
+  const [isOpenSlide, setIsOpenSlide] = useRecoilState(slideIsOpen);
 
   const contentRef = useRef(null);
+  const containerRef = useRef(null);
 
   const handleOnOff = () => {
     if (!contentRef || !contentRef.current) {
@@ -138,17 +138,22 @@ export default function SideBar() {
 
     if (!onOff) {
       contentStyle.width = "410px";
-      setTimeout(() => (contentStyle.visibility = ""), 100);
+      contentStyle.marginLeft = "";
+      setTimeout(() => (contentStyle.visibility = ""), 200);
     } else if (onOff) {
       contentStyle.width = "0px";
       contentStyle.marginLeft = "-10px";
       contentStyle.visibility = "hidden";
     }
+    // 슬라이드바의 가변 Size를 클릭할 때 마다 Recoil에 기록
+    // setSizeAtom(containerRef.current.offsetWidth);
+    setIsOpenSlide(!isOpenSlide);
     setOnOff((onOff) => !onOff);
   };
 
+  useEffect(() => {});
   return (
-    <Container>
+    <Container ref={containerRef}>
       <BtnArrow onClick={() => handleOnOff()}>
         <ArrowSvg className={`${onOff ? "open" : "close"}`} />
       </BtnArrow>
@@ -159,7 +164,7 @@ export default function SideBar() {
         <SearchArea>
           <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
           <SearchBar type="text" placeholder="지표 데이터명 검색" />
-          <SubTitle2>데이터명 (여기에 뭐 적는겁니까?)</SubTitle2>
+          <SubTitle2>데이터명 (데이터 트리 레벨1)</SubTitle2>
         </SearchArea>
         <Result className="result">
           <ul>
@@ -172,4 +177,3 @@ export default function SideBar() {
     </Container>
   );
 }
-// style={{ marginTop: "10px" }}

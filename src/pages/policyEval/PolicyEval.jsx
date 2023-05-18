@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import SideBar from "./SideBar";
 import { Header } from "components/layouts/Header";
 import { GbMap, BarX } from "components/charts";
-// https://www.npmjs.com/package/react-resize-detector
-// import { useResizeDetector } from "react-resize-detector";
+import { useRecoilValue } from "recoil";
+import { slideIsOpen } from "states/PolicyEvalSlideBar";
 
 const Container = styled.div`
   display: flex;
@@ -15,21 +15,16 @@ const Container = styled.div`
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: skyblue; */
-  width: 100%;
-  /* width: calc(100vw - 150px); */
+  /* width: calc(100vw - 500px); */
+  margin-right: 0px;
 `;
 
 const Group = styled.div`
-  /* height: calc(width - 500px); */
-  /* width: calc(100% - width); */
-
   height: 100%;
   display: grid;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: 1fr 1fr;
-  padding: 10px;
-  padding-top: 0;
+  padding: 0px 0px 10px 10px;
   grid-gap: 10px;
 `;
 
@@ -44,34 +39,35 @@ const ItemContainer = styled.div`
 `;
 
 export default function PolicyEval() {
-  // const { width, height, ref } = useResizeDetector();
-
-  // useEffect(() => {
-  //   console.log(`${width}`);
-  // }, [width]);
+  const isOpen = useRecoilValue(slideIsOpen);
   const barXData = {
-    title: '데이터차트(차트 수정예정)',
+    title: "데이터차트(차트 수정예정)",
     data: {
-      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-    }
-  }
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+    },
+  };
 
   return (
     <Container>
       <SideBar />
-      <Main>
+      <Main
+        style={
+          isOpen
+            ? { width: `calc(100vw - 500px)` }
+            : { width: `calc(100vw - 150px)` }
+        }
+      >
         <Header />
         <Group>
           <ItemContainer>
-            {/* <div>HI!</div> */}
+            {/* <div>h!</div> */}
             <GbMap />
           </ItemContainer>
           <ItemContainer>
-            {/* <div>HI!</div> */}
             <GbMap />
+            {/* <div>h!</div> */}
           </ItemContainer>
           <ItemContainer>
-            {/* <div>HI!</div> */}
             <BarX barXData={barXData} />
           </ItemContainer>
         </Group>

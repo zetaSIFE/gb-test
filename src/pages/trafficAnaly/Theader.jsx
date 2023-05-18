@@ -27,6 +27,9 @@ const StyledHeader = styled.div`
 
 const HeaderBox = styled.div`
   display: flex;
+  width:100%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const HeaderBtn = styled.div`
@@ -34,11 +37,12 @@ const HeaderBtn = styled.div`
 `;
 
 const DiviBtn = styled.button`
-  width: "118px";
-  height: "40px";
-  background: "#E5E5E5";
-  border-radius: "24px";
-  border: "none";
+  width: 118px;
+  height: 40px;
+  background: #E5E5E5;
+  border-radius: 24px;
+  border: 0;
+  margin-right:0.6rem;
 `;
 
 const TabMenu = styled.ul`
@@ -48,7 +52,7 @@ const TabMenu = styled.ul`
   flex-direction: row;
   /* justify-content: flex-end; */
   align-items: flex-end;
-  margin-top: 20px;
+  margin-top: 15px;
 
   .submenu {
     cursor: pointer;
@@ -103,8 +107,8 @@ export const Theader = (props) => {
     <Container>
       <StyledHeader>
         <HeaderBox>
-          <SearchAreaInput />
-          <HeaderBtn>
+         <SearchAreaInput />
+           <HeaderBtn>
             {currentTab === 0 ?
               <DiviBtn onClick={toggleDivision}>
                 {diviBtn}

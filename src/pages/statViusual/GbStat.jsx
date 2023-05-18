@@ -30,8 +30,8 @@ const Container = styled.div`
 const ItemContainer = styled.div``;
 
 export default function GbStat() {
-  const [currentTab, setClickTab ] = useState(0);
-  const [tabCont, setTabCont] = useState();
+  // const [currentTab, setClickTab ] = useState(0);
+  // const [tabCont, setTabCont] = useState();
 
   // useEffect(() => {
   //   switch(currentTab) {

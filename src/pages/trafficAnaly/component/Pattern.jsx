@@ -58,9 +58,21 @@ export const Pattern = () => {
     men:'52',
     women:'93'
   });
-  
 
-  const checkOnlyOne = (e) => {
+  const [chkAbide, setChkAbide] = useState('insied');
+  const [pointerData, setPointerData] = useState(
+    [
+      {val: "1", name:'안동시 일직면'},
+      {val: "2", name:'안동시 북후면'},
+      {val: "3", name:'안동시 와룡면'},
+      {val: "4", name:'안동시 길안면'},
+      {val: "5", name:'안동시 임하면'},
+      {val: "6", name:'안동시 풍천면'},
+    ]
+  );
+
+
+  const chkFlowBtn = (e) => {
     let checkItem = document.getElementsByName("flow");
     Array.prototype.forEach.call(checkItem, function (el) {
       el.checked = false;
@@ -77,6 +89,23 @@ export const Pattern = () => {
       setPictoData((prevState) => {
         return { ...prevState, title: '성별 유출 인구 비중', men: 72, women: 43 };
       })
+    }
+  };
+  const chkPointerBtn = (e) => {
+    let checkItem = document.getElementsByName("abide");
+    Array.prototype.forEach.call(checkItem, function (el) {
+      el.checked = false;
+    });
+    e.target.checked = true;
+    const getAbideVal = e.target.defaultValue;
+    setChkAbide(getAbideVal);
+    
+    const copyArr = [...pointerData];
+
+    if(getAbideVal === 'inside'){
+      setPointerData(copyArr);
+    } else {
+      setPointerData(copyArr.reverse());
     }
   };
   return (
@@ -98,7 +127,7 @@ export const Pattern = () => {
               id="inflow"
               name="flow"
               value="유입"
-              onChange={(e) => checkOnlyOne(e)}
+              onChange={(e) => chkFlowBtn(e)}
               checked={checkValue === "유입"}
             />
             <label htmlFor="inflow">유입</label>
@@ -107,7 +136,7 @@ export const Pattern = () => {
               id="outflow"
               name="flow"
               value="유출"
-              onChange={(e) => checkOnlyOne(e)}
+              onChange={(e) => chkFlowBtn(e)}
               checked={checkValue === "유출"}
             />
             <label htmlFor="outflow">유출</label>
@@ -117,8 +146,30 @@ export const Pattern = () => {
         </ItemContainer>
       </Group1>
       <ItemContainer className="item1">
-        <p className="chartTit">시간대별 인구 밀집/이동 패턴</p>
-        <Pointer/>
+        <div className="spaceBetween">
+          <p className="chartTit">시간대별 인구 밀집/이동 패턴</p>
+          <div className="inlineBlock right">
+              <input
+                type="checkbox"
+                id="inside"
+                name="abide"
+                value="inside"
+                onChange={(e) => chkPointerBtn(e)}
+                checked={chkAbide === "inside"}
+              />
+              <label htmlFor="inside">관내인구</label>
+              <input
+                type="checkbox"
+                id="outside"
+                name="abide"
+                value="outside"
+                onChange={(e) => chkPointerBtn(e)}
+                checked={chkAbide === "outside"}
+              />
+              <label htmlFor="outside">관외 인구</label>
+            </div>
+          </div>
+        <Pointer pointerData={pointerData}/>
 
       </ItemContainer>
     </Container>

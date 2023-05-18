@@ -24,9 +24,9 @@
     "react": "^17.0.2",
     "react-datepicker": "^4.11.0",
     "react-dom": "^17.0.2",
-    "react-resize-detector": "^9.1.0",
     "react-router-dom": "^6.11.0",
     "react-scripts": "^5.0.1",
+    "recoil": "^0.7.7",
     "styled-components": "^5.3.10",
     "styled-normalize": "^8.0.7",
     "styled-reset": "^4.4.6",
@@ -57,5 +57,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://192.168.11.19:5050/stat"
+  "homepage": "http://192.168.11.19:5050/stat",
+  "proxy": "http://localhost:5050"
 }

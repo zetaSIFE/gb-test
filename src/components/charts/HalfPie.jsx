@@ -29,10 +29,10 @@ const HalfPie = () => {
         startAngle: 180,
         label: {
           show: false,
-          formatter(param) {
-            // correct the percentage
-            return param.name + " (" + param.percent * 2 + "%)";
-          },
+          // formatter(param) {
+          //   // correct the percentage
+          //   return param.name + " (" + param.percent * 2 + "%)";
+          // },
         },
         data: [
           {

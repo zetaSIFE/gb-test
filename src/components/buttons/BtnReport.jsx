@@ -11,7 +11,7 @@ const Container = styled.div`
   gap: 8px;
   width: 210px;
   height: 40px;
-  background: #11233F;
+  background: #11233f;
   border-radius: 24px;
   color: #ffffff;
   font-size: 16px;

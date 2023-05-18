@@ -25,7 +25,7 @@ export default function SupportLayout() {
     },
     {
       name: "산업투자효과\n분석서비스",
-      url: "/stat/support/IndustInvest",
+      url: "/stat/support/IndustInvest.do",
       svg: <IndustInvest className="svg" />,
     },
     {
