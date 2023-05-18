@@ -50,6 +50,9 @@ const Group1 = styled.div`
 `;
 
 const ItemContainer = styled.div``;
+const PointerContainer = styled.div`
+  position: relative;
+`;
 
 export const Pattern = () => {
   const [checkValue, setCheckValue] = useState("유입");
@@ -152,7 +155,7 @@ export const Pattern = () => {
           <Pictorial pictoData={pictoData} />
         </ItemContainer>
       </Group1>
-      <ItemContainer className="item1 itemStyle">
+      <PointerContainer className="item1 itemStyle">
         <div className="spaceBetween">
           <p className="chartTit">시간대별 인구 밀집/이동 패턴</p>
           <div className="inlineBlock right">
@@ -177,7 +180,7 @@ export const Pattern = () => {
           </div>
         </div>
         <Pointer pointerData={pointerData} />
-      </ItemContainer>
+      </PointerContainer>
     </Container>
   );
 };

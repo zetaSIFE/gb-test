@@ -20,7 +20,7 @@ const SubContainer = styled.div`
 `;
 
 const Content = styled.div`
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
 `;
 
 export default function StatVisualLayout() {

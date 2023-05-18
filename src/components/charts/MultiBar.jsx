@@ -4,7 +4,7 @@ import ReactECharts from "echarts-for-react";
 const MultiBar = () => {
   const option = {
     title: {
-      text: '제목',
+      text: "시간대별 유입량",
       textStyle: {
         fontSize: 16,
       },

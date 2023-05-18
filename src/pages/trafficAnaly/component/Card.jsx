@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BarX, Table, Pie, BarNLine } from "components/charts";
+import { GbMap, BarX, Table, Pie, BarNLine } from "components/charts";
 
 const Container = styled.div`
   display: grid;
@@ -90,7 +90,9 @@ export const Card = () => {
   };
   return (
     <Container className="container">
-      <ItemContainer className="item1 itemStyle">chart1</ItemContainer>
+      <ItemContainer className="item1 itemStyle">
+        <GbMap/>
+      </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
           <p className="chartTit">최대 소비 업종 순위</p>

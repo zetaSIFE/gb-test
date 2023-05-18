@@ -15,6 +15,9 @@ import styled from "styled-components";
 const Wrap = styled.div`
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 
   div:nth-child(1) {
     background-color: #EBEFF4;
@@ -53,15 +56,24 @@ const Wrap = styled.div`
     }
   }
 `;
-
+const TimeLine = styled.div`
+  position: absolute;
+  /* left: 50%; */
+  /* transition: translate(0, -50%); */
+  height: 140px;
+  width: 80%;
+  border: 1px solid #000;
+`;
 const PointerDiv = styled.div`
-  width: 300px;
-  height: 80px;
-  position: relative;
-  margin-right: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 265px;
+    height: 80px;
+    position: relative;
+    margin-right: 30px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
 
   :after {
     content: "";
@@ -98,6 +110,7 @@ export const Pointer = (prop) => {
           {el.name}
         </PointerDiv>
       ))}
+      {/* <TimeLine></TimeLine> */}
     </Wrap>
   );
 };

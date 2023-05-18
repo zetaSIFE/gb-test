@@ -16,6 +16,7 @@ const Dynamic = () => {
       trigger: "axis",
     },
     legend: {
+      show: false,
       data: ["最新成交价", "预购队列"],
     },
     toolbox: {
