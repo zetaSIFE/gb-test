@@ -12,7 +12,7 @@ import { graphic } from "echarts";
 //************** */
 
 const BarY = (props) => {
-  const data = props.barYData.data.value
+  const data = props.barYData.data.value;
   const option = {
     title: {
       // text: "지역별 출생아수",
@@ -82,7 +82,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "95%", zIndex: '-90' }}
+      style={{ height: "90%", zIndex: "-90" }}
       // opts={{ renderer: "svg" }}
     />
   );

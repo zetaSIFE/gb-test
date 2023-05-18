@@ -37,13 +37,13 @@ const Container = styled.div`
     grid-column: span 2;
   }
 
-  .item1,
+  /* .item1,
   .item2 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
-  }
+  } */
   .chartTit {
     padding-top: 0%;
     font-size: 18;
@@ -76,7 +76,7 @@ const SelecBox = styled.div`
 
 const PickerBox = styled.div`
   display: flex;
-  flex-direction column;
+  flex-direction: column;
 `;
 
 const Group1 = styled.div`
@@ -137,7 +137,7 @@ export const InOutFlow = (prop) => {
         <DivisonMap />
       ) : (
         <Container className="container">
-          <ItemContainer className="item1 flex-column">
+          <ItemContainer className="item1 flex-column itemStyle">
             <SelecBox>
               <Select
                 title={"유입 유출"}
@@ -172,32 +172,32 @@ export const InOutFlow = (prop) => {
           </ItemContainer>
 
           <Group1 className="group1">
-            <ItemContainer className="item2">
+            <ItemContainer className="item2 itemStyle">
               {/* <p className="chartTit">시간대별 유입량</p> */}
               <MultiBar />
             </ItemContainer>
-            <ItemContainer className="item2">
+            <ItemContainer className="item2 itemStyle">
               <BarY barYData={barYData} />
             </ItemContainer>
-            <ItemContainer className="item2">
+            <ItemContainer className="item2 itemStyle">
               <p className="chartTit">최다 유입지 순위</p>
               <Table />
             </ItemContainer>
-            <ItemContainer className="item2">
+            <ItemContainer className="item2 itemStyle">
               <BarX barXData={barXData} />
             </ItemContainer>
           </Group1>
 
-          <ItemContainer className="item1">
+          <ItemContainer className="item1 itemStyle">
             <Stacked />
           </ItemContainer>
 
           <Group2 className="group2">
-            <ItemContainer className="item2">
+            <ItemContainer className="item2 itemStyle">
               <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer
-              className="item2"
+              className="item2 itemStyle"
               style={
                 {
                   // width:"500px"

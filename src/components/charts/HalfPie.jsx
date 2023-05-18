@@ -15,34 +15,32 @@ const HalfPie = () => {
       // bottom: "5%",
       left: "center",
       // width: '100%',
-      
+
       // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
       itemWidth: 10,
-<<<<<<< HEAD
-=======
+
       left: "0%",
       top: "20%",
-      width: "10%"
+      width: "10%",
     },
     grid: {
       width: "100%",
-      top: "5%"
+      top: "5%",
     },
     label: {
       show: true,
       formatter(param) {
         // correct the percentage
-        return param.name + ' (' + param.percent * 2 + '%)';
-      }
->>>>>>> 8b5b207dbe131649a77b5c0f7e446537ec7959e8
+        return param.name + " (" + param.percent * 2 + "%)";
+      },
     },
     series: [
       {
         name: "Access From",
         type: "pie",
-        radius: ['100%', '170%'],
-        center: ['50%', '100%'],
+        radius: ["100%", "170%"],
+        center: ["50%", "100%"],
         width: "100%",
         height: "100%",
         // adjust the start angle

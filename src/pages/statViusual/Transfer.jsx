@@ -26,21 +26,21 @@ const Container = styled.div`
     grid-column: span 2;
   }
 
-  .item1,
+  /* .item1,
   .item2 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
-  }
-  .inlineBlock_right{
+  } */
+  .inlineBlock_right {
     position: absolute;
     right: 570px;
     bottom: 790px;
     padding: 0px;
     z-index: 10;
   }
-  .inlineBlock_right2{
+  .inlineBlock_right2 {
     position: absolute;
     right: 570px;
     bottom: 510px;
@@ -155,12 +155,12 @@ export default function Transfer() {
 
   return (
     <Container className="container">
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <GbMap />
       </ItemContainer>
 
       <Group1 className="group1">
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <div className="inlineBlock_right">
             <input
               type="checkbox"
@@ -192,11 +192,11 @@ export default function Transfer() {
           </div>
           <BarX barXData={barXData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarY barYData={barYData} />
         </ItemContainer>
-        <ItemContainer className="item2">
-        <div className="inlineBlock_right2">
+        <ItemContainer className="item2 itemStyle">
+          <div className="inlineBlock_right2">
             <input
               type="checkbox"
               id="total"
@@ -227,20 +227,20 @@ export default function Transfer() {
           </div>
           <BarX barXData={barXData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarX barXData={barXData} />
         </ItemContainer>
       </Group1>
 
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <Stacked />
       </ItemContainer>
 
       <Group2 className="group2">
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarY barYData={barYData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarY barYData={barYData} />
         </ItemContainer>
       </Group2>
