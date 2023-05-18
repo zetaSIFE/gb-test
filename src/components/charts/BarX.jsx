@@ -20,7 +20,7 @@ const BarX = (props) => {
   // console.log(prop.barXData.data)
 
   // TODO API 작성 부분, 주석 해제
-  /* START!  
+  /* ********************** START!  
   const [testData, setTestData] = useState({
     title: '',
     data: {
