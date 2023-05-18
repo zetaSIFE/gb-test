@@ -12,6 +12,11 @@ const HalfPie = () => {
     },
     legend: {
       icon: "circle",
+      // bottom: "5%",
+      // left: "center",
+      // width: '100%',
+
+      // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
       itemWidth: 10,
       left: "0%",

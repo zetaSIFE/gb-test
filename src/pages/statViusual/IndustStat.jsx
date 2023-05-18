@@ -24,13 +24,13 @@ const Container = styled.div`
     grid-column: span 2;
   }
 
-  .item1,
+  /* .item1,
   .item2 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
-  }
+  } */
 `;
 
 const ItemContainer = styled.div`
@@ -46,37 +46,37 @@ const Group1 = styled.div`
 `;
 
 const pictoData = {
-  title: '종사자 수(성별)',
-  men:'55',
-  women:'45'
-}
+  title: "종사자 수(성별)",
+  men: "55",
+  women: "45",
+};
 const barXData = {
-  title: '지역별 사업체수',
+  title: "지역별 사업체수",
   data: {
-    value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-  }
-}
+    value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+  },
+};
 export default function IndustStat() {
   return (
     <Container className="container">
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <GbMap />
       </ItemContainer>
 
       <Group1 className="group1">
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarX barXData={barXData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <HalfPie />
         </ItemContainer>
       </Group1>
 
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <Stacked />
       </ItemContainer>
 
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <Pictorial pictoData={pictoData} />
       </ItemContainer>
     </Container>

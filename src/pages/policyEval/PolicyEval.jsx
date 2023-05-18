@@ -32,10 +32,10 @@ const ItemContainer = styled.div`
   :nth-child(3) {
     grid-column: span 2;
   }
-  border: 1px solid #cccccc;
+  /* border: 1px solid #cccccc;
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-  padding: 10px;
+  padding: 10px; */
 `;
 
 export default function PolicyEval() {
@@ -59,15 +59,15 @@ export default function PolicyEval() {
       >
         <Header />
         <Group>
-          <ItemContainer>
+          <ItemContainer className="itemStyle">
             {/* <div>h!</div> */}
             <GbMap />
           </ItemContainer>
-          <ItemContainer>
+          <ItemContainer className="itemStyle">
             <GbMap />
             {/* <div>h!</div> */}
           </ItemContainer>
-          <ItemContainer>
+          <ItemContainer className="itemStyle">
             <BarX barXData={barXData} />
           </ItemContainer>
         </Group>
