@@ -5,6 +5,9 @@ const Tree = () => {
   const option = {
     title: {
       text: "ECharts Options",
+      textStyle: {
+        fontSize: 16,
+      }
       // subtext: "2016/04",
       // left: "leafDepth",
     },

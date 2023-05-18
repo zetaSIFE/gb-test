@@ -6,6 +6,9 @@ const Pie = (prop) => {
   const option = {
     title: {
       text: "제목",
+      textStyle: {
+        fontSize: 16,
+      },
       subtext: "부제목",
       x: "center",
     },

@@ -40,9 +40,9 @@ const Pictorial = (prop) => {
   const options = {
     title: {
       text: prop.pictoData.title,
-      // textStyle: {
-      //   fontSize : 18,
-      // }
+      textStyle: {
+        fontSize : 16,
+      }
     },
     tooltip: {},
     legend: {

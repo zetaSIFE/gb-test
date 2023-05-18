@@ -4,6 +4,12 @@ import ReactECharts from 'echarts-for-react';
 const Scatter = (prop) => {
 
   const options = {
+    title: {
+      text: '제목',
+      textStyle: {
+        fontSize: 16,
+      },
+    },
     xAxis: {},
     yAxis: {},
     series: [

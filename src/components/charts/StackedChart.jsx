@@ -6,6 +6,9 @@ const Stacked = () => {
   const option = {
     title: {
       text: "경상북도 전입전출 추이",
+      textStyle: {
+        fontSize: 16,
+      }
     },
     tooltip: {
       trigger: "axis",

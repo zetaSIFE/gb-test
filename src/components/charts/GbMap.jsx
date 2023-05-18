@@ -33,6 +33,9 @@ echarts.registerMap("GB", geoData);
 const mapOption = {
   title: {
     text: "경상북도 안동시 행정구역도 (행정동)",
+    textStyle: {
+      fontSize: 16,
+    }
     // subtext: "여기 링크 설정도 가능",
     // sublink: "https://gb.go.kr/Main/open_contents/section/data/index.html",
   },

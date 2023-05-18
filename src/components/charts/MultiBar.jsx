@@ -3,6 +3,12 @@ import ReactECharts from "echarts-for-react";
 
 const MultiBar = () => {
   const option = {
+    title: {
+      text: '제목',
+      textStyle: {
+        fontSize: 16,
+      },
+    },
     legend: {},
     tooltip: {},
     dataset: {

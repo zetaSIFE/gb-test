@@ -15,16 +15,19 @@ const TableBox = styled.table`
 const Title = styled.td`
   background-color: #f3f3f3;
   margin: 0 auto;
+  width: 164px;
   padding: 1;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: bold;
 `;
 const Val = styled.td`
   margin: 0 auto;
+  width: 308px;
   padding: 1;
+  text-align: center;
   font-size: 12px;
-  font-weight: bold;
+  /* font-weight: bold; */
   /* background-color: gray; */
 `;
 

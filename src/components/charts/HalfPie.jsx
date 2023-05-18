@@ -6,6 +6,9 @@ const HalfPie = () => {
   const option = {
     title: {
       text: "귀농귀촌 통계",
+      textStyle: {
+        fontSize: 16,
+      }
     },
     tooltip: {
       trigger: "item",

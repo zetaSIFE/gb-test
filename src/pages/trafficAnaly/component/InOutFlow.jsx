@@ -46,7 +46,7 @@ const Container = styled.div`
   } */
   .chartTit {
     padding-top: 0%;
-    font-size: 18;
+    font-size: 16px;
   }
 `;
 

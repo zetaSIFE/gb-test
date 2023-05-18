@@ -18,10 +18,10 @@ const Container = styled.div`
     grid-column: span 3;
   }
   .item1:nth-child(3) {
-    grid-column: span 3;
+    grid-column: span 4;
   }
   .item1:nth-child(4) {
-    grid-column: span 2;
+    grid-column: span 1;
   }
 
   /* .item1,

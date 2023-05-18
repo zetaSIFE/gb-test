@@ -47,7 +47,10 @@ const BarX = (props) => {
   const option = {
     title: {
       // text: testData.title, // // TODO : 주석 해제
-      text: props.title,
+      text: props.barXData.title,
+      textStyle: {
+        fontSize : 16,
+      }
     },
     tooltip: {},
     toolbox: {

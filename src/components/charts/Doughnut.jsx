@@ -59,6 +59,9 @@ const Doughnut = () => {
     title: {
       // text: "세대원 별 세대수",
       text: testData.title,
+      textStyle: {
+        fontSize: 16,
+      },
       left: "left",
     },
     tooltip: {

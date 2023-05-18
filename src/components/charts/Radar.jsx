@@ -4,7 +4,10 @@ import ReactECharts from 'echarts-for-react';
 const Radar = (prop) => {
   const option = {
     title: {
-      text: '제목'
+      text: '제목',
+      textStyle: {
+        fontSize: 16,
+      },
     },
     tooltip: {},
     legend: {
