@@ -3,6 +3,12 @@ import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
 const HalfPie = () => {
+  /**
+   *  {
+   *    title: "귀농귀촌 통계",
+   *    
+   *  }
+   */
   const option = {
     title: {
       text: "귀농귀촌 통계",

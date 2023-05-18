@@ -2,10 +2,27 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
-const Stacked = () => {
+const Stacked = (props) => {
+  /**
+   *  {
+   *    title: "경상북도 전입전출 추이",
+   *    legend: ["data1", "data2"],
+   *    data: {
+   *      xAxis: ["2013년","2014년","2015년","2016년","2017년","2018년","2019년","2020년","2021년","2022년"],
+   *      series: [
+   *        [120, 132, 101, 134, 90, 230, 210],
+   *        [220, 182, 191, 234, 290, 330, 310]
+   *      ]
+   *    }
+   *  }
+   */
+
+  // const stackedData = props.stackedData.data;
+
   const option = {
     title: {
       text: "경상북도 전입전출 추이",
+      // text: stackedData.title,
       textStyle: {
         fontSize: 16,
       }
@@ -15,6 +32,7 @@ const Stacked = () => {
     },
     legend: {
       data: ["data1", "data2"],
+      // data: stackedData.legend,
     },
     toolbox: {
       feature: {
@@ -44,6 +62,7 @@ const Stacked = () => {
           "2021년",
           "2022년",
         ],
+        // data: stackedData.data.xAxis,
       },
     ],
     yAxis: [
@@ -61,6 +80,7 @@ const Stacked = () => {
         },
         // areaStyle: {normal: {}},
         data: [120, 132, 101, 134, 90, 230, 210],
+        // data: stackedData.data.series[0],
       },
       {
         name: "data2",
@@ -71,6 +91,7 @@ const Stacked = () => {
         },
         // areaStyle: {normal: {}},
         data: [220, 182, 191, 234, 290, 330, 310],
+        // data: stackedData.data.series[1],
       },
     ],
   };

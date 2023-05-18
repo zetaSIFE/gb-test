@@ -6,7 +6,8 @@ import { graphic } from "echarts";
 // const barYData = {
 //   title: '지역별 출생아수',
 //   data: {
-//     value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
+//     value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+//     yAxis: ["안동","문경","예천","김천","성주","경주","영덕","포항","울진"],
 //   }
 // }
 //************** */
@@ -55,6 +56,7 @@ const BarY = (props) => {
         "문경",
         "안동",
       ],
+      // data: barYData.data.yAxis
     },
     visualMap: {
       orient: "horizontal",
@@ -76,8 +78,9 @@ const BarY = (props) => {
       {
         name: "출생데이터",
         type: "bar",
-        // data: [5, 20, 36, 13, 27, 60, 50, 90],
-        data: data,
+        data: [5, 20, 36, 13, 27, 60, 50, 90, 45],
+        // data: data,
+        // data: barYData.data.value
       },
     ],
   };

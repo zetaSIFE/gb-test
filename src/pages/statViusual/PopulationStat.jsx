@@ -7,7 +7,7 @@ import {
   BarNegative,
   HalfPie,
 } from "components/charts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -65,6 +65,7 @@ const Group2 = styled.div`
 `;
 
 export default function PopulationStat() {
+
   // const barXData = null;
   const barXData = {
     title: "지역별 인구수",

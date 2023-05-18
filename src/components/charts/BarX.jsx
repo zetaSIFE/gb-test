@@ -28,15 +28,16 @@ const BarX = (props) => {
       value: []
     }
   });
+>>>>>>> 0358796b84ffcf046b2e0879dcfd90033274393d
 
-  useEffect(() => {
-    axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
-      .then(res => {
-        setTestData(res.data);
-      })
-      .catch(err => console.log(err))
+  // useEffect(() => {
+  //   axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
+  //     .then(res => {
+  //       setTestData(res.data);
+  //     })
+  //     .catch(err => console.log(err))
 
-  }, [])
+  // }, [])
 
   const data = testData.data.value;
   const xAxis = testData.data.xAxis;
@@ -47,6 +48,7 @@ const BarX = (props) => {
   const option = {
     title: {
       // text: testData.title, // // TODO : 주석 해제
+      text: props.barXData.title,
       text: props.barXData.title,
       textStyle: {
         fontSize : 16,
@@ -91,7 +93,6 @@ const BarX = (props) => {
         "포항",
         "울진",
       ],
-
       // data: xAxis, // TODO : 주석 해제
     },
     yAxis: {},
@@ -100,8 +101,8 @@ const BarX = (props) => {
       {
         name: "지역별인구수",
         type: "bar",
-        // data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
-        data: data,
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
             { offset: 0, color: "#8C93FF" },

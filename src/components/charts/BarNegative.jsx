@@ -3,22 +3,38 @@ import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
 const BarNegative = () => {
+  /**
+   *  {
+   *    title: "인구 피라미드",
+   *    data: {
+   *      name: ["여", "남"],
+   *      value: [
+   *        [0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5, 3.9, 3.5, 3],
+   *        [-0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8]
+   *      ]
+   *    }
+   *  }
+   */
+
+  // const barNegativeData = props.barNegativeData.data;
+
   const ageStep = [
-    "100",
-    "90",
-    "80",
-    "70",
-    "60",
-    "50",
-    "40",
-    "30",
-    "20",
-    "10",
     "0",
+    "10",
+    "20",
+    "30",
+    "40",
+    "50",
+    "60",
+    "70",
+    "80",
+    "90",
+    "100"
   ];
   const option = {
     title: {
       text: "인구 피라미드",
+      // text: barNegativeData.title,
     },
     tooltip: {},
     // legend: {
@@ -39,7 +55,7 @@ const BarNegative = () => {
         axisTick: {
           show: false,
         },
-        data: ageStep.reverse(),
+        data: ageStep,
       },
     ],
     legend: {
@@ -58,6 +74,7 @@ const BarNegative = () => {
     series: [
       {
         name: "여",
+        // name: barNegativeData.data.name[0],
         type: "bar",
         itemStyle: {
           color: new graphic.RadialGradient(0.4, 0.3, 1, [
@@ -76,9 +93,11 @@ const BarNegative = () => {
           0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2,
           4.5, 3.9, 3.5, 3,
         ],
+        // data: barNegativeData.data.value[0],
       },
       {
         name: "남",
+        // name: barNegativeData.data.name[1],
         type: "bar",
         stack: "Total",
         itemStyle: {
@@ -98,6 +117,7 @@ const BarNegative = () => {
           -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22,
           -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1, -2.8,
         ],
+        // data: barNegativeData.data.value[1],
       },
     ],
   };
