@@ -40,7 +40,6 @@ const DiviBtn = styled.button`
   width: 118px;
   height: 40px;
   background: #E5E5E5;
-  border-radius: 24px;
   border: 0;
   margin-right:0.6rem;
 `;
