@@ -19,8 +19,6 @@ const HalfPie = () => {
       // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
       itemWidth: 10,
-<<<<<<< HEAD
-=======
       left: "0%",
       top: "20%",
       width: "10%"
@@ -35,7 +33,6 @@ const HalfPie = () => {
         // correct the percentage
         return param.name + ' (' + param.percent * 2 + '%)';
       }
->>>>>>> 8b5b207dbe131649a77b5c0f7e446537ec7959e8
     },
     series: [
       {
