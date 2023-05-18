@@ -9,7 +9,7 @@ import {
 } from "components/charts";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import axios from 'axios';
+import axios from "axios";
 
 const Container = styled.div`
   height: calc(100vh - 80px);
@@ -34,13 +34,13 @@ const Container = styled.div`
     grid-column: span 2;
   }
 
-  .item1,
+  /* .item1,
   .item2 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
-  }
+  } */
 `;
 
 const ItemContainer = styled.div`
@@ -66,55 +66,59 @@ const Group2 = styled.div`
 
 export default function PopulationStat() {
 
+  // const barXData = null;
   const barXData = {
-    title: '지역별 인구수',
+    title: "지역별 인구수",
     data: {
-      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-    }
-  }
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+    },
+  };
+  // axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
+  //   .then(res => {
+  //     barXData = res;
+  //   })
+  //   .catch(err => console.log(err))
   const barXData2 = {
-    title: '지역별 청년비율',
+    title: "지역별 청년비율",
     data: {
-      value: [120, 300, 270, 150, 200, 98, 180, 220, 170]
-    }
-  }
+      value: [120, 300, 270, 150, 200, 98, 180, 220, 170],
+    },
+  };
   const barYData = {
-    title: '지역별 출생아수',
+    title: "지역별 출생아수",
     data: {
-      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
-    }
-  }
-
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+    },
+  };
   return (
     <Container className="container">
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <GbMap />
       </ItemContainer>
-
       <Group1 className="group1">
-        <ItemContainer className="item2">
-          <BarX barXData={barXData}/>
+        <ItemContainer className="item2 itemStyle">
+          <BarX barXData={barXData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarY barYData={barYData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <Doughnut />
         </ItemContainer>
-        <ItemContainer className="item2">
-          <BarX barXData={barXData2} />
+        <ItemContainer className="item2 itemStyle">
+          <BarX barXData={barXData} />
         </ItemContainer>
       </Group1>
 
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 itemStyle">
         <Stacked />
       </ItemContainer>
 
       <Group2 className="group2">
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <BarNegative />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="item2 itemStyle">
           <HalfPie />
         </ItemContainer>
       </Group2>

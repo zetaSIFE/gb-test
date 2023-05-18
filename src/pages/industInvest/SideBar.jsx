@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
 import { BtnReport } from "components/buttons";
@@ -68,19 +68,30 @@ const AnalyContainer = styled.div`
   margin: 20px 0px 20px 0px;
 `;
 
+const ResultConatiner = styled.div`
+  /* display: flex; */
+
+  /* justify-content: space-between; */
+  /* flex-direction: column;
+  flex-wrap: wrap; */
+  /* width: 100%; */
+`;
+
 const Result = styled.div`
-  /* display: flex;
-  gap: 10px; */
+  /* width: 50vw; */
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
   max-height: calc(100vh - 220px);
+
   overflow-y: auto;
   overflow-x: hidden;
 `;
 
 const ChartContainer = styled.div`
+  width: 27.5vw;
   border: 1px solid #cccccc;
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -88,57 +99,15 @@ const ChartContainer = styled.div`
   /* height: 315px; */
 `;
 
-// const SearchArea = styled.div`
-//   height: 200px;
-// `;
-
-// const SubTitle1 = styled.div`
-//   margin-top: 50px;
-//   font-weight: 700;
-//   font-size: 18px;
-//   line-height: 26px;
-// `;
-
-// const SearchBar = styled.input`
-//   height: 40px;
-//   width: 100%;
-//   border: 1px solid #cccccc;
-//   margin-top: 15px;
-//   padding: 12px;
-// `;
-
-// const SubTitle2 = styled.div`
-//   height: 44px;
-//   width: 100%;
-//   margin-top: 20px;
-//   background: #f0f4fd;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-weight: 700;
-// `;
-
-// const Result = styled.div`
-//   max-height: calc(100vh - 300px);
-//   overflow-y: auto;
-//   /* background-color: skyblue; */
-// `;
-
-// const Item = styled.li`
-//   width: 99;
-//   height: 45px;
-//   /* background-color: grey; */
-//   border-bottom: 1px solid #cccccc;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
-
+  const [slideSize, setSlideSize] = useState(null);
   const contentRef = useRef(null);
+  const resultRef = useRef(null);
 
+  // const slideSize = contentRef.current.offsetWidth;
+  // console.log(contentRef.current.offsetWidth);
+  // const resultStyle = resultRef.current.style;
   const handleOnOff = () => {
     if (!contentRef || !contentRef.current) {
       // useRef 변수가 비었을 때 그냥 리턴하도록 예외처리
@@ -148,8 +117,10 @@ export default function SideBar() {
 
     if (!onOff) {
       contentStyle.width = "60vw";
+      contentStyle.marginLeft = "";
       setTimeout(() => (contentStyle.visibility = ""), 100);
     } else if (onOff) {
+      // console.log(contentRef.current.offsetWidth);
       contentStyle.width = "0px";
       contentStyle.marginLeft = "-10px";
       contentStyle.visibility = "hidden";
@@ -157,8 +128,19 @@ export default function SideBar() {
     setOnOff((onOff) => !onOff);
   };
 
+  const handleSlideSize = () => {
+    setSlideSize(contentRef.current.offsetWidth);
+  };
+
+  useEffect(() => {
+    console.log(slideSize);
+    // const slideSize = contentRef.current.offsetWidth;
+    // const resultStyle = resultRef.current.style;
+    // console.log(contentRef.current.offsetWidth);
+    // resultStyle.width = slideSize;
+  }, [slideSize]);
   return (
-    <Container>
+    <Container onchange={() => handleSlideSize()}>
       <BtnContainer onClick={() => handleOnOff()}>
         <ArrowSvg className={`${onOff ? "open" : "close"}`} />
       </BtnContainer>
@@ -172,23 +154,25 @@ export default function SideBar() {
           <div className="title">산업투자효과 분석 서비스</div>
         </Title>
         <AnalyContainer></AnalyContainer>
-        <Result>
-          <ChartContainer>
-            <Tree className="chart1" />
-          </ChartContainer>
-          <ChartContainer>
-            <Tree className="chart2" />
-          </ChartContainer>
-          <ChartContainer>
-            <Tree className="chart3" />
-          </ChartContainer>
-          <ChartContainer>
-            <Tree className="chart4" />
-          </ChartContainer>
-          <ChartContainer>
-            <Tree className="chart5" />
-          </ChartContainer>
-        </Result>
+        <ResultConatiner>
+          <Result ref={resultRef}>
+            <ChartContainer>
+              <Tree className="chart1" />
+            </ChartContainer>
+            <ChartContainer>
+              <Tree className="chart2" />
+            </ChartContainer>
+            <ChartContainer>
+              <Tree className="chart3" />
+            </ChartContainer>
+            <ChartContainer>
+              <Tree className="chart4" />
+            </ChartContainer>
+            <ChartContainer>
+              <Tree className="chart5" />
+            </ChartContainer>
+          </Result>
+        </ResultConatiner>
       </Content>
     </Container>
   );

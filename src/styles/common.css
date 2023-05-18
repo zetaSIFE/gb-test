@@ -27,6 +27,7 @@ button {
   color: rgb(61, 60, 60);
   font-weight: bold;
   padding: 10px 8px;
+  display: inline-block;
 }
 
 input[type="checkbox"] {
@@ -58,5 +59,27 @@ input[type="checkbox"]:checked {
   background: #ddd;
 }
 .scroll1::-webkit-scrollbar-thumb {
-  background: #666; 
+  background: #666;
+}
+
+/* NOTE 그리드별 각 아이템 스타일 */
+.itemStyle {
+  background: radial-gradient(
+      409.5% 116.82% at 51.71% 56.4%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      344.95% 155.88% at 52.49% 53.79%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #d8dee3;
+  border-width: 2px 0px 0px 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(164, 174, 183, 0.25),
+    16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
+  border-radius: 10px;
+  padding: 10px;
 }

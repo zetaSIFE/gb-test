@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
-import axios from 'axios';
+import axios from "axios";
+import { ReactComponent as Download } from "../../assets/images/buttons/download.svg";
 
 //************** */
 // const barXData = {
@@ -13,14 +14,21 @@ import axios from 'axios';
 //************** */
 
 const BarX = (props) => {
-  let barXData = props.barXData;
-  // const [testData, setTestData] = useState({
-  //   title: '',
-  //   data: {
-  //     xAxis: [],
-  //     value: []
-  //   }
-  // });
+  // const downloadIcon = [
+  //   // "path://M1.75 14C1.26875 14 0.856626 13.8285 0.513626 13.4855C0.170626 13.1425 -0.000581848 12.7307 1.48557e-06 12.25V9.625H1.75V12.25H12.25V9.625H14V12.25C14 12.7312 13.8285 13.1434 13.4855 13.4864C13.1425 13.8294 12.7307 14.0006 12.25 14H1.75ZM7 10.5L2.625 6.125L3.85 4.85625L6.125 7.13125V0H7.875V7.13125L10.15 4.85625L11.375 6.125L7 10.5Z"
+  // ];
+  // console.log(prop.barXData.data)
+
+  // TODO API 작성 부분, 주석 해제
+  /* ********************** START!  
+  const [testData, setTestData] = useState({
+    title: '',
+    data: {
+      xAxis: [],
+      value: []
+    }
+  });
+>>>>>>> 0358796b84ffcf046b2e0879dcfd90033274393d
 
   // useEffect(() => {
   //   axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
@@ -31,21 +39,35 @@ const BarX = (props) => {
 
   // }, [])
 
-  // const data = barXData.data.value;
-  // const xAxis = barXData.data.xAxis;
+  const data = testData.data.value;
+  const xAxis = testData.data.xAxis;
+    ********************* END!  */
+
+  const data = props.barXData.data.value;
+
   const option = {
     title: {
-      text: barXData.title,
+      // text: testData.title, // // TODO : 주석 해제
+      text: props.title,
     },
     tooltip: {},
     toolbox: {
       feature: {
-        dataView: { readOnly: false },
-        saveAsImage: {},
+        // dataView: { readOnly: false },
+        saveAsImage: {
+          title: "이미지 다운로드",
+          // assets\images\buttons\material-symbols_download.png
+          // icon: '../../assets/images/buttons/download.svg',
+          // iconStyle: {
+          //   width: 31,
+          //   height: 31,
+          //    color: "#a01a1a",
+          // },
+        },
       },
     },
     grid: {
-      // top: "18%",
+      top: "40%",
       left: "0%",
       right: "0%",
       bottom: "0%",
@@ -67,11 +89,9 @@ const BarX = (props) => {
         "포항",
         "울진",
       ],
-      // data: xAxis
+      // data: xAxis, // TODO : 주석 해제
     },
-    yAxis: {
-      
-    },
+    yAxis: {},
 
     series: [
       {
@@ -88,13 +108,12 @@ const BarX = (props) => {
         },
         showBackground: true,
         backgroundStyle: {
-          color: '#ECEEF5',
-          shadowColor: '#ECEEF5',
+          color: "#ECEEF5",
+          shadowColor: "#ECEEF5",
           // shadowBlur: '1'
-          shadowOffsetY: '-20'
-
+          shadowOffsetY: "-20",
         },
-        barWidth: 30
+        barWidth: 30,
       },
     ],
   };

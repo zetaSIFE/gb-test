@@ -5,23 +5,53 @@ import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
 import EChartsLayer from "ol-echarts";
-import { Vector as VectorLayer } from "ol/layer";
-import { Vector as VectorSource } from "ol/source";
+import { Vector, Vector as VectorLayer } from "ol/layer";
+import { Vector as VectorSource, WMTS, XYZ } from "ol/source";
 import GeoJSON from "ol/format/GeoJSON";
-import { fromLonLat, get as getProjection, toLonLat, transform } from "ol/proj";
+import {
+  fromLonLat,
+  get,
+  get as getProjection,
+  Projection,
+  toLonLat,
+  transform,
+} from "ol/proj";
 import Fill from "ol/style/Fill.js";
 import Stroke from "ol/style/Stroke.js";
 import Style from "ol/style/Style.js";
 import gb from "assets/maps/gbmap_topo.json";
 import kor from "assets/maps/koreaTopo2.json"; //national
-import data1 from "assets/maps/경북 시군구.json";
-import data2 from "assets/maps/경북 읍면동.json";
-import centerData from "assets/maps/시군별 중심좌표.json";
-import gbCenterData from "assets/maps/경북 시군구 중심좌표.json";
+import data1 from "assets/maps/5179/test_5179.json";
+import data2 from "assets/maps/5179/경북_읍면동5179.json";
+import centerData from "assets/maps/5179/시군별_중심좌표5179.json";
+import gbCenterData from "assets/maps/5179/경북 시군구 중심좌표 5179.json";
+
 import Select from "ol/interaction/Select";
 import { pointerMove, click } from "ol/events/condition";
 
 import { feature } from "topojson-client";
+import WMTSTileGrid from "ol/tilegrid/WMTS";
+import { getTopLeft, getWidth } from "ol/extent";
+import { register } from "ol/proj/proj4";
+import proj4 from "proj4/dist/proj4";
+
+proj4.defs(
+  "EPSG:5179",
+  "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+);
+register(proj4);
+
+const projection = getProjection("EPSG:3857");
+const projectionExtent = projection.getExtent();
+
+const size = getWidth(projectionExtent) / 256;
+const resolutions = new Array(19);
+const matrixIds = new Array(19);
+for (let z = 0; z < 19; ++z) {
+  // generate resolutions and matrixIds arrays for this WMTS
+  resolutions[z] = size / Math.pow(2, z);
+  matrixIds[z] = z;
+}
 
 // const korgeoData = feature(kor, kor.objects.korea_WSG84);
 const geoData = feature(gb, gb.objects.gbmap);
@@ -173,9 +203,35 @@ export const FlowChart = (prop) => {
       return rObj;
     });
     const geojsonUrl = data1;
+    // const baseLayer = new TileLayer({
+    //   preload: 4,
+    //   source: new OSM(),
+    // });
     const baseLayer = new TileLayer({
       preload: 4,
-      source: new OSM(),
+      projection: "EPSG:5179",
+      source: new WMTS({
+        url: "http://192.168.11.19:5050/smt/proxyUrl.jsp?url=http://192.168.11.11:20000/map/api/map/ngisair?layer=AIRPHOTO&crtfckey=tmiKPqf1niMu5rq1VcG49XKIYmhwDJEh",
+        projection: "EPSG:5179",
+        tileGrid: new WMTSTileGrid({
+          origin: getTopLeft(projectionExtent),
+          resolutions: resolutions,
+          matrixIds: matrixIds,
+        }),
+        tileGrid: new WMTSTileGrid({
+          origin: [-200000, 4000000],
+          resolutions: [
+            2088.96, 1044.48, 522.24, 261.12, 130.56, 65.28, 32.64, 16.32, 8.16,
+            4.08, 2.04, 1.02, 0.51, 0.255, 0.1275, 0.06375,
+          ],
+          matrixIds: [
+            5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+          ],
+        }),
+        style: "_null",
+        format: "image/jpg",
+        matrixSet: "NGIS_AIR",
+      }),
     });
 
     const style = new Style({
@@ -220,8 +276,8 @@ export const FlowChart = (prop) => {
     const vectorLayer = new VectorLayer({
       source: new VectorSource({
         features: new GeoJSON().readFeatures(geojsonUrl, {
-          dataProjection: "EPSG:4326",
-          featureProjection: "EPSG:3857",
+          dataProjection: "EPSG:5179",
+          featureProjection: "EPSG:5179",
         }),
       }),
       style: function (feature) {
@@ -234,14 +290,15 @@ export const FlowChart = (prop) => {
       layers: [baseLayer, vectorLayer],
       loadTilesWhileAnimating: true,
       target: "OdMap",
+      projection: "EPSG:5179",
       view: new View({
-        // projection: 'EPSG:4326',
-        // center: [128.505599, 36.576032],
-        center: fromLonLat(
-          [128.5055956, 36.5760207], //[경도, 위도] 값 설정 -> 경상북도청기준으로 설정
-          getProjection("EPSG:3857")
-        ),
-        zoom: 5,
+        projection: "EPSG:5179",
+        center: transform([128.5055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
+        // center: fromLonLat(
+        //   [128.5055956, 36.5760207], //[경도, 위도] 값 설정 -> 경상북도청기준으로 설정
+        //   getProjection("EPSG:3857")
+        // ),
+        zoom: 8,
       }),
     });
 

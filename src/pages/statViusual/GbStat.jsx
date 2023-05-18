@@ -19,12 +19,12 @@ const Container = styled.div`
     grid-column: span 3;
   }
 
-  .item1 {
+  /* .item1 {
     border: 1px solid #cccccc;
     border-radius: 10px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
-  }
+  } */
 `;
 
 const ItemContainer = styled.div``;
@@ -42,13 +42,13 @@ export default function GbStat() {
   return (
     <>
       <Container className="container">
-        <ItemContainer className="item1">
+        <ItemContainer className="item1 itemStyle">
           <GbMap />
         </ItemContainer>
-        <ItemContainer className="item1">
+        <ItemContainer className="item1 itemStyle">
           <DataDetail />
         </ItemContainer>
-        <ItemContainer className="item1">
+        <ItemContainer className="item1 itemStyle">
           <Stacked />
         </ItemContainer>
       </Container>

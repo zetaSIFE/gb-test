@@ -18,19 +18,6 @@ const Container = styled.div`
     grid-row: span 5;
     grid-column: span 2;
   }
-  /* .item2:nth-child(3) {
-    grid-row: span 5;
-    grid-column: span 2;
-  } */
-  .item1,
-  .item2 {
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-  }
-  .item2 {
-  }
 `;
 
 const ItemContainer = styled.div``;
@@ -66,16 +53,16 @@ export default function Extinction() {
   return (
     <Container className="container">
       <Group1 className="group1">
-        <ItemContainer className="item1">
+        <ItemContainer className="itemStyle">
           <GbMap />
         </ItemContainer>
       </Group1>
 
       <Group2 className="group2">
-        <ItemContainer className="item2">
+        <ItemContainer className="itemStyle">
           <BarX barXData={barXData} />
         </ItemContainer>
-        <ItemContainer className="item2">
+        <ItemContainer className="itemStyle">
           <BarY barYData={barYData} />
         </ItemContainer>
       </Group2>

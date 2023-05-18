@@ -1,6 +1,7 @@
 export * from "./BarNegative";
 export * from "./BarX";
 export * from "./BarY";
+export * from "./BarNLine";
 export * from "./Doughnut";
 export * from "./Dynamic";
 export * from "./FlowChart";
