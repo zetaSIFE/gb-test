@@ -85,11 +85,11 @@ export const InOutFlow = (prop) => {
     },
   };
   const barYData = {
-    title: '지역별 전출자수',
+    title: "지역별 전출자수",
     data: {
-      value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
-    }
-  }
+      value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+    },
+  };
 
   const showDatePicker = (e) => {
     setOpenDate(!openDate);
