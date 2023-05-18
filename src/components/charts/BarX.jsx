@@ -13,29 +13,29 @@ import axios from 'axios';
 //************** */
 
 const BarX = (props) => {
-  // console.log(prop.barXData.data)
-  const [testData, setTestData] = useState({
-    title: '',
-    data: {
-      xAxis: [],
-      value: []
-    }
-  });
+  let barXData = props.barXData;
+  // const [testData, setTestData] = useState({
+  //   title: '',
+  //   data: {
+  //     xAxis: [],
+  //     value: []
+  //   }
+  // });
 
-  useEffect(() => {
-    axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
-      .then(res => {
-        setTestData(res.data);
-      })
-      .catch(err => console.log(err))
+  // useEffect(() => {
+  //   axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
+  //     .then(res => {
+  //       setTestData(res.data);
+  //     })
+  //     .catch(err => console.log(err))
 
-  }, [])
+  // }, [])
 
-  const data = testData.data.value;
-  const xAxis = testData.data.xAxis;
+  // const data = barXData.data.value;
+  // const xAxis = barXData.data.xAxis;
   const option = {
     title: {
-      text: testData.title,
+      text: barXData.title,
     },
     tooltip: {},
     toolbox: {
@@ -56,18 +56,18 @@ const BarX = (props) => {
     //   data: ["지역별인구수"],
     // },
     xAxis: {
-      // data: [
-      //   "안동",
-      //   "문경",
-      //   "예천",
-      //   "김천",
-      //   "성주",
-      //   "경주",
-      //   "영덕",
-      //   "포항",
-      //   "울진",
-      // ],
-      data: xAxis
+      data: [
+        "안동",
+        "문경",
+        "예천",
+        "김천",
+        "성주",
+        "경주",
+        "영덕",
+        "포항",
+        "울진",
+      ],
+      // data: xAxis
     },
     yAxis: {
       
@@ -77,8 +77,8 @@ const BarX = (props) => {
       {
         name: "지역별인구수",
         type: "bar",
-        // data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
-        data: data,
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
             { offset: 0, color: "#8C93FF" },

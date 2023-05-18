@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
-import axios from 'axios';
 
 const Doughnut = () => {
+  /**
+   *  {
+   *    "title":"세대원 별 세대수",
+   *    "data":{
+   *      "name":["5인 가구","4인 가구","3인 가구","2인 가구","1인 가구"],
+   *      "value":[1050,580,450,350,465]
+   *    }
+   *  }
+   */
 
   const colors = [
     {
@@ -37,28 +45,11 @@ const Doughnut = () => {
       ]),
     }
   ]
-  
-  const [testData, setTestData] = useState({
-    title: '',
-    data: {
-      name: [],
-      value: []
-    }
-  });
-
-  useEffect(() => {
-    axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getHouseHoldCountByFamilyMemberCount.do")
-      .then(res => {
-        setTestData(res.data);
-      })
-      .catch(err => console.log(err))
-
-  }, [])
 
   const option = {
     title: {
-      // text: "세대원 별 세대수",
-      text: testData.title,
+      text: "세대원 별 세대수",
+      // text: doughnutData.title,
       left: "left",
     },
     tooltip: {
@@ -97,38 +88,38 @@ const Doughnut = () => {
         },
         data: [
           {
-            // value: 1048,
-            // name: "5인가구",
-            value: testData.data.value[0],
-            name: testData.data.name[0],
+            value: 1048,
+            name: "5인가구",
+            // value: doughnutData.data.value[0],
+            // name: doughnutData.data.name[0],
             itemStyle: colors[0],
           },
           {
-            // value: 580,
-            // name: "4인가구",
-            value: testData.data.value[1],
-            name: testData.data.name[1],
+            value: 580,
+            name: "4인가구",
+            // value: doughnutData.data.value[1],
+            // name: doughnutData.data.name[1],
             itemStyle: colors[1],
           },
           {
-            // value: 450,
-            // name: "3인가구",
-            value: testData.data.value[2],
-            name: testData.data.name[2],
+            value: 450,
+            name: "3인가구",
+            // value: doughnutData.data.value[2],
+            // name: doughnutData.data.name[2],
             itemStyle: colors[2],
           },
           {
-            // value: 350,
-            // name: "2인가구",
-            value: testData.data.value[3],
-            name: testData.data.name[3],
+            value: 350,
+            name: "2인가구",
+            // value: doughnutData.data.value[3],
+            // name: doughnutData.data.name[3],
             itemStyle: colors[3],
           },
           {
-            // value: 465,
-            // name: "1인가구",
-            value: testData.data.value[4],
-            name: testData.data.name[4],
+            value: 465,
+            name: "1인가구",
+            // value: doughnutData.data.value[4],
+            // name: doughnutData.data.name[4],
             itemStyle: colors[4],
           },
         ],

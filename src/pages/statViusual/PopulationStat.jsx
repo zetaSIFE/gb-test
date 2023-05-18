@@ -7,7 +7,7 @@ import {
   BarNegative,
   HalfPie,
 } from "components/charts";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from 'axios';
 
@@ -65,18 +65,13 @@ const Group2 = styled.div`
 `;
 
 export default function PopulationStat() {
-  const barXData = null;
-  // const barXData = {
-  //   title: '지역별 인구수',
-  //   data: {
-  //     value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-  //   }
-  // }
-  axios.get(process.env.REACT_APP_SERVER_URL + "/portal/populationStat/getPopulationCountByArea.do")
-    .then(res => {
-      barXData = res;
-    })
-    .catch(err => console.log(err))
+
+  const barXData = {
+    title: '지역별 인구수',
+    data: {
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
+    }
+  }
   const barXData2 = {
     title: '지역별 청년비율',
     data: {
@@ -89,6 +84,7 @@ export default function PopulationStat() {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50]
     }
   }
+
   return (
     <Container className="container">
       <ItemContainer className="item1">
