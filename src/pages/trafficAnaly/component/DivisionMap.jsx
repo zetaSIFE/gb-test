@@ -50,6 +50,26 @@ export const DivisonMap = () => {
       value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
     }
   }
+  const pieData = {
+    title: 'divi업종별 소비 비율',
+    legend: {
+      show: false,
+      orient: 'vertical',
+      left: 'left',
+      top: "20%",
+      data: ['숙박','식당','병원', '서적','생활','생활문화']
+    },
+    series: {
+      data: [
+        { value: 335, name: "숙박" },
+        { value: 310, name: "식당" },
+        { value: 234, name: "병원" },
+        { value: 534, name: "서적" },
+        { value: 135, name: "생활" },
+        { value: 548, name: "생활문화" },
+      ]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1">
@@ -69,7 +89,7 @@ export const DivisonMap = () => {
         <BarX  barXData={barXData} />
       </ItemContainer>
       <ItemContainer className="item3">
-        <Pie />
+        <Pie pieData={pieData}/>
       </ItemContainer>
     </Container>
   );

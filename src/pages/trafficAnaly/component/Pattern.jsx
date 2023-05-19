@@ -60,6 +60,10 @@ export const Pattern = () => {
     title: "성별 유입 인구 비중",
     men: "52",
     women: "93",
+    grid: {
+      left: "35%",
+      width: "55%",
+    }
   });
 
   const [chkAbide, setChkAbide] = useState("insied");
@@ -72,6 +76,25 @@ export const Pattern = () => {
     { val: "6", name: "안동시 풍천면" },
   ]);
 
+  const pieData = {
+    title: 'pattern업종별 소비 비율',
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      top: "20%",
+      data: ['숙박','식당','병원', '서적','생활','생활문화']
+    },
+    series: {
+      data: [
+        { value: 335, name: "숙박" },
+        { value: 310, name: "식당" },
+        { value: 234, name: "병원" },
+        { value: 534, name: "서적" },
+        { value: 135, name: "생활" },
+        { value: 548, name: "생활문화" },
+      ]
+    }
+  }
   const chkFlowBtn = (e) => {
     let checkItem = document.getElementsByName("flow");
     Array.prototype.forEach.call(checkItem, function (el) {
@@ -128,7 +151,7 @@ export const Pattern = () => {
           <Dynamic />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <Pie />
+          <Pie pieData={pieData}/>
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
           <div className="inlineBlock right">
