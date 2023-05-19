@@ -52,7 +52,7 @@ const pictoData = {
   grid: {
     left: "25%",
     width: "75%",
-   }
+  },
 };
 const barXData = {
   title: "지역별 사업체수",
@@ -61,9 +61,23 @@ const barXData = {
   },
 };
 const halfPieData = {
-  title: "귀농귀촌 통계",
+  title: "청년사장 비율",
   radius: ["100%", "170%"],
   center: ["50%", "100%"],
+  legend: {
+    icon: "circle",
+    selectedMode: false,
+    itemWidth: 10,
+    left: "0%",
+    top: "20%",
+    width: "10%",
+  },
+  label: {
+    show: true,
+    formatter(param) {
+      return param.name + " (" + param.percent * 2 + "%)";
+    },
+  },
 };
 export default function IndustStat() {
   return (
@@ -77,7 +91,7 @@ export default function IndustStat() {
           <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <HalfPie />
+          <HalfPie halfPieData={halfPieData} />
         </ItemContainer>
       </Group1>
 

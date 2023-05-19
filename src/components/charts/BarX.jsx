@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 import axios from "axios";
-import { ReactComponent as Download } from "../../assets/images/buttons/download.svg";
 
 //************** */
 // const barXData = {
@@ -44,14 +43,18 @@ const BarX = (props) => {
     ********************* END!  */
 
   const data = props.barXData.data.value;
+  const title = props.barXData.title;
+  const show = props.barXData.legend;
+   
+  
 
   const option = {
     title: {
       // text: testData.title, // // TODO : 주석 해제
-      text: props.barXData.title,
+      text: title,
       textStyle: {
-        fontSize : 16,
-      }
+        fontSize: 16,
+      },
     },
     tooltip: {},
     toolbox: {
@@ -70,16 +73,20 @@ const BarX = (props) => {
       },
     },
     grid: {
-      top: "40%",
+      top: "30%",
+      height: "60%",
       left: "0%",
       right: "0%",
       bottom: "0%",
       containLabel: true,
     },
-    // 범례
-    // legend: {
-    //   data: ["지역별인구수"],
-    // },
+    legend: {
+      show: show,
+      icon:'circle',
+      data: ["전체", "도내", "도외"],
+      selectedMode: "single",
+      bottom: 0,
+    },
     xAxis: {
       data: [
         "안동",
@@ -97,10 +104,11 @@ const BarX = (props) => {
     yAxis: {},
 
     series: [
+      // props.barXData.series,
       {
-        name: "지역별인구수",
+        name: "전체",
         type: "bar",
-        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -118,13 +126,76 @@ const BarX = (props) => {
         },
         barWidth: 30,
       },
+      {
+        name: "도내",
+        type: "bar",
+         data: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+        // data: data,
+        itemStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#8C93FF" },
+            { offset: 0.5, color: "#656CE1" },
+            { offset: 1, color: "#656CE1" },
+          ]),
+        },
+        showBackground: true,
+        backgroundStyle: {
+          color: "#ECEEF5",
+          shadowColor: "#ECEEF5",
+          // shadowBlur: '1'
+          shadowOffsetY: "-20",
+        },
+        barWidth: 30,
+      },
+      {
+        name: "도외",
+        type: "bar",
+         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        // data: data,
+        itemStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: "#8C93FF" },
+            { offset: 0.5, color: "#656CE1" },
+            { offset: 1, color: "#656CE1" },
+          ]),
+        },
+        showBackground: true,
+        backgroundStyle: {
+          color: "#ECEEF5",
+          shadowColor: "#ECEEF5",
+          // shadowBlur: '1'
+          shadowOffsetY: "-20",
+        },
+        barWidth: 30,
+      },
+      // {
+      //   name: "기본",
+      //   type: "bar",
+      //   // data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+      //   data: data,
+      //   itemStyle: {
+      //     color: new graphic.LinearGradient(0, 0, 0, 1, [
+      //       { offset: 0, color: "#8C93FF" },
+      //       { offset: 0.5, color: "#656CE1" },
+      //       { offset: 1, color: "#656CE1" },
+      //     ]),
+      //   },
+      //   showBackground: true,
+      //   backgroundStyle: {
+      //     color: "#ECEEF5",
+      //     shadowColor: "#ECEEF5",
+      //     // shadowBlur: '1'
+      //     shadowOffsetY: "-20",
+      //   },
+      //   barWidth: 30,
+      // },
     ],
   };
 
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", width: '95%' }}
+      style={{ height: "95%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

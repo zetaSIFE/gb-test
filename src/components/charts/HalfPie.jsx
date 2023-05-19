@@ -2,16 +2,16 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
-const HalfPie = () => {
-  /**
-   *  {
-   *    title: "귀농귀촌 통계",
-   *
-   *  }
-   */
+/**
+ * const halfPieData = {
+ *    title: "귀농귀촌 통계",
+ *    
+ *  }
+ */
+const HalfPie = (props) => {
   const option = {
     title: {
-      text: "귀농귀촌 통계",
+      text: props.halfPieData.title,
       textStyle: {
         fontSize: 16,
       },
@@ -26,19 +26,7 @@ const HalfPie = () => {
         },
       },
     },
-    legend: {
-      icon: "circle",
-      bottom: "5%",
-      left: "center",
-      width: "100%",
-
-      // doesn't perfectly work with our tricks, disable it
-      selectedMode: false,
-      itemWidth: 10,
-      // left: "0%",
-      // top: "20%",
-      // width: "10%",
-    },
+    legend: props.halfPieData.legend, 
     grid: {
       width: "100%",
       top: "5%",
@@ -47,20 +35,11 @@ const HalfPie = () => {
       {
         // name: "Access From",
         type: "pie",
-        radius: ["45%", "90%"],
-        center: ["50%", "75%"],
+        radius: props.halfPieData.radius,
+        center: props.halfPieData.center,
         width: "100%",
         height: "100%",
-        label: {
-          show: false,
-          position: 'outside',
-          color: 'black',
-          formatter(param) {
-            // correct the percentage
-            return param.name + " (" + param.percent * 2 + "%)";
-          },
-        },
-        // adjust the start angle
+        label: props.halfPieData.label,
         startAngle: 180,
         data: [
           {

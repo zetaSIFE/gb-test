@@ -89,6 +89,28 @@ export default function PopulationStat() {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
     },
   };
+  const halfPieData = {
+    title: "귀농귀촌 통계",
+    radius: ["45%", "90%"],
+    center: ["50%", "75%"],
+    label: {
+      show: false,
+      // position: "inside",
+      // color: 'black',
+      // formatter(param) {
+      //   return param.name + " (" + param.percent * 2 + "%)";
+      // },
+    },
+    legend: {
+      icon: "circle",
+      bottom: "5%",
+      left: "center",
+      width: "100%",
+      selectedMode: false,
+      itemWidth: 10,
+    }
+
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1 itemStyle">
@@ -118,7 +140,7 @@ export default function PopulationStat() {
           <BarNegative />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <HalfPie />
+          <HalfPie halfPieData={halfPieData} />
         </ItemContainer>
       </Group2>
     </Container>

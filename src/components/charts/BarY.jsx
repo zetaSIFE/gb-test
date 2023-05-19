@@ -1,6 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
-import { graphic } from "echarts";
+
 
 //************** */
 // const barYData = {
@@ -13,7 +13,10 @@ import { graphic } from "echarts";
 //************** */
 
 const BarY = (props) => {
-  const data = props.barYData.data.value;
+  //const data = props.barYData.data.value;
+  const legend = props.barYData.legend;
+  const visualMap = props.barYData.visualMap;
+  // console.log(props.barYData.visualMap);
   const option = {
     title: {
       // text: "지역별 출생아수",
@@ -40,11 +43,14 @@ const BarY = (props) => {
       height: "70%",
       containLabel: true,
     },
-    // 범례
-    // legend: {
-    //   // data: ["출생데이터"],
-    //   bottom: 0,
-    // },
+    legend: {
+      show: legend,
+      icon:'circle',
+      data: ["전체", "도내", "도외"],
+      selectedMode: "single",
+      // bottom: 0,
+      // left: 'left'
+    },
     xAxis: {},
     yAxis: {
       data: [
@@ -61,6 +67,7 @@ const BarY = (props) => {
       // data: barYData.data.yAxis
     },
     visualMap: {
+      show: visualMap,
       orient: "horizontal",
       // top: "10%",
       bottom: 0,
@@ -78,7 +85,21 @@ const BarY = (props) => {
 
     series: [
       {
-        name: "출생데이터",
+        name: "전체",
+        type: "bar",
+        data: [5, 20, 36, 13, 27, 60, 50, 90, 45],
+        // data: data,
+        // data: barYData.data.value
+      },
+      {
+        name: "도내",
+        type: "bar",
+        data: [5, 10, 26, 43, 17, 40, 20, 5, 15],
+        // data: data,
+        // data: barYData.data.value
+      },
+      {
+        name: "도외",
         type: "bar",
         data: [5, 20, 36, 13, 27, 60, 50, 90, 45],
         // data: data,
@@ -90,7 +111,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", width: "95%" }}
+      style={{ height: "95%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

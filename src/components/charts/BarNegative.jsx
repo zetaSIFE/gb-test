@@ -41,7 +41,7 @@ const BarNegative = () => {
       feature: {
         saveAsImage: {
           title: "이미지 다운로드",
-        }, 
+        },
       },
     },
     // legend: {
@@ -89,6 +89,7 @@ const BarNegative = () => {
             { offset: 1, color: "#FF717D" },
           ]),
         },
+        center: ["50%", "50%"],
         stack: "Total",
         // label: {
         //   show: true
