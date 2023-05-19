@@ -15,6 +15,7 @@ import { DatePicker } from "./DatePicker";
 import { TimePicker } from "./TimePicker";
 import { CustomPicker } from "./CustomPicker";
 import { CustomTime } from "./CustomTime";
+import { ReactComponent as ArrowIcon } from "assets/images/buttons/selectArrow.svg";
 
 const Container = styled.div`
   /* height:95vh; */
@@ -54,29 +55,10 @@ const ItemContainer = styled.div`
   /* height: 100%; */
 `;
 
-const SelecBox = styled.div`
+const SelecGroup = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-
-  button {
-    width: 120px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background: #ffffff;
-  }
-
-  Select {
-    width: 120px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background: #ffffff;
-  }
-`;
-
-const PickerBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Group1 = styled.div`
@@ -96,8 +78,29 @@ const Group2 = styled.div`
   grid-gap: 10px;
 `;
 
-const Test = styled.div`
-  width: 100px;
+const SelecBox = styled.div`
+  width: 120px;
+  position: relative;
+  margin-bottom: 1%;
+
+  .CustomPicker,
+  .CustomTime,
+  select {
+    width: 100%;
+    height: 25px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background: #ffffff;
+    text-align: center;
+    padding-right: 20%;
+    appearance: none;
+  }
+
+  svg {
+    position: absolute;
+    left: 80%;
+    top: 10%;
+  }
 `;
 
 export const InOutFlow = (prop) => {
@@ -120,17 +123,6 @@ export const InOutFlow = (prop) => {
     },
   };
 
-  const showDatePicker = (e) => {
-    setOpenDate(!openDate);
-  };
-
-  const showTimePicker = (e) => {
-    setOpenTime(!openTime);
-  };
-
-  const [openDate, setOpenDate] = useState(false);
-  const [openTime, setOpenTime] = useState(false);
-
   return (
     <>
       {prop.division ? (
@@ -138,15 +130,19 @@ export const InOutFlow = (prop) => {
       ) : (
         <Container className="container">
           <ItemContainer className="item1 flex-column itemStyle">
-            <SelecBox>
-              <Select
-                title={"유입 유출"}
-                values={["유입", "유출"]}
-                className="item2"
-              />
-              <Test>
+            <SelecGroup>
+              <SelecBox>
+                <Select
+                  title={"유입 유출"}
+                  values={["유입", "유출"]}
+                  className="item2"
+                />
+                <ArrowIcon />
+              </SelecBox>
+              <SelecBox>
                 <CustomPicker />
-              </Test>
+                <ArrowIcon />
+              </SelecBox>
               {/* <Select
                 title={"기간 설정"}
                 values={[]}
@@ -162,12 +158,19 @@ export const InOutFlow = (prop) => {
                 />
                 {openTime && <TimePicker />}
               </PickerBox> */}
-              <Test>
+              <SelecBox>
                 <CustomTime />
-              </Test>
-              <Select title={"성별 설정"} values={["남자", "여자"]} />
-              <Select title={"연령 설정"} values={["유입", "유출"]} />
-            </SelecBox>
+                <ArrowIcon />
+              </SelecBox>
+              <SelecBox>
+                <Select title={"성별 설정"} values={["남자", "여자"]} />
+                <ArrowIcon />
+              </SelecBox>
+              <SelecBox>
+                <Select title={"연령 설정"} values={["유입", "유출"]} />
+                <ArrowIcon />
+              </SelecBox>
+            </SelecGroup>
             <FlowChart width="100%" height="100%" />
           </ItemContainer>
 
