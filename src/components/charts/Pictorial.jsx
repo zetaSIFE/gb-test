@@ -5,11 +5,16 @@ import ECharts, { EChartsReactProps } from "echarts-for-react";
 // pictoData = {
 //   title: '성별 유입 인구 비중',
 //   men:'52',
-//   women:'93'
+//   women:'93',
+//   grid: {
+//     left: "25%",
+//     width: "75%",
+//    }
 // }
 //************** */
 
 const Pictorial = (prop) => {
+  const  { title, men, women, grid } = prop.pictoData;
   const menColor = "#4283d8";
   const womenColor = "#ff7c9e";
 
@@ -39,7 +44,7 @@ const Pictorial = (prop) => {
 
   const options = {
     title: {
-      text: prop.pictoData.title,
+      text: title,
       textStyle: {
         fontSize : 16,
       }
@@ -68,11 +73,18 @@ const Pictorial = (prop) => {
       splitLine: { show: false },
     },
     grid: {
-      left: "25%",
+      left: grid.left,
+      width: grid.width,
       top: "25%",
       botton: "10%",
-      width: "75%",
       height: "70%",
+      
+      // left: "25%",
+      // width: "75%",
+
+      // top: "25%",
+      // botton: "10%",
+      // height: "70%",
     },
     markLine: {
       z: -100,
@@ -87,7 +99,7 @@ const Pictorial = (prop) => {
         label: labelSetting,
         data: [
           {
-            value: prop.pictoData.men,
+            value: men,
             symbol: symbolsMen[0],
             label: {
               show: true,
@@ -98,7 +110,7 @@ const Pictorial = (prop) => {
             },
           },
           {
-            value: prop.pictoData.women,
+            value: women,
             symbol: symbolsWemen[0],
             label: {
               show: true,

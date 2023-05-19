@@ -49,6 +49,10 @@ const pictoData = {
   title: "종사자 수(성별)",
   men: "55",
   women: "45",
+  grid: {
+    left: "25%",
+    width: "75%",
+   }
 };
 const barXData = {
   title: "지역별 사업체수",

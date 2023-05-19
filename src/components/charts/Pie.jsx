@@ -2,19 +2,42 @@ import React, { useState } from "react";
 import ReactECharts from "echarts-for-react";
 import { graphic } from "echarts";
 
+//************** */
+// Pie = {
+//   title: '업종별 소비 비율',
+//   legend: {
+      //   orient: 'vertical',
+      //   left: 'left',
+      //   top: "20%",
+      //   data: ['숙박','식당','병원', '서적','생활','생활문화']
+      // },
+      // series: {
+      //   data: [
+      //     { value: 335, name: "숙박" },
+      //     { value: 310, name: "식당" },
+      //     { value: 234, name: "병원" },
+      //     { value: 534, name: "서적" },
+      //     { value: 135, name: "생활" },
+      //     { value: 548, name: "생활문화" },
+      //   ]
+      // }
+// }
+//************** */ 
+
 const Pie = (prop) => {
+  const { title, legend, series } = prop.pieData;
+  
   const option = {
     title: {
-      text: "제목",
+      text: title,
       textStyle: {
         fontSize: 16,
       },
-      subtext: "부제목",
-      x: "center",
     },
     tooltip: {
       trigger: "item",
       formatter: "{a} <br/>{b} : {c} ({d}%)",
+      
     },
     toolbox: {
       feature: {
@@ -26,7 +49,8 @@ const Pie = (prop) => {
     legend: {
       orient: 'vertical',
       left: 'left',
-      data: ['data1','data2','data3','data4','data5']
+      top: "20%",
+      data: ['숙박','식당','병원', '서적','생활','생활문화']
     },
     grid: {
       width: "14%",
@@ -39,11 +63,12 @@ const Pie = (prop) => {
         // width: '42%',
         center: ["50%", "60%"],
         data: [
-          { value: 335, name: "data1" },
-          { value: 310, name: "data2" },
-          { value: 234, name: "data3" },
-          { value: 135, name: "data4" },
-          { value: 1548, name: "data5" },
+          { value: 335, name: "숙박" },
+          { value: 310, name: "식당" },
+          { value: 234, name: "병원" },
+          { value: 534, name: "서적" },
+          { value: 135, name: "생활" },
+          { value: 548, name: "생활문화" },
         ],
         itemStyle: {
           emphasis: {
