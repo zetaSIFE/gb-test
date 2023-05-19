@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import { DatePicker } from "./DatePicker";
-import { TimePicker } from "./TimePicker";
 import { CustomPicker } from "./CustomPicker";
 import { CustomTime } from "./CustomTime";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/selectArrow.svg";
@@ -54,21 +52,6 @@ export const SelecGroup = (props) => {
         <CustomPicker />
         <ArrowIcon />
       </SelecBox>
-      {/* <Select
-  title={"기간 설정"}
-  values={[]}
-  onClick={() => showDatePicker()}
-/>
-{openDate && <DatePicker />}
-*/}
-      {/* <PickerBox>
-  <Select
-    title={"시간 설정"}
-    values={[]}
-    onClick={() => showTimePicker()}
-  />
-  {openTime && <TimePicker />}
-</PickerBox> */}
       <SelecBox>
         <CustomTime />
         <ArrowIcon />
