@@ -26,7 +26,7 @@ const Content = styled.div`
 export default function StatVisualLayout() {
   const menuData = [
     {
-      name: "인구지표",
+      name: "인구통계",
       url: "/stat/statVisual/populationStat.do",
       svg: <PopularStat className="svg" />,
     },
@@ -36,7 +36,7 @@ export default function StatVisualLayout() {
       svg: <Transfer className="svg" />,
     },
     {
-      name: "산업관련",
+      name: "산업통계",
       url: "/stat/statVisual/industrialStat.do",
       svg: <IndustStat />,
     },
@@ -46,7 +46,7 @@ export default function StatVisualLayout() {
       svg: <GbStat className="svg" />,
     },
     {
-      name: "K-지방\n소멸지수",
+      name: "주요\n소멸지수",
       url: "/stat/statVisual/extinction.do",
       svg: <Extinction className="svg" />,
     },
