@@ -29,7 +29,7 @@ const BarNegative = () => {
     "70",
     "80",
     "90",
-    "100"
+    "100",
   ];
   const option = {
     title: {
@@ -37,6 +37,13 @@ const BarNegative = () => {
       // text: barNegativeData.title,
     },
     tooltip: {},
+    toolbox: {
+      feature: {
+        saveAsImage: {
+          title: "이미지 다운로드",
+        }, 
+      },
+    },
     // legend: {
     //   data: ['Males', 'Females']
     // },
@@ -125,7 +132,7 @@ const BarNegative = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%" }}
+      style={{ height: "90%", width: "95%" }}
       opts={{ renderer: "svg" }}
     />
   );

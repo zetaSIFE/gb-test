@@ -49,12 +49,21 @@ const pictoData = {
   title: "종사자 수(성별)",
   men: "55",
   women: "45",
+  grid: {
+    left: "25%",
+    width: "75%",
+   }
 };
 const barXData = {
   title: "지역별 사업체수",
   data: {
     value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
   },
+};
+const halfPieData = {
+  title: "귀농귀촌 통계",
+  radius: ["100%", "170%"],
+  center: ["50%", "100%"],
 };
 export default function IndustStat() {
   return (

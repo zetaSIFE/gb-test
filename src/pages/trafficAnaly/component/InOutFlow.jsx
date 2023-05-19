@@ -44,10 +44,7 @@ const Container = styled.div`
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
   } */
-  .chartTit {
-    padding-top: 0%;
-    font-size: 16px;
-  }
+
 `;
 
 const ItemContainer = styled.div`
@@ -61,6 +58,8 @@ const SelecBox = styled.div`
 
   button {
     width: 120px;
+    height: 28px;
+    text-align: left;
     border: 1px solid #cccccc;
     border-radius: 10px;
     background: #ffffff;
@@ -105,6 +104,10 @@ export const InOutFlow = (prop) => {
     title: "성별 유입율",
     men: "40",
     women: "50",
+    grid: {
+      left: "25%",
+      width: "75%",
+    }
   };
 
   const barXData = {

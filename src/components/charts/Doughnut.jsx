@@ -58,8 +58,14 @@ const Doughnut = () => {
     tooltip: {
       trigger: "item",
       left: true,
-
       // formatter: "{a} <br/>{b} : {c} ({d}%)",
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {
+          title: "이미지 다운로드",
+        }, 
+      },
     },
     legend: {
       orient: "vertical",
@@ -132,7 +138,7 @@ const Doughnut = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", width: "90%" }}
+      style={{ height: "90%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

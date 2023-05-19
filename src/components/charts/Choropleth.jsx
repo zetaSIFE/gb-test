@@ -30,6 +30,13 @@ echarts.registerMap("USA", geoData, {
 });
 
 const mapOption = {
+  toolbox: {
+    feature: {
+      saveAsImage: {
+        title: "이미지 다운로드",
+      },
+    },
+  },
   visualMap: {
     left: "right",
     min: 500000,
@@ -71,7 +78,7 @@ export default function E_Choropleth() {
     <>
       <ReactEcharts
         option={mapOption}
-        style={{ width: "90%", height: "90%", borderBottom: "3px solid #000" }}
+        style={{ width: "95%", height: "90%", borderBottom: "3px solid #000" }}
       />
     </>
   );

@@ -88,6 +88,25 @@ export const Card = () => {
       value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
     },
   };
+  const pieData = {
+    title: '업종별 카드소비 비율',
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      top: "20%",
+      data: ['숙박','식당','병원', '서적','생활','생활문화']
+    },
+    series: {
+      data: [
+        { value: 335, name: "숙박" },
+        { value: 310, name: "식당" },
+        { value: 234, name: "병원" },
+        { value: 534, name: "서적" },
+        { value: 135, name: "생활" },
+        { value: 548, name: "생활문화" },
+      ]
+    }
+  }
   return (
     <Container className="container">
       <ItemContainer className="item1 itemStyle">
@@ -147,18 +166,16 @@ export const Card = () => {
       </ChkContainer>
       <ItemContainer className="item1 itemStyle">
         <div>
-          <chkBoxTit className="chartTit inlineBlock">
-            업종별 연령별 소비비율
-          </chkBoxTit>
-          <div className="inlineBlock"></div>
+   
+          {/* <div className="inlineBlock right"></div>
           <select>
             <option>업종선택</option>
             <option>업종선택</option>
             <option>업종선택</option>
             <option>업종선택</option>
-          </select>
-        </div>
-        <Pie />
+          </select>*/}
+        </div> 
+        <Pie pieData={pieData}/>
       </ItemContainer>
     </Container>
   );
