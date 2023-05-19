@@ -48,11 +48,13 @@ const mapOption = {
     orient: "vertical",
     left: "right",
     top: "center",
-    feature: {
-      dataView: { readOnly: false },
-      restore: {},
-      saveAsImage: {},
-    },
+    // feature: {
+    //   // dataView: { readOnly: false },
+    //   // restore: {},
+    //   saveAsImage: {
+    //     title: "이미지 다운로드",
+    //   },
+    // },
   },
 
   // NOTE 범례

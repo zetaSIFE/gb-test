@@ -45,6 +45,13 @@ const Pictorial = (prop) => {
       }
     },
     tooltip: {},
+    toolbox: {
+      feature:{
+        saveAsImage:{
+          title: "이미지 다운로드",
+        }
+      }
+    },
     legend: {
       show: false,
       selectedMode: "multiple",
@@ -128,7 +135,7 @@ const Pictorial = (prop) => {
   };
   return (
     <>
-      <ECharts option={options} style={{ height: "100%", width: "78%" }} />
+      <ECharts option={options} style={{ height: "100%", width: "90%" }} />
     </>
   );
 };

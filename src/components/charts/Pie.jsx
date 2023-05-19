@@ -16,6 +16,13 @@ const Pie = (prop) => {
       trigger: "item",
       formatter: "{a} <br/>{b} : {c} ({d}%)",
     },
+    toolbox: {
+      feature: {
+        saveAsImage: {
+          title: "이미지 다운로드",
+        }, 
+      },
+    },
     legend: {
       orient: 'vertical',
       left: 'left',

@@ -6,7 +6,7 @@ const HalfPie = () => {
   /**
    *  {
    *    title: "귀농귀촌 통계",
-   *    
+   *
    *  }
    */
   const option = {
@@ -14,43 +14,52 @@ const HalfPie = () => {
       text: "귀농귀촌 통계",
       textStyle: {
         fontSize: 16,
-      }
+      },
     },
     tooltip: {
       trigger: "item",
     },
+    toolbox: {
+      feature: {
+        saveAsImage: {
+          title: "이미지 다운로드",
+        },
+      },
+    },
     legend: {
       icon: "circle",
-      // bottom: "5%",
-      // left: "center",
-      // width: '100%',
+      bottom: "5%",
+      left: "center",
+      width: "100%",
 
       // doesn't perfectly work with our tricks, disable it
       selectedMode: false,
       itemWidth: 10,
-      left: "0%",
-      top: "20%",
-      width: "10%",
+      // left: "0%",
+      // top: "20%",
+      // width: "10%",
     },
     grid: {
       width: "100%",
       top: "5%",
     },
-    label: {
-      show: true,
-      formatter(param) {
-        // correct the percentage
-        return param.name + " (" + param.percent * 2 + "%)";
-      },
-    },
     series: [
       {
-        name: "Access From",
+        // name: "Access From",
         type: "pie",
-        radius: ["100%", "170%"],
-        center: ["50%", "100%"],
+        radius: ["45%", "90%"],
+        center: ["50%", "75%"],
         width: "100%",
         height: "100%",
+        label: {
+          show: false,
+          position: 'outside',
+          color: 'black',
+          formatter(param) {
+            // correct the percentage
+            return param.name + " (" + param.percent * 2 + "%)";
+          },
+        },
         // adjust the start angle
         startAngle: 180,
         data: [
@@ -114,9 +123,6 @@ const HalfPie = () => {
                 symbol: "none",
               },
             },
-            label: {
-              show: false,
-            },
           },
         ],
       },
@@ -125,7 +131,7 @@ const HalfPie = () => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%" }}
+      style={{ height: "90%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

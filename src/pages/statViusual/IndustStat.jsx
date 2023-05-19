@@ -56,6 +56,11 @@ const barXData = {
     value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
   },
 };
+const halfPieData = {
+  title: "귀농귀촌 통계",
+  radius: ["100%", "170%"],
+  center: ["50%", "100%"],
+};
 export default function IndustStat() {
   return (
     <Container className="container">

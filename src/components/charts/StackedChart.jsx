@@ -36,8 +36,10 @@ const Stacked = (props) => {
     },
     toolbox: {
       feature: {
-        dataView: { readOnly: false },
-        saveAsImage: {},
+        // dataView: { readOnly: false },
+        saveAsImage: {
+          title: "이미지 다운로드",
+        },
       },
     },
     grid: {
@@ -98,7 +100,7 @@ const Stacked = (props) => {
 
   //TODO: 는 아니고 areaStyle: {normal: {}}로 라인 내부 색상 가능
 
-  return <ReactECharts option={option} style={{ height: "90%" }} />;
+  return <ReactECharts option={option} style={{height: "90%", width: "95%" }} />;
 };
 
 export { Stacked };

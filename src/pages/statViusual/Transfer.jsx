@@ -196,35 +196,6 @@ export default function Transfer() {
           <BarY barYData={barYData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="inlineBlock_right2">
-            <input
-              type="checkbox"
-              id="total"
-              name="flow"
-              value="전체"
-              onChange={(e) => checkOnlyOne(e)}
-              checked={checkValue === "전체"}
-            />
-            <label htmlFor="total">전체</label>
-            <input
-              type="checkbox"
-              id="inflow"
-              name="flow"
-              value="도내"
-              onChange={(e) => checkOnlyOne(e)}
-              checked={checkValue === "도내"}
-            />
-            <label htmlFor="inflow">도내</label>
-            <input
-              type="checkbox"
-              id="outflow"
-              name="flow"
-              value="도외"
-              onChange={(e) => checkOnlyOne(e)}
-              checked={checkValue === "도외"}
-            />
-            <label htmlFor="outflow">도외</label>
-          </div>
           <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">

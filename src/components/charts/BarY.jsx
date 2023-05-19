@@ -25,8 +25,10 @@ const BarY = (props) => {
     tooltip: {},
     toolbox: {
       feature: {
-        dataView: { readOnly: false },
-        saveAsImage: {},
+        // dataView: { readOnly: false },
+        saveAsImage: {
+          title: "이미지 다운로드",
+        },
       },
     },
     grid: {
@@ -88,7 +90,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%" }}
+      style={{ height: "90%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );
