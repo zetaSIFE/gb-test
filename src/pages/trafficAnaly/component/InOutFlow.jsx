@@ -55,20 +55,6 @@ const SelecGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
-  button {
-    width: 120px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background: #ffffff;
-  }
-
-  Select {
-    width: 120px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    background: #ffffff;
-  }
 `;
 
 const PickerBox = styled.div`
