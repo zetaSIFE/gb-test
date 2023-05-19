@@ -1,4 +1,4 @@
-import { BarX, GbMap, Table, Pie } from "components/charts";
+import { BarX, GbMap, Table, Pie, FlowChart } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 
@@ -34,8 +34,6 @@ const Container = styled.div`
     padding: 10px;
   }
 `;
-;
-
 const ItemContainer = styled.div``;
 
 const TableWrap = styled.div`
@@ -45,19 +43,19 @@ const TableWrap = styled.div`
 
 export const DivisonMap = () => {
   const barXData = {
-    title: '지역별 인구수',
+    title: "지역별 인구수",
     data: {
-      value: [20, 50, 100, 150, 200, 250, 300, 350, 400]
-    }
-  }
+      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+    },
+  };
   const pieData = {
-    title: 'divi업종별 소비 비율',
+    title: "divi업종별 소비 비율",
     legend: {
       show: false,
-      orient: 'vertical',
-      left: 'left',
+      orient: "vertical",
+      left: "left",
       top: "20%",
-      data: ['숙박','식당','병원', '서적','생활','생활문화']
+      data: ["숙박", "식당", "병원", "서적", "생활", "생활문화"],
     },
     series: {
       data: [
@@ -67,16 +65,16 @@ export const DivisonMap = () => {
         { value: 534, name: "서적" },
         { value: 135, name: "생활" },
         { value: 548, name: "생활문화" },
-      ]
-    }
-  }
+      ],
+    },
+  };
   return (
     <Container className="container">
       <ItemContainer className="item1">
-        <GbMap />
+        <FlowChart width="100%" height="100%" id="OdMap1" />
       </ItemContainer>
       <ItemContainer className="item1">
-        <GbMap />
+        <FlowChart width="100%" height="100%" id="OdMap2" />
       </ItemContainer>
       <ItemContainer className="item2">
         <p className="chartTit">연도별 유입지 순위</p>
@@ -86,10 +84,10 @@ export const DivisonMap = () => {
         </TableWrap>
       </ItemContainer>
       <ItemContainer className="item2">
-        <BarX  barXData={barXData} />
+        <BarX barXData={barXData} />
       </ItemContainer>
       <ItemContainer className="item3">
-        <Pie pieData={pieData}/>
+        <Pie pieData={pieData} />
       </ItemContainer>
     </Container>
   );

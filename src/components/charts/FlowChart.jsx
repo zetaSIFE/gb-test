@@ -63,6 +63,15 @@ export const FlowChart = (prop) => {
   const map = useRef();
   const echartslayer = useRef();
 
+  //FlowChart를 분할할 경우 각 map의 id지정
+  const mapId = useRef();
+
+  if (prop.id) {
+    mapId.current = prop.id;
+  } else {
+    mapId.current = "OdMap";
+  }
+
   useEffect(() => {
     gbCenterData.features.map((el) =>
       setMoveData((data) => [
@@ -304,7 +313,7 @@ export const FlowChart = (prop) => {
     map.current = new Map({
       layers: [baseLayer, vectorLayer],
       loadTilesWhileAnimating: true,
-      target: "OdMap",
+      target: mapId.current,
       projection: "EPSG:5179",
       view: new View({
         projection: "EPSG:5179",
@@ -361,6 +370,9 @@ export const FlowChart = (prop) => {
   }, [series]);
 
   return (
-    <div id="OdMap" style={{ width: prop.width, height: prop.height }}></div>
+    <div
+      id={mapId.current}
+      style={{ width: prop.width, height: prop.height }}
+    ></div>
   );
 };
