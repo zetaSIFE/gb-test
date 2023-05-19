@@ -7,7 +7,6 @@ const HeaderBox = styled.div`
   * {
     height: 40px;
     border: 1px solid #cccccc;
-    border-radius: 10px;
     background: #ffffff;
     min-width: 120px;
   }
