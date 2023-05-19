@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BtnReport, Search } from "components/buttons";
+import { BtnReport } from "components/buttons";
 import { ReactComponent as SearchIcon } from "assets/images/buttons/search.svg";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/downArrow.svg";
 /**
@@ -86,10 +86,18 @@ const SelectBox = styled.div`
 `;
 
 export const Header = (props) => {
+  const handleSearch = () => {
+    console.log("찾기!");
+  };
   return (
     <Container>
       <HeaderBox className="headerBox">
-        <Search />
+        <SearchBox className="searchBox">
+          <input type="text" placeholder="검색 대상" />
+          <div className="search" onClick={handleSearch}>
+            <SearchIcon />
+          </div>
+        </SearchBox>
         <SelectBox className="selectBox">
           <label>경상북도</label>
           <ArrowIcon />
