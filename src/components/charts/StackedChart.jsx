@@ -17,6 +17,16 @@ const Stacked = (props) => {
    *  }
    */
 
+  /** NOTE by 이성조 : 이런식으로 바뀌어야 하지 않을까요?
+   *  {
+   *    title: "경상북도 전입전출 추이",
+   *    xAxis: ["2013년","2014년","2015년","2016년","2017년","2018년","2019년","2020년","2021년","2022년"],
+   *    data: {1개 묶음(범례 이름, 데이터 목록),
+   *          1개 묶음(범례 이름, 데이터 목록),
+   *          1개 묶음(범례 이름, 데이터 목록)
+   *   }
+   */
+
   // const stackedData = props.stackedData.data;
 
   const option = {
@@ -25,19 +35,21 @@ const Stacked = (props) => {
       // text: stackedData.title,
       textStyle: {
         fontSize: 16,
-      }
+      },
     },
     tooltip: {
       trigger: "axis",
     },
     legend: {
-      data: ["data1", "data2"],
+      data: ["경상북도", "안동시"],
       // data: stackedData.legend,
     },
     toolbox: {
       feature: {
-        dataView: { readOnly: false },
-        saveAsImage: {},
+        // dataView: { readOnly: false },
+        saveAsImage: {
+          title: "이미지 다운로드",
+        },
       },
     },
     grid: {
@@ -72,25 +84,25 @@ const Stacked = (props) => {
     ],
     series: [
       {
-        name: "data1",
+        name: "경상북도",
         type: "line",
         stack: "Total",
         itemStyle: {
           color: "#FF39A7",
         },
         // areaStyle: {normal: {}},
-        data: [120, 132, 101, 134, 90, 230, 210],
+        data: [120, 132, 101, 134, 90, 230, 210, 180, 190, 200],
         // data: stackedData.data.series[0],
       },
       {
-        name: "data2",
+        name: "안동시",
         type: "line",
         stack: "Total",
         itemStyle: {
           color: "#656CE1",
         },
         // areaStyle: {normal: {}},
-        data: [220, 182, 191, 234, 290, 330, 310],
+        data: [220, 182, 191, 234, 290, 330, 310, 280, 270, 150],
         // data: stackedData.data.series[1],
       },
     ],
@@ -98,7 +110,7 @@ const Stacked = (props) => {
 
   //TODO: 는 아니고 areaStyle: {normal: {}}로 라인 내부 색상 가능
 
-  return <ReactECharts option={option} style={{ height: "90%" }} />;
+  return <ReactECharts option={option} style={{height: "90%", width: "95%" }} />;
 };
 
 export { Stacked };

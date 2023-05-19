@@ -49,7 +49,6 @@ const BarX = (props) => {
     title: {
       // text: testData.title, // // TODO : 주석 해제
       text: props.barXData.title,
-      text: props.barXData.title,
       textStyle: {
         fontSize : 16,
       }
@@ -125,7 +124,7 @@ const BarX = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%" }}
+      style={{ height: "90%", width: '95%' }}
       // opts={{ renderer: "svg" }}
     />
   );

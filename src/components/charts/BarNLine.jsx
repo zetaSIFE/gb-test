@@ -63,8 +63,8 @@ const BarNLine = () => {
     toolbox: {
       show: true,
       feature: {
-        dataView: { readOnly: false },
-        restore: {},
+        // dataView: { readOnly: false },
+        // restore: {},
         saveAsImage: {}
       }
     },
@@ -148,7 +148,7 @@ const BarNLine = () => {
 //     ]
 //   });
 // }, 2100);
-  return <ReactECharts option={option} style={{ height: "95%", width: "100%", float: "right" }} />;
+  return <ReactECharts option={option} style={{ height: "90%", width: "95%", float: "right" }} />;
 };
 
 export { BarNLine };
