@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Dynamic, GbMap, Pictorial, Pie } from "components/charts";
+import { Dynamic, FlowChart, GbMap, Pictorial, Pie } from "components/charts";
 import { Pointer } from "./Pointer";
+import { SelecGroup } from "./SelectGroup";
 
 const Container = styled.div`
   display: grid;
@@ -63,7 +64,7 @@ export const Pattern = () => {
     grid: {
       left: "35%",
       width: "55%",
-    }
+    },
   });
 
   const [chkAbide, setChkAbide] = useState("insied");
@@ -77,12 +78,12 @@ export const Pattern = () => {
   ]);
 
   const pieData = {
-    title: 'pattern업종별 소비 비율',
+    title: "pattern업종별 소비 비율",
     legend: {
-      orient: 'vertical',
-      left: 'left',
+      orient: "vertical",
+      left: "left",
       top: "20%",
-      data: ['숙박','식당','병원', '서적','생활','생활문화']
+      data: ["숙박", "식당", "병원", "서적", "생활", "생활문화"],
     },
     series: {
       data: [
@@ -92,9 +93,9 @@ export const Pattern = () => {
         { value: 534, name: "서적" },
         { value: 135, name: "생활" },
         { value: 548, name: "생활문화" },
-      ]
-    }
-  }
+      ],
+    },
+  };
   const chkFlowBtn = (e) => {
     let checkItem = document.getElementsByName("flow");
     Array.prototype.forEach.call(checkItem, function (el) {
@@ -143,15 +144,16 @@ export const Pattern = () => {
   };
   return (
     <Container className="container">
-      <ItemContainer className="item1 itemStyle">
-        <GbMap />
+      <ItemContainer className="item1 flex-column itemStyle">
+        <SelecGroup />
+        <FlowChart width="100%" height="100%" />
       </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
           <Dynamic />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <Pie pieData={pieData}/>
+          <Pie pieData={pieData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
           <div className="inlineBlock right">

@@ -1,6 +1,7 @@
 import { BarX, GbMap, Table, Pie, FlowChart } from "components/charts";
 import React from "react";
 import styled from "styled-components";
+import { SelecGroup } from "./SelectGroup";
 
 const Container = styled.div`
   height: 100%;
@@ -70,10 +71,12 @@ export const DivisonMap = () => {
   };
   return (
     <Container className="container">
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 flex-column">
+        <SelecGroup />
         <FlowChart width="100%" height="100%" id="OdMap1" />
       </ItemContainer>
-      <ItemContainer className="item1">
+      <ItemContainer className="item1 flex-column itemStyle">
+        <SelecGroup />
         <FlowChart width="100%" height="100%" id="OdMap2" />
       </ItemContainer>
       <ItemContainer className="item2">

@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { GbMap, BarX, Table, Pie, BarNLine } from "components/charts";
+import {
+  GbMap,
+  BarX,
+  Table,
+  Pie,
+  BarNLine,
+  FlowChart,
+} from "components/charts";
+import { SelecGroup } from "./SelectGroup";
 
 const Container = styled.div`
   display: grid;
@@ -89,12 +97,12 @@ export const Card = () => {
     },
   };
   const pieData = {
-    title: '업종별 카드소비 비율',
+    title: "업종별 카드소비 비율",
     legend: {
-      orient: 'vertical',
-      left: 'left',
+      orient: "vertical",
+      left: "left",
       top: "20%",
-      data: ['숙박','식당','병원', '서적','생활','생활문화']
+      data: ["숙박", "식당", "병원", "서적", "생활", "생활문화"],
     },
     series: {
       data: [
@@ -104,13 +112,14 @@ export const Card = () => {
         { value: 534, name: "서적" },
         { value: 135, name: "생활" },
         { value: 548, name: "생활문화" },
-      ]
-    }
-  }
+      ],
+    },
+  };
   return (
     <Container className="container">
-      <ItemContainer className="item1 itemStyle">
-        <GbMap/>
+      <ItemContainer className="item1 flex-column itemStyle">
+        <SelecGroup />
+        <FlowChart width="100%" height="100%" />
       </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
@@ -166,7 +175,6 @@ export const Card = () => {
       </ChkContainer>
       <ItemContainer className="item1 itemStyle">
         <div>
-   
           {/* <div className="inlineBlock right"></div>
           <select>
             <option>업종선택</option>
@@ -174,8 +182,8 @@ export const Card = () => {
             <option>업종선택</option>
             <option>업종선택</option>
           </select>*/}
-        </div> 
-        <Pie pieData={pieData}/>
+        </div>
+        <Pie pieData={pieData} />
       </ItemContainer>
     </Container>
   );
