@@ -1,13 +1,14 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 
-const Tree = () => {
+const Tree = (props) => {
+  console.log(props.props);
   const option = {
     title: {
-      text: "ECharts Options",
+      text: `${props.props}`,
       textStyle: {
         fontSize: 16,
-      }
+      },
       // subtext: "2016/04",
       // left: "leafDepth",
     },

@@ -5,7 +5,7 @@ import { useRecoilState } from "recoil";
 import { slideIsOpen } from "states/PolicyEvalSlideBar";
 
 const sampleDatas = [
-  "데이터1 만약 데이터의 길이가 엄청 길면 어떻게 될까요?",
+  "데이터1",
   "데이터1",
   "데이터1",
   "데이터1",

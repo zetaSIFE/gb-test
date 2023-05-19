@@ -33,7 +33,7 @@ function App() {
           <Routes>
             <Route path="/stat" element={<Main />} />
             {/* --------------- 통계 시각화 서비스 --------------- */}
-            <Route path="/stat/statVisual" element={<StatVisualLayout />}>
+            <Route path="/stat/statVisual" exact element={<StatVisualLayout />}>
               {/* 인구통계 */}
               <Route
                 path="/stat/statVisual/populationStat.do"

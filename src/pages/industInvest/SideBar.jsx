@@ -157,19 +157,19 @@ export default function SideBar() {
         <ResultConatiner>
           <Result ref={resultRef}>
             <ChartContainer>
-              <Tree className="chart1" />
+              <Tree className="chart1" props={"생산유발액"} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart2" />
+              <Tree className="chart2" props={"투입"} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart3" />
+              <Tree className="chart3" props={"부가가치 유발액"} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart4" />
+              <Tree className="chart4" props={"배분"} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart5" />
+              <Tree className="chart5" props={"유발 취업자수"} />
             </ChartContainer>
           </Result>
         </ResultConatiner>
