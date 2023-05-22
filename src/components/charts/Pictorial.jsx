@@ -78,13 +78,6 @@ const Pictorial = (prop) => {
       top: "25%",
       botton: "10%",
       height: "70%",
-      
-      // left: "25%",
-      // width: "75%",
-
-      // top: "25%",
-      // botton: "10%",
-      // height: "70%",
     },
     markLine: {
       z: -100,
