@@ -22,7 +22,7 @@ const BarY = (props) => {
       // text: "지역별 출생아수",
       text: props.barYData.title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {},

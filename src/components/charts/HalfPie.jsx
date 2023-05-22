@@ -13,7 +13,7 @@ const HalfPie = (props) => {
     title: {
       text: props.halfPieData.title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {

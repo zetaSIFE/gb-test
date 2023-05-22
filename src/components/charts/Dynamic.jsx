@@ -9,7 +9,7 @@ const Dynamic = () => {
     title: {
       text: "시간대별 유입(유출) 인구 추이",
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {

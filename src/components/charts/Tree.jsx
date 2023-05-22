@@ -7,7 +7,7 @@ const Tree = ({ title, data }) => {
     title: {
       text: `${title}`,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
       // subtext: "2016/04",
       // left: "leafDepth",

@@ -53,10 +53,10 @@ const BarX = (props) => {
       // text: testData.title, // // TODO : 주석 해제
       text: title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
-    tooltip: {},
+  tooltip: {},
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
@@ -194,7 +194,7 @@ const BarX = (props) => {
 
   return (
     <ReactECharts
-      option={option}
+    option={option}
       style={{ height: "95%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />

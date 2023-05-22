@@ -46,7 +46,7 @@ const Pictorial = (prop) => {
     title: {
       text: title,
       textStyle: {
-        fontSize : 16,
+        fontSize : 15,
       }
     },
     tooltip: {},

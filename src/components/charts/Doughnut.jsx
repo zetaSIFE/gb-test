@@ -51,7 +51,7 @@ const Doughnut = () => {
       text: "세대원 별 세대수",
       // text: doughnutData.title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
       left: "left",
     },
