@@ -76,7 +76,7 @@ export const DivisonMap = () => {
         <FlowChart width="100%" height="100%" id="OdMap1" />
       </ItemContainer>
       <ItemContainer className="item1 flex-column itemStyle">
-        <SelecGroup />
+        <SelecGroup Time={true} />
         <FlowChart width="100%" height="100%" id="OdMap2" />
       </ItemContainer>
       <ItemContainer className="item2">

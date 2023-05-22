@@ -52,14 +52,20 @@ input[type="checkbox"]:checked {
 }
 
 /* Scroll bar stylings */
+.scroll1 {
+  overflow-y: hidden;
+}
 .scroll1::-webkit-scrollbar {
-  width: 5px;
+  height: 5px;
+  padding-bottom:20px;
 }
 .scroll1::-webkit-scrollbar-track {
-  background: #ddd;
+  background-color: #e9848481;
+  border-radius: 10px;
 }
 .scroll1::-webkit-scrollbar-thumb {
-  background: #666;
+  background-color: #7621e6de;
+  border-radius: 0px 3px 3px 0px;
 }
 
 /* NOTE 그리드별 각 아이템 스타일 */
@@ -82,4 +88,7 @@ input[type="checkbox"]:checked {
     16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
   border-radius: 10px;
   padding: 10px;
+}
+.menuLi.focused  path{
+  fill:#fff;
 }

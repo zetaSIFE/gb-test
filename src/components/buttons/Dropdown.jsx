@@ -43,10 +43,10 @@ const SelectOptions = styled.ul`
 
   // 스크롤바 CSS
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 2px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: #777777;
+    background-color: #77777781;
     border-radius: 10px;
   }
   ::-webkit-scrollbar-track {
