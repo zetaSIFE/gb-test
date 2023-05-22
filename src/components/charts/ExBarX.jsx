@@ -53,7 +53,7 @@ const ExBarX = (props) => {
       // text: testData.title, // // TODO : 주석 해제
       text: title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
   tooltip: {},

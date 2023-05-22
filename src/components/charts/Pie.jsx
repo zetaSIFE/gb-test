@@ -31,7 +31,7 @@ const Pie = (prop) => {
     title: {
       text: title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {

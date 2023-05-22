@@ -50,7 +50,7 @@ export const DivisonMap = () => {
     },
   };
   const pieData = {
-    title: "divi업종별 소비 비율",
+    title: "업종별 소비 비율",
     legend: {
       show: false,
       orient: "vertical",

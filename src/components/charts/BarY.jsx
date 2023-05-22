@@ -22,7 +22,7 @@ const BarY = (props) => {
       // text: "지역별 출생아수",
       text: props.barYData.title,
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {},
@@ -44,7 +44,8 @@ const BarY = (props) => {
       containLabel: true,
     },
     legend: {
-      show: legend,
+      show: false,
+      // show: legend,
       icon:'circle',
       data: ["전체", "도내", "도외"],
       selectedMode: "single",

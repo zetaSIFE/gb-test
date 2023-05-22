@@ -6,7 +6,7 @@ const MultiBar = () => {
     title: {
       text: "시간대별 유입량",
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     grid: {
