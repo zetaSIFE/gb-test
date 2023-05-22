@@ -66,9 +66,9 @@ export const SelecGroup = (props) => {
           <button
             onClick={() => {
               setShowDate(!showDate);
-              // setShowTime(false);
+              setShowTime(false);
             }}
-            onBlur={() => setShowDate(false)}
+            // onBlur={() => setShowDate(false)}
             className="CustomPicker"
           >
             기간 설정
@@ -84,9 +84,9 @@ export const SelecGroup = (props) => {
           <button
             onClick={() => {
               setShowTime(!showTime);
-              // setShowDate(false);
+              setShowDate(false);
             }}
-            onBlur={() => setShowTime(false)}
+            // onBlur={() => setShowTime(false)}
             className="CustomPicker"
           >
             시간 설정
