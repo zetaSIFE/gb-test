@@ -22,18 +22,19 @@ import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "./Popup";
+import styled from "styled-components";
 
 proj4.defs(
   "EPSG:5179",
   "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 );
 register(proj4);
-
 export const FlowChart = (prop) => {
   const [clickCity, setClickCity] = useState("포항시 남구");
   const [series, setSeries] = useState([]);
   const map = useRef();
   const echartslayer = useRef();
+  const overlay = useRef();
   const popupRef = useRef();
   const mapId = useRef(); //FlowChart를 분할할 경우 각 map의 id지정
 
@@ -71,7 +72,7 @@ export const FlowChart = (prop) => {
   };
 
   useEffect(() => {
-    const overlay = new Overlay({
+    overlay.current = new Overlay({
       element: popupRef.current,
       autoPan: {
         animation: {
@@ -156,7 +157,7 @@ export const FlowChart = (prop) => {
       loadTilesWhileAnimating: true,
       target: mapId.current,
       projection: "EPSG:5179",
-      overlay: [overlay],
+      overlays: [overlay.current],
       view: new View({
         projection: "EPSG:5179",
         center: transform([128.5055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
@@ -166,6 +167,48 @@ export const FlowChart = (prop) => {
   }, []);
 
   useEffect(() => {
+    //클릭 이벤트 등록
+    const clickEvent = new Select({
+      // condition: click,
+      // style: new Style({
+      //   stroke: new Stroke({
+      //     color: "white",
+      //     width: 2,
+      //   }),
+      //   fill: new Fill({
+      //     color: "rgba(0,0,255,0.6)",
+      //   }),
+      // }),
+    });
+    clickEvent.getFeatures().on("add", function (e) {
+      setClickCity(e.element.values_.SIG_KOR_NM);
+    });
+    map.current.addInteraction(clickEvent);
+
+    // let selected = null;
+    // map.current.on("pointermove", function (e) {
+    //   if (selected !== null) {
+    //     selected.setStyle(undefined);
+    //     selected = null;
+    //   }
+    //   map.current.forEachFeatureAtPixel(e.pixel, function (f) {
+    //     // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
+    //     // selected = f;
+    //     // selectStyle
+    //     //   .getFill()
+    //     //   .setColor(f.get("COLOR") || "rgb(122 188 246 / 70%)");
+    //     // f.setStyle(selectStyle);
+    //     return true;
+    //   });
+    // });
+  }, []);
+
+  useEffect(() => {
+    overlay.current.setPosition(
+      transform(geoCoordMap[clickCity], "EPSG:4326", "EPSG:5179")
+      // [128.5055956, 36.5760207]
+    );
+
     var testMoveData = [];
 
     gbCenterData.features.map((el) =>
@@ -252,43 +295,6 @@ export const FlowChart = (prop) => {
     });
   }, [clickCity]);
 
-  useEffect(() => {
-    //클릭 이벤트
-    const clickEvent = new Select({
-      // condition: click,
-      // style: new Style({
-      //   stroke: new Stroke({
-      //     color: "white",
-      //     width: 2,
-      //   }),
-      //   fill: new Fill({
-      //     color: "rgba(0,0,255,0.6)",
-      //   }),
-      // }),
-    });
-    clickEvent.getFeatures().on("add", function (e) {
-      setClickCity(e.element.values_.SIG_KOR_NM);
-    });
-    map.current.addInteraction(clickEvent);
-
-    // let selected = null;
-    // map.current.on("pointermove", function (e) {
-    //   if (selected !== null) {
-    //     selected.setStyle(undefined);
-    //     selected = null;
-    //   }
-    //   map.current.forEachFeatureAtPixel(e.pixel, function (f) {
-    //     // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
-    //     // selected = f;
-    //     // selectStyle
-    //     //   .getFill()
-    //     //   .setColor(f.get("COLOR") || "rgb(122 188 246 / 70%)");
-    //     // f.setStyle(selectStyle);
-    //     return true;
-    //   });
-    // });
-  }, []);
-
   // 경북 지역 클릭 후의 이벤트
   useEffect(() => {
     if (echartslayer.current) {
@@ -307,7 +313,7 @@ export const FlowChart = (prop) => {
         id={mapId.current}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      <Popup ref={popupRef} />
+      {clickCity == null ? <></> : <Popup popupRef={popupRef} />}
     </>
   );
 };
