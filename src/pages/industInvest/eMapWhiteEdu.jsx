@@ -3,11 +3,17 @@ import "ol/ol.css";
 import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
-import { WMTS } from "ol/source";
+import { Vector as VectorLayer } from "ol/layer";
+import { Vector as VectorSource, WMTS } from "ol/source";
 import { transform } from "ol/proj";
 import WMTSTileGrid from "ol/tilegrid/WMTS";
 import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
+import data1 from "assets/maps/5179/test_5179.json";
+import GeoJSON from "ol/format/GeoJSON";
+import Fill from "ol/style/Fill";
+import Style from "ol/style/Style";
+import Stroke from "ol/style/Stroke";
 
 proj4.defs(
   "EPSG:5179",
@@ -23,6 +29,30 @@ export const EmapWhiteEdu = (prop) => {
     "path://m86.06,1.01L.28,146.93c-.8,1.36.18,3.07,1.76,3.07h44.41c1.01,0,1.87.74,2.02,1.73l36.65,242.12c.35,2.31,3.67,2.32,4.03,0l37.69-242.14c.15-.99,1.01-1.73,2.02-1.73h44.15c1.57,0,2.56-1.71,1.76-3.07L89.58,1.01c-.79-1.35-2.73-1.35-3.52,0Z";
 
   useEffect(() => {
+    const style = new Style({
+      fill: new Fill({
+        color: "#eeeeee61",
+      }),
+      stroke: new Stroke({
+        color: "#66666661",
+        // width: 2,
+      }),
+    });
+
+    const vectorLayer = new VectorLayer({
+      source: new VectorSource({
+        features: new GeoJSON().readFeatures(data1, {
+          dataProjection: "EPSG:5179",
+          featureProjection: "EPSG:5179",
+        }),
+      }),
+      style: function (feature) {
+        const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
+        style.getFill().setColor(color);
+        return style;
+      },
+    });
+
     const baseLayer = new TileLayer({
       preload: 4,
       projection: "EPSG:5179",
@@ -61,7 +91,7 @@ export const EmapWhiteEdu = (prop) => {
     });
 
     map.current = new Map({
-      layers: [baseLayer],
+      layers: [baseLayer, vectorLayer],
       loadTilesWhileAnimating: true,
       target: "OdMap",
       projection: "EPSG:5179",
