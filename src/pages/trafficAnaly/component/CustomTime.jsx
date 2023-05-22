@@ -26,8 +26,8 @@ export const CustomTime = (props) => {
         inline
       />
       <Calendar
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={endDate}
+        onChange={(date) => setEndDate(date)}
         locale={ko}
         showTimeSelect
         showTimeSelectOnly

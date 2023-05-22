@@ -107,7 +107,21 @@ export const SelecGroup = (props) => {
       )}
       {props.Age || showAll ? (
         <SelecBox>
-          <Select title={"연령 설정"} values={["유입", "유출"]} />
+          <Select
+            title={"연령 설정"}
+            values={[
+              "0~9세",
+              "10~19세",
+              "20~29세",
+              "30~39세",
+              "40~49세",
+              "50~59세",
+              "60~69세",
+              "70~79세",
+              "80~89세",
+              "90~99세",
+            ]}
+          />
           <ArrowIcon />
         </SelecBox>
       ) : (
