@@ -44,7 +44,8 @@ const BarY = (props) => {
       containLabel: true,
     },
     legend: {
-      show: legend,
+      show: false,
+      // show: legend,
       icon:'circle',
       data: ["전체", "도내", "도외"],
       selectedMode: "single",
