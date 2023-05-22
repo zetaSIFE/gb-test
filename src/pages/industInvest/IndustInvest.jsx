@@ -1,7 +1,7 @@
 import React from "react";
 import SideBar from "./SideBar";
 import styled from "styled-components";
-import { GbMap } from "components/charts";
+import { EmapWhiteEdu } from "./eMapWhiteEdu";
 
 const Container = styled.div`
   height: 100%;
@@ -20,7 +20,7 @@ export default function IndustInvest() {
     <Container>
       <SideBar />
       <MapContainer>
-        <GbMap />
+        <EmapWhiteEdu width="100%" height="100%" />
       </MapContainer>
     </Container>
   );
