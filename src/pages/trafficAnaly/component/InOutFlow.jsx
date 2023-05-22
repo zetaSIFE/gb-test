@@ -16,7 +16,7 @@ const Container = styled.div`
   /* height:95vh; */
   display: grid;
   grid-gap: 10px;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 70px);
   padding-bottom: 10px;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: repeat(5, 1fr);

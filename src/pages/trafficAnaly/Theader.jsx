@@ -8,7 +8,7 @@ import { SearchAreaInput } from "components/input/SearchAreaInput";
  */
 
 const Container = styled.div`
-  height: 80px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;

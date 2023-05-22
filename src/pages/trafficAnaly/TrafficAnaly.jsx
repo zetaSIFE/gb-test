@@ -16,10 +16,10 @@ const Line = styled.div`
   background-color: #11233f;
   background-clip: content-box;
   position: absolute;
-  top: 73px;
+  top: 63px;
 `;
 const Container = styled.div`
-  height:calc(100vh - 80px);
+  height:calc(100vh - 60px);
   padding: 10px;
   display: grid;
   grid-gap: 10px;
