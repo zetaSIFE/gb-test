@@ -72,11 +72,11 @@ export const Pattern = () => {
   const [chkAbide, setChkAbide] = useState("insied");
   const [pointerData, setPointerData] = useState([
     { val: "1", name: "안동시 일직면" },
-    // { val: "2", name: "안동시 북후면" },
-    // { val: "3", name: "안동시 와룡면" },
-    // { val: "4", name: "안동시 길안면" },
-    // { val: "5", name: "안동시 임하면" },
-    // { val: "6", name: "안동시 풍천면" },
+    { val: "2", name: "안동시 북후면" },
+    { val: "3", name: "안동시 와룡면" },
+    { val: "4", name: "안동시 길안면" },
+    { val: "5", name: "안동시 임하면" },
+    { val: "6", name: "안동시 풍천면" },
   ]);
 
   const pieData = {
