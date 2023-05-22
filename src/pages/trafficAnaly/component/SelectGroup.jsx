@@ -9,7 +9,7 @@ import { Select } from "./Select";
 const Group = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const SelecBox = styled.div`
@@ -38,32 +38,58 @@ const SelecBox = styled.div`
 `;
 
 export const SelecGroup = (props) => {
+  let showAll = false;
+
+  if (JSON.stringify(props) == "{}") {
+    showAll = true;
+  }
+
   return (
     <Group>
-      <SelecBox>
-        <Select
-          title={"유입 유출"}
-          values={["유입", "유출"]}
-          className="item2"
-        />
-        <ArrowIcon />
-      </SelecBox>
-      <SelecBox>
-        <CustomPicker />
-        <ArrowIcon />
-      </SelecBox>
-      <SelecBox>
-        <CustomTime />
-        <ArrowIcon />
-      </SelecBox>
-      <SelecBox>
-        <Select title={"성별 설정"} values={["남자", "여자"]} />
-        <ArrowIcon />
-      </SelecBox>
-      <SelecBox>
-        <Select title={"연령 설정"} values={["유입", "유출"]} />
-        <ArrowIcon />
-      </SelecBox>
+      {props.Traffic || showAll ? (
+        <SelecBox>
+          <Select
+            title={"유입 유출"}
+            values={["유입", "유출"]}
+            className="item2"
+          />
+          <ArrowIcon />
+        </SelecBox>
+      ) : (
+        <></>
+      )}
+      {props.Date || showAll ? (
+        <SelecBox>
+          <CustomPicker />
+          <ArrowIcon />
+        </SelecBox>
+      ) : (
+        <></>
+      )}
+      {props.Time || showAll ? (
+        <SelecBox>
+          <CustomTime />
+          <ArrowIcon />
+        </SelecBox>
+      ) : (
+        <></>
+      )}
+      {props.Gender || showAll ? (
+        <SelecBox>
+          <Select title={"성별 설정"} values={["남자", "여자"]} />
+          <ArrowIcon />
+        </SelecBox>
+      ) : (
+        <></>
+      )}
+      {props.Age || showAll ? (
+        <SelecBox>
+          <Select title={"연령 설정"} values={["유입", "유출"]} />
+          <ArrowIcon />
+        </SelecBox>
+      ) : (
+        <></>
+      )}
     </Group>
   );
 };
