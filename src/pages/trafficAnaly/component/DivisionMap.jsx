@@ -1,4 +1,4 @@
-import { BarX, GbMap, Table, Pie, FlowChart } from "components/charts";
+import { BarX, Table, Pie, FlowChart } from "components/charts";
 import React from "react";
 import styled from "styled-components";
 import { SelecGroup } from "./SelectGroup";
