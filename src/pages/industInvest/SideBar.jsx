@@ -3,6 +3,15 @@ import styled from "styled-components";
 import { ReactComponent as ArrowSvg } from "assets/images/buttons/leftArrow.svg";
 import { BtnReport } from "components/buttons";
 import { Tree } from "components/charts/Tree";
+import {
+  smapleData1,
+  smapleData2,
+  smapleData3,
+  smapleData4,
+  smapleData5,
+} from "./SampleData";
+
+// NOTE Dummy Dater
 
 // direction(4) : ↑ → ↓ ←
 const Container = styled.div`
@@ -105,6 +114,7 @@ export default function SideBar() {
   const contentRef = useRef(null);
   const resultRef = useRef(null);
 
+  console.log(smapleData1);
   // const slideSize = contentRef.current.offsetWidth;
   // console.log(contentRef.current.offsetWidth);
   // const resultStyle = resultRef.current.style;
@@ -157,19 +167,31 @@ export default function SideBar() {
         <ResultConatiner>
           <Result ref={resultRef}>
             <ChartContainer>
-              <Tree className="chart1" props={"생산유발액"} />
+              <Tree
+                className="chart1"
+                title={"생산유발액"}
+                data={smapleData1}
+              />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart2" props={"투입"} />
+              <Tree className="chart2" title={"투입"} data={smapleData2} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart3" props={"부가가치 유발액"} />
+              <Tree
+                className="chart3"
+                title={"부가가치 유발액"}
+                data={smapleData3}
+              />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart4" props={"배분"} />
+              <Tree className="chart4" title={"배분"} data={smapleData4} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart5" props={"유발 취업자수"} />
+              <Tree
+                className="chart5"
+                title={"유발 취업자수"}
+                data={smapleData5}
+              />
             </ChartContainer>
           </Result>
         </ResultConatiner>
