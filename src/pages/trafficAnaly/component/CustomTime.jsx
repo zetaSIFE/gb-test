@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Calendar from "react-datepicker";
+import React, { forwardRef, useEffect, useState } from "react";
+import Calendar, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/esm/locale";
 import styled from "styled-components";
