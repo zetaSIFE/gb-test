@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { CustomPicker } from "./CustomPicker";
@@ -38,6 +38,9 @@ const SelecBox = styled.div`
 `;
 
 export const SelecGroup = (props) => {
+  const [showPicker, setShowPicker] = useState(false);
+  const [showTime, setShowTime] = useState(false);
+
   let showAll = false;
 
   if (JSON.stringify(props) == "{}") {
@@ -60,16 +63,30 @@ export const SelecGroup = (props) => {
       )}
       {props.Date || showAll ? (
         <SelecBox>
-          <CustomPicker />
+          <button
+            onClick={() => setShowPicker(!showPicker)}
+            className="CustomPicker"
+          >
+            기간 설정
+          </button>
           <ArrowIcon />
+          {showPicker ? <CustomPicker /> : <></>}
         </SelecBox>
       ) : (
         <></>
       )}
       {props.Time || showAll ? (
         <SelecBox>
-          <CustomTime />
+          <button
+            onClick={() => {
+              setShowTime(!showTime);
+            }}
+            className="CustomPicker"
+          >
+            시간 설정
+          </button>
           <ArrowIcon />
+          {showTime ? <CustomTime /> : <></>}
         </SelecBox>
       ) : (
         <></>
