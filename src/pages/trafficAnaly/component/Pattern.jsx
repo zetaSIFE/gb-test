@@ -52,7 +52,9 @@ const Group1 = styled.div`
 
 const ItemContainer = styled.div``;
 const PointerContainer = styled.div`
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Pattern = () => {

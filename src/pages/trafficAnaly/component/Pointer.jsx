@@ -1,116 +1,103 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { ReactComponent as PointerSVG } from "assets/images/buttons/pointer.svg";
 
 // ****************
-  // const pointerArr = [
-  //   {val: "1", name:'안동시 일직면'},
-  //   {val: "2", name:'안동시 북후면'},
-  //   {val: "3", name:'안동시 와룡면'},
-  //   {val: "4", name:'안동시 길안면'},
-  //   {val: "5", name:'안동시 임하면'},
-  //   {val: "6", name:'안동시 풍천면'},
-  // ];
+// const pointerArr = [
+//   {val: "1", name:'안동시 일직면'},
+//   {val: "2", name:'안동시 북후면'},
+//   {val: "3", name:'안동시 와룡면'},
+//   {val: "4", name:'안동시 길안면'},
+//   {val: "5", name:'안동시 임하면'},
+//   {val: "6", name:'안동시 풍천면'},
+// ];
 // ****************
 
-const Wrap = styled.div`
+const Container = styled.div`
   display: flex;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-
-  div:nth-child(1) {
-    background-color: #EBEFF4;
-    :before {
-      border-left: 30px solid #EBEFF4;
-    }
-  }
-  div:nth-child(2) {
-    background-color: #DCE3EC;
-    :before {
-      border-left: 30px solid #DCE3EC;
-    }
-  }
-  div:nth-child(3) {
-    background-color: #CDD7E4;
-    :before {
-      border-left: 30px solid #CDD7E4;
-    }
-  }
-  div:nth-child(4) {
-    background-color: #BDCADB;
-    :before {
-      border-left: 30px solid #BDCADB;
-    }
-  }
-  div:nth-child(5) {
-    background-color: #ACBBD1;
-    :before {
-      border-left: 30px solid #ACBBD1;
-    }
-  }
-  div:nth-child(6) {
-    background-color: #9CAFC8;
-    :before {
-      border-left: 30px solid #9CAFC8;
-    }
+  padding: 10px;
+`;
+const SvgCotainer = styled.div`
+  margin-right: -15px;
+  .textArea {
+    font-size: 16px;
+    fill: white;
   }
 `;
-const TimeLine = styled.div`
-  position: absolute;
-  /* left: 50%; */
-  /* transition: translate(0, -50%); */
-  height: 140px;
-  width: 80%;
-  border: 1px solid #000;
-`;
-const PointerDiv = styled.div`
-    width: 265px;
-    height: 80px;
-    position: relative;
-    margin-right: 30px;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-
-  :after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-left: 40px solid white;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-  }
-
-  :before {
-    content: "";
-    position: absolute;
-    right: -30px;
-    bottom: 0px;
-    width: 0px;
-    height: 0px;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
+const TimeContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15%;
+  padding-right: 25%;
+  label {
+    color: "#CCCCCC";
   }
 `;
-export const Pointer = (prop) => {
-  
-  const pointerArr = prop.pointerData;
+
+export const Pointer = (props) => {
+  const pointerArr = props.pointerData;
+  const pointerColor = [
+    "#6497FF",
+    "#427FFA",
+    "#3B72E1",
+    "#3566C8",
+    "#325FBC",
+    "#284C96",
+  ];
+
+  const timeLabel = [
+    "00시",
+    "02시",
+    "04시",
+    "06시",
+    "08시",
+    "10시",
+    "12시",
+    "14시",
+    "16시",
+    "18시",
+    "20시",
+    "22시",
+  ];
   return (
-    <Wrap>
-      {pointerArr.map((el, index) => (
-        <PointerDiv
-          key={index}
-        >
-          {el.name}
-        </PointerDiv>
+    <Container>
+      {pointerArr.map((item, index) => (
+        <SvgCotainer>
+          <svg
+            // width="305"
+            width="100vw * 10%"
+            height="140"
+            viewBox="0 0 305 140"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M59 0L59 140H58L58 4.37103e-08L59 0Z"
+              fill="#CCCCCC"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M204.818 0V140H203.818V4.37103e-08L204.818 0Z"
+              fill="#CCCCCC"
+            />
+            <path
+              d="M29.3484 70L0 30H275.046L304.395 70L275.046 110H0L29.3484 70Z"
+              fill={pointerColor[index]}
+            />
+            <text className="textArea" x="100" y="75">
+              {item.name}
+            </text>
+          </svg>
+          <TimeContainer>
+            <label>{timeLabel[index * 2]}</label>
+            <label>{timeLabel[index * 2 + 1]}</label>
+          </TimeContainer>
+        </SvgCotainer>
       ))}
-      {/* <TimeLine></TimeLine> */}
-    </Wrap>
+    </Container>
   );
 };
