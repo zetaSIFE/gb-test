@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { CustomDate } from "./CustomDate";
@@ -17,7 +17,7 @@ const SelecBox = styled.div`
   position: relative;
   margin-bottom: 1%;
 
-  .CustomPicker,
+  .CustomDate,
   .CustomTime,
   select {
     width: 100%;
@@ -28,6 +28,7 @@ const SelecBox = styled.div`
     text-align: center;
     padding-right: 20%;
     appearance: none;
+    cursor: pointer;
   }
 
   svg {
@@ -43,7 +44,7 @@ export const SelecGroup = (props) => {
 
   let showAll = false;
 
-  if (JSON.stringify(props) == "{}") {
+  if (JSON.stringify(props) === "{}") {
     showAll = true;
   }
 
@@ -69,7 +70,7 @@ export const SelecGroup = (props) => {
               setShowTime(false);
             }}
             // onBlur={() => setShowDate(false)}
-            className="CustomPicker"
+            className="CustomDate"
           >
             기간 설정
           </button>
@@ -87,7 +88,7 @@ export const SelecGroup = (props) => {
               setShowDate(false);
             }}
             // onBlur={() => setShowTime(false)}
-            className="CustomPicker"
+            className="CustomDate"
           >
             시간 설정
           </button>
