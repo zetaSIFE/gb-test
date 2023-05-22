@@ -6,6 +6,7 @@ import {
   Doughnut,
   BarNegative,
   HalfPie,
+  ExBarX
 } from "components/charts";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -63,7 +64,7 @@ const Group2 = styled.div`
   padding: 0px;
   grid-gap: 10px;
 `;
-
+ 
 export default function PopulationStat() {
   // const barXData = null;
   const barXData = {
@@ -126,9 +127,15 @@ export default function PopulationStat() {
         <ItemContainer className="item2 itemStyle">
           <Doughnut />
         </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarX barXData={barXData} />
+        <ItemContainer className="item2 itemStyle scroll1"
+          style={{
+            width:"100%",
+            overflowX: "auto"
+          }}
+        >
+          <ExBarX barXData={barXData} />
         </ItemContainer>
+
       </Group1>
 
       <ItemContainer className="item1 itemStyle">
