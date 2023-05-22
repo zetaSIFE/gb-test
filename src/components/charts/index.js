@@ -1,3 +1,4 @@
+export * from "./BubbleMap";
 export * from "./BarNegative";
 export * from "./BarX";
 export * from "./BarY";
@@ -13,5 +14,7 @@ export * from "./Pictorial";
 export * from "./Pie";
 export * from "./StackedChart";
 export * from "./Table";
+export * from "./Radar";
 
+export * from "./ExBarX";
 //https://echarts.apache.org/en/option.html#title

@@ -73,8 +73,14 @@ const Title = styled.div`
 const AnalyContainer = styled.div`
   width: 100%;
   height: 80px;
+  padding: 15px;
   background: #f5f5f5;
   margin: 20px 0px 20px 0px;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
 `;
 
 const ResultConatiner = styled.div`
@@ -107,7 +113,36 @@ const ChartContainer = styled.div`
   padding: 10px;
   /* height: 315px; */
 `;
+const InputBox = styled.input`
+width: 200px;
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    margin:0 12px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px 16px;
+`;
 
+const SelectBox = styled.select`
+width: 200px;
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(204, 204, 204);
+    margin-left: 12px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0px 16px;
+`;
+
+const BtnGo = styled.button`
+width: 80px;
+height: 40px;
+background: linear-gradient(135deg, #5658DF 0%, #2F6DD0 100%);
+border-radius: 10px;
+border:0;
+color: #fff;
+`;
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
   const [slideSize, setSlideSize] = useState(null);
@@ -163,7 +198,29 @@ export default function SideBar() {
         <Title>
           <div className="title">산업투자효과 분석 서비스</div>
         </Title>
-        <AnalyContainer></AnalyContainer>
+        <AnalyContainer>
+          <div
+            style={{
+              marginRight:"40px"
+            }}
+          >
+            <p className="inlineBlock">업종</p>
+            <SelectBox>
+              <option>농림수산품</option>
+              <option>농림수산품</option>
+              <option>농림수산품</option>
+              <option>농림수산품</option>
+              <option>농림수산품</option>
+            </SelectBox>
+          </div>
+          <div>
+            <p className="inlineBlock">투입금액</p>
+            <InputBox type="text" placeholder="10"/>
+            <p className="inlineBlock">억원</p>
+          </div>
+          <BtnGo> 분석</BtnGo>
+          
+        </AnalyContainer>
         <ResultConatiner>
           <Result ref={resultRef}>
             <ChartContainer>
