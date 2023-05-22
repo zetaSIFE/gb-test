@@ -52,20 +52,51 @@ input[type="checkbox"]:checked {
 }
 
 /* Scroll bar stylings */
-.scroll1 {
-  overflow-y: hidden;
-}
+/* .scroll1 {
+
+} */
 .scroll1::-webkit-scrollbar {
-  height: 5px;
-  padding-bottom:20px;
+  cursor: pointer;
 }
 .scroll1::-webkit-scrollbar-track {
-  background-color: #e9848481;
-  border-radius: 10px;
+  /* background-color: #e9848481;
+  border-radius: 10px; */
+  /* background-color: rgba(0,0,0,0); */
+  background-color: rgba(133, 133, 133, 0.404);
+  /* 스크롤바 둥글게 설정    */
+  border-radius: 10px; 
+  border: 7px solid #fff;
 }
+
 .scroll1::-webkit-scrollbar-thumb {
-  background-color: #7621e6de;
-  border-radius: 0px 3px 3px 0px;
+  background-color: rgba(40, 90, 255, 0.774);
+  border-radius: 10px; 
+  border: 6px solid #fff;
+}
+
+
+.scroll2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.scroll2::-webkit-scrollbar
+{
+	height: 10px;
+	background-color: #F5F5F5;
+}
+
+.scroll2::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
 }
 
 /* NOTE 그리드별 각 아이템 스타일 */
