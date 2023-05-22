@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { CustomPicker } from "./CustomPicker";
+import { CustomDate } from "./CustomDate";
 import { CustomTime } from "./CustomTime";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/selectArrow.svg";
 import { Select } from "./Select";
@@ -38,7 +38,7 @@ const SelecBox = styled.div`
 `;
 
 export const SelecGroup = (props) => {
-  const [showPicker, setShowPicker] = useState(false);
+  const [showDate, setShowDate] = useState(false);
   const [showTime, setShowTime] = useState(false);
 
   let showAll = false;
@@ -64,13 +64,17 @@ export const SelecGroup = (props) => {
       {props.Date || showAll ? (
         <SelecBox>
           <button
-            onClick={() => setShowPicker(!showPicker)}
+            onClick={() => {
+              setShowDate(!showDate);
+              // setShowTime(false);
+            }}
+            onBlur={() => setShowDate(false)}
             className="CustomPicker"
           >
             기간 설정
           </button>
           <ArrowIcon />
-          {showPicker ? <CustomPicker /> : <></>}
+          {showDate ? <CustomDate /> : <></>}
         </SelecBox>
       ) : (
         <></>
@@ -80,7 +84,9 @@ export const SelecGroup = (props) => {
           <button
             onClick={() => {
               setShowTime(!showTime);
+              // setShowDate(false);
             }}
+            onBlur={() => setShowTime(false)}
             className="CustomPicker"
           >
             시간 설정

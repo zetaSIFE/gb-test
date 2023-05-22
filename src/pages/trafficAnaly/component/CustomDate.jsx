@@ -11,7 +11,7 @@ const DatePickerBox = styled.div`
   margin-top: 5%;
 `;
 
-export const CustomPicker = (props) => {
+export const CustomDate = (props) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
