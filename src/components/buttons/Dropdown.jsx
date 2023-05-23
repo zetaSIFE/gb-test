@@ -1,114 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const SelectBox = styled.div`
-  position: relative;
-  width: 165px;
+const Container = styled.select`
+  width: 204px;
   height: 40px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  align-self: center;
+  background: #ffffff;
   border: 1px solid #cccccc;
-
-  cursor: pointer;
-  &::before {
-    content: "⌵";
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    color: #777777;
-    font-size: 20px;
-    font-weight: bold;
-  }
-`;
-const Label = styled.label`
-  font-size: 14px;
-  display: inline-block;
-`;
-const SelectOptions = styled.ul`
-  position: absolute;
-  top: 38px;
-  left: 0;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  height: 200px;
-  /* border: 1px solid #cccccc; */
-  // show가 아닌 상태에서 테두리를 없앤다
-  border: ${(props) => (props.show ? "1px solid #cccccc;" : "none")};
-  border-radius: 5px;
-  max-height: ${(props) => (props.show ? "none" : "0")};
-  background-color: #fefefe;
-
-  // 스크롤바 CSS
-  ::-webkit-scrollbar {
-    width: 2px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #77777781;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #cccccc;
-    border-radius: 0px 3px 3px 0px;
-  }
-`;
-const Option = styled.li`
-  font-size: 14px;
-  padding: 10px;
-  transition: background-color 0.2s ease-in;
-  &:hover {
-    color: white;
-    border-radius: 5px;
-    // hover 색상 후보
-    background: linear-gradient(135deg, #5658df 0%, #2f6dd0 100%);
-    /* background-color: #dadada; */
-    /* background-color: #1e90ff; */
-  }
+  /* padding-right: 15px; */
 `;
 
-export const Dropdown = ({ props }) => {
-  console.log(props.data);
-  const list = props.data;
-  const selectRef = useRef(null);
-  const [currentValue, setCurrentValue] = useState(list[0]);
-  const [showOptions, setShowOptions] = useState(false);
+const Option = styled.option``;
 
-  const handleOnChangeSelectValue = (e) => {
-    setCurrentValue(e.target.getAttribute("value"));
-  };
-
+export const Dropdown = ({ title, props }) => {
+  const [optionList, setOptionList] = useState(["데이터를 입력해주세요"]);
+  console.log(props);
+  console.log(title);
   useEffect(() => {
-    // NOTE Dropdwon 박스 바깥쪽을 클릭시 옵션이 사라지는 기능
-    function handleClickOutside(event) {
-      if (selectRef.current && !selectRef.current.contains(event.target)) {
-        // dom 바깥 클릭
-        setShowOptions(false);
-      }
+    if (props) {
+      setOptionList(props.data);
     }
+  }, [props]);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [selectRef]);
-
+  // const optionList = props.data;
   return (
-    <SelectBox onClick={() => setShowOptions((prev) => !prev)} ref={selectRef}>
-      <Label>{currentValue}</Label>
-      <SelectOptions show={showOptions}>
-        {list.map((data, index) => (
-          <Option key={index} value={data} onClick={handleOnChangeSelectValue}>
-            {data}
-          </Option>
-        ))}
-      </SelectOptions>
-    </SelectBox>
+    <Container defaultValue="selectAll">
+      <Option disabled value="selectAll">
+        {title}
+      </Option>
+      {optionList.map((data, index) => (
+        <Option key={index} value={data}>
+          {data}
+        </Option>
+      ))}
+    </Container>
   );
-};
-
-// props Default value
-Dropdown.defaultProps = {
-  name: "초기값",
 };

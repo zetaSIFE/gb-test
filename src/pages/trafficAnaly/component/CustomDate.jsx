@@ -117,7 +117,7 @@ export const CustomDate = (props) => {
     //     selected={startDate}
     //     endDate={endDate}
     //     onChange={(date) => setStartDate(date)}
-    //     monthsShown={2}
+    //     f={2}
     //   />
     // </DatePickerBox>
   );

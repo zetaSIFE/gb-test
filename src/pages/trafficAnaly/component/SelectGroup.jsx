@@ -38,6 +38,16 @@ const SelecBox = styled.div`
   }
 `;
 
+/*
+props 
+
+Traffic: 유입 유출
+Date: 기간 설정
+Time: 시간 설정
+Gender: 성별 설정
+Age: 연령 설정
+*/
+
 export const SelecGroup = (props) => {
   const [showDate, setShowDate] = useState(false);
   const [showTime, setShowTime] = useState(false);
