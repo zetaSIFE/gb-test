@@ -21,8 +21,7 @@ import WMTSTileGrid from "ol/tilegrid/WMTS";
 import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
-import { Popup } from "./Popup";
-import styled from "styled-components";
+import { Popup } from "components/charts/Popup";
 
 proj4.defs(
   "EPSG:5179",
