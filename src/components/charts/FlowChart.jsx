@@ -15,13 +15,38 @@ import data1 from "assets/maps/5179/test_5179.json";
 import data2 from "assets/maps/5179/경북_읍면동5179.json";
 import centerData from "assets/maps/5179/시군별_중심좌표5179.json";
 import gbCenterData from "assets/maps/5179/경북 시군구 중심좌표 5179.json";
-
 import Select from "ol/interaction/Select";
 import WMTSTileGrid from "ol/tilegrid/WMTS";
 import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "components/charts/Popup";
+import styled from "styled-components";
+
+const PopupContent = styled.div`
+
+table {
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  padding
+}
+
+table tr td {
+  border-bottom: 1px solid #cccccc;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.title {
+  text-align: left
+  font-weight: 400;
+}
+.info {
+  font-weight: 700;
+  text-align: right;
+}`;
 
 proj4.defs(
   "EPSG:5179",
@@ -29,7 +54,7 @@ proj4.defs(
 );
 register(proj4);
 export const FlowChart = (prop) => {
-  const [clickCity, setClickCity] = useState("포항시 남구");
+  const [clickCity, setClickCity] = useState("");
   const [series, setSeries] = useState([]);
   const map = useRef();
   const echartslayer = useRef();
@@ -203,10 +228,12 @@ export const FlowChart = (prop) => {
   }, []);
 
   useEffect(() => {
-    overlay.current.setPosition(
-      transform(geoCoordMap[clickCity], "EPSG:4326", "EPSG:5179")
-      // [128.5055956, 36.5760207]
-    );
+    if (clickCity) {
+      //transform 오류로 clickCity값이 null일 경우 오류발생하여 조건문 추가
+      overlay.current.setPosition(
+        transform(geoCoordMap[clickCity], "EPSG:4326", "EPSG:5179")
+      );
+    }
 
     var testMoveData = [];
 
@@ -312,7 +339,27 @@ export const FlowChart = (prop) => {
         id={mapId.current}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      {clickCity == null ? <></> : <Popup popupRef={popupRef} />}
+      {clickCity == null ? (
+        <></>
+      ) : (
+        <Popup
+          popupRef={popupRef}
+          content={
+            <PopupContent>
+              <table>
+                <tr>
+                  <td className="title">유입</td>
+                  <td className="info">1만명</td>
+                </tr>
+                <tr>
+                  <td className="title">유출</td>
+                  <td className="info">2만명</td>
+                </tr>
+              </table>
+            </PopupContent>
+          }
+        />
+      )}
     </>
   );
 };

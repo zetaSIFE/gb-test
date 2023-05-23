@@ -44,30 +44,6 @@ const PopupBox = styled.div`
     top: 2px;
     right: 8px;
   }
-
-  table {
-    width: 100%;
-    height: 100%;
-    line-height: 30px;
-    padding
-  }
-
-  table tr td {
-    border-bottom: 1px solid #cccccc;
-  }
-  table tr:last-child td {
-    border-bottom: none;
-  }
-
-  .title {
-    text-align: left
-    font-weight: 400;
-  }
-  .info {
-    font-weight: 700;
-    text-align: right;
-  }
-
 `;
 
 export const Popup = (prop) => {
@@ -75,7 +51,7 @@ export const Popup = (prop) => {
     <PopupBox ref={prop.popupRef}>
       <div id="popup" class="ol-popup">
         {/* <a href="#" id="popup-closer" class="ol-popup-closer"></a> */}
-        <table>
+        {/* <table>
           <tr>
             <td className="title">유입</td>
             <td className="info">1만명</td>
@@ -84,7 +60,8 @@ export const Popup = (prop) => {
             <td className="title">유출</td>
             <td className="info">2만명</td>
           </tr>
-        </table>
+        </table> */}
+        {prop.content}
       </div>
     </PopupBox>
   );
