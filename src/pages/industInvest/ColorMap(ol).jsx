@@ -9,7 +9,7 @@ import { transform } from "ol/proj";
 import Fill from "ol/style/Fill.js";
 import Stroke from "ol/style/Stroke.js";
 import Style from "ol/style/Style.js";
-import data1 from "assets/maps/5179/산업투자효과용 전국지도 데이터(ol) 5179.json";
+import data1 from "assets/maps/5179/산업투자효과용 전국지도 데이터(ol) 5179(심플).json";
 import gbCenterData from "assets/maps/5179/시도 중심좌표5179.json";
 import Select from "ol/interaction/Select";
 import { register } from "ol/proj/proj4";
@@ -51,7 +51,7 @@ export const ColorMap = (prop) => {
       }),
       stroke: new Stroke({
         color: "#FFFFFF",
-        width: 2,
+        width: 1,
       }),
     });
 
