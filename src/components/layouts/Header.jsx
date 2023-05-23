@@ -86,13 +86,17 @@ const SelectBox = styled.div`
   padding: 0px 16px 0px 16px;
 `;
 
-
+const ModalInner = styled.div`
+  padding:40px;
+  max-height: calc(85vh - 60px);
+  overflow-y: auto;
+`;
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false)
 
-  const openModal = () => {
-    setModalVisible(false)
+  const openModal = (e) => {
     setModalVisible(true)
+    console.log(e)
   }
   const closeModal = () => {
     setModalVisible(false)
@@ -113,7 +117,7 @@ export const Header = (props) => {
             }}
             onClick={openModal}
           >지방소멸위험지수</button>
-          {/* {
+          {
             modalVisible && 
             <Modal
               visible={modalVisible}
@@ -126,12 +130,12 @@ export const Header = (props) => {
                 <BarRace/>
               </div>    
             </Modal>
-          } */}
+          }
           <button 
             className="mainBtn"
             onClick={openModal}
           >K-지방소멸지수</button>
-                    {
+          {
             modalVisible && 
             <Modal
               visible={modalVisible}
@@ -140,11 +144,185 @@ export const Header = (props) => {
               onClose={closeModal}
               title={'<부표> K-지방소멸 단계별 해당 지역'}
             >
-              <div className="modalInner">
-                <table>
- 
+              <ModalInner className="scroll1 ">
+                <table className="modalTable">
+                {/* <table style={{height:"80%"}}> */}
+                  <thead>
+                    <tr>
+                      <th colSpan ="8" bgcolor="#5470C6" align ="center" >소멸위험지역(0.5 미만, 9개 지역)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr align = "center" bgcolor="#fff">
+                      <td>지역명</td>
+                      <td>지수</td>
+                      <td>지역명</td>
+                      <td>지수</td>
+                      <td>지역명</td>
+                      <td>지수</td>
+                      <td>지역명</td>
+                      <td>지수</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colSpan ="8" bgcolor="#5470C6" align ="center" >소멸우려지역(0.5~0.75 미만, &nbsp; 50개 지역)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                            <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                    <tr>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                      <td>전남 신안군</td>
+                      <td>0.8876</td>
+                    </tr>
+                  </tbody>
                 </table>
-              </div>    
+              </ModalInner>    
             </Modal>
           }
         </div>
