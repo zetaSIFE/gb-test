@@ -110,7 +110,26 @@ const SubTitle2 = styled.div`
 
 const Result = styled.div`
   max-height: calc(100vh - 300px);
+
+  // 스크롤바 CSS
   overflow-y: auto;
+  overflow: overlay; // overlay가 밑에 있어야 한다.
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #b9b9b9;
+    border-radius: 10px;
+  }
+  :hover {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #ebeaea;
+      border-radius: 0px 3px 3px 0px;
+    }
+  }
 `;
 
 const Item = styled.li`

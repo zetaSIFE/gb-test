@@ -84,7 +84,7 @@ const AnalyContainer = styled.div`
 `;
 
 const ResultConatiner = styled.div`
-  /* display: flex; */
+  display: flex;
 
   /* justify-content: space-between; */
   /* flex-direction: column;
@@ -101,12 +101,30 @@ const Result = styled.div`
   grid-gap: 10px;
   max-height: calc(100vh - 250px);
 
+  // 스크롤바 CSS
   overflow-y: auto;
   overflow-x: hidden;
+  overflow: overlay; // overlay가 밑에 있어야 한다.
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #b9b9b9;
+    border-radius: 10px;
+  }
+  :hover {
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #ebeaea;
+      border-radius: 0px 3px 3px 0px;
+    }
+  }
 `;
 
 const ChartContainer = styled.div`
-  width: 27.5vw;
+  width: 27vw;
   border: 1px solid #cccccc;
   border-radius: 10px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
@@ -145,8 +163,6 @@ const BtnGo = styled.button`
   color: #fff;
 `;
 const TitBox = styled.div`
-  /* display: flex;
-  flex-direction: row; */
   height: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,11 +176,11 @@ const ChartLi = styled.li`
   align-items: center;
   height: 40px;
   border-bottom: 1px solid #ccc;
-
   :last-child {
     border-bottom: 0;
   }
 `;
+
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
   const [slideSize, setSlideSize] = useState(null);
@@ -238,15 +254,19 @@ export default function SideBar() {
           </div>
           <BtnGo> 분석</BtnGo>
         </AnalyContainer>
+        <TitBox>
+          <h1>
+            도내 <span className="redTxt">농림수산품</span> 업종에 대한{" "}
+            <span className="redTxt">10억원</span> 투자 결과
+          </h1>
+          <h1>경상북도 부문별 거래표</h1>
+        </TitBox>
         <ResultConatiner>
-          <TitBox>
-            <h1>
-              도내 <span className="redTxt">농림수산품</span> 업종에 대한{" "}
-              <span className="redTxt">10억원</span> 투자 결과
-            </h1>
-            <h1>경상북도 부문별 거래표</h1>
-          </TitBox>
-          <Result ref={resultRef}>
+          <Result
+            className="result"
+            // style={{ overflowY: "scroll" }}
+            ref={resultRef}
+          >
             <ChartContainer>
               <div>
                 <p className="chartTit">1. 생산 유발액</p>
