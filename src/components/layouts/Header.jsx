@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { BtnReport, Search } from "components/buttons";
 import { ReactComponent as SearchIcon } from "assets/images/buttons/search.svg";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/downArrow.svg";
-/**
- * styled-components 및 styled interface 정의 영역
- */
+import Modal from "components/modal/GlobalModal";
+import { BarRace } from "components/charts";
+
+
 const sampleList = [
   "포항시 남구",
   "포항시 북구",
@@ -85,7 +86,17 @@ const SelectBox = styled.div`
   padding: 0px 16px 0px 16px;
 `;
 
+
 export const Header = (props) => {
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const openModal = () => {
+    setModalVisible(false)
+    setModalVisible(true)
+  }
+  const closeModal = () => {
+    setModalVisible(false)
+  }
   return (
     <Container>
       <HeaderBox className="headerBox">
@@ -94,13 +105,49 @@ export const Header = (props) => {
           <label>경상북도</label>
           <ArrowIcon />
         </SelectBox>
-        {/* <input type="text" placeholder="검색 대상"></input>
-        <select>
-          <option>선택하세요</option>
-          <option>선택하세요</option>
-          <option>선택하세요</option>
-          <option>선택하세요</option>
-        </select> */}
+        <div>
+          <button 
+            className="grayBtn"
+            style={{
+              margin: "0 15px"
+            }}
+            onClick={openModal}
+          >지방소멸위험지수</button>
+          {/* {
+            modalVisible && 
+            <Modal
+              visible={modalVisible}
+              closable={true}
+              maskClosable={true}
+              onClose={closeModal}
+              title={'지방소멸위험ddd지수'}
+            >
+              <div>
+                <BarRace/>
+              </div>    
+            </Modal>
+          } */}
+          <button 
+            className="mainBtn"
+            onClick={openModal}
+          >K-지방소멸지수</button>
+                    {
+            modalVisible && 
+            <Modal
+              visible={modalVisible}
+              closable={true}
+              maskClosable={true}
+              onClose={closeModal}
+              title={'<부표> K-지방소멸 단계별 해당 지역'}
+            >
+              <div className="modalInner">
+                <table>
+ 
+                </table>
+              </div>    
+            </Modal>
+          }
+        </div>
       </HeaderBox>
       <BtnReport />
     </Container>
