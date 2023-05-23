@@ -50,6 +50,7 @@ const ModalTop = styled.div`
   align-items: center;
   border-bottom: 1px solid #cdd0d2;
   padding: 5px 20px;
+  height: 60px;
 `;
 
 const BtnClose = styled.div`
@@ -78,7 +79,6 @@ function Modal({
   const close = (e) => {
     if (onClose) {
       onClose(e)
-      console.log(e)
     }
   }
   return (
@@ -92,11 +92,10 @@ function Modal({
       >
         <ModalInner tabIndex="0" className="modal-inner">
           {/* {closable && <BtnClose className="modal-close" onClick={close}> X</BtnClose>} */}
-          <ModalTop className='chk'>
+          <ModalTop>
             <p className='chartTit inlineBlock'>{title}</p>
             <button className="modal-close inlineBlock" onClick={close}> X</button>
           </ModalTop>
-          
           {children}
         </ModalInner>
       </ModalWrapper>

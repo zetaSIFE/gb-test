@@ -144,11 +144,13 @@ input[type="checkbox"]:checked {
 }
 
 /* dummy Table */
-
-.modalTable
-table, th, td {
-  border: 1px solid black !important;
-    text-align: center;
+.modalTable{
+  width:100%;
+}
+.modalTable table, 
+.modalTable th, 
+.modalTable td {
+  text-align: center;
   vertical-align: middle !important;
 }
 .modalTable table {
@@ -160,13 +162,16 @@ table, th, td {
   color:#fff;
   text-align: center;
   vertical-align: middle;
+  border: 1px solid #5470C6 !important;
 }
 .modalTable th {
   height:40px;
+  border: 1px solid rgb(78, 78, 78) !important;
 }
 .modalTable td {
   height:40px;
   text-align: center;
+  border: 1px solid rgb(78, 78, 78)  !important;
 }
 
  /* modal */
