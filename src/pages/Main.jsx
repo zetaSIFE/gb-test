@@ -1,5 +1,5 @@
 import React from "react";
-import { BtnReport, Dropdown, Search } from "components/buttons";
+import { BtnStatView, Dropdown } from "components/buttons";
 
 const smapleData = {
   data: [
@@ -25,6 +25,7 @@ export default function Main() {
   return (
     <div style={{ margin: "20px" }}>
       <Dropdown props={smapleData} />
+      <BtnStatView />
     </div>
   );
 }
