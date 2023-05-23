@@ -6,7 +6,7 @@ const Radar = (prop) => {
     title: {
       text: '제목',
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     tooltip: {},
@@ -63,7 +63,7 @@ const Radar = (prop) => {
 
   return <ReactECharts
     option={option}
-    style={{width: prop.width, height: prop.height}}
+    style={{height:"95%"}}
     onChartReady={onChartReady}
     loadingOption={loadingOption}
     showLoading={true}

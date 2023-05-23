@@ -7,7 +7,7 @@ const Scatter = (prop) => {
     title: {
       text: '제목',
       textStyle: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     xAxis: {},
