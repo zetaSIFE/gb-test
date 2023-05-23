@@ -16,6 +16,32 @@ import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "components/charts/Popup";
+import styled from "styled-components";
+
+const PopupContent = styled.div`
+
+table {
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  padding
+}
+
+table tr td {
+  border-bottom: 1px solid #cccccc;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+
+.title {
+  text-align: left
+  font-weight: 400;
+}
+.info {
+  font-weight: 700;
+  text-align: right;
+}`;
 
 proj4.defs(
   "EPSG:5179",
@@ -23,7 +49,7 @@ proj4.defs(
 );
 register(proj4);
 export const ColorMap = (prop) => {
-  const [clickCity, setClickCity] = useState("경상북도");
+  const [clickCity, setClickCity] = useState("");
   const map = useRef();
   const overlay = useRef();
   const popupRef = useRef();
@@ -134,6 +160,26 @@ export const ColorMap = (prop) => {
         zoom: 8,
       }),
     });
+
+    const selectStyle = new Style({
+      fill: new Fill({
+        color: "#eeeeee",
+      }),
+      stroke: new Stroke({
+        color: "rgba(255, 255, 255, 0.7)",
+        width: 2,
+      }),
+    });
+
+    map.current.on("pointermove", function (e) {
+      map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
+        overlay.current.setPosition(
+          geoCoordMap[selected.values_.CTP_KOR_NM],
+          "EPSG:4326",
+          "EPSG:5179"
+        );
+      });
+    });
   }, []);
 
   useEffect(() => {
@@ -147,9 +193,7 @@ export const ColorMap = (prop) => {
     map.current.addInteraction(clickEvent);
   }, []);
 
-  useEffect(() => {
-    overlay.current.setPosition(geoCoordMap[clickCity]);
-  }, [clickCity]);
+  useEffect(() => {}, [clickCity]);
 
   return (
     <>
@@ -157,7 +201,27 @@ export const ColorMap = (prop) => {
         id={"OdMap"}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      {clickCity == null ? <></> : <Popup popupRef={popupRef} />}
+      {clickCity == null ? (
+        <></>
+      ) : (
+        <Popup
+          popupRef={popupRef}
+          content={
+            <PopupContent>
+              <table>
+                <tr>
+                  <td className="title">유입</td>
+                  <td className="info">1만명</td>
+                </tr>
+                <tr>
+                  <td className="title">유출</td>
+                  <td className="info">2만명</td>
+                </tr>
+              </table>
+            </PopupContent>
+          }
+        />
+      )}
     </>
   );
 };
