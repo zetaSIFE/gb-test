@@ -1,27 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Download } from "assets/images/buttons/download.svg";
+import Modal from "components/modal/GlobalModal";
 
-const Container = styled.div`
+const StyleBtn = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   /* padding: 8px 20px; */
   gap: 8px;
-  width: 210px;
-  height: 40px;
-  background: #11233f;
-  border-radius: 24px;
-  color: #ffffff;
-  font-size: 16px;
 `;
 
 export const BtnReport = () => {
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const openModal = () => {
+    setModalVisible(true)
+  }
+  const closeModal = () => {
+    setModalVisible(false)
+  }
   return (
-    <Container>
-      <Download />
-      <div>전체 리포트 다운로드</div>
-    </Container>
+    <>
+      <StyleBtn className="mainBtn" onClick={openModal}>
+        <Download />
+        <p>전체 리포트 다운로드</p>
+      </StyleBtn>
+      {
+        modalVisible && 
+        <Modal
+          visible={modalVisible}
+          closable={true}
+          maskClosable={true}
+          onClose={closeModal}
+          title={'전체 리포트 다운로드'}
+        >
+          <div>
+            으어아아아아아아아아
+          </div>    
+        </Modal>
+      }
+    </>
   );
 };

@@ -1,6 +1,26 @@
+/* button */
 button {
   cursor: pointer;
 }
+.mainBtn {
+  height: 40px;
+  border-radius: 24px;
+  font-size: 15px;
+  padding: 0 15px;
+  background: rgb(17, 35, 63);
+  color: rgb(255, 255, 255);
+}
+.grayBtn {
+  height: 40px;
+  border-radius: 24px;
+  font-size: 15px;
+  padding: 0 15px;
+  background: #E5E5E5;
+  color:#333;
+  border: 0;
+}
+
+/* flex */
 .flex {
   display: flex;
 }
@@ -16,12 +36,16 @@ button {
   display: flex;
   justify-content: space-between;
 }
+
+/* layout */
 .inlineBlock {
   display: inline-block;
 }
 .right {
   float: right;
 }
+
+/* common_class */
 .chartTit {
   font-size: 16px;
   color: rgb(61, 60, 60);
@@ -32,6 +56,11 @@ button {
 .redTxt {
   color:#E60021;
 }
+.fontBold {
+  font-weight: bold;
+}
+
+/* input */
 input[type="checkbox"] {
   z-index: 9;
   width: 0.7rem;
@@ -49,23 +78,15 @@ input[type="checkbox"]:checked {
   border: none;
 }
 
-.fontBold {
-  font-weight: bold;
-}
+
 
 /* Scroll bar stylings */
-/* .scroll1 {
 
-} */
 .scroll1::-webkit-scrollbar {
   cursor: pointer;
 }
 .scroll1::-webkit-scrollbar-track {
-  /* background-color: #e9848481;
-  border-radius: 10px; */
-  /* background-color: rgba(0,0,0,0); */
   background-color: rgba(133, 133, 133, 0.404);
-  /* 스크롤바 둥글게 설정    */
   border-radius: 10px; 
   border: 7px solid #fff;
 }
@@ -75,7 +96,6 @@ input[type="checkbox"]:checked {
   border-radius: 10px; 
   border: 6px solid #fff;
 }
-
 
 .scroll2::-webkit-scrollbar-track
 {
@@ -93,12 +113,9 @@ input[type="checkbox"]:checked {
 .scroll2::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
-	background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(122,153,217)),
+	/* background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122,153,217)),
 									   color-stop(0.72, rgb(73,125,189)),
-									   color-stop(0.86, rgb(28,58,148)));
+									   color-stop(0.86, rgb(28,58,148))); */
 }
 
 /* NOTE 그리드별 각 아이템 스타일 */
@@ -125,3 +142,36 @@ input[type="checkbox"]:checked {
 .menuLi.focused  path{
   fill:#fff;
 }
+
+/* dummy Table */
+table {
+  width:80%;
+  /* border: 1px solid #444444; */
+  border-collapse: collapse;
+}
+thead {
+
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+
+}
+th{
+  color:#fff;
+  height: 40px;  
+  border: 1px solid #444444 !important;
+ }
+td{
+  border: 1px solid #444444 !important;
+  height: 40px;  
+  width: 140px;
+ }
+
+ /* modal */
+ .modalInner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  /* overflow-y: auto; */
+ }
