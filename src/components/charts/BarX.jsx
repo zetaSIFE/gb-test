@@ -45,8 +45,6 @@ const BarX = (props) => {
   const data = props.barXData.data.value;
   const title = props.barXData.title;
   const show = props.barXData.legend;
-   
-  
 
   const option = {
     title: {
@@ -56,7 +54,7 @@ const BarX = (props) => {
         fontSize: 15,
       },
     },
-  tooltip: {},
+    tooltip: {},
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
@@ -82,12 +80,18 @@ const BarX = (props) => {
     },
     legend: {
       show: show,
-      icon:'circle',
+      icon: "circle",
       data: ["전체", "도내", "도외"],
       selectedMode: "single",
       bottom: 0,
     },
     xAxis: {
+      axisLabel: {
+        show: true,
+        interval: 0,
+        rotate: 45,
+      },
+      offset: 4,
       data: [
         "안동",
         "문경",
@@ -98,17 +102,48 @@ const BarX = (props) => {
         "영덕",
         "포항",
         "울진",
+        "안동",
+        "문경",
+        "예천",
+        "안동",
+        "문경",
+        "예천",
+        "김천",
+        "성주",
+        "경주",
+        "안동",
+        "문경",
+        "예천",
+        "김천",
+        "성주",
       ],
       // data: xAxis, // TODO : 주석 해제
     },
     yAxis: {},
-
+    // dataZoom: {
+    //   show: true,
+    //   type: "slider",
+    //   start: 0,
+    //   end: 60,
+    //   orient: "horizontal",
+    //   zoomLock: true,
+    //   width: '100%',
+    //   height: 0,
+    //   top: 230,
+    //   fillerColor: '#D9D9D9',
+    //   moveHandleIcon: 'circle',
+    //   moveHandleSize: 5,
+    //   moveHandleStyle: {
+    //     color: '#B9B9B9',
+    //     borderCap: 'round',
+    //   },
+    // },
     series: [
       // props.barXData.series,
       {
         name: "전체",
         type: "bar",
-         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -124,12 +159,12 @@ const BarX = (props) => {
           // shadowBlur: '1'
           shadowOffsetY: "-20",
         },
-        barWidth: 30,
+        barWidth: 10,
       },
       {
         name: "도내",
         type: "bar",
-         data: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+        data: [5, 20, 36, 13, 27, 60, 50, 90, 50],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -150,7 +185,7 @@ const BarX = (props) => {
       {
         name: "도외",
         type: "bar",
-         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -194,7 +229,7 @@ const BarX = (props) => {
 
   return (
     <ReactECharts
-    option={option}
+      option={option}
       style={{ height: "95%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
