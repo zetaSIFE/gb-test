@@ -29,7 +29,9 @@ button {
   padding: 10px 8px;
   display: inline-block;
 }
-
+.redTxt {
+  color:#E60021;
+}
 input[type="checkbox"] {
   z-index: 9;
   width: 0.7rem;

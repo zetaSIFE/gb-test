@@ -75,9 +75,9 @@ const AnalyContainer = styled.div`
   height: 80px;
   padding: 15px;
   background: #f5f5f5;
-  margin: 20px 0px 20px 0px;
+  margin-top: 20px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 5%;
@@ -99,7 +99,7 @@ const Result = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
-  max-height: calc(100vh - 220px);
+  max-height: calc(100vh - 250px);
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -113,35 +113,57 @@ const ChartContainer = styled.div`
   padding: 10px;
   /* height: 315px; */
 `;
+
 const InputBox = styled.input`
-width: 200px;
-    height: 40px;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(204, 204, 204);
-    margin:0 12px;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    padding: 0px 16px;
+  width: 200px;
+  height: 40px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(204, 204, 204);
+  margin: 0 12px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 0px 16px;
 `;
 
 const SelectBox = styled.select`
-width: 200px;
-    height: 40px;
-    background: rgb(255, 255, 255);
-    border: 1px solid rgb(204, 204, 204);
-    margin-left: 12px;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    padding: 0px 16px;
+  width: 200px;
+  height: 40px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(204, 204, 204);
+  margin-left: 12px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 0px 16px;
 `;
 
 const BtnGo = styled.button`
-width: 80px;
-height: 40px;
-background: linear-gradient(135deg, #5658DF 0%, #2F6DD0 100%);
-border-radius: 10px;
-border:0;
-color: #fff;
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(135deg, #5658df 0%, #2f6dd0 100%);
+  border-radius: 10px;
+  border: 0;
+  color: #fff;
+`;
+const TitBox = styled.div`
+  /* display: flex;
+  flex-direction: row; */
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+`;
+
+const ChartLi = styled.li`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+
+  :last-child {
+    border-bottom: 0;
+  }
 `;
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
@@ -201,54 +223,75 @@ export default function SideBar() {
         <AnalyContainer>
           <div
             style={{
-              marginRight:"40px"
+              marginRight: "40px",
             }}
           >
             <p className="inlineBlock">업종</p>
             <SelectBox>
               <option>농림수산품</option>
-              <option>농림수산품</option>
-              <option>농림수산품</option>
-              <option>농림수산품</option>
-              <option>농림수산품</option>
             </SelectBox>
           </div>
           <div>
             <p className="inlineBlock">투입금액</p>
-            <InputBox type="text" placeholder="10"/>
+            <InputBox type="text" placeholder="10" />
             <p className="inlineBlock">억원</p>
           </div>
           <BtnGo> 분석</BtnGo>
-          
         </AnalyContainer>
         <ResultConatiner>
+          <TitBox>
+            <h1>
+              도내 <span className="redTxt">농림수산품</span> 업종에 대한{" "}
+              <span className="redTxt">10억원</span> 투자 결과
+            </h1>
+            <h1>경상북도 부문별 거래표</h1>
+          </TitBox>
           <Result ref={resultRef}>
             <ChartContainer>
-              <Tree
-                className="chart1"
-                title={"생산유발액"}
-                data={smapleData1}
-              />
+              <div>
+                <p className="chartTit">1. 생산 유발액</p>
+              </div>
+              <Tree className="chart1" title={""} data={smapleData1} />
+              <div>
+                <ul>
+                  <ChartLi>
+                    <p>도내 직접유발효과</p>
+                    <p>10643472823원</p>
+                  </ChartLi>
+                  <ChartLi>
+                    <p>도내 직접유발효과</p>
+                    <p>10643472823원</p>
+                  </ChartLi>
+                  <ChartLi>
+                    <p>도내 직접유발효과</p>
+                    <p>10643472823원</p>
+                  </ChartLi>
+                </ul>
+              </div>
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart2" title={"투입"} data={smapleData2} />
+              <div>
+                <p className="chartTit">투입</p>
+              </div>
+              <Tree className="chart2" title={""} data={smapleData2} />
             </ChartContainer>
             <ChartContainer>
-              <Tree
-                className="chart3"
-                title={"부가가치 유발액"}
-                data={smapleData3}
-              />
+              <div>
+                <p className="chartTit">2. 부가가치 유발액</p>
+              </div>
+              <Tree className="chart3" title={""} data={smapleData3} />
             </ChartContainer>
             <ChartContainer>
-              <Tree className="chart4" title={"배분"} data={smapleData4} />
+              <div>
+                <p className="chartTit">배분</p>
+              </div>
+              <Tree className="chart4" title={""} data={smapleData4} />
             </ChartContainer>
             <ChartContainer>
-              <Tree
-                className="chart5"
-                title={"유발 취업자수"}
-                data={smapleData5}
-              />
+              <div>
+                <p className="chartTit">3. 유발 취업자수</p>
+              </div>
+              <Tree className="chart5" title={""} data={smapleData5} />
             </ChartContainer>
           </Result>
         </ResultConatiner>
