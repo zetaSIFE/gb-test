@@ -33,8 +33,6 @@ export const ColorMap = (prop) => {
     geoCoordMap[el.properties.CTP_KOR_NM] = el.geometry.coordinates;
   });
 
-  var geoColor = {};
-
   useEffect(() => {
     overlay.current = new Overlay({
       element: popupRef.current,
@@ -43,27 +41,6 @@ export const ColorMap = (prop) => {
           duration: 250,
         },
       },
-    });
-
-    const style = new Style({
-      fill: new Fill({
-        color: "#eeeeee61",
-      }),
-      stroke: new Stroke({
-        color: "#FFFFFF",
-        width: 1,
-      }),
-    });
-
-    const selectStyle = new Style({
-      // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
-      // fill: new Fill({
-      //   color: "rgb(122 188 246 / 70%)",
-      // }),
-      // stroke: new Stroke({
-      //   color: "rgb(21 108 172 / 73%)",
-      //   width: 2.5,
-      // }),
     });
 
     const styleFunc = (feature) => {
@@ -128,7 +105,7 @@ export const ColorMap = (prop) => {
         }),
         stroke: new Stroke({
           color: "#FFFFFF",
-          width: 2,
+          width: 1,
         }),
       });
 
@@ -142,11 +119,6 @@ export const ColorMap = (prop) => {
           featureProjection: "EPSG:5179",
         }),
       }),
-      //   style: function (feature) {
-      //     const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
-      //     style.getFill().setColor(color);
-      //     return style;
-      //   },
       style: styleFunc,
     });
 
@@ -158,7 +130,7 @@ export const ColorMap = (prop) => {
       overlays: [overlay.current],
       view: new View({
         projection: "EPSG:5179",
-        center: transform([128.5055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
+        center: transform([127.9055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
         zoom: 8,
       }),
     });
@@ -167,45 +139,16 @@ export const ColorMap = (prop) => {
   useEffect(() => {
     //클릭 이벤트 등록
     const clickEvent = new Select({
-      // condition: click,
-      // style: new Style({
-      //   stroke: new Stroke({
-      //     color: "white",
-      //     width: 2,
-      //   }),
-      //   fill: new Fill({
-      //     color: "rgba(0,0,255,0.6)",
-      //   }),
-      // }),
+      style: null,
     });
     clickEvent.getFeatures().on("add", function (e) {
       setClickCity(e.element.values_.CTP_KOR_NM);
     });
     map.current.addInteraction(clickEvent);
-
-    // let selected = null;
-    // map.current.on("pointermove", function (e) {
-    //   if (selected !== null) {
-    //     selected.setStyle(undefined);
-    //     selected = null;
-    //   }
-    //   map.current.forEachFeatureAtPixel(e.pixel, function (f) {
-    //     // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
-    //     // selected = f;
-    //     // selectStyle
-    //     //   .getFill()
-    //     //   .setColor(f.get("COLOR") || "rgb(122 188 246 / 70%)");
-    //     // f.setStyle(selectStyle);
-    //     return true;
-    //   });
-    // });
   }, []);
 
   useEffect(() => {
-    overlay.current.setPosition(
-      geoCoordMap[clickCity]
-      // [128.5055956, 36.5760207]
-    );
+    overlay.current.setPosition(geoCoordMap[clickCity]);
   }, [clickCity]);
 
   return (
