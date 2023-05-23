@@ -33,6 +33,8 @@ export const ColorMap = (prop) => {
     geoCoordMap[el.properties.CTP_KOR_NM] = el.geometry.coordinates;
   });
 
+  var geoColor = {};
+
   useEffect(() => {
     overlay.current = new Overlay({
       element: popupRef.current,
@@ -48,10 +50,11 @@ export const ColorMap = (prop) => {
         color: "#eeeeee61",
       }),
       stroke: new Stroke({
-        color: "#66666661",
-        // width: 2,
+        color: "#FFFFFF",
+        width: 2,
       }),
     });
+
     const selectStyle = new Style({
       // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
       // fill: new Fill({
@@ -63,6 +66,75 @@ export const ColorMap = (prop) => {
       // }),
     });
 
+    const styleFunc = (feature) => {
+      let color;
+      switch (feature.values_.CTP_KOR_NM) {
+        case "서울특별시":
+          color = "#AEBB28";
+          break;
+        case "인천광역시":
+          color = "#A6C07C";
+          break;
+        case "대전광역시":
+          color = "#3A9365";
+          break;
+        case "세종특별자치시":
+          color = "#27744E";
+          break;
+        case "대구광역시":
+          color = "#0F5B69";
+          break;
+        case "울산광역시":
+          color = "#3864FE";
+          break;
+        case "부산광역시":
+          color = "#D4586E";
+          break;
+        case "광주광역시":
+          color = "#D17A3F";
+          break;
+        case "제주특별자치도":
+          color = "#AEBB28";
+          break;
+        case "강원도":
+          color = "#7CBC27";
+          break;
+        case "경기도":
+          color = "#C7D925";
+          break;
+        case "충청북도":
+          color = "#7BC087";
+          break;
+        case "충청남도":
+          color = "#53B688";
+          break;
+        case "경상북도":
+          color = "#378BAF";
+          break;
+        case "경상남도":
+          color = "#EC8189";
+          break;
+        case "전라북도":
+          color = "#FFB62D";
+          break;
+        case "전라남도":
+          color = "#F09053";
+          break;
+      }
+
+      let style = new Style({
+        fill: new Fill({
+          color: color,
+        }),
+        stroke: new Stroke({
+          color: "#FFFFFF",
+          width: 2,
+        }),
+      });
+
+      return style;
+    };
+
     const vectorLayer = new VectorLayer({
       source: new VectorSource({
         features: new GeoJSON().readFeatures(data1, {
@@ -70,11 +142,12 @@ export const ColorMap = (prop) => {
           featureProjection: "EPSG:5179",
         }),
       }),
-      style: function (feature) {
-        const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
-        style.getFill().setColor(color);
-        return style;
-      },
+      //   style: function (feature) {
+      //     const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
+      //     style.getFill().setColor(color);
+      //     return style;
+      //   },
+      style: styleFunc,
     });
 
     map.current = new Map({
