@@ -144,28 +144,30 @@ input[type="checkbox"]:checked {
 }
 
 /* dummy Table */
-table {
-  width:80%;
-  /* border: 1px solid #444444; */
+
+.modalTable
+table, th, td {
+  border: 1px solid black !important;
+    text-align: center;
+  vertical-align: middle !important;
+}
+.modalTable table {
   border-collapse: collapse;
+  width: 100%;
+  cursor: unset;
 }
-thead {
-
-  display: table-header-group;
-  vertical-align: middle;
-  border-color: inherit;
-
-}
-th{
+.modalTable thead {
   color:#fff;
-  height: 40px;  
-  border: 1px solid #444444 !important;
- }
-td{
-  border: 1px solid #444444 !important;
-  height: 40px;  
-  width: 140px;
- }
+  text-align: center;
+  vertical-align: middle;
+}
+.modalTable th {
+  height:40px;
+}
+.modalTable td {
+  height:40px;
+  text-align: center;
+}
 
  /* modal */
  .modalInner{
