@@ -190,6 +190,7 @@ export const FlowChart = (prop) => {
     });
 
     map.current.on("pointermove", function (e) {
+      overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
         overlay.current.setPosition(
           transform(

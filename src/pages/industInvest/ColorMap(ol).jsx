@@ -16,6 +16,7 @@ import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "components/charts/Popup";
 import styled from "styled-components";
+import Text from "ol/style/Text";
 
 const PopupContent = styled.div`
 
@@ -139,6 +140,15 @@ export const ColorMap = (prop) => {
           color: "#FFFFFF",
           width: 1,
         }),
+        text: new Text({
+          text: feature.values_.CTP_KOR_NM,
+          font: "16px Calibri,sans-serif",
+          color: "#FFFFFF",
+          stroke: new Stroke({
+            color: "#FFFFFF",
+            width: 4,
+          }),
+        }),
       });
 
       return style;
@@ -168,6 +178,7 @@ export const ColorMap = (prop) => {
     });
 
     map.current.on("pointermove", function (e) {
+      overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
         setHoverState(selected.values_.CTP_KOR_NM);
         overlay.current.setPosition(
