@@ -34,15 +34,24 @@ button {
 }
 .spaceBetween {
   display: flex;
+  /* position: fixed; */
   justify-content: space-between;
+  /* z-index: 10; */
 }
 
 /* layout */
 .inlineBlock {
   display: inline-block;
+  padding-top: 5px;
 }
 .right {
+  padding-right: 100px;
   float: right;
+  z-index: 10;
+}
+.btn {
+  margin-left: 0;
+  padding-right: 10px;
 }
 
 /* common_class */
@@ -50,7 +59,7 @@ button {
   font-size: 16px;
   color: rgb(61, 60, 60);
   font-weight: bold;
-  padding: 10px 8px;
+  padding: 5px 8px;
   display: inline-block;
 }
 .redTxt {

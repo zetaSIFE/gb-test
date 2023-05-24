@@ -174,14 +174,20 @@ export const Card = () => {
         </ChkChart>
       </ChkContainer>
       <ItemContainer className="item1 itemStyle">
-        <div>
-          {/* <div className="inlineBlock right"></div>
+        <div className="spaceBetween">
+          <p className="chartTit">업종별 연령별 소비비율</p>
+          <div className="inlineBlock right"></div>
           <select>
-            <option>업종선택</option>
-            <option>업종선택</option>
-            <option>업종선택</option>
-            <option>업종선택</option>
-          </select>*/}
+            <option disabled="disabled">업종선택</option>
+            <option>숙박</option>
+            <option>식당</option>
+            <option>병원</option>
+            <option>생활</option>
+            <option>문화</option>
+            <option>서적</option>
+            <option>서비스업</option>
+            <option>관광</option>
+          </select>
         </div>
         <Pie pieData={pieData} />
       </ItemContainer>

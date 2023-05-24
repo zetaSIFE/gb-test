@@ -123,14 +123,10 @@ export const InOutFlow = (prop) => {
             <ItemContainer className="item2 itemStyle">
               <BarY barYData={barYData} />
             </ItemContainer>
-            <ItemContainer
-              className="item2 itemStyle"
-              style={
-                {
-                  // width:"500px"
-                }
-              }
-            >
+            <ItemContainer className="item2 itemStyle">
+              <div className="spaceBetween">
+                <p className="chartTit">성별 유입(유출)인구 비중</p>
+              </div>
               <Pictorial pictoData={pictoData} />
             </ItemContainer>
           </Group2>

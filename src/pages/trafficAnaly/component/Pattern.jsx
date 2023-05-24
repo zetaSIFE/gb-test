@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Dynamic, FlowChart, GbMap, Pictorial, Pie } from "components/charts";
+import { Dynamic, FlowChart, Pictorial, Pie } from "components/charts";
 import { Pointer } from "./Pointer";
 import { SelecGroup } from "./SelectGroup";
+import { ReactComponent as Download } from "assets/images/buttons/downloadCircle.svg";
 
 const Container = styled.div`
   display: grid;
@@ -57,15 +58,39 @@ const PointerContainer = styled.div`
   flex-direction: column;
 `;
 
-export const Pattern = () => {
+export const Pattern = (props) => {
+  const [pieData, setPieData] = useState({
+    legend: {
+      show: true,
+      orient: "vertical",
+      left: "left",
+      top: "20%",
+      data: [
+        "오전 (06~10)",
+        "점심 (10~14)",
+        "오후 (14~18)",
+        "저녁 (18~22)",
+        "심야 (22~06)",
+      ],
+    },
+    series: {
+      data: [
+        { value: 375, name: "오전 (06~10)" },
+        { value: 310, name: "점심 (10~14)" },
+        { value: 234, name: "오후 (14~18)" },
+        { value: 534, name: "저녁 (18~22)" },
+        { value: 135, name: "심야 (22~06)" },
+      ],
+    },
+  });
   const [checkValue, setCheckValue] = useState("유입");
   const [pictoData, setPictoData] = useState({
-    title: "성별 유입 인구 비중",
+    title: "성별 유입(유출) 인구 비중",
     men: "52",
     women: "93",
     grid: {
-      left: "35%",
-      width: "55%",
+      left: "25%",
+      width: "75%",
     },
   });
 
@@ -79,25 +104,32 @@ export const Pattern = () => {
     { val: "6", name: "안동시 풍천면" },
   ]);
 
-  const pieData = {
-    title: "pattern업종별 소비 비율",
-    legend: {
-      orient: "vertical",
-      left: "left",
-      top: "20%",
-      data: ["숙박", "식당", "병원", "서적", "생활", "생활문화"],
-    },
-    series: {
-      data: [
-        { value: 335, name: "숙박" },
-        { value: 310, name: "식당" },
-        { value: 234, name: "병원" },
-        { value: 534, name: "서적" },
-        { value: 135, name: "생활" },
-        { value: 548, name: "생활문화" },
-      ],
-    },
-  };
+  // const pieData = {
+  //   title: "시간대별 유입(유출) 인구 비중",
+  //   legend: {
+  //     show: true,
+  //     orient: "vertical",
+  //     left: "left",
+  //     top: "20%",
+  //     data: [
+  //       "오전 (06~10)",
+  //       "점심 (10~14)",
+  //       "오후 (14~18)",
+  //       "저녁 (18~22)",
+  //       "심야 (22~06)",
+  //     ],
+  //   },
+  //   series: {
+  //     data: [
+  //       { value: 375, name: "오전 (06~10)" },
+  //       { value: 310, name: "점심 (10~14)" },
+  //       { value: 234, name: "오후 (14~18)" },
+  //       { value: 534, name: "저녁 (18~22)" },
+  //       { value: 135, name: "심야 (22~06)" },
+  //     ],
+  //   },
+  // };
+
   const chkFlowBtn = (e) => {
     let checkItem = document.getElementsByName("flow");
     Array.prototype.forEach.call(checkItem, function (el) {
@@ -127,6 +159,49 @@ export const Pattern = () => {
       });
     }
   };
+  const chkFlowBtn2 = (e) => {
+    let checkItem = document.getElementsByName("flow2");
+    Array.prototype.forEach.call(checkItem, function (el) {
+      el.checked = false;
+    });
+    e.target.checked = true;
+    // console.log("zhsth",e);
+    const getflowVal = e.target.defaultValue;
+    setCheckValue(getflowVal);
+
+    if (getflowVal === "inflow") {
+      setPieData((prevState) => {
+        return {
+          ...prevState,
+          series: {
+            data: [
+              { value: 375, name: "오전 (06~10)" },
+              { value: 310, name: "점심 (10~14)" },
+              { value: 234, name: "오후 (14~18)" },
+              { value: 534, name: "저녁 (18~22)" },
+              { value: 135, name: "심야 (22~06)" },
+            ],
+          },
+        };
+      });
+    } else {
+      setPieData((prevState) => {
+        return {
+          ...prevState,
+          series: {
+            data: [
+              { value: 135, name: "오전 (06~10)" },
+              { value: 210, name: "점심 (10~14)" },
+              { value: 134, name: "오후 (14~18)" },
+              { value: 334, name: "저녁 (18~22)" },
+              { value: 435, name: "심야 (22~06)" },
+            ],
+          },
+        };
+      });
+    }
+  };
+
   const chkPointerBtn = (e) => {
     let checkItem = document.getElementsByName("abide");
     Array.prototype.forEach.call(checkItem, function (el) {
@@ -152,31 +227,83 @@ export const Pattern = () => {
       </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">시간대별 유입(유출)인구 추이</p>
+            <div className="inlineBlock right">
+              <input
+                type="checkbox"
+                id="inflow"
+                name="flow"
+                value="inflow2"
+                //onChange={(e) => chkFlowBtn3(e)}
+                checked={checkValue === "inflow2"}
+              />
+              <label htmlFor="inflow">유입</label>
+              <input
+                type="checkbox"
+                id="outflow"
+                name="flow"
+                value="outflow2"
+                //onChange={(e) => chkFlowBtn3(e)}
+                checked={checkValue === "outflow2"}
+              />
+              <label htmlFor="outflow">유출</label>
+            </div>
+          </div>
           <Dynamic />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">시간대별 유입(유출)인구 비중</p>
+            <div className="inlineBlock right">
+              <input
+                type="checkbox"
+                id="inflow"
+                name="flow2"
+                value="inflow"
+                onChange={(e) => chkFlowBtn2(e)}
+                checked={checkValue === "inflow"}
+              />
+              <label htmlFor="inflow">유입</label>
+              <input
+                type="checkbox"
+                id="outflow"
+                name="flow2"
+                value="outflow"
+                onChange={(e) => chkFlowBtn2(e)}
+                checked={checkValue === "outflow"}
+              />
+              <label htmlFor="outflow">유출</label>
+            </div>
+            <div className="inlineBlock btn">
+                <button>버어튼</button>
+            </div>
+          </div>
           <Pie pieData={pieData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="inlineBlock right">
-            <input
-              type="checkbox"
-              id="inflow"
-              name="flow"
-              value="유입"
-              onChange={(e) => chkFlowBtn(e)}
-              checked={checkValue === "유입"}
-            />
-            <label htmlFor="inflow">유입</label>
-            <input
-              type="checkbox"
-              id="outflow"
-              name="flow"
-              value="유출"
-              onChange={(e) => chkFlowBtn(e)}
-              checked={checkValue === "유출"}
-            />
-            <label htmlFor="outflow">유출</label>
+          <div className="spaceBetween">
+            <p className="chartTit">성별 유입(유출)인구 비중</p>
+            <div className="inlineBlock right">
+              <input
+                type="checkbox"
+                id="inflow"
+                name="flow"
+                value="유입"
+                onChange={(e) => chkFlowBtn(e)}
+                checked={checkValue === "유입"}
+              />
+              <label htmlFor="inflow">유입</label>
+              <input
+                type="checkbox"
+                id="outflow"
+                name="flow"
+                value="유출"
+                onChange={(e) => chkFlowBtn(e)}
+                checked={checkValue === "유출"}
+              />
+              <label htmlFor="outflow">유출</label>
+            </div>
           </div>
           {/* <Pictorial /> */}
           <Pictorial pictoData={pictoData} />

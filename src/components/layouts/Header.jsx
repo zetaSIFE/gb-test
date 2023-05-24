@@ -4,7 +4,7 @@ import { BtnReport, Search } from "components/buttons";
 import { ReactComponent as SearchIcon } from "assets/images/buttons/search.svg";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/downArrow.svg";
 import Modal from "components/modal/GlobalModal";
-import { BarRace } from "components/charts";
+//import { BarRace } from "components/charts";
 
 
 const sampleList = [
@@ -127,7 +127,7 @@ export const Header = (props) => {
               title={'지방소멸위험ddd지수'}
             >
               <div>
-                <BarRace/>
+               {/* <BarRace/> */}
               </div>    
             </Modal>
           }
