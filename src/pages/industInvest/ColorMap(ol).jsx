@@ -11,7 +11,6 @@ import Stroke from "ol/style/Stroke.js";
 import Style from "ol/style/Style.js";
 import data1 from "assets/maps/5179/산업투자효과용 전국지도 데이터(ol) 5179(심플).json";
 import gbCenterData from "assets/maps/5179/시도 중심좌표5179.json";
-import Select from "ol/interaction/Select";
 import { register } from "ol/proj/proj4";
 import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
@@ -34,6 +33,13 @@ table tr:last-child td {
   border-bottom: none;
 }
 
+.area {
+  color: #D5015E;
+  padding: 9px 9px 9px 0px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
 .title {
   text-align: left
   font-weight: 400;
@@ -49,10 +55,10 @@ proj4.defs(
 );
 register(proj4);
 export const ColorMap = (prop) => {
-  const [clickCity, setClickCity] = useState("");
   const map = useRef();
   const overlay = useRef();
   const popupRef = useRef();
+  const [hoverState, setHoverState] = useState("");
 
   var geoCoordMap = {};
   gbCenterData.features.map((el) => {
@@ -161,18 +167,9 @@ export const ColorMap = (prop) => {
       }),
     });
 
-    const selectStyle = new Style({
-      fill: new Fill({
-        color: "#eeeeee",
-      }),
-      stroke: new Stroke({
-        color: "rgba(255, 255, 255, 0.7)",
-        width: 2,
-      }),
-    });
-
     map.current.on("pointermove", function (e) {
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
+        setHoverState(selected.values_.CTP_KOR_NM);
         overlay.current.setPosition(
           geoCoordMap[selected.values_.CTP_KOR_NM],
           "EPSG:4326",
@@ -182,18 +179,18 @@ export const ColorMap = (prop) => {
     });
   }, []);
 
-  useEffect(() => {
-    //클릭 이벤트 등록
-    const clickEvent = new Select({
-      style: null,
-    });
-    clickEvent.getFeatures().on("add", function (e) {
-      setClickCity(e.element.values_.CTP_KOR_NM);
-    });
-    map.current.addInteraction(clickEvent);
-  }, []);
+  // useEffect(() => {
+  //   //클릭 이벤트 등록
+  //   const clickEvent = new Select({
+  //     style: null,
+  //   });
+  //   clickEvent.getFeatures().on("add", function (e) {
+  //     setClickCity(e.element.values_.CTP_KOR_NM);
+  //   });
+  //   map.current.addInteraction(clickEvent);
+  // }, []);
 
-  useEffect(() => {}, [clickCity]);
+  // useEffect(() => {}, [clickCity]);
 
   return (
     <>
@@ -201,27 +198,25 @@ export const ColorMap = (prop) => {
         id={"OdMap"}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      {clickCity == null ? (
-        <></>
-      ) : (
-        <Popup
-          popupRef={popupRef}
-          content={
-            <PopupContent>
-              <table>
-                <tr>
-                  <td className="title">유입</td>
-                  <td className="info">1만명</td>
-                </tr>
-                <tr>
-                  <td className="title">유출</td>
-                  <td className="info">2만명</td>
-                </tr>
-              </table>
-            </PopupContent>
-          }
-        />
-      )}
+      <Popup
+        popupRef={popupRef}
+        width="240px"
+        content={
+          <PopupContent>
+            <div className="area">{hoverState}</div>
+            <table>
+              <tr>
+                <td className="title">금액</td>
+                <td className="info">73,049,044원</td>
+              </tr>
+              <tr>
+                <td className="title">비율</td>
+                <td className="info">4.1%</td>
+              </tr>
+            </table>
+          </PopupContent>
+        }
+      />
     </>
   );
 };
