@@ -4,15 +4,19 @@ import styled from "styled-components";
 export const Select = (props) => {
   return (
     <select
-      onClick={() => {
-        if (props.onClick) props.onClick();
+      onChange={(e) => {
+        if (props.onChange) props.onChange(e.currentTarget.value);
       }}
     >
-      <option disabled selected>
+      <option disabled selected value={props.title}>
         {props.title}
       </option>
-      {props.values.map((value) => {
-        return <option>{value}</option>;
+      {props.values.map((obj) => {
+        return (
+          <option key={obj.name} value={obj.value}>
+            {obj.name}
+          </option>
+        );
       })}
     </select>
   );
