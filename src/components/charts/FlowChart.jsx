@@ -188,6 +188,19 @@ export const FlowChart = (prop) => {
         zoom: 8,
       }),
     });
+
+    map.current.on("pointermove", function (e) {
+      overlay.current.setPosition(null);
+      map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
+        overlay.current.setPosition(
+          transform(
+            geoCoordMap[selected.values_.SIG_KOR_NM],
+            "EPSG:4326",
+            "EPSG:5179"
+          )
+        );
+      });
+    });
   }, []);
 
   useEffect(() => {
@@ -228,13 +241,6 @@ export const FlowChart = (prop) => {
   }, []);
 
   useEffect(() => {
-    if (clickCity) {
-      //transform 오류로 clickCity값이 null일 경우 오류발생하여 조건문 추가
-      overlay.current.setPosition(
-        transform(geoCoordMap[clickCity], "EPSG:4326", "EPSG:5179")
-      );
-    }
-
     var testMoveData = [];
 
     gbCenterData.features.map((el) =>

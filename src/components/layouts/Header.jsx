@@ -127,7 +127,7 @@ export const Header = (props) => {
               title={'지방소멸위험ddd지수'}
             >
               <div>
-               {/* <BarRace/> */}
+                {/* <BarRace/> */}
               </div>    
             </Modal>
           }
