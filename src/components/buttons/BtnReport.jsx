@@ -13,34 +13,31 @@ const StyleBtn = styled.button`
 `;
 
 export const BtnReport = () => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
 
   const openModal = () => {
-    setModalVisible(true)
-  }
+    setModalVisible(true);
+  };
   const closeModal = () => {
-    setModalVisible(false)
-  }
+    setModalVisible(false);
+  };
   return (
     <>
       <StyleBtn className="mainBtn" onClick={openModal}>
         <Download />
         <p>전체 리포트 다운로드</p>
       </StyleBtn>
-      {
-        modalVisible && 
+      {modalVisible && (
         <Modal
           visible={modalVisible}
           closable={true}
           maskClosable={true}
           onClose={closeModal}
-          title={'전체 리포트 다운로드'}
+          title={"전체 리포트 다운로드"}
         >
-          <div>
-            으어아아아아아아아아
-          </div>    
+          <div>으어아아아아아아아아</div>
         </Modal>
-      }
+      )}
     </>
   );
 };

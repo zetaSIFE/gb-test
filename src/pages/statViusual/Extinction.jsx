@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
-import { Search, Dropdown } from "components/buttons";
+import {
+  Search,
+  Dropdown,
+  BtnExtinction,
+  BtnKExtinction,
+} from "components/buttons";
 import { GbMap, BarX, Stacked, BarY } from "components/charts";
+// Recoil
+import { useRecoilState } from "recoil";
+import { extinctionTab } from "states/Extinction";
 
 // Header에 넣을 컴포넌트들을 넣어준다.
-const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+const headerProps = [
+  <Search props={"프롭스"} />,
+  <Dropdown />,
+  <BtnExtinction />,
+  <BtnKExtinction />,
+];
 
 const Container = styled.div`
   display: flex;
@@ -46,19 +59,27 @@ const Group2 = styled.div`
   grid-gap: 10px;
 `;
 
+const barXData = {
+  title: "소멸지수별 지자체 수",
+  data: {
+    value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+  },
+};
+const barYData = {
+  title: "지역별 전출자수",
+  data: {
+    value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+  },
+};
+
 export default function Extinction() {
-  const barXData = {
-    title: "소멸지수별 지자체 수",
-    data: {
-      value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
-    },
-  };
-  const barYData = {
-    title: "지역별 전출자수",
-    data: {
-      value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
-    },
-  };
+  // NOTE
+  // regionExtin true 경우 지방소멸위험지수 차트 표출 및 버튼 활성화
+  // regionExtin false 경우 K-지방소멸지수 차트 표출 및 버튼 활성화
+
+  //TODO
+  // regionExtin을 reocoil에서 불러와 2가지 탭을 나눠서
+  // API 호출 및 Props 전달 로직 구현 예정
   return (
     <Container>
       <Header props={headerProps} />
@@ -68,7 +89,6 @@ export default function Extinction() {
             <GbMap />
           </ItemContainer>
         </Group1>
-
         <Group2 className="group2">
           <ItemContainer className="itemStyle">
             <BarX barXData={barXData} />
