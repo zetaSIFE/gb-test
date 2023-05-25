@@ -1,13 +1,21 @@
 import { GbMap, BarX, Stacked, BarY } from "components/charts";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Header } from "components/layouts";
+import { Search, Dropdown } from "components/buttons";
 import { InputBox } from "./component/InputBox";
 
+const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+
 const Container = styled.div`
-  height: calc(100vh - 80px);
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+`;
+
+const Contents = styled.div`
+  height: calc(100vh - 50px);
   padding: 10px;
-  padding-top: 0;
   display: grid;
   grid-gap: 10px;
 
@@ -33,7 +41,7 @@ const Container = styled.div`
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
   } */
-  .inlineBlock_right {
+  /* .inlineBlock_right {
     position: absolute;
     right: 595px;
     bottom: 810px;
@@ -46,12 +54,10 @@ const Container = styled.div`
     bottom: 510px;
     padding: 0px;
     z-index: 10;
-  }
+  } */
 `;
 
-const ItemContainer = styled.div`
-  /* height: 100%; */
-`;
+const ItemContainer = styled.div``;
 
 const Group1 = styled.div`
   height: 100%;
@@ -121,38 +127,41 @@ export default function Transfer() {
   };
 
   return (
-    <Container className="container">
-      <ItemContainer className="item1 itemStyle">
-        <GbMap />
-      </ItemContainer>
+    <Container>
+      <Header props={headerProps} />
+      <Contents className="container">
+        <ItemContainer className="item1 itemStyle">
+          <GbMap />
+        </ItemContainer>
 
-      <Group1 className="group1">
-        <ItemContainer className="item2 itemStyle">
-          <BarX barXData={barXData} />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarY barYData={barYData1} />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarX barXData={barXData} />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarX barXData={barXData} />
-        </ItemContainer>
-      </Group1>
+        <Group1 className="group1">
+          <ItemContainer className="item2 itemStyle">
+            <BarX barXData={barXData} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <BarY barYData={barYData1} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <BarX barXData={barXData} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <BarX barXData={barXData} />
+          </ItemContainer>
+        </Group1>
 
-      <ItemContainer className="item1 itemStyle">
-        <Stacked />
-      </ItemContainer>
+        <ItemContainer className="item1 itemStyle">
+          <Stacked />
+        </ItemContainer>
 
-      <Group2 className="group2">
-        <ItemContainer className="item2 itemStyle">
-          <BarY barYData={barYData} />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarY barYData={barYData} />
-        </ItemContainer>
-      </Group2>
+        <Group2 className="group2">
+          <ItemContainer className="item2 itemStyle">
+            <BarY barYData={barYData} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <BarY barYData={barYData} />
+          </ItemContainer>
+        </Group2>
+      </Contents>
     </Container>
   );
 }

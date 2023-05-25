@@ -45,8 +45,6 @@ const BarX = (props) => {
   const data = props.barXData.data.value;
   const title = props.barXData.title;
   const show = props.barXData.legend;
-   
-  
 
   const option = {
     title: {
@@ -56,7 +54,7 @@ const BarX = (props) => {
         fontSize: 15,
       },
     },
-  tooltip: {},
+    tooltip: {},
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
@@ -82,7 +80,7 @@ const BarX = (props) => {
     },
     legend: {
       show: show,
-      icon:'circle',
+      icon: "circle",
       data: ["전체", "도내", "도외"],
       selectedMode: "single",
       bottom: 0,
@@ -108,7 +106,7 @@ const BarX = (props) => {
       {
         name: "전체",
         type: "bar",
-         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -129,7 +127,7 @@ const BarX = (props) => {
       {
         name: "도내",
         type: "bar",
-         data: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+        data: [5, 20, 36, 13, 27, 60, 50, 90, 50],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -150,7 +148,7 @@ const BarX = (props) => {
       {
         name: "도외",
         type: "bar",
-         data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
+        data: [20, 50, 100, 150, 200, 250, 300, 350, 400],
         // data: data,
         itemStyle: {
           color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -194,7 +192,7 @@ const BarX = (props) => {
 
   return (
     <ReactECharts
-    option={option}
+      option={option}
       style={{ height: "95%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />

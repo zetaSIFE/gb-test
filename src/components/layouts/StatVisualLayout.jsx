@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Aside, Header } from ".";
+import { Aside, Header, StatHeader } from ".";
 // SVG
 import { ReactComponent as PopularStat } from "assets/images/aside/1-1popularStat.svg";
 import { ReactComponent as Transfer } from "assets/images/aside/1-2transfer.svg";
@@ -57,7 +57,8 @@ export default function StatVisualLayout() {
       <Container>
         <Aside menuData={menuData} />
         <SubContainer>
-          <Header />
+          {/* <Header /> */}
+          {/* <StatHeader /> */}
           <Content>
             <Outlet />
           </Content>
