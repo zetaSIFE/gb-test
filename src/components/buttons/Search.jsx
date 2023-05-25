@@ -27,9 +27,10 @@ const SearchBox = styled.div`
   }
 `;
 
-export const Search = () => {
+export const Search = ({ props }) => {
   const handleSearch = () => {
     console.log("찾기!");
+    console.log(props);
   };
   return (
     <SearchBox className="searchBox">

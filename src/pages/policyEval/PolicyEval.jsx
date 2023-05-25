@@ -2,29 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import SideBar from "./SideBar";
 import { Header } from "components/layouts/Header";
+import { Search, Dropdown } from "components/buttons";
 import { GbMap, BarX } from "components/charts";
 import { useRecoilValue } from "recoil";
 import { slideIsOpen } from "states/PolicyEvalSlideBar";
 
+// Header에 넣을 컴포넌트들을 넣어준다.
+const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+
 const Container = styled.div`
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin-right: 0px;
+  /* height: 100%; */
+  /* width: 100%; */
+  /* margin-right: 0px; */
 `;
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+  /* background-color: red; */
+  /* width: calc(100% + 9px); */
   /* margin-right: 0px; */
 `;
 
 const Group = styled.div`
-  height: 100%;
+  height: calc(100vh - 50px);
   display: grid;
   grid-template-rows: 2fr 1fr;
   grid-template-columns: 1fr 1fr;
-  padding: 0px 0px 10px 10px;
+
+  padding: 10px;
   grid-gap: 10px;
 `;
 
@@ -57,7 +64,7 @@ export default function PolicyEval() {
             : { width: `calc(100vw - 140px)` }
         }
       >
-        <Header />
+        <Header props={headerProps} />{" "}
         <Group>
           <ItemContainer className="itemStyle">
             {/* <div>h!</div> */}

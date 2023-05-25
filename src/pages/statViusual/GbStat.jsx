@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Header } from "components/layouts";
+import { Search, Dropdown } from "components/buttons";
 import { GbMap, Stacked } from "components/charts";
 import { DataDetail } from "./component/DataDetail";
 
+// Header에 넣을 컴포넌트들을 넣어준다.
+const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+
 const Container = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Contents = styled.div`
+  height: calc(100vh - 50px);
   padding: 10px;
-  padding-top: 0px;
   display: grid;
   grid-gap: 10px;
 
@@ -40,8 +49,9 @@ export default function GbStat() {
   //   }
   // })
   return (
-    <>
-      <Container className="container">
+    <Container>
+      <Header props={headerProps} />
+      <Contents className="container">
         <ItemContainer className="item1 itemStyle">
           <GbMap />
         </ItemContainer>
@@ -51,7 +61,7 @@ export default function GbStat() {
         <ItemContainer className="item1 itemStyle">
           <Stacked />
         </ItemContainer>
-      </Container>
-    </>
+      </Contents>
+    </Container>
   );
 }

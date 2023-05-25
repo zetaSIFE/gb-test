@@ -6,17 +6,27 @@ import {
   Doughnut,
   BarNegative,
   HalfPie,
-  ExBarX
+  ExBarX,
 } from "components/charts";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Header } from "components/layouts";
+import { Search, Dropdown } from "components/buttons";
+
 import axios from "axios";
 
+// Header에 넣을 컴포넌트들을 넣어준다.
+const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+
 const Container = styled.div`
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Contents = styled.div`
+  height: calc(100vh - 50px);
+  /* width: 100%; */
   padding: 10px;
-  padding-top: 0;
   display: grid;
   grid-gap: 10px;
 
@@ -64,7 +74,7 @@ const Group2 = styled.div`
   padding: 0px;
   grid-gap: 10px;
 `;
- 
+
 export default function PopulationStat() {
   // const barXData = null;
   const barXData = {
@@ -109,47 +119,49 @@ export default function PopulationStat() {
       width: "100%",
       selectedMode: false,
       itemWidth: 10,
-    }
-
-  }
+    },
+  };
   return (
     <Container className="container">
-      <ItemContainer className="item1 itemStyle">
-        <GbMap />
-      </ItemContainer>
-      <Group1 className="group1">
-        <ItemContainer className="item2 itemStyle">
-          <BarX barXData={barXData} />
+      <Header props={headerProps} />
+      <Contents>
+        <ItemContainer className="item1 itemStyle">
+          <GbMap />
         </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <BarY barYData={barYData} />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <Doughnut />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle scroll1"
-          style={{
-            width:"100%",
-            overflowX: "auto"
-          }}
-        >
-          <ExBarX barXData={barXData} />
+        <Group1 className="group1">
+          <ItemContainer className="item2 itemStyle">
+            <BarX barXData={barXData} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <BarY barYData={barYData} />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <Doughnut />
+          </ItemContainer>
+          <ItemContainer
+            className="item2 itemStyle scroll1"
+            style={{
+              width: "100%",
+              overflowX: "auto",
+            }}
+          >
+            <ExBarX barXData={barXData} />
+          </ItemContainer>
+        </Group1>
+
+        <ItemContainer className="item1 itemStyle">
+          <Stacked />
         </ItemContainer>
 
-      </Group1>
-
-      <ItemContainer className="item1 itemStyle">
-        <Stacked />
-      </ItemContainer>
-
-      <Group2 className="group2">
-        <ItemContainer className="item2 itemStyle">
-          <BarNegative />
-        </ItemContainer>
-        <ItemContainer className="item2 itemStyle">
-          <HalfPie halfPieData={halfPieData} />
-        </ItemContainer>
-      </Group2>
+        <Group2 className="group2">
+          <ItemContainer className="item2 itemStyle">
+            <BarNegative />
+          </ItemContainer>
+          <ItemContainer className="item2 itemStyle">
+            <HalfPie halfPieData={halfPieData} />
+          </ItemContainer>
+        </Group2>
+      </Contents>
     </Container>
   );
 }
