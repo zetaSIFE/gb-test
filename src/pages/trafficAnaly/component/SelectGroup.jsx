@@ -5,11 +5,32 @@ import { CustomDate } from "./CustomDate";
 import { CustomTime } from "./CustomTime";
 import { ReactComponent as ArrowIcon } from "assets/images/buttons/selectArrow.svg";
 import { Select } from "./Select";
+import { useRecoilState } from "recoil";
+import {
+  ageState,
+  endDateState,
+  endTimeState,
+  genderState,
+  startDateState,
+  startTimeState,
+  traffic,
+  trafficState,
+} from "states/InOutFlow";
 
 const Group = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  .check {
+    width: 10%;
+    height: 30px;
+    background: #11233f;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    float: right;
+  }
 `;
 
 const SelecBox = styled.div`
@@ -21,7 +42,7 @@ const SelecBox = styled.div`
   .CustomTime,
   select {
     width: 100%;
-    height: 25px;
+    height: 30px;
     border: 1px solid #cccccc;
     border-radius: 5px;
     background: #ffffff;
@@ -38,9 +59,27 @@ const SelecBox = styled.div`
   }
 `;
 
+/*
+props 
+
+Traffic: 유입 유출
+Date: 기간 설정
+Time: 시간 설정
+Gender: 성별 설정
+Age: 연령 설정
+*/
+
 export const SelecGroup = (props) => {
   const [showDate, setShowDate] = useState(false);
   const [showTime, setShowTime] = useState(false);
+
+  const [traffic, setTraffic] = useRecoilState(trafficState);
+  const [startDate, setIStartDate] = useRecoilState(startDateState);
+  const [endDate, setEndDate] = useRecoilState(endDateState);
+  const [startTime, setStartTime] = useRecoilState(startTimeState);
+  const [endTime, setEndTime] = useRecoilState(endTimeState);
+  const [gender, setGender] = useRecoilState(genderState);
+  const [age, setAge] = useRecoilState(ageState);
 
   let showAll = false;
 
@@ -50,11 +89,16 @@ export const SelecGroup = (props) => {
 
   return (
     <Group>
-      {props.Traffic || showAll ? (
+      {props.Traffic != undefined || showAll ? (
         <SelecBox>
           <Select
+            onChange={setTraffic}
             title={"유입 유출"}
-            values={["유입", "유출"]}
+            values={[
+              { name: "유입", value: true },
+              { name: "유출", value: false },
+            ]}
+            // values={["유입", "유출"]}
             className="item2"
           />
           <ArrowIcon />
@@ -75,7 +119,11 @@ export const SelecGroup = (props) => {
             기간 설정
           </button>
           <ArrowIcon />
-          {showDate ? <CustomDate /> : <></>}
+          {showDate ? (
+            <CustomDate setStartDate={setIStartDate} setEndDate={setEndDate} />
+          ) : (
+            <></>
+          )}
         </SelecBox>
       ) : (
         <></>
@@ -93,14 +141,25 @@ export const SelecGroup = (props) => {
             시간 설정
           </button>
           <ArrowIcon />
-          {showTime ? <CustomTime /> : <></>}
+          {showTime ? (
+            <CustomTime setStartTime={setStartTime} setEndTime={setEndTime} />
+          ) : (
+            <></>
+          )}
         </SelecBox>
       ) : (
         <></>
       )}
       {props.Gender || showAll ? (
         <SelecBox>
-          <Select title={"성별 설정"} values={["남자", "여자"]} />
+          <Select
+            title={"성별 설정"}
+            onChange={setTraffic}
+            values={[
+              { name: "유입", value: true },
+              { name: "유출", value: false },
+            ]}
+          />
           <ArrowIcon />
         </SelecBox>
       ) : (
@@ -111,16 +170,8 @@ export const SelecGroup = (props) => {
           <Select
             title={"연령 설정"}
             values={[
-              "0~9세",
-              "10~19세",
-              "20~29세",
-              "30~39세",
-              "40~49세",
-              "50~59세",
-              "60~69세",
-              "70~79세",
-              "80~89세",
-              "90~99세",
+              { name: "유입", value: true },
+              { name: "유출", value: false },
             ]}
           />
           <ArrowIcon />
@@ -128,6 +179,7 @@ export const SelecGroup = (props) => {
       ) : (
         <></>
       )}
+      <button className="check">조회</button>
     </Group>
   );
 };

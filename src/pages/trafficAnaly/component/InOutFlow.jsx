@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FlowChart,
   BarX,
@@ -11,6 +11,16 @@ import {
 import styled from "styled-components";
 import { DivisonMap } from "./DivisionMap";
 import { SelecGroup } from "./SelectGroup";
+import { useRecoilValue } from "recoil";
+import {
+  ageState,
+  endDateState,
+  endTimeState,
+  genderState,
+  startDateState,
+  startTimeState,
+  trafficState,
+} from "states/InOutFlow";
 
 const Container = styled.div`
   /* height:95vh; */
@@ -64,6 +74,14 @@ const Group2 = styled.div`
 `;
 
 export const InOutFlow = (prop) => {
+  const traffic = useRecoilValue(trafficState);
+  const startDate = useRecoilValue(startDateState);
+  const endDate = useRecoilValue(endDateState);
+  const startTime = useRecoilValue(startTimeState);
+  const endTime = useRecoilValue(endTimeState);
+  const gender = useRecoilValue(genderState);
+  const age = useRecoilValue(ageState);
+
   const pictoData = {
     title: "성별 유입율",
     men: "40",
@@ -123,14 +141,10 @@ export const InOutFlow = (prop) => {
             <ItemContainer className="item2 itemStyle">
               <BarY barYData={barYData} />
             </ItemContainer>
-            <ItemContainer
-              className="item2 itemStyle"
-              style={
-                {
-                  // width:"500px"
-                }
-              }
-            >
+            <ItemContainer className="item2 itemStyle">
+              <div className="spaceBetween">
+                <p className="chartTit">성별 유입(유출)인구 비중</p>
+              </div>
               <Pictorial pictoData={pictoData} />
             </ItemContainer>
           </Group2>

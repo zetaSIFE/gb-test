@@ -14,7 +14,8 @@ import ECharts, { EChartsReactProps } from "echarts-for-react";
 //************** */
 
 const Pictorial = (prop) => {
-  const  { title, men, women, grid } = prop.pictoData;
+  console.log(prop);
+  const { title, men, women, grid } = prop.pictoData;
   const menColor = "#4283d8";
   const womenColor = "#ff7c9e";
 
@@ -43,23 +44,25 @@ const Pictorial = (prop) => {
   };
 
   const options = {
-    title: {
-      text: title,
-      textStyle: {
-        fontSize : 15,
-      }
-    },
+    // title: {
+    //   text: title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     tooltip: {},
     toolbox: {
-      feature:{
-        saveAsImage:{
-          title: "이미지 다운로드",
-        }
-      }
+      feature: {
+        // saveAsImage:{
+        //   title: "이미지 다운로드",
+        // }
+      },
     },
     legend: {
       show: false,
-      selectedMode: "multiple",
+      data: ["유입", "유출"],
+      selectedMode: "single",
+      bottom: 0,
     },
     colorBy: "data",
     xAxis: {
@@ -75,7 +78,7 @@ const Pictorial = (prop) => {
     grid: {
       left: grid.left,
       width: grid.width,
-      top: "25%",
+      top: "15%",
       botton: "10%",
       height: "70%",
     },
@@ -84,7 +87,7 @@ const Pictorial = (prop) => {
     },
     series: [
       {
-        name: "typeA",
+        name: "dbdl",
         type: "pictorialBar",
         symbolClip: true,
         symbolBoundingData: bodyMax,
@@ -140,7 +143,7 @@ const Pictorial = (prop) => {
   };
   return (
     <>
-      <ECharts option={options} style={{ height: "100%", width: "90%" }} />
+      <ECharts option={options} style={{ height: "90%", width: "90%" }} />
     </>
   );
 };

@@ -86,6 +86,12 @@ const BarX = (props) => {
       bottom: 0,
     },
     xAxis: {
+      axisLabel: {
+        show: true,
+        interval: 0,
+        rotate: 45,
+      },
+      offset: 4,
       data: [
         "안동",
         "문경",
@@ -96,11 +102,42 @@ const BarX = (props) => {
         "영덕",
         "포항",
         "울진",
+        "안동",
+        "문경",
+        "예천",
+        "안동",
+        "문경",
+        "예천",
+        "김천",
+        "성주",
+        "경주",
+        "안동",
+        "문경",
+        "예천",
+        "김천",
+        "성주",
       ],
       // data: xAxis, // TODO : 주석 해제
     },
     yAxis: {},
-
+    // dataZoom: {
+    //   show: true,
+    //   type: "slider",
+    //   start: 0,
+    //   end: 60,
+    //   orient: "horizontal",
+    //   zoomLock: true,
+    //   width: '100%',
+    //   height: 0,
+    //   top: 230,
+    //   fillerColor: '#D9D9D9',
+    //   moveHandleIcon: 'circle',
+    //   moveHandleSize: 5,
+    //   moveHandleStyle: {
+    //     color: '#B9B9B9',
+    //     borderCap: 'round',
+    //   },
+    // },
     series: [
       // props.barXData.series,
       {
@@ -122,7 +159,7 @@ const BarX = (props) => {
           // shadowBlur: '1'
           shadowOffsetY: "-20",
         },
-        barWidth: 30,
+        barWidth: 10,
       },
       {
         name: "도내",
