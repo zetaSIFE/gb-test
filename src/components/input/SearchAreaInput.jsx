@@ -25,13 +25,12 @@ const HeaderBox = styled.div`
 `;
 
 export const SearchAreaInput = () => {
-  const [city, setCity] = useState("");
   // const [state, setState] = useState([]);
   const [ctpv, setCtpv] = useState([]);
   const [sgg, setSgg] = useState([]);
+  const [emd, setEmd] = useState([]);
   const [selectCtpv, setSelectCtpv] = useState("");
   const [selectSgg, setSelectSgg] = useState("");
-  const state = useRef([]);
   const [show_ri, setShow_ir] = useState(false);
 
   useEffect(() => {
@@ -58,7 +57,7 @@ export const SearchAreaInput = () => {
   useEffect(() => {
     getEmdList(selectSgg)
       .then((response) => {
-        state.current = response.data.result;
+        setEmd(response.data.result);
       })
       .catch((error) => {
         console.log(error);
@@ -102,13 +101,8 @@ export const SearchAreaInput = () => {
         ))}
       </select>
       <select onClick={show_riHandler}>
-        {/* {state.map((el, index) => (
-          <option key={index} value={el.properties.EMD_KOR_NM}>
-            {el.properties.EMD_KOR_NM}
-          </option>
-        ))} */}
-        {state.current.map((el, index) => (
-          <option key={index} value={el.cd}>
+        {emd.map((el, index) => (
+          <option key={index} value={el.korNm}>
             {el.korNm}
           </option>
         ))}
