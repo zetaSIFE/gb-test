@@ -79,7 +79,8 @@ const Title = styled.div`
 `;
 
 const SearchArea = styled.div`
-  height: 200px;
+  /* height: 200px; */
+  margin-bottom: 20px;
 `;
 
 const SubTitle1 = styled.div`
@@ -109,7 +110,7 @@ const SubTitle2 = styled.div`
 `;
 
 const Result = styled.div`
-  max-height: calc(100vh - 300px);
+  max-height: calc(100vh - 600px);
 
   // 스크롤바 CSS
   overflow-y: auto;
@@ -134,13 +135,30 @@ const Result = styled.div`
 
 const Item = styled.li`
   width: 99;
-  height: 45px;
+  height: 35px;
   border-bottom: 1px solid #cccccc;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  gap: 20px;
 `;
 
+const DataBox = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #ddd;
+`;
+const DataUl = styled.ul`
+  overflow-y: auto;
+  height:250px;
+`;
+const DataLi = styled.li`
+  cursor: pointer;  
+  height: 20px;
+  :hover {
+    background: #bcbcda;
+  }
+`;
 export default function SideBar() {
   const [onOff, setOnOff] = useState(true);
   const [isOpenSlide, setIsOpenSlide] = useRecoilState(slideIsOpen);
@@ -183,15 +201,59 @@ export default function SideBar() {
         <SearchArea>
           <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
           <SearchBar type="text" placeholder="지표 데이터명 검색" />
-          <SubTitle2>데이터명 (데이터 트리 레벨1)</SubTitle2>
         </SearchArea>
-        <Result className="result">
-          <ul>
-            {sampleDatas.map((data, index) => (
-              <Item key={index}>{data}</Item>
-            ))}
-          </ul>
-        </Result>
+        <div
+          style={{width:"100%"}}
+        >
+          <div>데이터 선택</div>
+          <DataBox
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              border: "1px solid #ddd",
+              height:"250px",
+            }}
+          >
+              <div className="leftBox">
+                <DataUl>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                </DataUl>
+              </div>
+              <div className="rightBox">
+                <DataUl>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                  <DataLi>총인구수</DataLi>
+                </DataUl>
+              </div>
+          </DataBox>
+        </div>
+        <div>
+          <SubTitle2>데이터명 (데이터 트리 레벨1)</SubTitle2>
+          <Result className="result">
+            <ul>
+              {sampleDatas.map((data, index) => (
+                <Item key={index}>
+                  <input type="checkbox"/>
+                  {data}</Item>
+              ))}
+            </ul>
+          </Result>
+          </div>
       </Content>
     </Container>
   );
