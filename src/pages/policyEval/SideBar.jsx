@@ -46,7 +46,7 @@ const BtnArrow = styled.div`
   position: absolute;
   right: 0px;
   width: 30px;
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +66,7 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
-  height: 70px;
+  height: 50px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #c4ddff;
@@ -85,6 +85,7 @@ const SearchArea = styled.div`
 `;
 
 const SubTitle1 = styled.div`
+  height: 10px;
   margin-top: 50px;
   font-weight: 700;
   font-size: 18px;

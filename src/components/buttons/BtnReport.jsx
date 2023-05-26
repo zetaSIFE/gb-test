@@ -35,7 +35,7 @@ export const BtnReport = () => {
           onClose={closeModal}
           title={"전체 리포트 다운로드"}
         >
-          <div>으어아아아아아아아아</div>
+          <div>으어아아아아아아아아메리카노~</div>
         </Modal>
       )}
     </>

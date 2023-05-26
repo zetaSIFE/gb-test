@@ -51,6 +51,7 @@ const ModalTop = styled.div`
   border-bottom: 1px solid #cdd0d2;
   padding: 5px 20px;
   height: 60px;
+  background-color: #11233f;
 `;
 
 const BtnClose = styled.div`
@@ -94,6 +95,8 @@ function Modal({
           {/* {closable && <BtnClose className="modal-close" onClick={close}> X</BtnClose>} */}
           <ModalTop>
             <p className='chartTit inlineBlock'>{title}</p>
+            <button className="modal-download inlineBlock"> 다운로드</button>
+            <button className="modal-print inlineBlock"> 인쇄</button>
             <button className="modal-close inlineBlock" onClick={close}> X</button>
           </ModalTop>
           {children}
