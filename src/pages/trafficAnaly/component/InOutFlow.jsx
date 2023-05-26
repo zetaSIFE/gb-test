@@ -103,6 +103,9 @@ export const InOutFlow = (prop) => {
     data: {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
     },
+    visualMap: {
+      show: false,
+    },
   };
 
   return (
@@ -118,10 +121,15 @@ export const InOutFlow = (prop) => {
 
           <Group1 className="group1">
             <ItemContainer className="item2 itemStyle">
-              {/* <p className="chartTit">시간대별 유입량</p> */}
+              <div className="spaceBetween">
+                <p className="chartTit">시간대별 유입량</p>
+              </div>
               <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
+              <div className="spaceBetween">
+                <p className="chartTit">월별/일별 유입률</p>
+              </div>
               <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
@@ -129,16 +137,25 @@ export const InOutFlow = (prop) => {
               <Table />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
+              <div className="spaceBetween">
+                <p className="chartTit">산하 행정구역 산하 행정구역별 유입량</p>
+              </div>
               <BarX barXData={barXData} />
             </ItemContainer>
           </Group1>
 
           <ItemContainer className="item1 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">행정구역별 유입량</p>
+            </div>
             <Stacked />
           </ItemContainer>
 
           <Group2 className="group2">
             <ItemContainer className="item2 itemStyle">
+              <div className="spaceBetween">
+                <p className="chartTit">연령대별 유입량</p>
+              </div>
               <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">

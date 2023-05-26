@@ -1,5 +1,11 @@
 import React from "react";
-import { BtnStatView, DropdownSample, Dropdown } from "components/buttons";
+import {
+  BtnStatView,
+  DropdownSample,
+  Dropdown,
+  BtnExtinction,
+  BtnReport,
+} from "components/buttons";
 
 const smapleData = {
   data: [
@@ -28,6 +34,8 @@ export default function Main() {
       <BtnStatView />
       <Dropdown props={smapleData} title={"유입 유출"} />
       {/* <Dropdown /> */}
+      <BtnExtinction />
+      <BtnReport />
     </div>
   );
 }

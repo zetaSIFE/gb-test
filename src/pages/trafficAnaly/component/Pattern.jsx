@@ -275,9 +275,9 @@ export const Pattern = (props) => {
               />
               <label htmlFor="outflow">유출</label>
             </div>
-            <div className="inlineBlock btn">
+            {/* <div className="inlineBlock btn">
                 <button>버어튼</button>
-            </div>
+            </div> */}
           </div>
           <Pie pieData={pieData} />
         </ItemContainer>

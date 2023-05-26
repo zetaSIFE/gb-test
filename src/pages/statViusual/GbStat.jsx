@@ -5,9 +5,6 @@ import { Search, Dropdown } from "components/buttons";
 import { GbMap, Stacked } from "components/charts";
 import { DataDetail } from "./component/DataDetail";
 
-// Header에 넣을 컴포넌트들을 넣어준다.
-const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,6 +36,9 @@ const Contents = styled.div`
 const ItemContainer = styled.div``;
 
 export default function GbStat() {
+  // Header에 넣을 컴포넌트들을 넣어준다.
+  const headerProps = [<Dropdown />];
+
   // const [currentTab, setClickTab ] = useState(0);
   // const [tabCont, setTabCont] = useState();
 

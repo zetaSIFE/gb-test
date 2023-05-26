@@ -99,6 +99,9 @@ export default function PopulationStat() {
     data: {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
     },
+    visualMap: {
+      show: true,
+    },
   };
   const halfPieData = {
     title: "귀농귀촌 통계",
@@ -130,12 +133,21 @@ export default function PopulationStat() {
         </ItemContainer>
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 인구수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 출생아 수</p>
+            </div>
             <BarY barYData={barYData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">세대원별 세대수</p>
+            </div>
             <Doughnut />
           </ItemContainer>
           <ItemContainer
@@ -145,19 +157,31 @@ export default function PopulationStat() {
               overflowX: "auto",
             }}
           >
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 청년비율</p>
+            </div>
             <ExBarX barXData={barXData} />
           </ItemContainer>
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">경상북도 전체 인구 변화량 추이</p>
+          </div>
           <Stacked />
         </ItemContainer>
 
         <Group2 className="group2">
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">인구 피라미드</p>
+            </div>
             <BarNegative />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">귀농귀촌 통계</p>
+            </div>
             <HalfPie halfPieData={halfPieData} />
           </ItemContainer>
         </Group2>

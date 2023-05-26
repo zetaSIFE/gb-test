@@ -10,20 +10,20 @@ import { graphic } from "echarts";
  */
 const HalfPie = (props) => {
   const option = {
-    title: {
-      text: props.halfPieData.title,
-      textStyle: {
-        fontSize: 15,
-      },
-    },
+    // title: {
+    //   text: props.halfPieData.title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     tooltip: {
       trigger: "item",
     },
     toolbox: {
       feature: {
-        saveAsImage: {
-          title: "이미지 다운로드",
-        },
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        // },
       },
     },
     legend: props.halfPieData.legend, 

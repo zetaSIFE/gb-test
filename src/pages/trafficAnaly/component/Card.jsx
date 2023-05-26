@@ -127,11 +127,15 @@ export const Card = () => {
           <Table />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          {/* <p className="chartTit">업종별 결제금액</p> */}
+          <div className="spaceBetween">
+            <p className="chartTit">업종별 결제금액</p>
+          </div>
           <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          {/* <p className="chartTit">행정구역별 카드사용량</p> */}
+          <div className="spaceBetween">
+            <p className="chartTit">행정구역별 카드 사용량</p>
+          </div>
           <BarX barXData={barXData2} />
         </ItemContainer>
       </Group1>
@@ -178,15 +182,14 @@ export const Card = () => {
           <p className="chartTit">업종별 연령별 소비비율</p>
           <div className="inlineBlock right"></div>
           <select>
-            <option disabled="disabled">업종선택</option>
-            <option>숙박</option>
-            <option>식당</option>
-            <option>병원</option>
-            <option>생활</option>
-            <option>문화</option>
-            <option>서적</option>
-            <option>서비스업</option>
-            <option>관광</option>
+            <option disabled="disabled">연령대 선택</option>
+            <option>10대</option>
+            <option>20대</option>
+            <option>30대</option>
+            <option>40대</option>
+            <option>50대</option>
+            <option>60대</option>
+            <option>70대 이상</option>
           </select>
         </div>
         <Pie pieData={pieData} />
