@@ -8,14 +8,16 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 6px;
-  width: 144px;
-  height: 31px;
+  width: 125px;
+  height: 28px;
   background: #e5e5e5;
   border-radius: 24px;
   color: #333333;
+  font-size: 14px;
+  /* font-weight: 500; */
 `;
 
-export const BtnStatView = () => {
+export const BtnViewStat = () => {
   return (
     <Container>
       <Statistics />

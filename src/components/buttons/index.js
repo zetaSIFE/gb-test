@@ -3,7 +3,7 @@ export * from "./SelectBox";
 export * from "./DropdownSample";
 export * from "./Dropdown";
 export * from "./Search";
-export * from "./BtnStatView";
+export * from "./BtnViewStat";
 export * from "./BtnExtinction";
 export * from "./BtnKExtinction";
 export * from "./BtnChartDown";

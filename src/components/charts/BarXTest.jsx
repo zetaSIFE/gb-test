@@ -233,7 +233,7 @@ const BarXTest = (props) => {
     <ReactECharts
       option={option}
       style={{
-        // display: "relative",
+        position: "relative",
         // height: "100%",
         width: "95%",
         backgroundColor: "white",

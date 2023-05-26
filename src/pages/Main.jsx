@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
-  BtnStatView,
+  BtnViewStat,
   DropdownSample,
   Dropdown,
   BtnExtinction,
   BtnReport,
   BtnChartDown,
 } from "components/buttons";
-import { BarXTest } from "components/charts";
+import { BarXTest, BarY } from "components/charts";
 
 const smapleData = {
   data: [
@@ -36,30 +36,38 @@ const barXData = {
 };
 export default function Main() {
   const chartRef = useRef(null);
-  let canvas = document.getElementsByTagName("canvas");
 
-  console.log(chartRef.current);
-  const handleDown = () => {
-    let canvas = document.getElementsByTagName("canvas");
-    console.log(canvas);
-    if (canvas && canvas.length > 0) {
-      // create label
-      let tempA = document.createElement("a");
-      // Set download name
-      tempA.download = "echarts download" + ".png";
-      // Set address and file type
-      tempA.href = canvas[0].toDataURL("image/png");
-      document.body.appendChild(tempA);
-      // Trigger download event
-      tempA.click();
-      // Remove Tag
-      tempA.remove();
-    }
-  };
+  // console.log(chartRef.current);
+  // useEffect(() => {
+  //   var options = {
+  //     // Your chart options here
+  //     responsive: true,
+  //   };
+
+  //   canvas.setOptions(options);
+  // });
+
+  // const handleDown = () => {
+  //   let canvas = document.getElementsByTagName("canvas");
+  //   console.log(canvas);
+  //   if (canvas && canvas.length > 0) {
+  //     // create label
+  //     let tempA = document.createElement("a");
+  //     // Set download name
+  //     tempA.download = "echarts download" + ".png";
+  //     // Set address and file type
+  //     tempA.href = canvas[0].toDataURL("image/png");
+  //     document.body.appendChild(tempA);
+  //     // Trigger download event
+  //     tempA.click();
+  //     // Remove Tag
+  //     tempA.remove();
+  //   }
+  // };
   return (
     <div style={{ margin: "20px" }}>
       <DropdownSample props={smapleData} />
-      <BtnStatView />
+      <BtnViewStat />
       <Dropdown props={smapleData} title={"유입 유출"} />
       {/* <Dropdown /> */}
       <BtnExtinction />
@@ -67,10 +75,11 @@ export default function Main() {
       <div className="itemStyle" style={{ width: "800px", height: "500px" }}>
         <div style={{ height: "50px", backgroundColor: "skyblue" }}>
           여기가 이제 제목이 될겁니다.
-          <div onClick={handleDown}>
-            <BtnChartDown />
+          <div>
+            <BtnChartDown props={0} />
           </div>
         </div>
+        <BarY barYData={barXData} className="canvas"></BarY>
         <BarXTest
           barXData={barXData}
           ref={chartRef}

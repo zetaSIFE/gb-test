@@ -20,6 +20,11 @@ button {
   border: 0;
 }
 
+.btnContainer {
+  display: flex;
+  gap: 10px;
+}
+
 /* flex */
 .flex {
   display: flex;
@@ -35,7 +40,7 @@ button {
 .spaceBetween {
   display: flex;
   /* position: fixed; */
-  height: 20px;
+  height: 10px;
   justify-content: space-between;
   /* z-index: 10; */
 }
