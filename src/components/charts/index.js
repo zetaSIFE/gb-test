@@ -1,6 +1,7 @@
 export * from "./BubbleMap";
 export * from "./BarNegative";
 export * from "./BarX";
+export * from "./BarXTest";
 export * from "./BarY";
 export * from "./BarNLine";
 export * from "./Doughnut";

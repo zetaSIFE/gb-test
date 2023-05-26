@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { extinctionTab } from "states/Extinction";
 
-const StyleBtn = styled.button`
+const StyleBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

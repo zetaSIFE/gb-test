@@ -34,18 +34,18 @@ table {
 
 table tr td {
   border-bottom: 1px solid #cccccc;
-}
+};
 table tr:last-child td {
   border-bottom: none;
-}
+};
 
 .title {
   text-align: left
-  font-weight: 400;
-}
+  font-weight: 400
+};
 .info {
   font-weight: 700;
-  text-align: right;
+  text-align: right
 }`;
 
 proj4.defs(

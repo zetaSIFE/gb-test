@@ -6,3 +6,4 @@ export * from "./Search";
 export * from "./BtnStatView";
 export * from "./BtnExtinction";
 export * from "./BtnKExtinction";
+export * from "./BtnChartDown";
