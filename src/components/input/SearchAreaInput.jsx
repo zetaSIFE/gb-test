@@ -37,17 +37,6 @@ export const SearchAreaInput = () => {
   const [show_ri, setShow_ir] = useState(false);
 
   useEffect(() => {
-    // setCity(data1.features[0].properties.SIG_CD);
-    getCtpvList()
-      .then((response) => {
-        setCtpv(response.data.result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
     getSggList()
       .then((response) => {
         setSgg(response.data.result);
@@ -75,7 +64,9 @@ export const SearchAreaInput = () => {
     setSelectSgg(e.target.value);
   };
 
-  const show_riHandler = (e) => {
+  const selectEmdHandle = (e) => {
+    setSelectEmd(e.target.value);
+
     if (
       e.currentTarget.value.substr(-1) == "읍" ||
       e.currentTarget.value.substr(-1) == "면"
@@ -96,16 +87,16 @@ export const SearchAreaInput = () => {
           </option>
         ))}
       </select> */}
-      <select onChange={selectSggHandle}>
+      <select onChange={selectSggHandle} value={selectSgg}>
         {sgg.map((el, index) => (
           <option key={index} value={el.cd}>
             {el.korNm}
           </option>
         ))}
       </select>
-      <select onClick={show_riHandler}>
+      <select onClick={selectEmdHandle}>
         {emd.map((el, index) => (
-          <option key={index} value={el.korNm}>
+          <option key={index} value={el.cd}>
             {el.korNm}
           </option>
         ))}

@@ -3,13 +3,13 @@ import { atom } from "recoil";
 // 시군구
 export const sggState = atom({
   key: "sgg",
-  default: "안동시",
+  default: "47170", //안동시 지역코드
 });
 
 // 읍면동
 export const emgState = atom({
   key: "emg",
-  default: "와룡면",
+  default: "47170310", //와룡면 지역코드
 });
 
 // 리

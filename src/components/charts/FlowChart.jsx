@@ -80,6 +80,9 @@ export const FlowChart = (prop) => {
   const [emd, setEmd] = useRecoilState(emgState); //선택된 읍면동 정보
   const [ri, setRi] = useRecoilState(riState); //선택된 리 정보
 
+  //geosever와 연결하기 전 까지 임시
+  const [sggName, setSggName] = useState();
+
   if (prop.id) {
     mapId.current = prop.id;
   } else {
@@ -250,13 +253,13 @@ export const FlowChart = (prop) => {
     map.current.on("pointermove", function (e) {
       overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
-        // overlay.current.setPosition(
-        //   transform(
-        //     geoCoordMap[selected.values_.SIG_KOR_NM],
-        //     "EPSG:4326",
-        //     "EPSG:5179"
-        //   )
-        // );
+        overlay.current.setPosition(
+          transform(
+            geoCoordMap[selected.values_.SIG_KOR_NM],
+            "EPSG:4326",
+            "EPSG:5179"
+          )
+        );
       });
     });
 
@@ -296,7 +299,10 @@ export const FlowChart = (prop) => {
       }),
     });
     clickEvent.current.getFeatures().on("add", function (e) {
-      setSgg(e.element.values_.SIG_KOR_NM);
+      setSgg(e.element.values_.SIG_CD);
+
+      //임시
+      setSggName(e.element.values_.SIG_KOR_NM);
     });
     map.current.addInteraction(clickEvent.current);
 
@@ -318,17 +324,18 @@ export const FlowChart = (prop) => {
     // });
   }, []);
 
+  //임시
   useEffect(() => {
     var testMoveData = [];
 
     gbCenterData.features.map((el) =>
       testMoveData.push([
-        { name: sgg },
+        { name: sggName },
         { name: el.properties.SIG_KOR_NM, value: 10 },
       ])
     );
 
-    [[sgg, testMoveData]].forEach(function (item, i) {
+    [[sggName, testMoveData]].forEach(function (item, i) {
       setSeries(() => [
         {
           name: item[0],
@@ -403,7 +410,7 @@ export const FlowChart = (prop) => {
         },
       ]);
     });
-  }, [sgg]);
+  }, [sggName]);
 
   // 경북 지역 클릭 후의 이벤트
   useEffect(() => {
