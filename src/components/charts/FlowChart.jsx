@@ -22,6 +22,19 @@ import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "components/charts/Popup";
 import styled from "styled-components";
+import { useRecoilState } from "recoil";
+import {
+  sggState,
+  emgState,
+  riState,
+  ageState,
+  endDateState,
+  endTimeState,
+  genderState,
+  startDateState,
+  startTimeState,
+  trafficState,
+} from "states/TrafficAnaly";
 
 const PopupContent = styled.div`
 
@@ -34,18 +47,18 @@ table {
 
 table tr td {
   border-bottom: 1px solid #cccccc;
-}
+};
 table tr:last-child td {
   border-bottom: none;
-}
+};
 
 .title {
   text-align: left
-  font-weight: 400;
-}
+  font-weight: 400
+};
 .info {
   font-weight: 700;
-  text-align: right;
+  text-align: right
 }`;
 
 proj4.defs(
@@ -61,6 +74,11 @@ export const FlowChart = (prop) => {
   const overlay = useRef();
   const popupRef = useRef();
   const mapId = useRef(); //FlowChart를 분할할 경우 각 map의 id지정
+  const sggLayer = useRef();
+  const emdLayer = useRef();
+  const [sgg, setSgg] = useRecoilState(sggState);
+  const [emd, setEmd] = useRecoilState(emgState);
+  const [ri, setRi] = useRecoilState(riState);
 
   if (prop.id) {
     mapId.current = prop.id;
@@ -95,6 +113,47 @@ export const FlowChart = (prop) => {
     return res;
   };
 
+  const creactLayer = (addrgeo) => {
+    let features;
+    switch (addrgeo) {
+      case "sgg":
+        features = data1;
+        break;
+      case "emd":
+        features = data2;
+        break;
+      // case "ri":
+      // features = data1;
+      // break;
+    }
+
+    const style = new Style({
+      fill: new Fill({
+        color: "#00D8FF",
+      }),
+      stroke: new Stroke({
+        color: "#000000",
+        width: 0.5,
+      }),
+    });
+
+    const vectorLayer = new VectorLayer({
+      source: new VectorSource({
+        features: new GeoJSON().readFeatures(features, {
+          dataProjection: "EPSG:5179",
+          featureProjection: "EPSG:5179",
+        }),
+      }),
+      style: style,
+      // function (feature) {
+      //   const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
+      //   style.getFill().setColor(color);
+      //   return style;
+      // },
+    });
+    return vectorLayer;
+  };
+
   useEffect(() => {
     overlay.current = new Overlay({
       element: popupRef.current,
@@ -105,15 +164,6 @@ export const FlowChart = (prop) => {
       },
     });
 
-    const style = new Style({
-      fill: new Fill({
-        color: "#eeeeee61",
-      }),
-      stroke: new Stroke({
-        color: "#66666661",
-        // width: 2,
-      }),
-    });
     const selectStyle = new Style({
       // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
       // fill: new Fill({
@@ -125,19 +175,7 @@ export const FlowChart = (prop) => {
       // }),
     });
 
-    const vectorLayer = new VectorLayer({
-      source: new VectorSource({
-        features: new GeoJSON().readFeatures(data1, {
-          dataProjection: "EPSG:5179",
-          featureProjection: "EPSG:5179",
-        }),
-      }),
-      style: function (feature) {
-        const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
-        style.getFill().setColor(color);
-        return style;
-      },
-    });
+    sggLayer.current = creactLayer("sgg");
 
     const baseLayer = new TileLayer({
       preload: 4,
@@ -177,7 +215,7 @@ export const FlowChart = (prop) => {
     });
 
     map.current = new Map({
-      layers: [baseLayer, vectorLayer],
+      layers: [baseLayer, sggLayer.current],
       loadTilesWhileAnimating: true,
       target: mapId.current,
       projection: "EPSG:5179",
@@ -192,14 +230,27 @@ export const FlowChart = (prop) => {
     map.current.on("pointermove", function (e) {
       overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
-        overlay.current.setPosition(
-          transform(
-            geoCoordMap[selected.values_.SIG_KOR_NM],
-            "EPSG:4326",
-            "EPSG:5179"
-          )
-        );
+        // overlay.current.setPosition(
+        //   transform(
+        //     geoCoordMap[selected.values_.SIG_KOR_NM],
+        //     "EPSG:4326",
+        //     "EPSG:5179"
+        //   )
+        // );
       });
+    });
+
+    map.current.getView().on("change:resolution", (event) => {
+      if (event.target.values_.zoom >= 12.5) {
+        //읍면동 레이어
+        emdLayer.current = creactLayer("emd");
+
+        map.current.removeLayer(sggLayer.current);
+        map.current.addLayer(emdLayer.current);
+      } else if (event.target.values_.zoom >= 20) {
+        //리 레이어
+      } else {
+      }
     });
   }, []);
 
@@ -218,7 +269,7 @@ export const FlowChart = (prop) => {
       // }),
     });
     clickEvent.getFeatures().on("add", function (e) {
-      setClickCity(e.element.values_.SIG_KOR_NM);
+      setSgg(e.element.values_.SIG_KOR_NM);
     });
     map.current.addInteraction(clickEvent);
 
@@ -245,12 +296,12 @@ export const FlowChart = (prop) => {
 
     gbCenterData.features.map((el) =>
       testMoveData.push([
-        { name: clickCity },
+        { name: sgg },
         { name: el.properties.SIG_KOR_NM, value: 10 },
       ])
     );
 
-    [[clickCity, testMoveData]].forEach(function (item, i) {
+    [[sgg, testMoveData]].forEach(function (item, i) {
       setSeries(() => [
         {
           name: item[0],
@@ -325,7 +376,7 @@ export const FlowChart = (prop) => {
         },
       ]);
     });
-  }, [clickCity]);
+  }, [sgg]);
 
   // 경북 지역 클릭 후의 이벤트
   useEffect(() => {
@@ -345,7 +396,7 @@ export const FlowChart = (prop) => {
         id={mapId.current}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      {clickCity == null ? (
+      {sgg == null ? (
         <></>
       ) : (
         <Popup

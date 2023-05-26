@@ -1,5 +1,23 @@
 import { atom } from "recoil";
 
+// 시군구
+export const sggState = atom({
+  key: "sgg",
+  default: "안동시",
+});
+
+// 읍면동
+export const emgState = atom({
+  key: "emg",
+  default: "와룡면",
+});
+
+// 리
+export const riState = atom({
+  key: "ri",
+  default: "리",
+});
+
 // 유입 유출
 export const trafficState = atom({
   key: "traffic",

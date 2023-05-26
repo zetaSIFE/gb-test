@@ -15,7 +15,7 @@ import {
   startTimeState,
   traffic,
   trafficState,
-} from "states/InOutFlow";
+} from "states/TrafficAnaly";
 
 const Group = styled.div`
   display: flex;
@@ -74,8 +74,8 @@ export const SelecGroup = (props) => {
   const [showTime, setShowTime] = useState(false);
 
   const [traffic, setTraffic] = useRecoilState(trafficState);
-  const [startDate, setIStartDate] = useRecoilState(startDateState);
-  const [endDate, setEndDate] = useRecoilState(endDateState);
+  // const [startDate, setStartDate] = useRecoilState(startDateState);
+  // const [endDate, setEndDate] = useRecoilState(endDateState);
   const [startTime, setStartTime] = useRecoilState(startTimeState);
   const [endTime, setEndTime] = useRecoilState(endTimeState);
   const [gender, setGender] = useRecoilState(genderState);
@@ -119,11 +119,7 @@ export const SelecGroup = (props) => {
             기간 설정
           </button>
           <ArrowIcon />
-          {showDate ? (
-            <CustomDate setStartDate={setIStartDate} setEndDate={setEndDate} />
-          ) : (
-            <></>
-          )}
+          {showDate ? <CustomDate /> : <></>}
         </SelecBox>
       ) : (
         <></>

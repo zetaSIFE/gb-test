@@ -109,7 +109,7 @@ export const Header = (props) => {
           <ArrowIcon />
         </SelectBox>
         <div>
-          <button
+          <div
             className="grayBtn"
             style={{
               margin: "0 15px",
@@ -117,7 +117,7 @@ export const Header = (props) => {
             onClick={openModal}
           >
             지방소멸위험지수
-          </button>
+          </div>
           {modalVisible && (
             <Modal
               visible={modalVisible}
@@ -129,9 +129,9 @@ export const Header = (props) => {
               <div>{/* <BarRace/> */}</div>
             </Modal>
           )}
-          <button className="mainBtn" onClick={openModal}>
+          <div className="mainBtn" onClick={openModal}>
             K-지방소멸지수
-          </button>
+          </div>
           {modalVisible && (
             <Modal
               visible={modalVisible}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as Download } from "assets/images/buttons/download.svg";
 import Modal from "components/modal/GlobalModal";
 
-const StyleBtn = styled.button`
+const StyleBtn = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;

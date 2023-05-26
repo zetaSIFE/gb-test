@@ -20,15 +20,15 @@ export const CustomDate = (props) => {
       <Calendar
         showIcon
         selected={startDate}
-        onChange={(date) => props.setStartDate(date)}
+        onChange={(date) => setStartDate(date)}
         locale={ko}
         inline
       />
-      locale={ko}
       <Calendar
         showIcon
         selected={endDate}
         onChange={(date) => setEndDate(date)}
+        locale={ko}
         inline
       />
     </DatePickerBox>
