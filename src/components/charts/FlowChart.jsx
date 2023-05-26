@@ -37,29 +37,29 @@ import {
 } from "states/TrafficAnaly";
 
 const PopupContent = styled.div`
+  table {
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+  }
 
-table {
-  width: 100%;
-  height: 100%;
-  line-height: 30px;
-  padding
-}
+  table tr td {
+    border-bottom: 1px solid #cccccc;
+  }
+  table tr:last-child td {
+    border-bottom: none;
+  }
 
-table tr td {
-  border-bottom: 1px solid #cccccc;
-};
-table tr:last-child td {
-  border-bottom: none;
-};
+  .title {
+    text-align: left;
+    font-weight: 400;
+  }
 
-.title {
-  text-align: left
-  font-weight: 400
-};
-.info {
-  font-weight: 700;
-  text-align: right
-}`;
+  .info {
+    font-weight: 700;
+    text-align: right;
+  }
+`;
 
 proj4.defs(
   "EPSG:5179",
@@ -67,18 +67,18 @@ proj4.defs(
 );
 register(proj4);
 export const FlowChart = (prop) => {
-  const [clickCity, setClickCity] = useState("");
-  const [series, setSeries] = useState([]);
-  const map = useRef();
-  const echartslayer = useRef();
-  const overlay = useRef();
-  const popupRef = useRef();
+  const [series, setSeries] = useState([]); //echartslayer 데이터
+  const map = useRef(); //map 객체 전역변수
+  const echartslayer = useRef(); //echartslayer 객체 전역변수
+  const overlay = useRef(); //overlay 객체 전역변수
+  const popupRef = useRef(); //popup을 띄우기 위한 ref
   const mapId = useRef(); //FlowChart를 분할할 경우 각 map의 id지정
-  const sggLayer = useRef();
-  const emdLayer = useRef();
-  const [sgg, setSgg] = useRecoilState(sggState);
-  const [emd, setEmd] = useRecoilState(emgState);
-  const [ri, setRi] = useRecoilState(riState);
+  const sggLayer = useRef(); //시군구 레이어 객체 전역변수
+  const emdLayer = useRef(); //읍면동 레이어 객체 전역변수
+  const clickEvent = useRef(); //클릭 이벤트 객체 전역번수
+  const [sgg, setSgg] = useRecoilState(sggState); //선택된 시군구 정보
+  const [emd, setEmd] = useRecoilState(emgState); //선택된 읍면동 정보
+  const [ri, setRi] = useRecoilState(riState); //선택된 리 정보
 
   if (prop.id) {
     mapId.current = prop.id;
@@ -153,6 +153,26 @@ export const FlowChart = (prop) => {
     });
     return vectorLayer;
   };
+
+  const selectFeature = (sgg) => {
+    if (clickEvent.current) {
+      clickEvent.current.getFeatures().clear();
+    }
+    if (sggLayer.current) {
+      sggLayer.current
+        .getSource()
+        .getFeatures()
+        .map((feature) => {
+          if (sgg == feature.values_.SIG_CD) {
+            clickEvent.current.getFeatures().push(feature);
+          }
+        });
+    }
+  };
+
+  useEffect(() => {
+    selectFeature(sgg);
+  }, [sgg]);
 
   useEffect(() => {
     overlay.current = new Overlay({
@@ -256,22 +276,29 @@ export const FlowChart = (prop) => {
 
   useEffect(() => {
     //클릭 이벤트 등록
-    const clickEvent = new Select({
+    clickEvent.current = new Select({
       // condition: click,
-      // style: new Style({
-      //   stroke: new Stroke({
-      //     color: "white",
-      //     width: 2,
-      //   }),
-      //   fill: new Fill({
-      //     color: "rgba(0,0,255,0.6)",
-      //   }),
+      // fill: new Fill({
+      //   color: "#00D8FF",
       // }),
+      // stroke: new Stroke({
+      //   color: "#000000",
+      //   width: 0.5,
+      // }),
+      style: new Style({
+        fill: new Fill({
+          color: "#00D8FF",
+        }),
+        stroke: new Stroke({
+          color: "#000000",
+          width: 0.5,
+        }),
+      }),
     });
-    clickEvent.getFeatures().on("add", function (e) {
+    clickEvent.current.getFeatures().on("add", function (e) {
       setSgg(e.element.values_.SIG_KOR_NM);
     });
-    map.current.addInteraction(clickEvent);
+    map.current.addInteraction(clickEvent.current);
 
     // let selected = null;
     // map.current.on("pointermove", function (e) {

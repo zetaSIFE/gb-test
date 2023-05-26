@@ -6,7 +6,7 @@ export const getSggList = (params) => {
       targetSrid: 5186,
       retGeom: false,
       crtfckey: "tmiKPqf1niMu5rq1VcG49XKIYmhwDJEh",
-      ctprvnCd: 44,
+      ctprvnCd: 47,
     },
   });
 };

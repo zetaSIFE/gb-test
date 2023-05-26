@@ -7,7 +7,7 @@ import {
   BtnReport,
   BtnChartDown,
 } from "components/buttons";
-import { BarXTest, BarY } from "components/charts";
+import { BarXTest } from "components/charts";
 
 const smapleData = {
   data: [
@@ -79,7 +79,6 @@ export default function Main() {
             <BtnChartDown props={0} />
           </div>
         </div>
-        <BarY barYData={barXData} className="canvas"></BarY>
         <BarXTest
           barXData={barXData}
           ref={chartRef}
