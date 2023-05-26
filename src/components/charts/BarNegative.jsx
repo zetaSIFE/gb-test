@@ -32,16 +32,16 @@ const BarNegative = () => {
     "100",
   ];
   const option = {
-    title: {
-      text: "인구 피라미드",
-      // text: barNegativeData.title,
-    },
+    // title: {
+    //   text: "인구 피라미드",
+    //   // text: barNegativeData.title,
+    // },
     tooltip: {},
     toolbox: {
       feature: {
-        saveAsImage: {
-          title: "이미지 다운로드",
-        },
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        // },
       },
     },
     // legend: {

@@ -35,6 +35,7 @@ button {
 .spaceBetween {
   display: flex;
   /* position: fixed; */
+  height: 20px;
   justify-content: space-between;
   /* z-index: 10; */
 }

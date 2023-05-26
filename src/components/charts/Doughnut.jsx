@@ -47,14 +47,14 @@ const Doughnut = () => {
   ]
 
   const option = {
-    title: {
-      text: "세대원 별 세대수",
-      // text: doughnutData.title,
-      textStyle: {
-        fontSize: 15,
-      },
-      left: "left",
-    },
+    // title: {
+    //   text: "세대원 별 세대수",
+    //   // text: doughnutData.title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    //   left: "left",
+    // },
     tooltip: {
       trigger: "item",
       left: true,
@@ -62,9 +62,9 @@ const Doughnut = () => {
     },
     toolbox: {
       feature: {
-        saveAsImage: {
-          title: "이미지 다운로드",
-        }, 
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        // }, 
       },
     },
     legend: {
