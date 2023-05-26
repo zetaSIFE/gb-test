@@ -103,6 +103,9 @@ export const InOutFlow = (prop) => {
     data: {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
     },
+    visualMap: {
+      show: false,
+    },
   };
 
   return (
