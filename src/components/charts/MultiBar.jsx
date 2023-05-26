@@ -3,12 +3,12 @@ import ReactECharts from "echarts-for-react";
 
 const MultiBar = () => {
   const option = {
-    title: {
-      text: "시간대별 유입량",
-      textStyle: {
-        fontSize: 15,
-      },
-    },
+    // title: {
+    //   text: "시간대별 유입량",
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     grid: {
       top: "23%",
       left: "7%",

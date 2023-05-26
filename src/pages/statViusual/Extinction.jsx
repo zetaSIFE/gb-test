@@ -7,7 +7,7 @@ import {
   BtnExtinction,
   BtnKExtinction,
 } from "components/buttons";
-import { GbMap, BarX, Stacked, BarY } from "components/charts";
+import { GbMap, BarX, Table } from "components/charts";
 // Recoil
 import { useRecoilState } from "recoil";
 import { extinctionTab } from "states/Extinction";
@@ -65,12 +65,12 @@ const barXData = {
     value: [20, 50, 100, 150, 200, 250, 300, 350, 400],
   },
 };
-const barYData = {
-  title: "지역별 전출자수",
-  data: {
-    value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
-  },
-};
+// const barYData = {
+//   title: "지역별 전출자수",
+//   data: {
+//     value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+//   },
+// };
 
 export default function Extinction() {
   // NOTE
@@ -91,10 +91,16 @@ export default function Extinction() {
         </Group1>
         <Group2 className="group2">
           <ItemContainer className="itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">소멸지수별 지차제 수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="itemStyle">
-            <BarY barYData={barYData} />
+            <div className="spaceBetween">
+              <p className="chartTit">소멸 위험지역 랭킹</p>
+            </div>
+            <Table />
           </ItemContainer>
         </Group2>
       </Contents>

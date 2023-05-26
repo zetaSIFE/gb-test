@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { SelecGroup } from "./SelectGroup";
 
 const Container = styled.div`
-  height: 100%;
+  height: calc(100vh - 70px);
   display: grid;
   grid-gap: 10px;
 
@@ -87,9 +87,15 @@ export const DivisonMap = () => {
         </TableWrap>
       </ItemContainer>
       <ItemContainer className="item2">
+        <div className="spaceBetween">
+          <p className="chartTit">산하 행정구역별 유입량</p>
+        </div>
         <BarX barXData={barXData} />
       </ItemContainer>
       <ItemContainer className="item3">
+        <div className="spaceBetween">
+          <p className="chartTit">산하 행정구역별 유입(유출)량 비율</p>
+        </div>
         <Pie pieData={pieData} />
       </ItemContainer>
     </Container>

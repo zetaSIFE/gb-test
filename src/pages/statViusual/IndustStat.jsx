@@ -99,18 +99,30 @@ export default function IndustStat() {
         </ItemContainer>
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 사업체수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">청년사장 비율</p>
+            </div>
             <HalfPie halfPieData={halfPieData} />
           </ItemContainer>
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">경상북도 신규사업자 현황 및 폐업자 현황</p>
+          </div>
           <Stacked />
         </ItemContainer>
 
         <ItemContainer className="item1 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">종사자 수(성별)</p>
+          </div>
           <Pictorial pictoData={pictoData} />
         </ItemContainer>
       </Contents>

@@ -30,13 +30,13 @@ const Stacked = (props) => {
   // const stackedData = props.stackedData.data;
 
   const option = {
-    title: {
-      text: "경상북도 전입전출 추이",
-      // text: stackedData.title,
-      textStyle: {
-        fontSize: 15,
-      },
-    },
+    // title: {
+    //   text: "경상북도 전입전출 추이",
+    //   // text: stackedData.title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     tooltip: {
       trigger: "axis",
     },
@@ -47,9 +47,9 @@ const Stacked = (props) => {
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
-        saveAsImage: {
-          title: "이미지 다운로드",
-        },
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        // },
       },
     },
     grid: {

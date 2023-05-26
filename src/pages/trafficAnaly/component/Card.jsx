@@ -127,11 +127,15 @@ export const Card = () => {
           <Table />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          {/* <p className="chartTit">업종별 결제금액</p> */}
+          <div className="spaceBetween">
+            <p className="chartTit">업종별 결제금액</p>
+          </div>
           <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          {/* <p className="chartTit">행정구역별 카드사용량</p> */}
+          <div className="spaceBetween">
+            <p className="chartTit">행정구역별 카드 사용량</p>
+          </div>
           <BarX barXData={barXData2} />
         </ItemContainer>
       </Group1>

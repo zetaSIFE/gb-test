@@ -75,6 +75,9 @@ export default function PolicyEval() {
             {/* <div>h!</div> */}
           </ItemContainer>
           <ItemContainer className="itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">산하 행정구역 산하 행정구역별 유입량</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
         </Group>

@@ -18,20 +18,20 @@ const BarY = (props) => {
   const visualMap = props.barYData.visualMap;
   // console.log(props.barYData.visualMap);
   const option = {
-    title: {
-      // text: "지역별 출생아수",
-      text: props.barYData.title,
-      textStyle: {
-        fontSize: 15,
-      },
-    },
+    // title: {
+    //   // text: "지역별 출생아수",
+    //   text: props.barYData.title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     tooltip: {},
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
-        saveAsImage: {
-          title: "이미지 다운로드",
-        },
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        // },
       },
     },
     grid: {
@@ -112,7 +112,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "95%", width: "95%" }}
+      style={{ height: "90%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

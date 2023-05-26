@@ -47,27 +47,27 @@ const BarX = (props) => {
   const show = props.barXData.legend;
 
   const option = {
-    title: {
-      // text: testData.title, // // TODO : 주석 해제
-      text: title,
-      textStyle: {
-        fontSize: 15,
-      },
-    },
+    // title: {
+    //   // text: testData.title, // // TODO : 주석 해제
+    //   text: title,
+    //   textStyle: {
+    //     fontSize: 15,
+    //   },
+    // },
     tooltip: {},
     toolbox: {
       feature: {
         // dataView: { readOnly: false },
-        saveAsImage: {
-          title: "이미지 다운로드",
-          // assets\images\buttons\material-symbols_download.png
-          // icon: '../../assets/images/buttons/download.svg',
-          // iconStyle: {
-          //   width: 31,
-          //   height: 31,
-          //    color: "#a01a1a",
-          // },
-        },
+        // saveAsImage: {
+        //   title: "이미지 다운로드",
+        //   // assets\images\buttons\material-symbols_download.png
+        //   // icon: '../../assets/images/buttons/download.svg',
+        //   // iconStyle: {
+        //   //   width: 31,
+        //   //   height: 31,
+        //   //    color: "#a01a1a",
+        //   // },
+        // },
       },
     },
     grid: {
@@ -230,7 +230,7 @@ const BarX = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "95%", width: "95%" }}
+      style={{ height: "90%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

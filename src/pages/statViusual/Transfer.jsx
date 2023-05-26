@@ -136,28 +136,51 @@ export default function Transfer() {
 
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 전입자수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 전출자수</p>
+            </div>
             <BarY barYData={barYData1} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 청년 전입자수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">지역별 청년 전출자수</p>
+            </div>
             <BarX barXData={barXData} />
           </ItemContainer>
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
+          <div className="spaceBetween">
+            <p className="chartTit">경상북도 전체 월별 전입전출 추이</p>
+          </div>
           <Stacked />
         </ItemContainer>
 
         <Group2 className="group2">
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">도외(시도)최다 전출지 광역지자체 순위</p>
+            </div>
             <BarY barYData={barYData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
+            <div className="spaceBetween">
+              <p className="chartTit">
+                도외(시군구)최다 전출지 광역지자체 순위
+              </p>
+            </div>
             <BarY barYData={barYData} />
           </ItemContainer>
         </Group2>
