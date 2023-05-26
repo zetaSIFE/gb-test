@@ -39,6 +39,7 @@ const Container = styled.div`
   box-shadow: 2px 0px 6px rgba(13, 19, 29, 0.15);
 
   box-sizing: border-box;
+  /* height: calc(100vh - 20px); */
 `;
 
 const BtnArrow = styled.div`
@@ -150,10 +151,10 @@ const DataBox = styled.div`
 `;
 const DataUl = styled.ul`
   overflow-y: auto;
-  height:250px;
+  height: 250px;
 `;
 const DataLi = styled.li`
-  cursor: pointer;  
+  cursor: pointer;
   height: 20px;
   :hover {
     background: #bcbcda;
@@ -202,44 +203,42 @@ export default function SideBar() {
           <SubTitle1 className="subtitle">지표 데이터명 검색</SubTitle1>
           <SearchBar type="text" placeholder="지표 데이터명 검색" />
         </SearchArea>
-        <div
-          style={{width:"100%"}}
-        >
+        <div style={{ width: "100%" }}>
           <div>데이터 선택</div>
           <DataBox
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               border: "1px solid #ddd",
-              height:"250px",
+              height: "250px",
             }}
           >
-              <div className="leftBox">
-                <DataUl>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                </DataUl>
-              </div>
-              <div className="rightBox">
-                <DataUl>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                  <DataLi>총인구수</DataLi>
-                </DataUl>
-              </div>
+            <div className="leftBox">
+              <DataUl>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+              </DataUl>
+            </div>
+            <div className="rightBox">
+              <DataUl>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+                <DataLi>총인구수</DataLi>
+              </DataUl>
+            </div>
           </DataBox>
         </div>
         <div>
@@ -248,12 +247,13 @@ export default function SideBar() {
             <ul>
               {sampleDatas.map((data, index) => (
                 <Item key={index}>
-                  <input type="checkbox"/>
-                  {data}</Item>
+                  <input type="checkbox" />
+                  {data}
+                </Item>
               ))}
             </ul>
           </Result>
-          </div>
+        </div>
       </Content>
     </Container>
   );

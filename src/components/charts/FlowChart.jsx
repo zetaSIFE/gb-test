@@ -37,29 +37,29 @@ import {
 } from "states/TrafficAnaly";
 
 const PopupContent = styled.div`
+  table {
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+  }
 
-table {
-  width: 100%;
-  height: 100%;
-  line-height: 30px;
-  padding
-}
+  table tr td {
+    border-bottom: 1px solid #cccccc;
+  }
+  table tr:last-child td {
+    border-bottom: none;
+  }
 
-table tr td {
-  border-bottom: 1px solid #cccccc;
-}
-table tr:last-child td {
-  border-bottom: none;
-}
+  .title {
+    text-align: left;
+    font-weight: 400;
+  }
 
-.title {
-  text-align: left
-  font-weight: 400;
-}
-.info {
-  font-weight: 700;
-  text-align: right;
-}`;
+  .info {
+    font-weight: 700;
+    text-align: right;
+  }
+`;
 
 proj4.defs(
   "EPSG:5179",

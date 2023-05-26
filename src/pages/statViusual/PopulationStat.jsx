@@ -8,10 +8,15 @@ import {
   HalfPie,
   ExBarX,
 } from "components/charts";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
-import { Search, Dropdown } from "components/buttons";
+import {
+  Search,
+  Dropdown,
+  BtnViewStat,
+  BtnChartDown,
+} from "components/buttons";
 
 import axios from "axios";
 
@@ -124,6 +129,15 @@ export default function PopulationStat() {
       itemWidth: 10,
     },
   };
+
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    window.addEventListener("canvas", function () {
+      chartRef.resize();
+    });
+  }, [chartRef]);
+
   return (
     <Container className="container">
       <Header props={headerProps} />
@@ -135,18 +149,30 @@ export default function PopulationStat() {
           <ItemContainer className="item2 itemStyle">
             <div className="spaceBetween">
               <p className="chartTit">지역별 인구수</p>
+              <div className="btnContainer">
+                <BtnViewStat className="" />
+                <BtnChartDown props={1} />
+              </div>
             </div>
-            <BarX barXData={barXData} />
+            <BarX barXData={barXData} ref={chartRef} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
             <div className="spaceBetween">
               <p className="chartTit">지역별 출생아 수</p>
+              <div className="btnContainer">
+                <BtnViewStat className="" />
+                <BtnChartDown props={2} />
+              </div>
             </div>
             <BarY barYData={barYData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
             <div className="spaceBetween">
               <p className="chartTit">세대원별 세대수</p>
+              <div className="btnContainer">
+                <BtnViewStat className="" />
+                <BtnChartDown props={3} />
+              </div>
             </div>
             <Doughnut />
           </ItemContainer>
@@ -159,6 +185,10 @@ export default function PopulationStat() {
           >
             <div className="spaceBetween">
               <p className="chartTit">지역별 청년비율</p>
+              <div className="btnContainer">
+                <BtnViewStat className="" />
+                <BtnChartDown props={4} />
+              </div>
             </div>
             <ExBarX barXData={barXData} />
           </ItemContainer>
