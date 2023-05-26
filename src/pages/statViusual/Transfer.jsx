@@ -122,7 +122,7 @@ export default function Transfer() {
       show: true,
     },
     visualMap: {
-      show: true,
+      show: false,
     },
   };
 

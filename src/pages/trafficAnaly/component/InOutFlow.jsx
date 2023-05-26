@@ -20,7 +20,7 @@ import {
   startDateState,
   startTimeState,
   trafficState,
-} from "states/InOutFlow";
+} from "states/TrafficAnaly";
 
 const Container = styled.div`
   /* height:95vh; */
@@ -102,6 +102,9 @@ export const InOutFlow = (prop) => {
     title: "지역별 전출자수",
     data: {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
+    },
+    visualMap: {
+      show: false,
     },
   };
 

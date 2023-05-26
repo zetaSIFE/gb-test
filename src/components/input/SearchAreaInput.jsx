@@ -1,10 +1,12 @@
 import data1 from "assets/maps/경북 시군구.json";
 import data2 from "assets/maps/경북 읍면동.json";
 import { useEffect, useRef, useState } from "react";
+import { useRecoilState } from "recoil";
 import { getCtpvList } from "service/addrgeo/ctpv";
 import { getEmdList } from "service/addrgeo/emd";
 import { getSggList } from "service/addrgeo/sgg";
 import styled from "styled-components";
+import { sggState, emgState, riState } from "states/TrafficAnaly";
 
 const HeaderBox = styled.div`
   * {
@@ -29,8 +31,9 @@ export const SearchAreaInput = () => {
   const [ctpv, setCtpv] = useState([]);
   const [sgg, setSgg] = useState([]);
   const [emd, setEmd] = useState([]);
-  const [selectCtpv, setSelectCtpv] = useState("");
-  const [selectSgg, setSelectSgg] = useState("");
+  // const [selectCtpv, setSelectCtpv] = useRecoilState("");
+  const [selectSgg, setSelectSgg] = useRecoilState(sggState);
+  const [selectEmd, setSelectEmd] = useRecoilState(emgState);
   const [show_ri, setShow_ir] = useState(false);
 
   useEffect(() => {
@@ -45,14 +48,14 @@ export const SearchAreaInput = () => {
   }, []);
 
   useEffect(() => {
-    getSggList(selectCtpv)
+    getSggList()
       .then((response) => {
         setSgg(response.data.result);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [selectCtpv]);
+  }, []);
 
   useEffect(() => {
     getEmdList(selectSgg)
@@ -64,9 +67,9 @@ export const SearchAreaInput = () => {
       });
   }, [selectSgg]);
 
-  const selectCtpvHandle = (e) => {
-    setSelectCtpv(e.target.value);
-  };
+  // const selectCtpvHandle = (e) => {
+  //   setSelectCtpv(e.target.value);
+  // };
 
   const selectSggHandle = (e) => {
     setSelectSgg(e.target.value);
@@ -86,13 +89,13 @@ export const SearchAreaInput = () => {
   return (
     <HeaderBox>
       <input type="search" placeholder="대상지 검색" />
-      <select onChange={selectCtpvHandle}>
+      {/* <select onChange={selectCtpvHandle}>
         {ctpv.map((el, index) => (
           <option key={index} value={el.cd}>
             {el.korNm}
           </option>
         ))}
-      </select>
+      </select> */}
       <select onChange={selectSggHandle}>
         {sgg.map((el, index) => (
           <option key={index} value={el.cd}>

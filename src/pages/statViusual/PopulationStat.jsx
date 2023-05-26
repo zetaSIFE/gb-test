@@ -104,6 +104,9 @@ export default function PopulationStat() {
     data: {
       value: [5, 20, 36, 13, 27, 60, 50, 90, 50],
     },
+    visualMap: {
+      show: true,
+    },
   };
   const halfPieData = {
     title: "귀농귀촌 통계",

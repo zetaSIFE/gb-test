@@ -13,6 +13,7 @@ import ReactECharts from "echarts-for-react";
 //************** */
 
 const BarY = (props) => {
+  
   //const data = props.barYData.data.value;
   const legend = props.barYData.legend;
   const visualMap = props.barYData.visualMap;
@@ -68,7 +69,7 @@ const BarY = (props) => {
       // data: barYData.data.yAxis
     },
     visualMap: {
-      show: visualMap,
+      show: visualMap.show,
       orient: "horizontal",
       // top: "10%",
       bottom: 0,
