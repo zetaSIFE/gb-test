@@ -123,6 +123,7 @@ export const FlowChart = (prop) => {
         features = data1;
         break;
       case "emd":
+        console.log(data2);
         features = data2;
         break;
       // case "ri":
@@ -157,26 +158,6 @@ export const FlowChart = (prop) => {
     return vectorLayer;
   };
 
-  const selectFeature = (sgg) => {
-    if (clickEvent.current) {
-      clickEvent.current.getFeatures().clear();
-    }
-    if (sggLayer.current) {
-      sggLayer.current
-        .getSource()
-        .getFeatures()
-        .map((feature) => {
-          if (sgg == feature.values_.SIG_CD) {
-            clickEvent.current.getFeatures().push(feature);
-          }
-        });
-    }
-  };
-
-  useEffect(() => {
-    selectFeature(sgg);
-  }, [sgg]);
-
   useEffect(() => {
     overlay.current = new Overlay({
       element: popupRef.current,
@@ -185,17 +166,6 @@ export const FlowChart = (prop) => {
           duration: 250,
         },
       },
-    });
-
-    const selectStyle = new Style({
-      // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
-      // fill: new Fill({
-      //   color: "rgb(122 188 246 / 70%)",
-      // }),
-      // stroke: new Stroke({
-      //   color: "rgb(21 108 172 / 73%)",
-      //   width: 2.5,
-      // }),
     });
 
     sggLayer.current = creactLayer("sgg");
@@ -275,19 +245,9 @@ export const FlowChart = (prop) => {
       } else {
       }
     });
-  }, []);
 
-  useEffect(() => {
     //클릭 이벤트 등록
     clickEvent.current = new Select({
-      // condition: click,
-      // fill: new Fill({
-      //   color: "#00D8FF",
-      // }),
-      // stroke: new Stroke({
-      //   color: "#000000",
-      //   width: 0.5,
-      // }),
       style: new Style({
         fill: new Fill({
           color: "#00D8FF",
@@ -300,29 +260,27 @@ export const FlowChart = (prop) => {
     });
     clickEvent.current.getFeatures().on("add", function (e) {
       setSgg(e.element.values_.SIG_CD);
-
       //임시
       setSggName(e.element.values_.SIG_KOR_NM);
     });
     map.current.addInteraction(clickEvent.current);
-
-    // let selected = null;
-    // map.current.on("pointermove", function (e) {
-    //   if (selected !== null) {
-    //     selected.setStyle(undefined);
-    //     selected = null;
-    //   }
-    //   map.current.forEachFeatureAtPixel(e.pixel, function (f) {
-    //     // 클릭 이벤트 도중 클릭 시 색이 이상하게 바껴서 임시 주석
-    //     // selected = f;
-    //     // selectStyle
-    //     //   .getFill()
-    //     //   .setColor(f.get("COLOR") || "rgb(122 188 246 / 70%)");
-    //     // f.setStyle(selectStyle);
-    //     return true;
-    //   });
-    // });
   }, []);
+
+  useEffect(() => {
+    if (clickEvent.current) {
+      clickEvent.current.getFeatures().clear();
+    }
+    if (sggLayer.current) {
+      sggLayer.current
+        .getSource()
+        .getFeatures()
+        .map((feature) => {
+          if (sgg == feature.values_.SIG_CD) {
+            clickEvent.current.getFeatures().push(feature);
+          }
+        });
+    }
+  }, [sgg]);
 
   //임시
   useEffect(() => {

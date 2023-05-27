@@ -28,14 +28,14 @@ const HeaderBox = styled.div`
 
 export const SearchAreaInput = () => {
   // const [state, setState] = useState([]);
-  const [ctpv, setCtpv] = useState([]);
   const [sgg, setSgg] = useState([]);
   const [emd, setEmd] = useState([]);
   // const [selectCtpv, setSelectCtpv] = useRecoilState("");
   const [selectSgg, setSelectSgg] = useRecoilState(sggState);
   const [selectEmd, setSelectEmd] = useRecoilState(emgState);
-  const [show_ri, setShow_ir] = useState(false);
+  const [show_ri, setShow_ir] = useState(true); //기본 읍면동이 와룡면이기에 기본값 true
 
+  //"시군구" 조회
   useEffect(() => {
     getSggList()
       .then((response) => {
@@ -46,6 +46,7 @@ export const SearchAreaInput = () => {
       });
   }, []);
 
+  //"읍면동" 조회
   useEffect(() => {
     getEmdList(selectSgg)
       .then((response) => {
@@ -56,24 +57,36 @@ export const SearchAreaInput = () => {
       });
   }, [selectSgg]);
 
-  // const selectCtpvHandle = (e) => {
-  //   setSelectCtpv(e.target.value);
-  // };
+  //"리" 조회
+  useEffect(() => {
+    //   getEmdList(selectEmd)
+    //     .then((response) => {
+    //       setEmd(response.data.result);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    if (emd.length != 0) {
+      const SelectEmdName = emd.filter((el) => el.cd == selectEmd)[0].korNm;
+
+      if (
+        SelectEmdName.substr(-1) == "읍" ||
+        SelectEmdName.substr(-1) == "면"
+      ) {
+        setShow_ir(true);
+      } else {
+        setShow_ir(false);
+      }
+    }
+  }, [selectEmd]);
 
   const selectSggHandle = (e) => {
     setSelectSgg(e.target.value);
   };
 
   const selectEmdHandle = (e) => {
+    console.log(e.target.value);
     setSelectEmd(e.target.value);
-
-    const SelectEmdName = emd.filter((el) => el.cd == e.target.value)[0].korNm;
-
-    if (SelectEmdName.substr(-1) == "읍" || SelectEmdName.substr(-1) == "면") {
-      setShow_ir(true);
-    } else {
-      setShow_ir(false);
-    }
   };
 
   return (
@@ -93,7 +106,7 @@ export const SearchAreaInput = () => {
           </option>
         ))}
       </select>
-      <select onClick={selectEmdHandle}>
+      <select onChange={selectEmdHandle} value={selectEmd}>
         {emd.map((el, index) => (
           <option key={index} value={el.cd}>
             {el.korNm}
