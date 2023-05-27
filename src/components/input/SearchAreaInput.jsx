@@ -67,10 +67,9 @@ export const SearchAreaInput = () => {
   const selectEmdHandle = (e) => {
     setSelectEmd(e.target.value);
 
-    if (
-      e.currentTarget.value.substr(-1) == "읍" ||
-      e.currentTarget.value.substr(-1) == "면"
-    ) {
+    const SelectEmdName = emd.filter((el) => el.cd == e.target.value)[0].korNm;
+
+    if (SelectEmdName.substr(-1) == "읍" || SelectEmdName.substr(-1) == "면") {
       setShow_ir(true);
     } else {
       setShow_ir(false);
