@@ -33,7 +33,7 @@ export const Header = ({ props }) => {
     <Container>
       <Contents>
         {props.map((item, index) => (
-          <Item>{item}</Item>
+          <Item key={index}>{item}</Item>
         ))}
       </Contents>
       <BtnReport />
