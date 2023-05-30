@@ -80,6 +80,12 @@ export const FlowChart = (prop) => {
   const [emd, setEmd] = useRecoilState(emgState); //선택된 읍면동 정보
   const [ri, setRi] = useRecoilState(riState); //선택된 리 정보
 
+  const layers = useRef();
+
+  const sggZoom = 8;
+  const emgZoom = 11;
+  const riZoom = 20;
+
   //geosever와 연결하기 전 까지 임시
   const [sggName, setSggName] = useState();
 
@@ -92,6 +98,7 @@ export const FlowChart = (prop) => {
   var geoCoordMap = {};
   gbCenterData.features.map((el) => {
     geoCoordMap[el.properties.SIG_KOR_NM] = el.geometry.coordinates;
+    geoCoordMap[el.properties.SIG_CD] = el.properties.SIG_KOR_NM;
   });
 
   var color = ["#ffd30f", "#ffa022", "#46bee9"];
@@ -116,6 +123,15 @@ export const FlowChart = (prop) => {
     return res;
   };
 
+  const focusArea = (zoom, areaCode) => {
+    map.current.getView().setZoom(zoom);
+    map.current
+      .getView()
+      .setCenter(
+        transform(geoCoordMap[geoCoordMap[areaCode]], "EPSG:4326", "EPSG:5179")
+      );
+  };
+
   const creactLayer = (addrgeo) => {
     let features;
     switch (addrgeo) {
@@ -123,7 +139,6 @@ export const FlowChart = (prop) => {
         features = data1;
         break;
       case "emd":
-        console.log(data2);
         features = data2;
         break;
       // case "ri":
@@ -142,6 +157,7 @@ export const FlowChart = (prop) => {
     });
 
     const vectorLayer = new VectorLayer({
+      name: addrgeo,
       source: new VectorSource({
         features: new GeoJSON().readFeatures(features, {
           dataProjection: "EPSG:5179",
@@ -168,7 +184,7 @@ export const FlowChart = (prop) => {
       },
     });
 
-    sggLayer.current = creactLayer("sgg");
+    layers.current = creactLayer("sgg");
 
     const baseLayer = new TileLayer({
       preload: 4,
@@ -208,7 +224,7 @@ export const FlowChart = (prop) => {
     });
 
     map.current = new Map({
-      layers: [baseLayer, sggLayer.current],
+      layers: [baseLayer, layers.current],
       loadTilesWhileAnimating: true,
       target: mapId.current,
       projection: "EPSG:5179",
@@ -216,33 +232,53 @@ export const FlowChart = (prop) => {
       view: new View({
         projection: "EPSG:5179",
         center: transform([128.5055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
-        zoom: 8,
+        zoom: sggZoom,
       }),
     });
 
     map.current.on("pointermove", function (e) {
       overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
-        overlay.current.setPosition(
-          transform(
-            geoCoordMap[selected.values_.SIG_KOR_NM],
-            "EPSG:4326",
-            "EPSG:5179"
-          )
-        );
+        // 툴팁 임시 주석
+        // overlay.current.setPosition(
+        //   transform(
+        //     geoCoordMap[selected.values_.SIG_KOR_NM],
+        //     "EPSG:4326",
+        //     "EPSG:5179"
+        //   )
+        // );
       });
     });
 
     map.current.getView().on("change:resolution", (event) => {
-      if (event.target.values_.zoom >= 12.5) {
-        //읍면동 레이어
-        emdLayer.current = creactLayer("emd");
+      console.log(event.target.values_.zoom);
+      //시군구 레이어
+      if (
+        event.target.values_.zoom >= sggZoom &&
+        event.target.values_.zoom < emgZoom &&
+        layers.current.values_.name != "sgg"
+      ) {
+        map.current.removeLayer(layers.current);
 
-        map.current.removeLayer(sggLayer.current);
-        map.current.addLayer(emdLayer.current);
-      } else if (event.target.values_.zoom >= 20) {
+        layers.current = creactLayer("sgg");
+        map.current.addLayer(layers.current);
+
+        //읍면동 레이어
+      } else if (
+        event.target.values_.zoom >= emgZoom &&
+        event.target.values_.zoom < riZoom &&
+        layers.current.values_.name != "emd"
+      ) {
+        map.current.removeLayer(layers.current);
+
+        layers.current = creactLayer("emd");
+        map.current.addLayer(layers.current);
+
         //리 레이어
-      } else {
+      } else if (
+        event.target.values_.zoom >= riZoom &&
+        layers.current.values_.name != "ri"
+      ) {
       }
     });
 
@@ -260,18 +296,26 @@ export const FlowChart = (prop) => {
     });
     clickEvent.current.getFeatures().on("add", function (e) {
       setSgg(e.element.values_.SIG_CD);
-      //임시
-      setSggName(e.element.values_.SIG_KOR_NM);
     });
     map.current.addInteraction(clickEvent.current);
   }, []);
 
   useEffect(() => {
+    //임시
+    setSggName(geoCoordMap[sgg]);
+
+    focusArea(sggZoom, sgg);
+    map.current.getView().setZoom(8);
+    map.current
+      .getView()
+      .setCenter(
+        transform(geoCoordMap[geoCoordMap[sgg]], "EPSG:4326", "EPSG:5179")
+      );
     if (clickEvent.current) {
       clickEvent.current.getFeatures().clear();
     }
-    if (sggLayer.current) {
-      sggLayer.current
+    if (layers.current) {
+      layers.current
         .getSource()
         .getFeatures()
         .map((feature) => {

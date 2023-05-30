@@ -51,6 +51,7 @@ export const SearchAreaInput = () => {
     getEmdList(selectSgg)
       .then((response) => {
         setEmd(response.data.result);
+        setSelectEmd(response.data.result[0].cd);
       })
       .catch((error) => {
         console.log(error);
@@ -85,7 +86,6 @@ export const SearchAreaInput = () => {
   };
 
   const selectEmdHandle = (e) => {
-    console.log(e.target.value);
     setSelectEmd(e.target.value);
   };
 
