@@ -4,8 +4,8 @@ import Map from "ol/Map";
 import View from "ol/View";
 import TileLayer from "ol/layer/Tile";
 import EChartsLayer from "ol-echarts";
-import { Vector as VectorLayer } from "ol/layer";
-import { Vector as VectorSource, WMTS } from "ol/source";
+import { Tile, Vector as VectorLayer } from "ol/layer";
+import { TileWMS, Vector as VectorSource, WMTS } from "ol/source";
 import GeoJSON from "ol/format/GeoJSON";
 import { transform } from "ol/proj";
 import Fill from "ol/style/Fill.js";
@@ -24,9 +24,6 @@ import { Popup } from "components/charts/Popup";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import {
-  sggState,
-  emgState,
-  riState,
   ageState,
   endDateState,
   endTimeState,
@@ -34,6 +31,9 @@ import {
   startDateState,
   startTimeState,
   trafficState,
+  SelectRiState,
+  SelectEmgState,
+  SelectSggState,
 } from "states/TrafficAnaly";
 
 const PopupContent = styled.div`
@@ -76,9 +76,9 @@ export const FlowChart = (prop) => {
   const sggLayer = useRef(); //시군구 레이어 객체 전역변수
   const emdLayer = useRef(); //읍면동 레이어 객체 전역변수
   const clickEvent = useRef(); //클릭 이벤트 객체 전역번수
-  const [sgg, setSgg] = useRecoilState(sggState); //선택된 시군구 정보
-  const [emd, setEmd] = useRecoilState(emgState); //선택된 읍면동 정보
-  const [ri, setRi] = useRecoilState(riState); //선택된 리 정보
+  const [SelectSgg, setSelectSgg] = useRecoilState(SelectSggState); //선택된 시군구 정보
+  const [SelectEmd, setSelectEmd] = useRecoilState(SelectEmgState); //선택된 읍면동 정보
+  const [ri, setRi] = useRecoilState(SelectRiState); //선택된 리 정보
 
   const layers = useRef();
 
@@ -171,7 +171,21 @@ export const FlowChart = (prop) => {
       //   return style;
       // },
     });
+
+    const wmsLayer = new Tile({
+      source: new TileWMS({
+        url: "http://192.168.11.10:20080/geoserver/B70121/wms",
+        params: {
+          VERSION: "1.1.0",
+          BBOX: [-10145.7275390625, 58000.44921875, 632607.3125, 669096.0],
+          SRS: "EPSG: 5186",
+          FORMAT: "application/openlayers",
+        },
+      }),
+    });
+
     return vectorLayer;
+    // return wmsLayer;
   };
 
   useEffect(() => {
@@ -233,6 +247,7 @@ export const FlowChart = (prop) => {
         projection: "EPSG:5179",
         center: transform([128.5055956, 36.5760207], "EPSG:4326", "EPSG:5179"),
         zoom: sggZoom,
+        minZoom: sggZoom - 1,
       }),
     });
 
@@ -240,13 +255,13 @@ export const FlowChart = (prop) => {
       overlay.current.setPosition(null);
       map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
         // 툴팁 임시 주석
-        // overlay.current.setPosition(
-        //   transform(
-        //     geoCoordMap[selected.values_.SIG_KOR_NM],
-        //     "EPSG:4326",
-        //     "EPSG:5179"
-        //   )
-        // );
+        overlay.current.setPosition(
+          transform(
+            geoCoordMap[selected.values_.SIG_KOR_NM],
+            "EPSG:4326",
+            "EPSG:5179"
+          )
+        );
       });
     });
 
@@ -295,21 +310,21 @@ export const FlowChart = (prop) => {
       }),
     });
     clickEvent.current.getFeatures().on("add", function (e) {
-      setSgg(e.element.values_.SIG_CD);
+      setSelectSgg(e.element.values_.SIG_CD);
     });
     map.current.addInteraction(clickEvent.current);
   }, []);
 
   useEffect(() => {
     //임시
-    setSggName(geoCoordMap[sgg]);
+    setSggName(geoCoordMap[SelectSgg]);
 
-    focusArea(sggZoom, sgg);
+    focusArea(sggZoom, SelectSgg);
     map.current.getView().setZoom(8);
     map.current
       .getView()
       .setCenter(
-        transform(geoCoordMap[geoCoordMap[sgg]], "EPSG:4326", "EPSG:5179")
+        transform(geoCoordMap[geoCoordMap[SelectSgg]], "EPSG:4326", "EPSG:5179")
       );
     if (clickEvent.current) {
       clickEvent.current.getFeatures().clear();
@@ -319,12 +334,12 @@ export const FlowChart = (prop) => {
         .getSource()
         .getFeatures()
         .map((feature) => {
-          if (sgg == feature.values_.SIG_CD) {
+          if (SelectSgg == feature.values_.SIG_CD) {
             clickEvent.current.getFeatures().push(feature);
           }
         });
     }
-  }, [sgg]);
+  }, [SelectSgg]);
 
   //임시
   useEffect(() => {
@@ -432,7 +447,7 @@ export const FlowChart = (prop) => {
         id={mapId.current}
         style={{ width: prop.width, height: prop.height }}
       ></div>
-      {sgg == null ? (
+      {SelectSgg == null ? (
         <></>
       ) : (
         <Popup

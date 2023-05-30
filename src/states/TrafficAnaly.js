@@ -1,19 +1,19 @@
 import { atom } from "recoil";
 
-// 시군구
-export const sggState = atom({
+// 선택된 시군구
+export const SelectSggState = atom({
   key: "sgg",
   default: "47170", //안동시 지역코드
 });
 
-// 읍면동
-export const emgState = atom({
+// 선택된 읍면동
+export const SelectEmgState = atom({
   key: "emg",
   default: "47170310", //와룡면 지역코드
 });
 
-// 리
-export const riState = atom({
+// 선택된 리
+export const SelectRiState = atom({
   key: "ri",
   default: "리",
 });

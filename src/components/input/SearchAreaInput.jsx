@@ -6,7 +6,11 @@ import { getCtpvList } from "service/addrgeo/ctpv";
 import { getEmdList } from "service/addrgeo/emd";
 import { getSggList } from "service/addrgeo/sgg";
 import styled from "styled-components";
-import { sggState, emgState, riState } from "states/TrafficAnaly";
+import {
+  SelectSggState,
+  SelectEmgState,
+  SelectRiState,
+} from "states/TrafficAnaly";
 
 const HeaderBox = styled.div`
   * {
@@ -31,8 +35,8 @@ export const SearchAreaInput = () => {
   const [sgg, setSgg] = useState([]);
   const [emd, setEmd] = useState([]);
   // const [selectCtpv, setSelectCtpv] = useRecoilState("");
-  const [selectSgg, setSelectSgg] = useRecoilState(sggState);
-  const [selectEmd, setSelectEmd] = useRecoilState(emgState);
+  const [selectSgg, setSelectSgg] = useRecoilState(SelectSggState);
+  const [selectEmd, setSelectEmd] = useRecoilState(SelectEmgState);
   const [show_ri, setShow_ir] = useState(true); //기본 읍면동이 와룡면이기에 기본값 true
 
   //"시군구" 조회
