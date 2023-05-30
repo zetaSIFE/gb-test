@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import { Aside, Header } from ".";
+import { Aside } from ".";
 // SVG
 import { ReactComponent as StatSupport } from "assets/images/aside/2-1statSupport.svg";
 import { ReactComponent as IndustInvest } from "assets/images/aside/2-2industInvest.svg";

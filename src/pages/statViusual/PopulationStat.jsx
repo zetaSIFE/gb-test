@@ -13,7 +13,9 @@ import styled from "styled-components";
 import { Header } from "components/layouts";
 import {
   Search,
+  SearchSmall,
   Dropdown,
+  DropdownSmall,
   BtnViewStat,
   BtnChartDown,
 } from "components/buttons";
@@ -22,6 +24,7 @@ import axios from "axios";
 
 // Header에 넣을 컴포넌트들을 넣어준다.
 const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
+const subHeaderProps = [<Search props={"프롭스"} />, <Dropdown />];
 
 const Container = styled.div`
   display: flex;
@@ -61,6 +64,12 @@ const Contents = styled.div`
 
 const ItemContainer = styled.div`
   /* height: 100%; */
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  margin-top: 10px;
+  gap: 6px;
 `;
 
 const Group1 = styled.div`
@@ -197,7 +206,17 @@ export default function PopulationStat() {
         <ItemContainer className="item1 itemStyle">
           <div className="spaceBetween">
             <p className="chartTit">경상북도 전체 인구 변화량 추이</p>
+            <div className="btnContainer">
+              <BtnViewStat className="" />
+              <BtnChartDown props={5} />
+            </div>
           </div>
+          <SearchContainer>
+            <SearchSmall props={"프롭스"} />
+            <DropdownSmall />
+            <DropdownSmall />
+            <DropdownSmall />
+          </SearchContainer>
           <Stacked />
         </ItemContainer>
 
@@ -205,12 +224,14 @@ export default function PopulationStat() {
           <ItemContainer className="item2 itemStyle">
             <div className="spaceBetween">
               <p className="chartTit">인구 피라미드</p>
+              <BtnChartDown props={6} />
             </div>
             <BarNegative />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
             <div className="spaceBetween">
               <p className="chartTit">귀농귀촌 통계</p>
+              <BtnChartDown props={7} />
             </div>
             <HalfPie halfPieData={halfPieData} />
           </ItemContainer>

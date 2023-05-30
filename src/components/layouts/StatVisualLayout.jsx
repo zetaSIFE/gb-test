@@ -13,13 +13,16 @@ const Container = styled.div`
   display: flex;
 `;
 
-const SubContainer = styled.div`
+// const SubContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+// `;
+
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-`;
-
-const Content = styled.div`
   height: calc(100vh - 60px);
 `;
 
@@ -56,11 +59,11 @@ export default function StatVisualLayout() {
     <>
       <Container>
         <Aside menuData={menuData} />
-        <SubContainer>
-          <Content>
-            <Outlet />
-          </Content>
-        </SubContainer>
+        {/* <SubContainer> */}
+        <Content>
+          <Outlet />
+        </Content>
+        {/* </SubContainer> */}
       </Container>
     </>
   );

@@ -111,7 +111,10 @@ const Stacked = (props) => {
   //TODO: 는 아니고 areaStyle: {normal: {}}로 라인 내부 색상 가능
 
   // return <ReactECharts option={option} style={{height: "90%", width: "95%" }} />;
-  return <ReactECharts option={option} style={{ height: "90%" }} />;
+  // return <ReactECharts option={option} style={{ height: "90%" }} />;
+  return (
+    <ReactECharts option={option} style={{ height: "70%", width: "95%" }} />
+  );
 };
 
 export { Stacked };
