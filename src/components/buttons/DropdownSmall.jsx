@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.select`
-  width: 204px;
-  height: 40px;
+  width: 160;
+  height: 30px;
   background: #ffffff;
   border: 1px solid #cccccc;
   border-radius: 4px;
+  font-size: 14px;
   /* padding-right: 15px; */
 `;
 
 const Option = styled.option``;
 
-export const Dropdown = ({ title, props }) => {
+export const DropdownSmall = ({ title, props }) => {
   const [optionList, setOptionList] = useState(["데이터를 입력해주세요"]);
   console.log(props);
   console.log(title);
