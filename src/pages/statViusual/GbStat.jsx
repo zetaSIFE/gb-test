@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
 import { Search, Dropdown } from "components/buttons";
-import { GbMap, Stacked } from "components/charts";
+import { BarRace, Stacked, MapPie } from "components/charts";
 import { DataDetail } from "./component/DataDetail";
 
 const Container = styled.div`
@@ -24,18 +24,29 @@ const Contents = styled.div`
   .item1:nth-child(3) {
     grid-column: span 3;
   }
-
-  /* .item1 {
-    border: 1px solid #cccccc;
-    border-radius: 10px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-  } */
 `;
 
 const ItemContainer = styled.div``;
+const TestZindex = styled.div`
+z-index: 9999 !important;
+`;
 
 export default function GbStat() {
+  const [showChart, setShowChart] = useState('bubble');
+  const [charCont, setChartCont ] = useState(<MapPie/>); //버블차트 대신 임시로
+
+  const selecChart = (e) => {
+    setShowChart(e.target.id)
+  };
+  useEffect(() => {
+    switch(showChart) {
+      case "bubble" : setChartCont(<MapPie/>)
+        break;
+      case 'racing' : setChartCont(<BarRace/>)
+        break;
+    }
+  },[showChart]);
+
   // Header에 넣을 컴포넌트들을 넣어준다.
   const headerProps = [<Dropdown />];
 
@@ -53,7 +64,28 @@ export default function GbStat() {
       <Header props={headerProps} />
       <Contents className="container">
         <ItemContainer className="item1 itemStyle">
-          <GbMap />
+          <TestZindex className="inlineBlock right" 
+          >
+            <input
+              type="checkbox"
+              id="bubble"
+              name="selectChart"
+              value="버블차트"
+              onChange={(e) => selecChart(e)}
+              checked={showChart === "bubble"}
+            />
+            <label htmlFor="bubble">버블차트</label>
+            <input
+              type="checkbox"
+              id="racing"
+              name="selectChart"
+              value="레이싱차트"
+              onChange={(e) => selecChart(e)}
+              checked={showChart === "racing"}
+            />
+            <label htmlFor="racing">레이싱차트</label>
+          </TestZindex>
+          {charCont}
         </ItemContainer>
         <ItemContainer className="item1 itemStyle">
           <DataDetail />
