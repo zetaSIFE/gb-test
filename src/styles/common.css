@@ -99,7 +99,6 @@ button {
 .spaceBetween {
   display: flex;
   /* position: fixed; */
-  height: 20px;
   justify-content: space-between;
   /* z-index: 10; */
 }
@@ -128,9 +127,27 @@ button {
   position: relative;
 }
 
+/* chart */
+.chartTop {
+  background-color: #d9e7fa;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 17%;
+  padding: 10px;
+  border: 1px solid #98c3ff;
+}
+.chartCont {
+  height: 83%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid #98c3ff;
+  border-top: 0;
+  padding: 10px;
+}
+
 /* common_class */
 .chartTit {
-  font-size: 16px;
+  font-size: 15px;
   color: rgb(61, 60, 60);
   font-weight: bold;
   padding: 5px 8px;
@@ -196,6 +213,30 @@ input[type="checkbox"]:checked {
 									   color-stop(0.86, rgb(28,58,148))); */
 }
 
+/* NOTE 그리드별 각 아이템 스타일 */
+.itemStyle {
+  background: radial-gradient(
+      409.5% 116.82% at 51.71% 56.4%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      344.95% 155.88% at 52.49% 53.79%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #d8dee3;
+  /* border-width: 2px 0px 0px 2px; */
+  border-style: solid;
+  border-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(164, 174, 183, 0.25),
+    16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
+  border-radius: 10px;
+  /* padding: 10px; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .menuLi.focused path {
   fill: #fff;
 }
@@ -237,5 +278,4 @@ input[type="checkbox"]:checked {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  /* overflow-y: auto; */
 }

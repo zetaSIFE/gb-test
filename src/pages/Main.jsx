@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   BtnViewStat,
   DropdownSample,
@@ -7,7 +7,7 @@ import {
   BtnReport,
   BtnChartDown,
 } from "components/buttons";
-import { CalendarTest } from "components/input";
+import { Calendar } from "components/input";
 import { BarXTest } from "components/charts";
 
 const smapleData = {
@@ -37,7 +37,12 @@ const barXData = {
 };
 export default function Main() {
   const chartRef = useRef(null);
+  const [startDate, setStartDate] = useState(new Date());
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[0].value);
+  };
   // console.log(chartRef.current);
   // useEffect(() => {
   //   var options = {
@@ -85,7 +90,14 @@ export default function Main() {
           ref={chartRef}
           className="canvas"
         ></BarXTest>
-        <CalendarTest />
+        <form onSubmit={handleSubmit}>
+          <Calendar
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            dateFormat="MM/dd/yyyy"
+          />
+          <button type="submit">console.log</button>
+        </form>
       </div>
     </div>
   );
