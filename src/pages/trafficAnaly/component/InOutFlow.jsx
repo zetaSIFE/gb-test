@@ -8,6 +8,7 @@ import {
   MultiBar,
   Pictorial,
 } from "components/charts";
+import { ChartHeader } from "components/ChartHeader";
 import styled from "styled-components";
 import { DivisonMap } from "./DivisionMap";
 import { SelecGroup } from "./SelectGroup";
@@ -118,51 +119,51 @@ export const InOutFlow = (prop) => {
             <SelecGroup />
             <FlowChart width="100%" height="100%" />
           </ItemContainer>
-
           <Group1 className="group1">
             <ItemContainer className="item2 itemStyle">
-              <div className="spaceBetween">
-                <p className="chartTit">시간대별 유입량</p>
+              <ChartHeader title={'시간대별 유입량'}/>
+              <div className="chartCont">
+                <MultiBar />
               </div>
-              <MultiBar />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
-              <div className="spaceBetween">
-                <p className="chartTit">월별/일별 유입률</p>
+              <ChartHeader title={'월별/일별 유입률'}/>
+              <div className="chartCont">
+                <BarY barYData={barYData} />
               </div>
-              <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
-              <p className="chartTit">최다 유입지 순위</p>
-              <Table />
+              <ChartHeader title={'최다 유입지 순위'}/>
+              <div className="chartCont">
+                <Table />
+              </div>
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
-              <div className="spaceBetween">
-                <p className="chartTit">산하 행정구역 산하 행정구역별 유입량</p>
+              <ChartHeader title={'산하 행정구역 산하 행정구역별 유입량'}/>
+              <div className="chartCont">
+                <BarX barXData={barXData} />
               </div>
-              <BarX barXData={barXData} />
             </ItemContainer>
           </Group1>
 
           <ItemContainer className="item1 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">행정구역별 유입량</p>
+            <ChartHeader title={'행정구역별 유입량'}/>
+            <div className="chartCont">
+              <Stacked />
             </div>
-            <Stacked />
           </ItemContainer>
-
           <Group2 className="group2">
             <ItemContainer className="item2 itemStyle">
-              <div className="spaceBetween">
-                <p className="chartTit">연령대별 유입량</p>
+              <ChartHeader title={'연령대별 유입량'}/>
+              <div className="chartCont">
+                <BarY barYData={barYData} />
               </div>
-              <BarY barYData={barYData} />
             </ItemContainer>
             <ItemContainer className="item2 itemStyle">
-              <div className="spaceBetween">
-                <p className="chartTit">성별 유입(유출)인구 비중</p>
+              <ChartHeader title={'성별 유입(유출)인구 비중'}/>
+              <div className="chartCont">
+                <Pictorial pictoData={pictoData} />
               </div>
-              <Pictorial pictoData={pictoData} />
             </ItemContainer>
           </Group2>
         </Container>

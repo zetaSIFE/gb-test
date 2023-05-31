@@ -4,6 +4,7 @@ import { Header } from "components/layouts";
 import { Search, Dropdown } from "components/buttons";
 import { BarRace, Stacked, MapPie, BubbleMap } from "components/charts";
 import { DataDetail } from "./component/DataDetail";
+import { ChartHeader } from "components/ChartHeader";
 
 const Container = styled.div`
   display: flex;
@@ -88,10 +89,16 @@ export default function GbStat() {
           {charCont}
         </ItemContainer>
         <ItemContainer className="item1 itemStyle">
-          <DataDetail />
+          <ChartHeader title={'데이터 상세 설정'} visible={undefined} />
+          <div className="chartCont">
+            <DataDetail />
+          </div>
         </ItemContainer>
         <ItemContainer className="item1 itemStyle">
-          <Stacked />
+          <ChartHeader title={'경상북도 안동시 행정구역도'}/>
+          <div className="chartCont">
+            <Stacked />
+          </div>
         </ItemContainer>
       </Contents>
     </Container>

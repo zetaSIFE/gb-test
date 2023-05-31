@@ -12,14 +12,15 @@ const Container = styled.div`
 `;
 
 const StyledAside = styled.div`
-  background: #e6f1ff;
+  background: #e9f2ff;
   min-height: 100%;
   grid-row: span 2;
   border-top: 1px solid #c4ddff;
   border-left: 1px solid #c4ddff;
-  box-shadow: -4px -4px 14px #ffffff,
-    inset 0px 4px 4px rgba(255, 255, 255, 0.25);
   border-radius: 10px;
+  box-shadow: 2px 0px 6px rgba(105, 105, 105, 0.25);
+  /* box-shadow: -4px -4px 14px #ffffff,
+    inset 2px 0px 6px rgba(105, 105, 105, 0.25); */
 `;
 
 const Menu = styled.ul`

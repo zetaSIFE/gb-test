@@ -21,6 +21,10 @@ const Group = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height:10%;
+  background-color: #e9f2ff;
+  align-items: center;
+  padding: 10px;
   .check {
     width: 10%;
     height: 30px;
@@ -35,16 +39,24 @@ const Group = styled.div`
 
 const SelecBox = styled.div`
   width: 120px;
-  position: relative;
-  margin-bottom: 1%;
+  /* position: relative; */
+  border-radius: 5px;
+  /* margin-bottom: 1%; */
+  background: #fff;
+  border: 1px solid #cccccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
   .CustomDate,
   .CustomTime,
   select {
-    width: 100%;
+    /* width: 100%; */
     height: 30px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+    border: 0;
+    /* border: 1px solid #cccccc; */
+    /* border-radius: 5px; */
     background: #ffffff;
     text-align: center;
     padding-right: 20%;
@@ -52,11 +64,11 @@ const SelecBox = styled.div`
     cursor: pointer;
   }
 
-  svg {
+  /* svg {
     position: absolute;
     left: 80%;
     top: 10%;
-  }
+  } */
 `;
 
 /*

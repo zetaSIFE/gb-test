@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Dynamic, FlowChart, Pictorial, Pie } from "components/charts";
+import { ChartHeader } from "components/ChartHeader";
 import { Pointer } from "./Pointer";
 import { SelecGroup } from "./SelectGroup";
 import { ReactComponent as Download } from "assets/images/buttons/downloadCircle.svg";
@@ -227,9 +228,11 @@ export const Pattern = (props) => {
       </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">시간대별 유입(유출)인구 추이</p>
-            <div className="inlineBlock right">
+          <ChartHeader title={'시간대별 유입(유출)인구 추이'}/>
+          <div className="chartCont">
+          <Dynamic />
+          </div>
+            {/* <div className="inlineBlock right">
               <input
                 type="checkbox"
                 id="inflow"
@@ -248,14 +251,14 @@ export const Pattern = (props) => {
                 checked={checkValue === "outflow2"}
               />
               <label htmlFor="outflow">유출</label>
-            </div>
-          </div>
-          <Dynamic />
+            </div> */}
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">시간대별 유입(유출)인구 비중</p>
-            <div className="inlineBlock right">
+        <ChartHeader title={'시간대별 유입(유출)인구 비중'}/>
+          <div className="chartCont">
+            <Pie pieData={pieData} />
+          </div>
+            {/* <div className="inlineBlock right">
               <input
                 type="checkbox"
                 id="inflow"
@@ -274,17 +277,15 @@ export const Pattern = (props) => {
                 checked={checkValue === "outflow"}
               />
               <label htmlFor="outflow">유출</label>
-            </div>
-            {/* <div className="inlineBlock btn">
-                <button>버어튼</button>
             </div> */}
-          </div>
-          <Pie pieData={pieData} />
+
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">성별 유입(유출)인구 비중</p>
-            <div className="inlineBlock right">
+        <ChartHeader title={'성별 유입(유출)인구 비중'}/>
+            <div className="chartCont">
+              <Pictorial pictoData={pictoData} />
+            </div>
+            {/* <div className="inlineBlock right">
               <input
                 type="checkbox"
                 id="inflow"
@@ -303,16 +304,15 @@ export const Pattern = (props) => {
                 checked={checkValue === "유출"}
               />
               <label htmlFor="outflow">유출</label>
-            </div>
-          </div>
-          {/* <Pictorial /> */}
-          <Pictorial pictoData={pictoData} />
+            </div> */}
         </ItemContainer>
       </Group1>
       <PointerContainer className="item1 itemStyle">
-        <div className="spaceBetween">
-          <p className="chartTit">시간대별 인구 밀집/이동 패턴</p>
-          <div className="inlineBlock right">
+        <ChartHeader title={'시간대별 인구 밀집/이동 패턴'}/>
+        <div className="chartCont">
+          <Pointer pointerData={pointerData} />
+        </div>
+          {/* <div className="inlineBlock right">
             <input
               type="checkbox"
               id="inside"
@@ -331,9 +331,7 @@ export const Pattern = (props) => {
               checked={chkAbide === "outside"}
             />
             <label htmlFor="outside">관외 인구</label>
-          </div>
-        </div>
-        <Pointer pointerData={pointerData} />
+          </div> */}
       </PointerContainer>
     </Container>
   );
