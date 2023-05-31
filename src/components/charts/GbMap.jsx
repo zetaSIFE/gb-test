@@ -31,14 +31,14 @@ const data = geoData.features.map(function (obj) {
 echarts.registerMap("GB", geoData);
 
 const mapOption = {
-  title: {
-    text: "경상북도 안동시 행정구역도 (행정동)",
-    textStyle: {
-      fontSize: 15,
-    }
-    // subtext: "여기 링크 설정도 가능",
-    // sublink: "https://gb.go.kr/Main/open_contents/section/data/index.html",
-  },
+  // title: {
+  //   text: "경상북도 안동시 행정구역도 (행정동)",
+  //   textStyle: {
+  //     fontSize: 15,
+  //   }
+  //   // subtext: "여기 링크 설정도 가능",
+  //   // sublink: "https://gb.go.kr/Main/open_contents/section/data/index.html",
+  // },
   tooltip: {
     trigger: "item",
     formatter: "{b}<br/>{c}",
@@ -87,7 +87,7 @@ const mapOption = {
       data: data,
       label: {
         show: true,
-        fontSize: 13,
+        fontSize: 14,
       },
       asoluteZoom: { start: 90, end: 100 },
 
@@ -95,15 +95,17 @@ const mapOption = {
       itemStyle: {
         normal: {
           // color: "#9e9e9e",
-          borderColor: "#BFBFBF",
-          borderWidth: 1,
-          areaColor: "#F6F6F6",
+          borderColor: "#8ACCFF",
+          borderWidth: 1.5,
+          areaColor: "#F0F8FF",
           // areaStyle: {
           //   color: "#bbbaba",
           // },
           label: {
             show: true,
             color: "#3b3b3b", // 글자 색상
+            fontSize: 14,
+            fontWweight: 500,
           },
         },
       },
@@ -126,12 +128,12 @@ const mapOption = {
       emphasis: {
         label: {
           show: true,
-          color: "#000000",
-          fontSize: 13,
+          color: "#FFFFFF",
+          fontSize: 14,
         },
         itemStyle: {
           // areaColor: null,
-          areaColor: "#4F76D9",
+          areaColor: "#3F64D6",
         },
       },
     },

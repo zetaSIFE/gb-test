@@ -11,7 +11,7 @@ export * from "./FlowChart";
 export * from "./GbMap";
 export * from "./HalfPie";
 export * from "./Line";
-export * from "./MapPie";
+export * from "./MapPie_sample";
 export * from "./MultiBar";
 export * from "./Pictorial";
 export * from "./Pie";

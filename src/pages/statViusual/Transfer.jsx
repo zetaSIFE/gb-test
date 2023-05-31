@@ -2,9 +2,16 @@ import { GbMap, BarX, Stacked, BarY } from "components/charts";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
-import { Search, Dropdown } from "components/buttons";
 import { InputBox } from "./component/InputBox";
-
+import { ChartHeader } from "components/ChartHeader";
+import {
+  Search,
+  SearchSmall,
+  Dropdown,
+  DropdownSmall,
+  BtnViewStat,
+  BtnChartDown,
+} from "components/buttons";
 const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
 
 const Container = styled.div`
@@ -131,57 +138,58 @@ export default function Transfer() {
       <Header props={headerProps} />
       <Contents className="container">
         <ItemContainer className="item1 itemStyle">
-          <GbMap />
+          <ChartHeader title={'경상북도 안동시 행정구역도'}/>
+          <div className="chartCont" style={{height:"92%"}}>
+            <GbMap/>
+          </div>
         </ItemContainer>
 
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">지역별 전입자수</p>
+            <ChartHeader title={'지역별 인구수'}/>
+            <div className="chartCont">
+              <BarX barXData={barXData} />
             </div>
-            <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">지역별 전출자수</p>
+            <ChartHeader title={'지역별 전출자수'}/>
+            <div className="chartCont">
+              <BarY barYData={barYData1} />
             </div>
-            <BarY barYData={barYData1} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">지역별 청년 전입자수</p>
+            <ChartHeader title={'지역별 청년 전입자수'}/>
+            <div className="chartCont">
+              <BarX barXData={barXData} />
             </div>
-            <BarX barXData={barXData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">지역별 청년 전출자수</p>
+            <ChartHeader title={'지역별 청년 전출자수'}/>
+            <div className="chartCont">
+              <BarX barXData={barXData} />
             </div>
-            <BarX barXData={barXData} />
           </ItemContainer>
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">경상북도 전체 월별 전입전출 추이</p>
+          <ChartHeader title={'경상북도 전입전출 추이'}/>
+          <div className="chartCont"> 
+            <Stacked />
           </div>
-          <Stacked />
         </ItemContainer>
 
         <Group2 className="group2">
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">도외(시도)최다 전출지 광역지자체 순위</p>
+            <ChartHeader title={'도외(시도) 최다 전출지 광역지자체 순위'}/>
+            <div className="chartCont">
+              <BarY barYData={barYData} />
             </div>
-            <BarY barYData={barYData} />
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween">
-              <p className="chartTit">
-                도외(시군구)최다 전출지 광역지자체 순위
-              </p>
+            <ChartHeader title={'도외(시군수) 최다 전출지 지자체 순위'}/>
+            <div className="chartCont">
+              <BarY barYData={barYData} />
             </div>
-            <BarY barYData={barYData} />
           </ItemContainer>
         </Group2>
       </Contents>

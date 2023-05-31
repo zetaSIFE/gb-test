@@ -1,7 +1,6 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
 
-
 //************** */
 // const barYData = {
 //   title: '지역별 출생아수',
@@ -13,7 +12,6 @@ import ReactECharts from "echarts-for-react";
 //************** */
 
 const BarY = (props) => {
-  
   //const data = props.barYData.data.value;
   const legend = props.barYData.legend;
   const visualMap = props.barYData.visualMap;
@@ -47,7 +45,7 @@ const BarY = (props) => {
     legend: {
       show: false,
       // show: legend,
-      icon:'circle',
+      icon: "circle",
       data: ["전체", "도내", "도외"],
       selectedMode: "single",
       // bottom: 0,
@@ -113,7 +111,7 @@ const BarY = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", width: "95%" }}
+      style={{ height: "70%", width: "95%" }}
       // opts={{ renderer: "svg" }}
     />
   );

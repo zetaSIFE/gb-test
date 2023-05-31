@@ -1,3 +1,58 @@
+/* grid */
+.itemHeader {
+  display: flex;
+  height: 50px;
+  /* height: 20px;
+  margin-top: 15px; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 10px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #e9f2ff;
+  border-bottom: 1px solid #7eb3ff;
+}
+
+/* SECTION 그리드별 각 아이템 스타일 (변경 예정 버전) */
+.itemStyle {
+  background: radial-gradient(
+      409.5% 116.82% at 51.71% 56.4%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      344.95% 155.88% at 52.49% 53.79%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #d8dee3;
+  border-width: 2px 0px 0px 2px;
+  border-style: solid;
+  border: 1px solid #7eb3ff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/*SECTION - 원래 아이템 스타일(제타) */
+/* .itemStyle {
+  background: radial-gradient(
+      409.5% 116.82% at 51.71% 56.4%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(
+      344.95% 155.88% at 52.49% 53.79%,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #d8dee3;
+  border-width: 2px 0px 0px 2px;
+  border-style: solid;
+  border-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(164, 174, 183, 0.25),
+    16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
+  border-radius: 10px;
+} */
+
 /* button */
 button {
   cursor: pointer;
@@ -44,15 +99,16 @@ button {
 .spaceBetween {
   display: flex;
   /* position: fixed; */
-  height: 20px;
   justify-content: space-between;
   /* z-index: 10; */
 }
+
 .flexCenter {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /* layout */
 .inlineBlock {
   display: inline-block;
@@ -68,13 +124,31 @@ button {
   padding-right: 10px;
 }
 .relative {
-  position:relative;
+  position: relative;
 }
 
+/* chart */
+.chartTop {
+  background-color: #e9f2ff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 17%;
+  max-height: 48px;
+  padding: 10px;
+  /* border-bottom: 1px solid #c2dbff; */
+}
+.chartCont {
+  height: 83%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  /* border: 1px solid #c2dbff; */
+  /* border-top: 0; */
+  padding: 10px;
+}
 
 /* common_class */
 .chartTit {
-  font-size: 16px;
+  font-size: 15px;
   color: rgb(61, 60, 60);
   font-weight: bold;
   padding: 5px 8px;
@@ -105,7 +179,6 @@ input[type="checkbox"]:checked {
   border: none;
 }
 
-
 /* Scroll bar stylings */
 
 .scroll1::-webkit-scrollbar {
@@ -113,30 +186,30 @@ input[type="checkbox"]:checked {
 }
 .scroll1::-webkit-scrollbar-track {
   background-color: rgba(133, 133, 133, 0.404);
-  border-radius: 10px; 
+  border-radius: 10px;
   border: 7px solid #fff;
 }
 
 .scroll1::-webkit-scrollbar-thumb {
   background-color: rgba(40, 90, 255, 0.774);
-  border-radius: 10px; 
+  border-radius: 10px;
   border: 6px solid #fff;
 }
 
 .scroll2::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;
-	border-radius: 10px;
+  border-radius: 10px;
 }
 
 .scroll2::-webkit-scrollbar {
-	height: 10px;
+  height: 10px;
   background-color: #f5f5f5;
 }
 
 .scroll2::-webkit-scrollbar-thumb {
   border-radius: 10px;
-	/* background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122,153,217)),
+  /* background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122,153,217)),
 									   color-stop(0.72, rgb(73,125,189)),
 									   color-stop(0.86, rgb(28,58,148))); */
 }
@@ -154,13 +227,16 @@ input[type="checkbox"]:checked {
       rgba(255, 255, 255, 0) 100%
     ),
     #d8dee3;
-  border-width: 2px 0px 0px 2px;
+  /* border-width: 2px 0px 0px 2px; */
   border-style: solid;
   border-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(164, 174, 183, 0.25),
     16px 16px 20px rgba(164, 174, 183, 0.25), -4px -4px 14px #ffffff;
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .menuLi.focused path {
   fill: #fff;
@@ -170,8 +246,8 @@ input[type="checkbox"]:checked {
 .modalTable {
   width: 100%;
 }
-.modalTable table, 
-.modalTable th, 
+.modalTable table,
+.modalTable th,
 .modalTable td {
   text-align: center;
   vertical-align: middle !important;
@@ -197,11 +273,10 @@ input[type="checkbox"]:checked {
   border: 1px solid rgb(78, 78, 78) !important;
 }
 
- /* modal */
+/* modal */
 .modalInner {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  /* overflow-y: auto; */
- }
+}

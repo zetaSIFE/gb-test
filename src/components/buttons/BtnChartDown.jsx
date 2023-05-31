@@ -14,7 +14,8 @@ const StyleBtn = styled.div`
 `;
 
 // NOTE - props : 이미지 다운받을 차트의 className을 넣어줘야한다.
-// Sample : <BtnChartDown props={"canvas"} />
+// 차트가 모두 "canvas" 속성이므로 index를 기준으로 다운받을 차트를 선택한다.
+// Sample : <BtnChartDown props={0} />
 
 export const BtnChartDown = ({ props }) => {
   const handleDown = () => {
