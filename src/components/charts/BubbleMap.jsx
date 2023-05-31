@@ -3,7 +3,7 @@ import "ol/ol.css";
 import Map from "ol/Map";
 import View from "ol/View";
 import EChartsLayer from "ol-echarts";
-
+import { fromLonLat, get as getProjection } from "ol/proj";
 import { Vector as VectorLayer } from "ol/layer";
 import { Vector as VectorSource, WMTS } from "ol/source";
 import GeoJSON from "ol/format/GeoJSON";
@@ -104,7 +104,7 @@ const BubbleMap = () => {
     });
 
     const vectorLayer = new VectorLayer({
-      background: '#69aee7',
+      // background: '#69aee7',
       source: new VectorSource({
         // url: korgeoData,
         // // url: 'https://openlayers.org/data/vector/ecoregions.json',
@@ -115,7 +115,7 @@ const BubbleMap = () => {
         })
       }),
       style: function (feature) {
-        const color = feature.get('COLOR') || '#eeeeee';
+        const color = feature.get('COLOR') || '#2c2c2c';
         style.getFill().setColor(color);
         return style;
       },
@@ -125,9 +125,16 @@ const BubbleMap = () => {
       layers: [vectorLayer],
       target: 'pieMap',
       view: new View({
-        center: [0, 0],
-        zoom: 1,
+        projection: getProjection("EPSG:3857"),
+        center: fromLonLat(
+          [128.5055956, 36.5760207], //[경도, 위도] 값 설정 -> 경상북도청기준으로 설정
+          getProjection("EPSG:3857")
+        ),
+        zoom: 8, // 초기 zoom 값 - 높을수록 확대
+        maxZoom: 10,
+        minZoom: 6,
       }),
+
     });
     var echartslayer = new EChartsLayer(
       {
