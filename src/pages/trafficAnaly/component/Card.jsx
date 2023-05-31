@@ -8,6 +8,7 @@ import {
   BarNLine,
   FlowChart,
 } from "components/charts";
+import { ChartHeader } from "components/ChartHeader";
 import { SelecGroup } from "./SelectGroup";
 
 const Container = styled.div`
@@ -61,8 +62,8 @@ const Group1 = styled.div`
 
 const ItemContainer = styled.div``;
 const ChkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 `;
 const ChkBox = styled.div`
   width: 40%;
@@ -123,64 +124,67 @@ export const Card = () => {
       </ItemContainer>
       <Group1 className="group1">
         <ItemContainer className="item2 itemStyle">
-          <p className="chartTit">최대 소비 업종 순위</p>
-          <Table />
+          <ChartHeader title={'최대 소비 업종 순위'}/>
+          <div className="chartCont">
+            <Table />
+          </div>
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">업종별 결제금액</p>
+          <ChartHeader title={'업종별 결제금액'}/>
+          <div className="chartCont">
+            <BarX barXData={barXData} />
           </div>
-          <BarX barXData={barXData} />
         </ItemContainer>
         <ItemContainer className="item2 itemStyle">
-          <div className="spaceBetween">
-            <p className="chartTit">행정구역별 카드 사용량</p>
+          <ChartHeader title={'행정구역별 카드 사용량'}/>
+          <div className="chartCont">
+            <BarX barXData={barXData2} />
           </div>
-          <BarX barXData={barXData2} />
         </ItemContainer>
       </Group1>
       <ChkContainer className="item1 itemStyle">
-        <ChkBox>
-          <p className="chartTit inlineBlock">업종별 카드사용량 추이</p>
-          <ChkBoxchk>
-            <input type="checkbox" checked />
-            <label for="test">전체</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-            <input type="checkbox" />
-            <label for="test">test</label>
-          </ChkBoxchk>
-        </ChkBox>
-        <ChkChart>
+        <ChartHeader title={'업종별 카드사용량 추이'}/>
+        <div className="chartCont flex-row">
+          <ChkBox>
+            <ChkBoxchk>
+              <input type="checkbox" checked />
+              <label for="test">전체</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+              <input type="checkbox" />
+              <label for="test">test</label>
+            </ChkBoxchk>
+          </ChkBox>
+          <ChkChart>
           <BarNLine />
         </ChkChart>
+        </div>
       </ChkContainer>
       <ItemContainer className="item1 itemStyle">
-        <div className="spaceBetween">
-          <p className="chartTit">업종별 연령별 소비비율</p>
-          <div className="inlineBlock right"></div>
+        <ChartHeader title={'업종별 연령별 소비비율'}/>
+        <div className="chartCont">
           <select>
             <option disabled="disabled">연령대 선택</option>
             <option>10대</option>
@@ -191,8 +195,8 @@ export const Card = () => {
             <option>60대</option>
             <option>70대 이상</option>
           </select>
+          <Pie pieData={pieData} />
         </div>
-        <Pie pieData={pieData} />
       </ItemContainer>
     </Container>
   );

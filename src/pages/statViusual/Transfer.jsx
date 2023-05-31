@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
 import { InputBox } from "./component/InputBox";
+import { ChartHeader } from "components/ChartHeader";
 import {
   Search,
   SearchSmall,
@@ -11,7 +12,6 @@ import {
   BtnViewStat,
   BtnChartDown,
 } from "components/buttons";
-
 const headerProps = [<Search props={"프롭스"} />, <Dropdown />];
 
 const Container = styled.div`
@@ -138,56 +138,33 @@ export default function Transfer() {
       <Header props={headerProps} />
       <Contents className="container">
         <ItemContainer className="item1 itemStyle">
-          <GbMap />
+          <ChartHeader title={'경상북도 안동시 행정구역도'}/>
+          <div className="chartCont" style={{height:"92%"}}>
+            <GbMap/>
+          </div>
         </ItemContainer>
 
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween chartTop flexAlign">
-              <p className="chartTit">지역별 전입자수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'지역별 인구수'}/>
             <div className="chartCont">
               <BarX barXData={barXData} />
             </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween chartTop flexAlign">
-              <p className="chartTit">지역별 전출자수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'지역별 전출자수'}/>
             <div className="chartCont">
               <BarY barYData={barYData1} />
             </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween chartTop flexAlign">
-              <p className="chartTit">지역별 청년 전입자수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'지역별 청년 전입자수'}/>
             <div className="chartCont">
               <BarX barXData={barXData} />
             </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween chartTop flexAlign">
-              <p className="chartTit">지역별 청년 전출자수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnViewStat className="" />
-                <BtnViewStat className="" />
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'지역별 청년 전출자수'}/>
             <div className="chartCont">
               <BarX barXData={barXData} />
             </div>
@@ -195,13 +172,7 @@ export default function Transfer() {
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
-          <div className="spaceBetween chartTop flexAlign">
-            <p className="chartTit">경상북도 전체 월별 전입전출 추이</p>
-            <div className="btnContainer">
-                {/* <BtnViewStat className="" /> */}
-                <BtnChartDown props={1} />
-              </div>
-          </div>
+          <ChartHeader title={'경상북도 전입전출 추이'}/>
           <div className="chartCont"> 
             <Stacked />
           </div>
@@ -209,27 +180,13 @@ export default function Transfer() {
 
         <Group2 className="group2">
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween  chartTop flexAlign">
-              <p className="chartTit">도외(시도)최다 전출지 광역지자체 순위</p>
-              <div className="btnContainer">
-                {/* <BtnViewStat className="" /> */}
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'도외(시도) 최다 전출지 광역지자체 순위'}/>
             <div className="chartCont">
               <BarY barYData={barYData} />
             </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <div className="spaceBetween chartTop flexAlign">
-              <p className="chartTit">
-                도외(시군구)최다 전출지 광역지자체 순위
-              </p>
-              <div className="btnContainer">
-                {/* <BtnViewStat className="" /> */}
-                <BtnChartDown props={1} />
-              </div>
-            </div>
+            <ChartHeader title={'도외(시군수) 최다 전출지 지자체 순위'}/>
             <div className="chartCont">
               <BarY barYData={barYData} />
             </div>

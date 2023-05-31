@@ -11,6 +11,7 @@ import {
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { Header } from "components/layouts";
+import { ChartHeader } from "components/ChartHeader";
 import {
   Search,
   SearchSmall,
@@ -151,38 +152,29 @@ export default function PopulationStat() {
       <Header props={headerProps} />
       <Contents>
         <ItemContainer className="item1 itemStyle">
-          <GbMap />
+          <ChartHeader title={"경상북도 안동시 행정구역도"} />
+          <div className="chartCont" style={{ height: "92%" }}>
+            <GbMap />
+          </div>
         </ItemContainer>
         <Group1 className="group1">
           <ItemContainer className="item2 itemStyle">
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">지역별 인구수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={1} />
-              </div>
-            </ItemHeader>
-            <BarX barXData={barXData} ref={chartRef} />
+            <ChartHeader title={"지역별 인구수"} />
+            <div className="chartCont">
+              <BarX barXData={barXData} ref={chartRef} />
+            </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">지역별 출생아 수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={2} />
-              </div>
-            </ItemHeader>
-            <BarY barYData={barYData} />
+            <ChartHeader title={"지역별 출생아수"} />
+            <div className="chartCont">
+              <BarY barYData={barYData} />
+            </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">세대원별 세대수</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={3} />
-              </div>
-            </ItemHeader>
-            <Doughnut />
+            <ChartHeader title={"세대원수 별 세대수"} />
+            <div className="chartCont">
+              <Doughnut />
+            </div>
           </ItemContainer>
           <ItemContainer
             className="item2 itemStyle scroll1"
@@ -191,48 +183,38 @@ export default function PopulationStat() {
               overflowX: "auto",
             }}
           >
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">지역별 청년비율</p>
-              <div className="btnContainer">
-                <BtnViewStat className="" />
-                <BtnChartDown props={4} />
-              </div>
-            </ItemHeader>
-            <ExBarX barXData={barXData} />
+            <ChartHeader title={"지역별 청년비율"} />
+            <div className="chartCont">
+              <ExBarX barXData={barXData} />
+            </div>
           </ItemContainer>
         </Group1>
 
         <ItemContainer className="item1 itemStyle">
-          <ItemHeader className="itemHeader">
-            <p className="chartTit">경상북도 전체 인구 변화량 추이</p>
-            <div className="btnContainer">
-              <BtnViewStat className="" />
-              <BtnChartDown props={5} />
-            </div>
-          </ItemHeader>
-          <SearchContainer>
-            <SearchSmall props={"프롭스"} />
-            <DropdownSmall />
-            <DropdownSmall />
-            <DropdownSmall />
-          </SearchContainer>
-          <Stacked />
+          <ChartHeader title={"경상북도 전체 인구 변화량 추이"} />
+          <div className="chartCont">
+            <SearchContainer>
+              <SearchSmall props={"프롭스"} />
+              <DropdownSmall />
+              <DropdownSmall />
+              <DropdownSmall />
+            </SearchContainer>
+            <Stacked />
+          </div>
         </ItemContainer>
 
         <Group2 className="group2">
           <ItemContainer className="item2 itemStyle">
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">인구 피라미드</p>
-              <BtnChartDown props={6} />
-            </ItemHeader>
-            <BarNegative />
+            <ChartHeader title={"인구 피라미드"} />
+            <div className="chartCont">
+              <BarNegative />
+            </div>
           </ItemContainer>
           <ItemContainer className="item2 itemStyle">
-            <ItemHeader className="itemHeader">
-              <p className="chartTit">귀농귀촌 통계</p>
-              <BtnChartDown props={7} />
-            </ItemHeader>
-            <HalfPie halfPieData={halfPieData} />
+            <ChartHeader title={"귀농 귀촌 통계"} />
+            <div className="chartCont">
+              <HalfPie halfPieData={halfPieData} />
+            </div>
           </ItemContainer>
         </Group2>
       </Contents>

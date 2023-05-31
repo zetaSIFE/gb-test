@@ -129,19 +129,20 @@ button {
 
 /* chart */
 .chartTop {
-  background-color: #d9e7fa;
+  background-color: #e9f2ff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: 17%;
+  max-height: 48px;
   padding: 10px;
-  border: 1px solid #98c3ff;
+  /* border-bottom: 1px solid #c2dbff; */
 }
 .chartCont {
   height: 83%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  border: 1px solid #98c3ff;
-  border-top: 0;
+  /* border: 1px solid #c2dbff; */
+  /* border-top: 0; */
   padding: 10px;
 }
 

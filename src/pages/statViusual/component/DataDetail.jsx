@@ -92,7 +92,7 @@ export const DataDetail = (props) => {
 
   return (
     <Container>
-      <p className="chartTit">데이터 상세 설정</p>
+      {/* <p className="chartTit">데이터 상세 설정</p> */}
       {/* <div className="tab"> */}
       <Wrap>
         <TabMenu>
