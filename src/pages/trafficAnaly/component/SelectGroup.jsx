@@ -22,7 +22,8 @@ const Group = styled.div`
   flex-direction: row;
   justify-content: space-between;
   height:10%;
-  background-color: #e9f2ff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   align-items: center;
   padding: 10px;
   .check {
