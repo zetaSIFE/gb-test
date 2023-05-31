@@ -58,5 +58,6 @@
     ]
   },
   "homepage": "http://192.168.11.19:5050/stat",
-  "proxy": "http://localhost:5050"
+  "proxy": "http://192.168.11.11:20000",
+  "secure": false
 }
