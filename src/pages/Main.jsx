@@ -7,6 +7,7 @@ import {
   BtnReport,
   BtnChartDown,
 } from "components/buttons";
+import { CalendarTest } from "components/input";
 import { BarXTest } from "components/charts";
 
 const smapleData = {
@@ -84,6 +85,7 @@ export default function Main() {
           ref={chartRef}
           className="canvas"
         ></BarXTest>
+        <CalendarTest />
       </div>
     </div>
   );

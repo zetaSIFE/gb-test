@@ -230,7 +230,7 @@ const BarX = (props) => {
   return (
     <ReactECharts
       option={option}
-      style={{ height: "90%", width: "95%" }}
+      style={{ height: "70%", width: "95%" }}
       // style={{ height: "95%" }}
       // opts={{ renderer: "svg" }}
     />

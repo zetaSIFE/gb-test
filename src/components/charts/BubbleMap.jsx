@@ -7,31 +7,30 @@ import EChartsLayer from "ol-echarts";
 import { Vector as VectorLayer } from "ol/layer";
 import { Vector as VectorSource, WMTS } from "ol/source";
 import GeoJSON from "ol/format/GeoJSON";
-import gb from 'assets/maps/5179/test_5179.json'
+import gb from "assets/maps/5179/test_5179.json";
 import { transform } from "ol/proj";
 import gb2 from "assets/maps/gbTopo.json";
 import { feature } from "topojson-client";
-import Fill from 'ol/style/Fill.js';
-import Style from 'ol/style/Style.js';
-import kor from 'assets/maps/koreaTopo2.json'; //national
-
+import Fill from "ol/style/Fill.js";
+import Style from "ol/style/Style.js";
+import kor from "assets/maps/koreaTopo2.json"; //national
+import { fromLonLat, get as getProjection } from "ol/proj";
 
 const geoData = feature(gb2, gb2.objects.gbmap);
 
 const BubbleMap = () => {
-
   var data = [
-    { name: 'center', value:600 },
-    { name: 'test', value:500 },
-    { name: 'test2', value: 404 },
-    { name: 'test3', value: 304 },
-  ]
+    { name: "center", value: 600 },
+    { name: "test", value: 500 },
+    { name: "test2", value: 404 },
+    { name: "test3", value: 304 },
+  ];
   var geoCoordMap = {
     center: [128.505599, 36.576032],
     test: [128.58319197573408, 36.04587916651266],
     test2: [129.5789245698766, 36.05175783820093],
-    test3:  [129.35955345398241, 35.86480684274281],
-  }
+    test3: [129.35955345398241, 35.86480684274281],
+  };
   var convertData = function (data) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
@@ -39,7 +38,7 @@ const BubbleMap = () => {
       if (geoCoord) {
         res.push({
           name: data[i].name,
-          value: geoCoord.concat(data[i].value)
+          value: geoCoord.concat(data[i].value),
         });
       }
     }
@@ -51,15 +50,15 @@ const BubbleMap = () => {
       [103.73, 36.03],
       [112.91, 27.87],
       [120.65, 28.01],
-      [119.57, 39.95]
+      [119.57, 39.95],
     ];
     var points = [];
     for (var i = 0; i < coords.length; i++) {
       points.push(api.coord(coords[i]));
     }
-    var color = api.visual('color');
+    var color = api.visual("color");
     return {
-      type: 'polygon',
+      type: "polygon",
       // shape: {
       //   points: new graphic.clipPointsByRect(points, {
       //     x: params.coordSys.x,
@@ -71,7 +70,7 @@ const BubbleMap = () => {
       style: api.style({
         fill: color,
         // stroke: echarts.color.lift(color)
-      })
+      }),
     };
   }
   useEffect(() => {
@@ -99,34 +98,44 @@ const BubbleMap = () => {
 
     const style = new Style({
       fill: new Fill({
-        color: '#d6b0b0',
+        color: "#d6b0b0",
       }),
     });
 
     const vectorLayer = new VectorLayer({
-      background: '#69aee7',
+      background: "#69aee7",
       source: new VectorSource({
         // url: korgeoData,
-        // // url: 'https://openlayers.org/data/vector/ecoregions.json',
+        // url: "https://openlayers.org/data/vector/ecoregions.json",
         // format: new GeoJSON(),
         features: new GeoJSON().readFeatures(geoData, {
-          dataProjection: 'EPSG:4326',
-          featureProjection: 'EPSG:3857',
-        })
+          dataProjection: "EPSG:4326",
+          featureProjection: "EPSG:3857",
+        }),
       }),
       style: function (feature) {
-        const color = feature.get('COLOR') || '#eeeeee';
+        const color = feature.get("COLOR") || "#eeeeee";
         style.getFill().setColor(color);
         return style;
       },
     });
-    
+
     const map = new Map({
       layers: [vectorLayer],
-      target: 'pieMap',
+      target: "pieMap",
+      // view: new View({
+      //   center: [0, 0],
+      //   zoom: 1,
+      // }),
       view: new View({
-        center: [0, 0],
-        zoom: 1,
+        projection: getProjection("EPSG:3857"),
+        center: fromLonLat(
+          [128.5055956, 36.5760207], //[경도, 위도] 값 설정 -> 경상북도청기준으로 설정
+          getProjection("EPSG:3857")
+        ),
+        zoom: 8, // 초기 zoom 값 - 높을수록 확대
+        maxZoom: 10,
+        minZoom: 6,
       }),
     });
     var echartslayer = new EChartsLayer(
@@ -149,28 +158,28 @@ const BubbleMap = () => {
         // },
         series: [
           {
-            name: 'pm2.5',
-            type: 'scatter',
-            coordinateSystem: 'bmap',
+            name: "pm2.5",
+            type: "scatter",
+            coordinateSystem: "bmap",
             data: convertData(data),
             encode: {
-              value: 2
+              value: 2,
             },
             symbolSize: function (val) {
               return val[2] / 10;
             },
             label: {
-              formatter: '{b}',
-              position: 'right'
+              formatter: "{b}",
+              position: "right",
             },
             itemStyle: {
-              color: '#ddb926'
+              color: "#ddb926",
             },
             emphasis: {
               label: {
-                show: true
-              }
-            }
+                show: true,
+              },
+            },
           },
           // {
           //   type: 'scatter',

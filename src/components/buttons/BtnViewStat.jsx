@@ -14,6 +14,8 @@ const Container = styled.div`
   border-radius: 24px;
   color: #333333;
   font-size: 14px;
+  background: #ffffff;
+  border: 1px solid #7eb3ff;
   /* font-weight: 500; */
 `;
 
