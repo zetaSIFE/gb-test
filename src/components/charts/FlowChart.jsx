@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "ol/ol.css";
 import Map from "ol/Map";
 import View from "ol/View";
@@ -22,7 +22,7 @@ import proj4 from "proj4/dist/proj4";
 import { Overlay } from "ol";
 import { Popup } from "components/charts/Popup";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
   ageState,
   endDateState,
@@ -35,6 +35,7 @@ import {
   SelectEmgState,
   SelectSggState,
 } from "states/TrafficAnaly";
+import axios from "axios";
 
 const PopupContent = styled.div`
   table {
@@ -73,14 +74,18 @@ export const FlowChart = (prop) => {
   const overlay = useRef(); //overlay 객체 전역변수
   const popupRef = useRef(); //popup을 띄우기 위한 ref
   const mapId = useRef(); //FlowChart를 분할할 경우 각 map의 id지정
-  const sggLayer = useRef(); //시군구 레이어 객체 전역변수
-  const emdLayer = useRef(); //읍면동 레이어 객체 전역변수
   const clickEvent = useRef(); //클릭 이벤트 객체 전역번수
+  const [storage, setStorage] = useState(["sgg", "L100013702"]);
   const [SelectSgg, setSelectSgg] = useRecoilState(SelectSggState); //선택된 시군구 정보
   const [SelectEmd, setSelectEmd] = useRecoilState(SelectEmgState); //선택된 읍면동 정보
   const [ri, setRi] = useRecoilState(SelectRiState); //선택된 리 정보
+  const sggLayer = useRef();
+  const emdLayer = useRef();
+  const riLayer = useRef();
 
-  const layers = useRef();
+  const [testLayer, setTestLayer] = useState();
+
+  const layers = useRef(); //레이어 전역변수
 
   const sggZoom = 8;
   const emgZoom = 11;
@@ -132,63 +137,64 @@ export const FlowChart = (prop) => {
       );
   };
 
-  const creactLayer = (addrgeo) => {
-    let features;
+  const createLayer = (addrgeo) => {
     switch (addrgeo) {
       case "sgg":
-        features = data1;
+        setStorage([addrgeo, "L100013702"]);
         break;
       case "emd":
-        features = data2;
+        setStorage([addrgeo, "L100013703"]);
         break;
-      // case "ri":
-      // features = data1;
-      // break;
+      case "ri":
+        setStorage([addrgeo, "L100013704"]);
+        break;
     }
+  };
 
-    const style = new Style({
-      fill: new Fill({
-        color: "#00D8FF",
-      }),
-      stroke: new Stroke({
-        color: "#000000",
-        width: 0.5,
-      }),
-    });
-
-    const vectorLayer = new VectorLayer({
-      name: addrgeo,
-      source: new VectorSource({
-        features: new GeoJSON().readFeatures(features, {
-          dataProjection: "EPSG:5179",
-          featureProjection: "EPSG:5179",
-        }),
-      }),
-      style: style,
-      // function (feature) {
-      //   const color = feature.get("COLOR") || "rgb(143 241 92 / 42%)";
-      //   style.getFill().setColor(color);
-      //   return style;
-      // },
-    });
-
-    const wmsLayer = new Tile({
-      source: new TileWMS({
-        url: "http://192.168.11.10:20080/geoserver/B70121/wms",
-        params: {
-          VERSION: "1.1.0",
-          BBOX: [-10145.7275390625, 58000.44921875, 632607.3125, 669096.0],
-          SRS: "EPSG: 5186",
-          FORMAT: "application/openlayers",
-        },
-      }),
-    });
-
-    return vectorLayer;
-    // return wmsLayer;
+  const addLayer = (layer) => {
+    layers.current = layer;
+    console.log("레이어", layer);
+    map.current.addLayer(layers.current);
   };
 
   useEffect(() => {
+    loadWfs.then((res) => {
+      const style = new Style({
+        fill: new Fill({
+          color: "#00D8FF",
+        }),
+        stroke: new Stroke({
+          color: "#000000",
+          width: 0.5,
+        }),
+      });
+
+      const vectorLayer = new VectorLayer({
+        name: storage[0],
+        source: new VectorSource({
+          features: new GeoJSON().readFeatures(res.data, {
+            dataProjection: "EPSG:5179",
+            featureProjection: "EPSG:5179",
+          }),
+        }),
+        style: style,
+      });
+      switch (storage[0]) {
+        case "sgg":
+          sggLayer.current = vectorLayer;
+          setTestLayer(vectorLayer);
+          break;
+        case "emd":
+          emdLayer.current = vectorLayer;
+          break;
+        case "ri":
+          riLayer.current = vectorLayer;
+          break;
+      }
+    });
+  }, [storage]);
+
+  const createMap = () => {
     overlay.current = new Overlay({
       element: popupRef.current,
       autoPan: {
@@ -197,8 +203,6 @@ export const FlowChart = (prop) => {
         },
       },
     });
-
-    layers.current = creactLayer("sgg");
 
     const baseLayer = new TileLayer({
       preload: 4,
@@ -238,7 +242,7 @@ export const FlowChart = (prop) => {
     });
 
     map.current = new Map({
-      layers: [baseLayer, layers.current],
+      layers: [baseLayer],
       loadTilesWhileAnimating: true,
       target: mapId.current,
       projection: "EPSG:5179",
@@ -250,23 +254,24 @@ export const FlowChart = (prop) => {
         minZoom: sggZoom - 1,
       }),
     });
+  };
 
-    map.current.on("pointermove", function (e) {
-      overlay.current.setPosition(null);
-      map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
-        // 툴팁 임시 주석
-        overlay.current.setPosition(
-          transform(
-            geoCoordMap[selected.values_.SIG_KOR_NM],
-            "EPSG:4326",
-            "EPSG:5179"
-          )
-        );
-      });
-    });
+  const createMapEvent = () => {
+    // map.current.on("pointermove", function (e) {
+    //   overlay.current.setPosition(null);
+    //   map.current.forEachFeatureAtPixel(e.pixel, function (selected) {
+    //     // 툴팁 임시 주석
+    //     overlay.current.setPosition(
+    //       transform(
+    //         geoCoordMap[selected.values_.SIG_KOR_NM],
+    //         "EPSG:4326",
+    //         "EPSG:5179"
+    //       )
+    //     );
+    //   });
+    // });
 
     map.current.getView().on("change:resolution", (event) => {
-      console.log(event.target.values_.zoom);
       //시군구 레이어
       if (
         event.target.values_.zoom >= sggZoom &&
@@ -275,8 +280,7 @@ export const FlowChart = (prop) => {
       ) {
         map.current.removeLayer(layers.current);
 
-        layers.current = creactLayer("sgg");
-        map.current.addLayer(layers.current);
+        addLayer(sggLayer.current);
 
         //읍면동 레이어
       } else if (
@@ -286,8 +290,8 @@ export const FlowChart = (prop) => {
       ) {
         map.current.removeLayer(layers.current);
 
-        layers.current = creactLayer("emd");
-        map.current.addLayer(layers.current);
+        // map.current.addLayer(emdLayer.current);
+        addLayer(emdLayer.current);
 
         //리 레이어
       } else if (
@@ -313,13 +317,43 @@ export const FlowChart = (prop) => {
       setSelectSgg(e.element.values_.SIG_CD);
     });
     map.current.addInteraction(clickEvent.current);
+  };
+
+  const loadWfs = useMemo(() => {
+    return axios.post(`/map/api/map/wfs`, null, {
+      withCredentials: true,
+      params: {
+        service: "WFS",
+        typeName: `Wjhs5902:${storage[1]}`,
+        request: "GetFeature",
+        version: "1.0.0",
+        outputFormat: "application/json",
+        apikey: "",
+        crtfckey: "ddbb581407634411bde15e27f96540b0",
+        srsname: "EPSG:5179",
+      },
+    });
+  }, [storage]);
+
+  useEffect(() => {
+    createMap();
+    createLayer("sgg");
+    createLayer("emd");
+    // createLayer("ri");
   }, []);
+
+  useEffect(() => {
+    if (map.current && testLayer) {
+      addLayer(testLayer);
+      createMapEvent();
+    }
+  }, [map.current, testLayer]);
 
   useEffect(() => {
     //임시
     setSggName(geoCoordMap[SelectSgg]);
 
-    focusArea(sggZoom, SelectSgg);
+    // focusArea(sggZoom, SelectSgg);
     map.current.getView().setZoom(8);
     map.current
       .getView()
